@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project>
+  <executable name="dist/PICDEM_FSUSB_K50/production\picdem_fs_usb_k50.x.production.hex">
+    <memory name="program">
+      <units>bytes</units>
+      <length>32768</length>
+      <used>6080</used>
+      <free>26688</free>
+    </memory>
+    <memory name="data">
+      <units>bytes</units>
+      <length>2048</length>
+      <used>161</used>
+      <free>1887</free>
+    </memory>
+  </executable>
+</project>
