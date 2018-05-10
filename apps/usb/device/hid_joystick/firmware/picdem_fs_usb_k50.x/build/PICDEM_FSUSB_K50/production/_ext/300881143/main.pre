@@ -8018,4 +8018,23 @@ APP_DeviceJoystickTasks();
 
 }
 }
+typedef union _SET_GET_EFFECT_STRUCTURE
+{
+struct
+{
+uint8_t report_id;
+uint8_t effect_type;
+uint8_t byte_count;
+
+}SET_REPORT_REQUEST;
+struct
+{
+uint8_t report_id;
+uint8_t effect_block_index;
+uint8_t block_load_status;
+int ram_pool_available;
+}PID_BLOCK_LOAD_REPORT;
+
+uint8_t val[8];
+}SET_GET_EFFECT_STRUCTURE;
 

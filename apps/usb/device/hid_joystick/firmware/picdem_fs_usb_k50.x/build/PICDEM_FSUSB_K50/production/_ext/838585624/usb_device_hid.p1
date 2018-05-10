@@ -6013,6 +6013,9 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;usb_device_hid.c: 176: case 0x22:
 "176
 [e :U 697 ]
+[; ;usb_device_hid.c: 177: if(USBActiveConfiguration == 1)
+"177
+[e $ ! == -> _USBActiveConfiguration `i -> 1 `i 698  ]
 [; ;usb_device_hid.c: 178: {
 "178
 {
@@ -6025,13 +6028,14 @@ Version 3.2 HI-TECH Software Intermediate Code
 }
 "183
 }
+[e :U 698 ]
 [; ;usb_device_hid.c: 183: }
 [; ;usb_device_hid.c: 184: break;
 "184
 [e $U 693  ]
 [; ;usb_device_hid.c: 185: case 0x23:
 "185
-[e :U 698 ]
+[e :U 699 ]
 [; ;usb_device_hid.c: 197: break;
 "197
 [e $U 693  ]
@@ -6043,7 +6047,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e :U 694 ]
 [e [\ . . _SetupPkt 4 3 , $ -> -> 33 `i `uc 695
  , $ -> -> 34 `i `uc 697
- , $ -> -> 35 `i `uc 698
+ , $ -> -> 35 `i `uc 699
  693 ]
 "198
 [e :U 693 ]
@@ -6053,7 +6057,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;usb_device_hid.c: 199: }
 [; ;usb_device_hid.c: 201: if(SetupPkt.RequestType != (0x20>>5))
 "201
-[e $ ! != -> . . _SetupPkt 2 1 `i >> -> 32 `i -> 5 `i 699  ]
+[e $ ! != -> . . _SetupPkt 2 1 `i >> -> 32 `i -> 5 `i 700  ]
 [; ;usb_device_hid.c: 202: {
 "202
 {
@@ -6062,29 +6066,29 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e $UE 689  ]
 "204
 }
-[e :U 699 ]
+[e :U 700 ]
 [; ;usb_device_hid.c: 204: }
 [; ;usb_device_hid.c: 206: switch(SetupPkt.bRequest)
 "206
-[e $U 701  ]
+[e $U 702  ]
 [; ;usb_device_hid.c: 207: {
 "207
 {
 [; ;usb_device_hid.c: 208: case 0x01:
 "208
-[e :U 702 ]
+[e :U 703 ]
 [; ;usb_device_hid.c: 212: break;
 "212
-[e $U 700  ]
+[e $U 701  ]
 [; ;usb_device_hid.c: 213: case 0x09:
 "213
-[e :U 703 ]
+[e :U 704 ]
 [; ;usb_device_hid.c: 217: break;
 "217
-[e $U 700  ]
+[e $U 701  ]
 [; ;usb_device_hid.c: 218: case 0x02:
 "218
-[e :U 704 ]
+[e :U 705 ]
 [; ;usb_device_hid.c: 219: { inPipes[0].pSrc.bRam = (uint8_t*)&idle_rate; inPipes[0].wCount.Val = 1; inPipes[0].info.Val = 0x40 | 0x80 | 0x01; };
 "219
 {
@@ -6094,10 +6098,10 @@ Version 3.2 HI-TECH Software Intermediate Code
 }
 [; ;usb_device_hid.c: 223: break;
 "223
-[e $U 700  ]
+[e $U 701  ]
 [; ;usb_device_hid.c: 224: case 0x0A:
 "224
-[e :U 705 ]
+[e :U 706 ]
 [; ;usb_device_hid.c: 225: inPipes[0].info.Val = 0x00 | 0x80;
 "225
 [e = . . *U + &U _inPipes * -> -> -> 0 `i `ui `ux -> -> # *U &U _inPipes `ui `ux 1 1 -> | -> 0 `i -> 128 `i `uc ]
@@ -6107,10 +6111,10 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;usb_device_hid.c: 227: ;
 [; ;usb_device_hid.c: 228: break;
 "228
-[e $U 700  ]
+[e $U 701  ]
 [; ;usb_device_hid.c: 229: case 0x03:
 "229
-[e :U 706 ]
+[e :U 707 ]
 [; ;usb_device_hid.c: 230: { inPipes[0].pSrc.bRam = (uint8_t*)&active_protocol; inPipes[0].wCount.Val = 1; inPipes[0].info.Val = 0x00 | 0x80 | 0x01; };
 "230
 {
@@ -6120,10 +6124,10 @@ Version 3.2 HI-TECH Software Intermediate Code
 }
 [; ;usb_device_hid.c: 234: break;
 "234
-[e $U 700  ]
+[e $U 701  ]
 [; ;usb_device_hid.c: 235: case 0x0B:
 "235
-[e :U 707 ]
+[e :U 708 ]
 [; ;usb_device_hid.c: 236: inPipes[0].info.Val = 0x00 | 0x80;
 "236
 [e = . . *U + &U _inPipes * -> -> -> 0 `i `ui `ux -> -> # *U &U _inPipes `ui `ux 1 1 -> | -> 0 `i -> 128 `i `uc ]
@@ -6132,22 +6136,22 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e = _active_protocol . . . . _SetupPkt 1 2 2 0 ]
 [; ;usb_device_hid.c: 238: break;
 "238
-[e $U 700  ]
+[e $U 701  ]
 "239
 }
 [; ;usb_device_hid.c: 239: }
-[e $U 700  ]
+[e $U 701  ]
 "206
-[e :U 701 ]
-[e [\ . . _SetupPkt 0 1 , $ -> -> 1 `i `uc 702
- , $ -> -> 9 `i `uc 703
- , $ -> -> 2 `i `uc 704
- , $ -> -> 10 `i `uc 705
- , $ -> -> 3 `i `uc 706
- , $ -> -> 11 `i `uc 707
- 700 ]
+[e :U 702 ]
+[e [\ . . _SetupPkt 0 1 , $ -> -> 1 `i `uc 703
+ , $ -> -> 9 `i `uc 704
+ , $ -> -> 2 `i `uc 705
+ , $ -> -> 10 `i `uc 706
+ , $ -> -> 3 `i `uc 707
+ , $ -> -> 11 `i `uc 708
+ 701 ]
 "239
-[e :U 700 ]
+[e :U 701 ]
 [; ;usb_device_hid.c: 241: }
 "241
 [e :UE 689 ]

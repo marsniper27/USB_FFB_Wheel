@@ -501,22 +501,22 @@ BUTTON_S3 2
 "150 C:\Users\kyle.marshall\MPLABXProjects\USB_FFB_Wheel.X\apps\usb\device\hid_joystick\firmware/demo_src/usb_descriptors.c
 [v _device_dsc device_dsc `CS722  1 e 18 0 ]
 "169
-[v _configDescriptor1 configDescriptor1 `C[34]uc  1 e 34 0 ]
+[v _configDescriptor1 configDescriptor1 `C[41]uc  1 e 41 0 ]
 [s S1899 . 4 `uc 1 bLength 1 0 `uc 1 bDscType 1 1 `[1]ui 1 string 2 2 ]
-"211
+"218
 [v _sd000 sd000 `CS1899  1 e 4 0 ]
 [s S1903 . 52 `uc 1 bLength 1 0 `uc 1 bDscType 1 1 `[25]ui 1 string 50 2 ]
-"216
+"223
 [v _sd001 sd001 `CS1903  1 e 52 0 ]
 [s S1907 . 28 `uc 1 bLength 1 0 `uc 1 bDscType 1 1 `[13]ui 1 string 26 2 ]
-"223
+"230
 [v _sd002 sd002 `CS1907  1 e 28 0 ]
-"229
+"236
 [v _USB_CD_Ptr USB_CD_Ptr `C[1]*.25Cuc  1 e 2 0 ]
-"235
+"242
 [v _USB_SD_Ptr USB_SD_Ptr `C[3]*.25Cuc  1 e 6 0 ]
 [s S1911 . 74 `[74]uc 1 report 74 0 ]
-"242
+"249
 [v _hid_rpt01 hid_rpt01 `CS1911  1 e 74 0 ]
 [s S110 . 1 `uc 1 ANSB0 1 0 :1:0 
 `uc 1 ANSB1 1 0 :1:1 

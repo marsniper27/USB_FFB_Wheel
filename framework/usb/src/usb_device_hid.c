@@ -174,7 +174,7 @@ void USBCheckHIDRequest(void)
                 }
                 break;
             case DSC_RPT:  //Report Descriptor           
-                //if(USBActiveConfiguration == 1)
+                if(USBActiveConfiguration == 1)
                 {
                     USBEP0SendROMPtr(
                         (const uint8_t*)&hid_rpt01,

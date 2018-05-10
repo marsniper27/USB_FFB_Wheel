@@ -7955,7 +7955,7 @@ const uint8_t configDescriptor1[]={
 0x04,
 0,
 0,
-1,
+2,
 0x03,
 0,
 0,
@@ -7977,6 +7977,13 @@ const uint8_t configDescriptor1[]={
 0x03,
 (64&0xFF),((64>>8)&0xFF),
 0x01,
+
+0x07,
+0x05,
+1 | 0x00,
+0x03,
+(64&0xFF),((64>>8)&0xFF),
+0x01
 };
 
 

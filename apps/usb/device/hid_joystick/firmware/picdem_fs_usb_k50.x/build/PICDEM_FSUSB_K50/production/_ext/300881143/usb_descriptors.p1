@@ -2,16 +2,16 @@ Version 3.2 HI-TECH Software Intermediate Code
 "69 ../../../../../../framework/usb/inc\usb_ch9.h
 [s S1 `uc 1 `uc 1 `ui 1 `uc 1 `uc 1 `uc 1 `uc 1 `ui 1 `ui 1 `ui 1 `uc 1 `uc 1 `uc 1 `uc 1 ]
 [n S1 _USB_DEVICE_DESCRIPTOR bLength bDescriptorType bcdUSB bDeviceClass bDeviceSubClass bDeviceProtocol bMaxPacketSize0 idVendor idProduct bcdDevice iManufacturer iProduct iSerialNumber bNumConfigurations ]
-"211 ../demo_src/usb_descriptors.c
+"218 ../demo_src/usb_descriptors.c
 [s S686 `uc 1 `uc 1 `ui -> -> 1 `i `ux ]
 [n S686 . bLength bDscType string ]
-"216
+"223
 [s S687 `uc 1 `uc 1 `ui -> 25 `i ]
 [n S687 . bLength bDscType string ]
-"223
+"230
 [s S688 `uc 1 `uc 1 `ui -> 13 `i ]
 [n S688 . bLength bDscType string ]
-"242
+"249
 [s S689 `uc -> 74 `i ]
 [n S689 . report ]
 [; ;stdint.h: 13: typedef signed char int8_t;
@@ -5945,7 +5945,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 "184
 -> -> 0 `i `uc
 "185
--> -> 1 `i `uc
+-> -> 2 `i `uc
 "186
 -> -> 3 `i `uc
 "187
@@ -5983,6 +5983,19 @@ Version 3.2 HI-TECH Software Intermediate Code
 -> & >> -> 64 `i -> 8 `i -> 255 `i `uc
 "206
 -> -> 1 `i `uc
+"208
+-> -> 7 `i `uc
+"209
+-> -> 5 `i `uc
+"210
+-> | -> 1 `i -> 0 `i `uc
+"211
+-> -> 3 `i `uc
+"212
+-> & -> 64 `i -> 255 `i `uc
+-> & >> -> 64 `i -> 8 `i -> 255 `i `uc
+"214
+-> -> 1 `i `uc
 ..
 ]
 [; ;usb_descriptors.c: 169: const uint8_t configDescriptor1[]={
@@ -5998,7 +6011,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;usb_descriptors.c: 182: 0x04,
 [; ;usb_descriptors.c: 183: 0,
 [; ;usb_descriptors.c: 184: 0,
-[; ;usb_descriptors.c: 185: 1,
+[; ;usb_descriptors.c: 185: 2,
 [; ;usb_descriptors.c: 186: 0x03,
 [; ;usb_descriptors.c: 187: 0,
 [; ;usb_descriptors.c: 188: 0,
@@ -6016,35 +6029,41 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;usb_descriptors.c: 204: 0x03,
 [; ;usb_descriptors.c: 205: (64&0xFF),((64>>8)&0xFF),
 [; ;usb_descriptors.c: 206: 0x01,
-[; ;usb_descriptors.c: 207: };
-"211
+[; ;usb_descriptors.c: 208: 0x07,
+[; ;usb_descriptors.c: 209: 0x05,
+[; ;usb_descriptors.c: 210: 1 | 0x00,
+[; ;usb_descriptors.c: 211: 0x03,
+[; ;usb_descriptors.c: 212: (64&0xFF),((64>>8)&0xFF),
+[; ;usb_descriptors.c: 213: 0x01
+[; ;usb_descriptors.c: 214: };
+"218
 [v _sd000 `CS686 ~T0 @X0 1 e ]
 [i _sd000
 :U ..
 :U ..
-"212
+"219
 -> -> # _sd000 `ui `uc
 -> -> 3 `i `uc
 :U ..
-"213
+"220
 -> -> 1033 `i `ui
 ..
 ..
 ..
 ]
-[; ;usb_descriptors.c: 211: const struct{uint8_t bLength;uint8_t bDscType;uint16_t string[1];}sd000={
-[; ;usb_descriptors.c: 212: sizeof(sd000),0x03,{0x0409
-[; ;usb_descriptors.c: 213: }};
-"216
+[; ;usb_descriptors.c: 218: const struct{uint8_t bLength;uint8_t bDscType;uint16_t string[1];}sd000={
+[; ;usb_descriptors.c: 219: sizeof(sd000),0x03,{0x0409
+[; ;usb_descriptors.c: 220: }};
+"223
 [v _sd001 `CS687 ~T0 @X0 1 e ]
 [i _sd001
 :U ..
 :U ..
-"217
+"224
 -> -> # _sd001 `ui `uc
 -> -> 3 `i `uc
 :U ..
-"218
+"225
 -> 77 `ui
 -> 105 `ui
 -> 99 `ui
@@ -6055,7 +6074,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 -> 105 `ui
 -> 112 `ui
 -> 32 `ui
-"219
+"226
 -> 84 `ui
 -> 101 `ui
 -> 99 `ui
@@ -6070,27 +6089,27 @@ Version 3.2 HI-TECH Software Intermediate Code
 -> 73 `ui
 -> 110 `ui
 -> 99 `ui
-"220
+"227
 -> 46 `ui
 ..
 ..
 ..
 ]
-[; ;usb_descriptors.c: 216: const struct{uint8_t bLength;uint8_t bDscType;uint16_t string[25];}sd001={
-[; ;usb_descriptors.c: 217: sizeof(sd001),0x03,
-[; ;usb_descriptors.c: 218: {'M','i','c','r','o','c','h','i','p',' ',
-[; ;usb_descriptors.c: 219: 'T','e','c','h','n','o','l','o','g','y',' ','I','n','c','.'
-[; ;usb_descriptors.c: 220: }};
-"223
+[; ;usb_descriptors.c: 223: const struct{uint8_t bLength;uint8_t bDscType;uint16_t string[25];}sd001={
+[; ;usb_descriptors.c: 224: sizeof(sd001),0x03,
+[; ;usb_descriptors.c: 225: {'M','i','c','r','o','c','h','i','p',' ',
+[; ;usb_descriptors.c: 226: 'T','e','c','h','n','o','l','o','g','y',' ','I','n','c','.'
+[; ;usb_descriptors.c: 227: }};
+"230
 [v _sd002 `CS688 ~T0 @X0 1 e ]
 [i _sd002
 :U ..
 :U ..
-"224
+"231
 -> -> # _sd002 `ui `uc
 -> -> 3 `i `uc
 :U ..
-"225
+"232
 -> 74 `ui
 -> 111 `ui
 -> 121 `ui
@@ -6103,208 +6122,208 @@ Version 3.2 HI-TECH Software Intermediate Code
 -> 68 `ui
 -> 101 `ui
 -> 109 `ui
-"226
+"233
 -> 111 `ui
 ..
 ..
 ..
 ]
-[; ;usb_descriptors.c: 223: const struct{uint8_t bLength;uint8_t bDscType;uint16_t string[13];}sd002={
-[; ;usb_descriptors.c: 224: sizeof(sd002),0x03,
-[; ;usb_descriptors.c: 225: {'J','o','y','s','t','i','c','k',' ','D','e','m','o'
-[; ;usb_descriptors.c: 226: }};
+[; ;usb_descriptors.c: 230: const struct{uint8_t bLength;uint8_t bDscType;uint16_t string[13];}sd002={
+[; ;usb_descriptors.c: 231: sizeof(sd002),0x03,
+[; ;usb_descriptors.c: 232: {'J','o','y','s','t','i','c','k',' ','D','e','m','o'
+[; ;usb_descriptors.c: 233: }};
 [v F6386 `*Cuc ~T0 @X0 1 t ]
-"229
+"236
 [v _USB_CD_Ptr `C*Cuc ~T0 @X0 -> 0 `x e ]
 [i _USB_CD_Ptr
 :U ..
-"232
+"239
 [v F6387 `*Cuc ~T0 @X0 1 t ]
 -> -> &U _configDescriptor1 `C*Cuc `*Cuc
 ..
 ]
-[; ;usb_descriptors.c: 229: const uint8_t *const USB_CD_Ptr[]=
-[; ;usb_descriptors.c: 230: {
-[; ;usb_descriptors.c: 231: (const uint8_t *const)&configDescriptor1
-[; ;usb_descriptors.c: 232: };
+[; ;usb_descriptors.c: 236: const uint8_t *const USB_CD_Ptr[]=
+[; ;usb_descriptors.c: 237: {
+[; ;usb_descriptors.c: 238: (const uint8_t *const)&configDescriptor1
+[; ;usb_descriptors.c: 239: };
 [v F6391 `*Cuc ~T0 @X0 1 t ]
-"235
+"242
 [v _USB_SD_Ptr `C*Cuc ~T0 @X0 -> 0 `x e ]
 [i _USB_SD_Ptr
 :U ..
-"237
+"244
 [v F6392 `*Cuc ~T0 @X0 1 t ]
 -> -> &U _sd000 `C*Cuc `*Cuc
-"238
+"245
 [v F6394 `*Cuc ~T0 @X0 1 t ]
 -> -> &U _sd001 `C*Cuc `*Cuc
-"240
+"247
 [v F6396 `*Cuc ~T0 @X0 1 t ]
 -> -> &U _sd002 `C*Cuc `*Cuc
 ..
 ]
-[; ;usb_descriptors.c: 235: const uint8_t *const USB_SD_Ptr[]=
-[; ;usb_descriptors.c: 236: {
-[; ;usb_descriptors.c: 237: (const uint8_t *const)&sd000,
-[; ;usb_descriptors.c: 238: (const uint8_t *const)&sd001,
-[; ;usb_descriptors.c: 239: (const uint8_t *const)&sd002
-[; ;usb_descriptors.c: 240: };
-"242
+[; ;usb_descriptors.c: 242: const uint8_t *const USB_SD_Ptr[]=
+[; ;usb_descriptors.c: 243: {
+[; ;usb_descriptors.c: 244: (const uint8_t *const)&sd000,
+[; ;usb_descriptors.c: 245: (const uint8_t *const)&sd001,
+[; ;usb_descriptors.c: 246: (const uint8_t *const)&sd002
+[; ;usb_descriptors.c: 247: };
+"249
 [v _hid_rpt01 `CS689 ~T0 @X0 1 e ]
 [i _hid_rpt01
 :U ..
 :U ..
 :U ..
-"243
--> -> 5 `i `uc
--> -> 1 `i `uc
-"244
--> -> 9 `i `uc
--> -> 5 `i `uc
-"245
--> -> 161 `i `uc
--> -> 1 `i `uc
-"246
--> -> 21 `i `uc
--> -> 0 `i `uc
-"247
--> -> 37 `i `uc
--> -> 1 `i `uc
-"248
--> -> 53 `i `uc
--> -> 0 `i `uc
-"249
--> -> 69 `i `uc
--> -> 1 `i `uc
 "250
--> -> 117 `i `uc
+-> -> 5 `i `uc
 -> -> 1 `i `uc
 "251
--> -> 149 `i `uc
--> -> 13 `i `uc
-"252
--> -> 5 `i `uc
 -> -> 9 `i `uc
-"253
--> -> 25 `i `uc
+-> -> 5 `i `uc
+"252
+-> -> 161 `i `uc
 -> -> 1 `i `uc
+"253
+-> -> 21 `i `uc
+-> -> 0 `i `uc
 "254
--> -> 41 `i `uc
--> -> 13 `i `uc
+-> -> 37 `i `uc
+-> -> 1 `i `uc
 "255
--> -> 129 `i `uc
--> -> 2 `i `uc
+-> -> 53 `i `uc
+-> -> 0 `i `uc
 "256
--> -> 149 `i `uc
--> -> 3 `i `uc
+-> -> 69 `i `uc
+-> -> 1 `i `uc
 "257
--> -> 129 `i `uc
+-> -> 117 `i `uc
 -> -> 1 `i `uc
 "258
+-> -> 149 `i `uc
+-> -> 13 `i `uc
+"259
+-> -> 5 `i `uc
+-> -> 9 `i `uc
+"260
+-> -> 25 `i `uc
+-> -> 1 `i `uc
+"261
+-> -> 41 `i `uc
+-> -> 13 `i `uc
+"262
+-> -> 129 `i `uc
+-> -> 2 `i `uc
+"263
+-> -> 149 `i `uc
+-> -> 3 `i `uc
+"264
+-> -> 129 `i `uc
+-> -> 1 `i `uc
+"265
 -> -> 5 `i `uc
 -> -> 1 `i `uc
-"259
+"266
 -> -> 37 `i `uc
 -> -> 7 `i `uc
-"260
+"267
 -> -> 70 `i `uc
 -> -> 59 `i `uc
 -> -> 1 `i `uc
-"261
+"268
 -> -> 117 `i `uc
 -> -> 4 `i `uc
-"262
+"269
 -> -> 149 `i `uc
 -> -> 1 `i `uc
-"263
+"270
 -> -> 101 `i `uc
 -> -> 20 `i `uc
-"264
+"271
 -> -> 9 `i `uc
 -> -> 57 `i `uc
-"265
+"272
 -> -> 129 `i `uc
 -> -> 66 `i `uc
-"266
+"273
 -> -> 101 `i `uc
 -> -> 0 `i `uc
-"267
+"274
 -> -> 149 `i `uc
 -> -> 1 `i `uc
-"268
+"275
 -> -> 129 `i `uc
 -> -> 1 `i `uc
-"269
+"276
 -> -> 38 `i `uc
 -> -> 255 `i `uc
 -> -> 0 `i `uc
-"270
+"277
 -> -> 70 `i `uc
 -> -> 255 `i `uc
 -> -> 0 `i `uc
-"271
+"278
 -> -> 9 `i `uc
 -> -> 48 `i `uc
-"272
+"279
 -> -> 9 `i `uc
 -> -> 49 `i `uc
-"273
+"280
 -> -> 9 `i `uc
 -> -> 50 `i `uc
-"274
+"281
 -> -> 9 `i `uc
 -> -> 53 `i `uc
-"275
+"282
 -> -> 117 `i `uc
 -> -> 8 `i `uc
-"276
+"283
 -> -> 149 `i `uc
 -> -> 4 `i `uc
-"277
+"284
 -> -> 129 `i `uc
 -> -> 2 `i `uc
-"279
+"286
 -> -> 192 `i `uc
 ..
 ..
 ..
 ]
-[; ;usb_descriptors.c: 242: const struct{uint8_t report[74];}hid_rpt01={{
-[; ;usb_descriptors.c: 243: 0x05,0x01,
-[; ;usb_descriptors.c: 244: 0x09,0x05,
-[; ;usb_descriptors.c: 245: 0xA1,0x01,
-[; ;usb_descriptors.c: 246: 0x15,0x00,
-[; ;usb_descriptors.c: 247: 0x25,0x01,
-[; ;usb_descriptors.c: 248: 0x35,0x00,
-[; ;usb_descriptors.c: 249: 0x45,0x01,
-[; ;usb_descriptors.c: 250: 0x75,0x01,
-[; ;usb_descriptors.c: 251: 0x95,0x0D,
-[; ;usb_descriptors.c: 252: 0x05,0x09,
-[; ;usb_descriptors.c: 253: 0x19,0x01,
-[; ;usb_descriptors.c: 254: 0x29,0x0D,
-[; ;usb_descriptors.c: 255: 0x81,0x02,
-[; ;usb_descriptors.c: 256: 0x95,0x03,
-[; ;usb_descriptors.c: 257: 0x81,0x01,
-[; ;usb_descriptors.c: 258: 0x05,0x01,
-[; ;usb_descriptors.c: 259: 0x25,0x07,
-[; ;usb_descriptors.c: 260: 0x46,0x3B,0x01,
-[; ;usb_descriptors.c: 261: 0x75,0x04,
-[; ;usb_descriptors.c: 262: 0x95,0x01,
-[; ;usb_descriptors.c: 263: 0x65,0x14,
-[; ;usb_descriptors.c: 264: 0x09,0x39,
-[; ;usb_descriptors.c: 265: 0x81,0x42,
-[; ;usb_descriptors.c: 266: 0x65,0x00,
-[; ;usb_descriptors.c: 267: 0x95,0x01,
-[; ;usb_descriptors.c: 268: 0x81,0x01,
-[; ;usb_descriptors.c: 269: 0x26,0xFF,0x00,
-[; ;usb_descriptors.c: 270: 0x46,0xFF,0x00,
-[; ;usb_descriptors.c: 271: 0x09,0x30,
-[; ;usb_descriptors.c: 272: 0x09,0x31,
-[; ;usb_descriptors.c: 273: 0x09,0x32,
-[; ;usb_descriptors.c: 274: 0x09,0x35,
-[; ;usb_descriptors.c: 275: 0x75,0x08,
-[; ;usb_descriptors.c: 276: 0x95,0x04,
-[; ;usb_descriptors.c: 277: 0x81,0x02,
-[; ;usb_descriptors.c: 278: 0xC0
-[; ;usb_descriptors.c: 279: }
-[; ;usb_descriptors.c: 280: };
+[; ;usb_descriptors.c: 249: const struct{uint8_t report[74];}hid_rpt01={{
+[; ;usb_descriptors.c: 250: 0x05,0x01,
+[; ;usb_descriptors.c: 251: 0x09,0x05,
+[; ;usb_descriptors.c: 252: 0xA1,0x01,
+[; ;usb_descriptors.c: 253: 0x15,0x00,
+[; ;usb_descriptors.c: 254: 0x25,0x01,
+[; ;usb_descriptors.c: 255: 0x35,0x00,
+[; ;usb_descriptors.c: 256: 0x45,0x01,
+[; ;usb_descriptors.c: 257: 0x75,0x01,
+[; ;usb_descriptors.c: 258: 0x95,0x0D,
+[; ;usb_descriptors.c: 259: 0x05,0x09,
+[; ;usb_descriptors.c: 260: 0x19,0x01,
+[; ;usb_descriptors.c: 261: 0x29,0x0D,
+[; ;usb_descriptors.c: 262: 0x81,0x02,
+[; ;usb_descriptors.c: 263: 0x95,0x03,
+[; ;usb_descriptors.c: 264: 0x81,0x01,
+[; ;usb_descriptors.c: 265: 0x05,0x01,
+[; ;usb_descriptors.c: 266: 0x25,0x07,
+[; ;usb_descriptors.c: 267: 0x46,0x3B,0x01,
+[; ;usb_descriptors.c: 268: 0x75,0x04,
+[; ;usb_descriptors.c: 269: 0x95,0x01,
+[; ;usb_descriptors.c: 270: 0x65,0x14,
+[; ;usb_descriptors.c: 271: 0x09,0x39,
+[; ;usb_descriptors.c: 272: 0x81,0x42,
+[; ;usb_descriptors.c: 273: 0x65,0x00,
+[; ;usb_descriptors.c: 274: 0x95,0x01,
+[; ;usb_descriptors.c: 275: 0x81,0x01,
+[; ;usb_descriptors.c: 276: 0x26,0xFF,0x00,
+[; ;usb_descriptors.c: 277: 0x46,0xFF,0x00,
+[; ;usb_descriptors.c: 278: 0x09,0x30,
+[; ;usb_descriptors.c: 279: 0x09,0x31,
+[; ;usb_descriptors.c: 280: 0x09,0x32,
+[; ;usb_descriptors.c: 281: 0x09,0x35,
+[; ;usb_descriptors.c: 282: 0x75,0x08,
+[; ;usb_descriptors.c: 283: 0x95,0x04,
+[; ;usb_descriptors.c: 284: 0x81,0x02,
+[; ;usb_descriptors.c: 285: 0xC0
+[; ;usb_descriptors.c: 286: }
+[; ;usb_descriptors.c: 287: };

@@ -5970,3 +5970,20 @@ Version 3.2 HI-TECH Software Intermediate Code
 "81
 [e :UE 686 ]
 }
+[; ;main.c: 82: typedef union _SET_GET_EFFECT_STRUCTURE
+[; ;main.c: 83: {
+[; ;main.c: 84: struct
+[; ;main.c: 85: {
+[; ;main.c: 86: uint8_t report_id;
+[; ;main.c: 87: uint8_t effect_type;
+[; ;main.c: 88: uint8_t byte_count;
+[; ;main.c: 90: }SET_REPORT_REQUEST;
+[; ;main.c: 91: struct
+[; ;main.c: 92: {
+[; ;main.c: 93: uint8_t report_id;
+[; ;main.c: 94: uint8_t effect_block_index;
+[; ;main.c: 95: uint8_t block_load_status;
+[; ;main.c: 96: int ram_pool_available;
+[; ;main.c: 97: }PID_BLOCK_LOAD_REPORT;
+[; ;main.c: 99: uint8_t val[8];
+[; ;main.c: 100: }SET_GET_EFFECT_STRUCTURE;
