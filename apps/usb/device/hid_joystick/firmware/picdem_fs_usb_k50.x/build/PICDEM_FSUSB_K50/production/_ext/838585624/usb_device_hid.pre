@@ -7939,7 +7939,7 @@ uint8_t protocol;
 static uint8_t idle_rate;
 static uint8_t active_protocol;
 
-extern const struct{uint8_t report[74];}hid_rpt01;
+extern const struct{uint8_t report[1274];}hid_rpt01;
 
 # 153
 void USBCheckHIDRequest(void)
@@ -7963,7 +7963,7 @@ break;
 case 0x22:
 if(USBActiveConfiguration == 1)
 {
-{ inPipes[0].pSrc.bRom = (const uint8_t*)&hid_rpt01; inPipes[0].wCount.Val = 74; inPipes[0].info.Val = 0x40 | 0x80 | 0x00; };
+{ inPipes[0].pSrc.bRom = (const uint8_t*)&hid_rpt01; inPipes[0].wCount.Val = 1274; inPipes[0].info.Val = 0x40 | 0x80 | 0x00; };
 
 # 183
 }

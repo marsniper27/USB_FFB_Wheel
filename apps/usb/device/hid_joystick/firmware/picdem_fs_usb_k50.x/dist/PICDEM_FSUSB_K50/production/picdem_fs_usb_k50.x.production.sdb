@@ -515,9 +515,9 @@ BUTTON_S3 2
 [v _USB_CD_Ptr USB_CD_Ptr `C[1]*.25Cuc  1 e 2 0 ]
 "242
 [v _USB_SD_Ptr USB_SD_Ptr `C[3]*.25Cuc  1 e 6 0 ]
-[s S1911 . 74 `[74]uc 1 report 74 0 ]
+[s S1911 . 1274 `[1274]uc 1 report 1274 0 ]
 "249
-[v _hid_rpt01 hid_rpt01 `CS1911  1 e 74 0 ]
+[v _hid_rpt01 hid_rpt01 `CS1911  1 e 1274 0 ]
 [s S110 . 1 `uc 1 ANSB0 1 0 :1:0 
 `uc 1 ANSB1 1 0 :1:1 
 `uc 1 ANSB2 1 0 :1:2 

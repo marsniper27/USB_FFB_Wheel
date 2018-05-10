@@ -12,7 +12,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [s S688 `uc 1 `uc 1 `ui -> 13 `i ]
 [n S688 . bLength bDscType string ]
 "249
-[s S689 `uc -> 74 `i ]
+[s S689 `uc -> 1274 `i ]
 [n S689 . report ]
 [; ;stdint.h: 13: typedef signed char int8_t;
 [; ;stdint.h: 20: typedef signed int int16_t;
@@ -5968,8 +5968,8 @@ Version 3.2 HI-TECH Software Intermediate Code
 "197
 -> -> 34 `i `uc
 "198
--> & -> 74 `i -> 255 `i `uc
--> & >> -> 74 `i -> 8 `i -> 255 `i `uc
+-> & -> 1274 `i -> 255 `i `uc
+-> & >> -> 1274 `i -> 8 `i -> 255 `i `uc
 "201
 -> -> 7 `i `uc
 "202
@@ -6022,7 +6022,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;usb_descriptors.c: 195: 0x00,
 [; ;usb_descriptors.c: 196: 1,
 [; ;usb_descriptors.c: 197: 0x22,
-[; ;usb_descriptors.c: 198: (74&0xFF),((74>>8)&0xFF),
+[; ;usb_descriptors.c: 198: (1274&0xFF),((1274>>8)&0xFF),
 [; ;usb_descriptors.c: 201: 0x07,
 [; ;usb_descriptors.c: 202: 0x05,
 [; ;usb_descriptors.c: 203: 1 | 0x80,
@@ -6282,13 +6282,1770 @@ Version 3.2 HI-TECH Software Intermediate Code
 "284
 -> -> 129 `i `uc
 -> -> 2 `i `uc
-"286
+"299
+-> -> 5 `i `uc
+-> -> 15 `i `uc
+"300
+-> -> 9 `i `uc
+-> -> 146 `i `uc
+"301
+-> -> 161 `i `uc
+-> -> 2 `i `uc
+"303
+-> -> 133 `i `uc
+-> -> 2 `i `uc
+"304
+-> -> 9 `i `uc
+-> -> 159 `i `uc
+"305
+-> -> 9 `i `uc
+-> -> 160 `i `uc
+"306
+-> -> 9 `i `uc
+-> -> 164 `i `uc
+"307
+-> -> 9 `i `uc
+-> -> 165 `i `uc
+"308
+-> -> 9 `i `uc
+-> -> 166 `i `uc
+"309
+-> -> 21 `i `uc
+-> -> 0 `i `uc
+"310
+-> -> 37 `i `uc
+-> -> 1 `i `uc
+"311
+-> -> 53 `i `uc
+-> -> 0 `i `uc
+"312
+-> -> 69 `i `uc
+-> -> 1 `i `uc
+"313
+-> -> 117 `i `uc
+-> -> 1 `i `uc
+"314
+-> -> 149 `i `uc
+-> -> 5 `i `uc
+"315
+-> -> 129 `i `uc
+-> -> 2 `i `uc
+"316
+-> -> 149 `i `uc
+-> -> 3 `i `uc
+"317
+-> -> 129 `i `uc
+-> -> 3 `i `uc
+"320
+-> -> 9 `i `uc
+-> -> 148 `i `uc
+"321
+-> -> 21 `i `uc
+-> -> 0 `i `uc
+"322
+-> -> 37 `i `uc
+-> -> 1 `i `uc
+"323
+-> -> 53 `i `uc
+-> -> 0 `i `uc
+"324
+-> -> 69 `i `uc
+-> -> 1 `i `uc
+"325
+-> -> 117 `i `uc
+-> -> 1 `i `uc
+"326
+-> -> 149 `i `uc
+-> -> 1 `i `uc
+"327
+-> -> 129 `i `uc
+-> -> 2 `i `uc
+"328
+-> -> 9 `i `uc
+-> -> 34 `i `uc
+"329
+-> -> 21 `i `uc
+-> -> 1 `i `uc
+"330
+-> -> 37 `i `uc
+-> -> 40 `i `uc
+"331
+-> -> 53 `i `uc
+-> -> 1 `i `uc
+"332
+-> -> 69 `i `uc
+-> -> 40 `i `uc
+"333
+-> -> 117 `i `uc
+-> -> 7 `i `uc
+"334
+-> -> 149 `i `uc
+-> -> 1 `i `uc
+"335
+-> -> 129 `i `uc
+-> -> 2 `i `uc
+"336
+-> -> 192 `i `uc
+"350
+-> -> 9 `i `uc
+-> -> 33 `i `uc
+"351
+-> -> 161 `i `uc
+-> -> 2 `i `uc
+"352
+-> -> 133 `i `uc
+-> -> 1 `i `uc
+"353
+-> -> 9 `i `uc
+-> -> 34 `i `uc
+"354
+-> -> 21 `i `uc
+-> -> 1 `i `uc
+"355
+-> -> 37 `i `uc
+-> -> 40 `i `uc
+"356
+-> -> 53 `i `uc
+-> -> 1 `i `uc
+"357
+-> -> 69 `i `uc
+-> -> 40 `i `uc
+"358
+-> -> 117 `i `uc
+-> -> 8 `i `uc
+"359
+-> -> 149 `i `uc
+-> -> 1 `i `uc
+"360
+-> -> 145 `i `uc
+-> -> 2 `i `uc
+"362
+-> -> 9 `i `uc
+-> -> 37 `i `uc
+"363
+-> -> 161 `i `uc
+-> -> 2 `i `uc
+"364
+-> -> 9 `i `uc
+-> -> 38 `i `uc
+"365
+-> -> 9 `i `uc
+-> -> 39 `i `uc
+"366
+-> -> 9 `i `uc
+-> -> 48 `i `uc
+"367
+-> -> 9 `i `uc
+-> -> 49 `i `uc
+"368
+-> -> 9 `i `uc
+-> -> 50 `i `uc
+"369
+-> -> 9 `i `uc
+-> -> 51 `i `uc
+"370
+-> -> 9 `i `uc
+-> -> 52 `i `uc
+"371
+-> -> 9 `i `uc
+-> -> 64 `i `uc
+"372
+-> -> 9 `i `uc
+-> -> 65 `i `uc
+"373
+-> -> 9 `i `uc
+-> -> 66 `i `uc
+"374
+-> -> 9 `i `uc
+-> -> 67 `i `uc
+"375
+-> -> 9 `i `uc
+-> -> 40 `i `uc
+"376
+-> -> 37 `i `uc
+-> -> 12 `i `uc
+"377
+-> -> 21 `i `uc
+-> -> 1 `i `uc
+"378
+-> -> 53 `i `uc
+-> -> 1 `i `uc
+"379
+-> -> 69 `i `uc
+-> -> 12 `i `uc
+"380
+-> -> 117 `i `uc
+-> -> 8 `i `uc
+"381
+-> -> 149 `i `uc
+-> -> 1 `i `uc
+"382
+-> -> 145 `i `uc
+-> -> 0 `i `uc
+"384
+-> -> 192 `i `uc
+"386
+-> -> 9 `i `uc
+-> -> 80 `i `uc
+"387
+-> -> 9 `i `uc
+-> -> 84 `i `uc
+"388
+-> -> 9 `i `uc
+-> -> 81 `i `uc
+"389
+-> -> 21 `i `uc
+-> -> 0 `i `uc
+"390
+-> -> 38 `i `uc
+-> -> 255 `i `uc
+-> -> 127 `i `uc
+"391
+-> -> 53 `i `uc
+-> -> 0 `i `uc
+"392
+-> -> 70 `i `uc
+-> -> 255 `i `uc
+-> -> 127 `i `uc
+"393
+-> -> 102 `i `uc
+-> -> 3 `i `uc
+-> -> 16 `i `uc
+"394
+-> -> 85 `i `uc
+-> -> 253 `i `uc
+"395
+-> -> 117 `i `uc
+-> -> 16 `i `uc
+"396
+-> -> 149 `i `uc
+-> -> 3 `i `uc
+"397
+-> -> 145 `i `uc
+-> -> 2 `i `uc
+"399
+-> -> 85 `i `uc
+-> -> 0 `i `uc
+"400
+-> -> 102 `i `uc
+-> -> 0 `i `uc
+-> -> 0 `i `uc
+"401
+-> -> 9 `i `uc
+-> -> 82 `i `uc
+"402
+-> -> 21 `i `uc
+-> -> 0 `i `uc
+"403
+-> -> 38 `i `uc
+-> -> 255 `i `uc
+-> -> 0 `i `uc
+"404
+-> -> 53 `i `uc
+-> -> 0 `i `uc
+"405
+-> -> 70 `i `uc
+-> -> 16 `i `uc
+-> -> 39 `i `uc
+"406
+-> -> 117 `i `uc
+-> -> 8 `i `uc
+"407
+-> -> 149 `i `uc
+-> -> 1 `i `uc
+"408
+-> -> 145 `i `uc
+-> -> 2 `i `uc
+"410
+-> -> 9 `i `uc
+-> -> 83 `i `uc
+"411
+-> -> 21 `i `uc
+-> -> 1 `i `uc
+"412
+-> -> 37 `i `uc
+-> -> 8 `i `uc
+"413
+-> -> 53 `i `uc
+-> -> 1 `i `uc
+"414
+-> -> 69 `i `uc
+-> -> 8 `i `uc
+"415
+-> -> 117 `i `uc
+-> -> 8 `i `uc
+"416
+-> -> 149 `i `uc
+-> -> 1 `i `uc
+"417
+-> -> 145 `i `uc
+-> -> 2 `i `uc
+"419
+-> -> 9 `i `uc
+-> -> 85 `i `uc
+"420
+-> -> 161 `i `uc
+-> -> 2 `i `uc
+"421
+-> -> 5 `i `uc
+-> -> 1 `i `uc
+"422
+-> -> 9 `i `uc
+-> -> 48 `i `uc
+"423
+-> -> 9 `i `uc
+-> -> 49 `i `uc
+"424
+-> -> 21 `i `uc
+-> -> 0 `i `uc
+"425
+-> -> 37 `i `uc
+-> -> 1 `i `uc
+"426
+-> -> 117 `i `uc
+-> -> 1 `i `uc
+"427
+-> -> 149 `i `uc
+-> -> 2 `i `uc
+"428
+-> -> 145 `i `uc
+-> -> 2 `i `uc
+"430
+-> -> 192 `i `uc
+"432
+-> -> 5 `i `uc
+-> -> 15 `i `uc
+"433
+-> -> 9 `i `uc
+-> -> 86 `i `uc
+"434
+-> -> 149 `i `uc
+-> -> 1 `i `uc
+"435
+-> -> 145 `i `uc
+-> -> 2 `i `uc
+"437
+-> -> 149 `i `uc
+-> -> 5 `i `uc
+"438
+-> -> 145 `i `uc
+-> -> 3 `i `uc
+"440
+-> -> 9 `i `uc
+-> -> 87 `i `uc
+"441
+-> -> 161 `i `uc
+-> -> 2 `i `uc
+"442
+-> -> 11 `i `uc
+-> -> 1 `i `uc
+-> -> 0 `i `uc
+-> -> 10 `i `uc
+-> -> 0 `i `uc
+"443
+-> -> 11 `i `uc
+-> -> 2 `i `uc
+-> -> 0 `i `uc
+-> -> 10 `i `uc
+-> -> 0 `i `uc
+"444
+-> -> 102 `i `uc
+-> -> 20 `i `uc
+-> -> 0 `i `uc
+"445
+-> -> 85 `i `uc
+-> -> 254 `i `uc
+"446
+-> -> 21 `i `uc
+-> -> 0 `i `uc
+"447
+-> -> 38 `i `uc
+-> -> 255 `i `uc
+-> -> 0 `i `uc
+"448
+-> -> 53 `i `uc
+-> -> 0 `i `uc
+"449
+-> -> 71 `i `uc
+-> -> 160 `i `uc
+-> -> 140 `i `uc
+-> -> 0 `i `uc
+-> -> 0 `i `uc
+"450
+-> -> 102 `i `uc
+-> -> 0 `i `uc
+-> -> 0 `i `uc
+"451
+-> -> 117 `i `uc
+-> -> 8 `i `uc
+"452
+-> -> 149 `i `uc
+-> -> 2 `i `uc
+"453
+-> -> 145 `i `uc
+-> -> 2 `i `uc
+"454
+-> -> 85 `i `uc
+-> -> 0 `i `uc
+"455
+-> -> 102 `i `uc
+-> -> 0 `i `uc
+-> -> 0 `i `uc
+"456
+-> -> 192 `i `uc
+"458
+-> -> 5 `i `uc
+-> -> 15 `i `uc
+"459
+-> -> 9 `i `uc
+-> -> 167 `i `uc
+"460
+-> -> 102 `i `uc
+-> -> 3 `i `uc
+-> -> 16 `i `uc
+"461
+-> -> 85 `i `uc
+-> -> 253 `i `uc
+"462
+-> -> 21 `i `uc
+-> -> 0 `i `uc
+"463
+-> -> 38 `i `uc
+-> -> 255 `i `uc
+-> -> 127 `i `uc
+"464
+-> -> 53 `i `uc
+-> -> 0 `i `uc
+"465
+-> -> 70 `i `uc
+-> -> 255 `i `uc
+-> -> 127 `i `uc
+"466
+-> -> 117 `i `uc
+-> -> 16 `i `uc
+"467
+-> -> 149 `i `uc
+-> -> 1 `i `uc
+"468
+-> -> 145 `i `uc
+-> -> 2 `i `uc
+"469
+-> -> 102 `i `uc
+-> -> 0 `i `uc
+-> -> 0 `i `uc
+"470
+-> -> 85 `i `uc
+-> -> 0 `i `uc
+"471
+-> -> 192 `i `uc
+"473
+-> -> 5 `i `uc
+-> -> 15 `i `uc
+"474
+-> -> 9 `i `uc
+-> -> 90 `i `uc
+"475
+-> -> 161 `i `uc
+-> -> 2 `i `uc
+"476
+-> -> 133 `i `uc
+-> -> 2 `i `uc
+"477
+-> -> 9 `i `uc
+-> -> 34 `i `uc
+"478
+-> -> 21 `i `uc
+-> -> 1 `i `uc
+"479
+-> -> 37 `i `uc
+-> -> 40 `i `uc
+"480
+-> -> 53 `i `uc
+-> -> 1 `i `uc
+"481
+-> -> 69 `i `uc
+-> -> 40 `i `uc
+"482
+-> -> 117 `i `uc
+-> -> 8 `i `uc
+"483
+-> -> 149 `i `uc
+-> -> 1 `i `uc
+"484
+-> -> 145 `i `uc
+-> -> 2 `i `uc
+"485
+-> -> 9 `i `uc
+-> -> 91 `i `uc
+"486
+-> -> 9 `i `uc
+-> -> 93 `i `uc
+"487
+-> -> 21 `i `uc
+-> -> 0 `i `uc
+"488
+-> -> 38 `i `uc
+-> -> 255 `i `uc
+-> -> 0 `i `uc
+"489
+-> -> 53 `i `uc
+-> -> 0 `i `uc
+"490
+-> -> 70 `i `uc
+-> -> 16 `i `uc
+-> -> 39 `i `uc
+"491
+-> -> 149 `i `uc
+-> -> 2 `i `uc
+"492
+-> -> 145 `i `uc
+-> -> 2 `i `uc
+"493
+-> -> 9 `i `uc
+-> -> 92 `i `uc
+"494
+-> -> 9 `i `uc
+-> -> 94 `i `uc
+"495
+-> -> 102 `i `uc
+-> -> 3 `i `uc
+-> -> 16 `i `uc
+"496
+-> -> 85 `i `uc
+-> -> 253 `i `uc
+"497
+-> -> 38 `i `uc
+-> -> 255 `i `uc
+-> -> 127 `i `uc
+"498
+-> -> 70 `i `uc
+-> -> 255 `i `uc
+-> -> 127 `i `uc
+"499
+-> -> 117 `i `uc
+-> -> 16 `i `uc
+"500
+-> -> 145 `i `uc
+-> -> 2 `i `uc
+"501
+-> -> 69 `i `uc
+-> -> 0 `i `uc
+"502
+-> -> 102 `i `uc
+-> -> 0 `i `uc
+-> -> 0 `i `uc
+"503
+-> -> 85 `i `uc
+-> -> 0 `i `uc
+"504
+-> -> 192 `i `uc
+"506
+-> -> 9 `i `uc
+-> -> 95 `i `uc
+"507
+-> -> 161 `i `uc
+-> -> 2 `i `uc
+"508
+-> -> 133 `i `uc
+-> -> 3 `i `uc
+"509
+-> -> 9 `i `uc
+-> -> 34 `i `uc
+"510
+-> -> 21 `i `uc
+-> -> 1 `i `uc
+"511
+-> -> 37 `i `uc
+-> -> 40 `i `uc
+"512
+-> -> 53 `i `uc
+-> -> 1 `i `uc
+"513
+-> -> 69 `i `uc
+-> -> 40 `i `uc
+"514
+-> -> 117 `i `uc
+-> -> 8 `i `uc
+"515
+-> -> 149 `i `uc
+-> -> 1 `i `uc
+"516
+-> -> 145 `i `uc
+-> -> 2 `i `uc
+"517
+-> -> 9 `i `uc
+-> -> 35 `i `uc
+"518
+-> -> 21 `i `uc
+-> -> 0 `i `uc
+"519
+-> -> 37 `i `uc
+-> -> 1 `i `uc
+"520
+-> -> 53 `i `uc
+-> -> 0 `i `uc
+"521
+-> -> 69 `i `uc
+-> -> 1 `i `uc
+"522
+-> -> 117 `i `uc
+-> -> 4 `i `uc
+"523
+-> -> 149 `i `uc
+-> -> 1 `i `uc
+"524
+-> -> 145 `i `uc
+-> -> 2 `i `uc
+"525
+-> -> 9 `i `uc
+-> -> 88 `i `uc
+"526
+-> -> 161 `i `uc
+-> -> 2 `i `uc
+"528
+-> -> 11 `i `uc
+-> -> 1 `i `uc
+-> -> 0 `i `uc
+-> -> 10 `i `uc
+-> -> 0 `i `uc
+"529
+-> -> 11 `i `uc
+-> -> 2 `i `uc
+-> -> 0 `i `uc
+-> -> 10 `i `uc
+-> -> 0 `i `uc
+"530
+-> -> 117 `i `uc
+-> -> 2 `i `uc
+"531
+-> -> 149 `i `uc
+-> -> 2 `i `uc
+"532
+-> -> 145 `i `uc
+-> -> 2 `i `uc
+"533
+-> -> 192 `i `uc
+"535
+-> -> 21 `i `uc
+-> -> 128 `i `uc
+"536
+-> -> 37 `i `uc
+-> -> 127 `i `uc
+"537
+-> -> 54 `i `uc
+-> -> 240 `i `uc
+-> -> 216 `i `uc
+"538
+-> -> 70 `i `uc
+-> -> 16 `i `uc
+-> -> 39 `i `uc
+"539
+-> -> 9 `i `uc
+-> -> 96 `i `uc
+"540
+-> -> 117 `i `uc
+-> -> 8 `i `uc
+"541
+-> -> 149 `i `uc
+-> -> 1 `i `uc
+"542
+-> -> 145 `i `uc
+-> -> 2 `i `uc
+"543
+-> -> 54 `i `uc
+-> -> 240 `i `uc
+-> -> 216 `i `uc
+"544
+-> -> 70 `i `uc
+-> -> 16 `i `uc
+-> -> 39 `i `uc
+"545
+-> -> 9 `i `uc
+-> -> 97 `i `uc
+"546
+-> -> 9 `i `uc
+-> -> 98 `i `uc
+"547
+-> -> 149 `i `uc
+-> -> 2 `i `uc
+"548
+-> -> 145 `i `uc
+-> -> 2 `i `uc
+"549
+-> -> 21 `i `uc
+-> -> 0 `i `uc
+"550
+-> -> 38 `i `uc
+-> -> 255 `i `uc
+-> -> 0 `i `uc
+"551
+-> -> 53 `i `uc
+-> -> 0 `i `uc
+"552
+-> -> 70 `i `uc
+-> -> 16 `i `uc
+-> -> 39 `i `uc
+"553
+-> -> 9 `i `uc
+-> -> 99 `i `uc
+"554
+-> -> 9 `i `uc
+-> -> 100 `i `uc
+"555
+-> -> 117 `i `uc
+-> -> 8 `i `uc
+"556
+-> -> 149 `i `uc
+-> -> 2 `i `uc
+"557
+-> -> 145 `i `uc
+-> -> 2 `i `uc
+"558
+-> -> 9 `i `uc
+-> -> 101 `i `uc
+"559
+-> -> 70 `i `uc
+-> -> 16 `i `uc
+-> -> 39 `i `uc
+"560
+-> -> 149 `i `uc
+-> -> 1 `i `uc
+"561
+-> -> 145 `i `uc
+-> -> 2 `i `uc
+"562
+-> -> 192 `i `uc
+"563
+-> -> 9 `i `uc
+-> -> 110 `i `uc
+"564
+-> -> 161 `i `uc
+-> -> 2 `i `uc
+"565
+-> -> 133 `i `uc
+-> -> 4 `i `uc
+"566
+-> -> 9 `i `uc
+-> -> 34 `i `uc
+"567
+-> -> 21 `i `uc
+-> -> 1 `i `uc
+"568
+-> -> 37 `i `uc
+-> -> 40 `i `uc
+"569
+-> -> 53 `i `uc
+-> -> 1 `i `uc
+"570
+-> -> 69 `i `uc
+-> -> 40 `i `uc
+"571
+-> -> 117 `i `uc
+-> -> 8 `i `uc
+"572
+-> -> 149 `i `uc
+-> -> 1 `i `uc
+"573
+-> -> 145 `i `uc
+-> -> 2 `i `uc
+"574
+-> -> 9 `i `uc
+-> -> 112 `i `uc
+"575
+-> -> 21 `i `uc
+-> -> 0 `i `uc
+"576
+-> -> 38 `i `uc
+-> -> 255 `i `uc
+-> -> 0 `i `uc
+"577
+-> -> 53 `i `uc
+-> -> 0 `i `uc
+"578
+-> -> 70 `i `uc
+-> -> 16 `i `uc
+-> -> 39 `i `uc
+"579
+-> -> 117 `i `uc
+-> -> 8 `i `uc
+"580
+-> -> 149 `i `uc
+-> -> 1 `i `uc
+"581
+-> -> 145 `i `uc
+-> -> 2 `i `uc
+"582
+-> -> 9 `i `uc
+-> -> 111 `i `uc
+"583
+-> -> 21 `i `uc
+-> -> 128 `i `uc
+"584
+-> -> 37 `i `uc
+-> -> 127 `i `uc
+"585
+-> -> 54 `i `uc
+-> -> 240 `i `uc
+-> -> 216 `i `uc
+"586
+-> -> 70 `i `uc
+-> -> 16 `i `uc
+-> -> 39 `i `uc
+"587
+-> -> 149 `i `uc
+-> -> 1 `i `uc
+"588
+-> -> 145 `i `uc
+-> -> 2 `i `uc
+"589
+-> -> 9 `i `uc
+-> -> 113 `i `uc
+"590
+-> -> 102 `i `uc
+-> -> 20 `i `uc
+-> -> 0 `i `uc
+"591
+-> -> 85 `i `uc
+-> -> 254 `i `uc
+"592
+-> -> 21 `i `uc
+-> -> 0 `i `uc
+"593
+-> -> 38 `i `uc
+-> -> 255 `i `uc
+-> -> 0 `i `uc
+"594
+-> -> 53 `i `uc
+-> -> 0 `i `uc
+"595
+-> -> 71 `i `uc
+-> -> 160 `i `uc
+-> -> 140 `i `uc
+-> -> 0 `i `uc
+-> -> 0 `i `uc
+"596
+-> -> 145 `i `uc
+-> -> 2 `i `uc
+"597
+-> -> 9 `i `uc
+-> -> 114 `i `uc
+"598
+-> -> 38 `i `uc
+-> -> 255 `i `uc
+-> -> 127 `i `uc
+"599
+-> -> 70 `i `uc
+-> -> 255 `i `uc
+-> -> 127 `i `uc
+"600
+-> -> 102 `i `uc
+-> -> 3 `i `uc
+-> -> 16 `i `uc
+"601
+-> -> 85 `i `uc
+-> -> 253 `i `uc
+"602
+-> -> 117 `i `uc
+-> -> 16 `i `uc
+"603
+-> -> 149 `i `uc
+-> -> 1 `i `uc
+"604
+-> -> 145 `i `uc
+-> -> 2 `i `uc
+"605
+-> -> 102 `i `uc
+-> -> 0 `i `uc
+-> -> 0 `i `uc
+"606
+-> -> 85 `i `uc
+-> -> 0 `i `uc
+"607
+-> -> 192 `i `uc
+"608
+-> -> 9 `i `uc
+-> -> 115 `i `uc
+"609
+-> -> 161 `i `uc
+-> -> 2 `i `uc
+"610
+-> -> 133 `i `uc
+-> -> 5 `i `uc
+"611
+-> -> 9 `i `uc
+-> -> 34 `i `uc
+"612
+-> -> 21 `i `uc
+-> -> 1 `i `uc
+"613
+-> -> 37 `i `uc
+-> -> 40 `i `uc
+"614
+-> -> 53 `i `uc
+-> -> 1 `i `uc
+"615
+-> -> 69 `i `uc
+-> -> 40 `i `uc
+"616
+-> -> 117 `i `uc
+-> -> 8 `i `uc
+"617
+-> -> 149 `i `uc
+-> -> 1 `i `uc
+"618
+-> -> 145 `i `uc
+-> -> 2 `i `uc
+"619
+-> -> 9 `i `uc
+-> -> 112 `i `uc
+"620
+-> -> 22 `i `uc
+-> -> 1 `i `uc
+-> -> 255 `i `uc
+"621
+-> -> 38 `i `uc
+-> -> 255 `i `uc
+-> -> 0 `i `uc
+"622
+-> -> 54 `i `uc
+-> -> 240 `i `uc
+-> -> 216 `i `uc
+"623
+-> -> 70 `i `uc
+-> -> 16 `i `uc
+-> -> 39 `i `uc
+"624
+-> -> 117 `i `uc
+-> -> 16 `i `uc
+"625
+-> -> 149 `i `uc
+-> -> 1 `i `uc
+"626
+-> -> 145 `i `uc
+-> -> 2 `i `uc
+"627
+-> -> 192 `i `uc
+"628
+-> -> 9 `i `uc
+-> -> 116 `i `uc
+"629
+-> -> 161 `i `uc
+-> -> 2 `i `uc
+"630
+-> -> 133 `i `uc
+-> -> 6 `i `uc
+"631
+-> -> 9 `i `uc
+-> -> 34 `i `uc
+"632
+-> -> 21 `i `uc
+-> -> 1 `i `uc
+"633
+-> -> 37 `i `uc
+-> -> 40 `i `uc
+"634
+-> -> 53 `i `uc
+-> -> 1 `i `uc
+"635
+-> -> 69 `i `uc
+-> -> 40 `i `uc
+"636
+-> -> 117 `i `uc
+-> -> 8 `i `uc
+"637
+-> -> 149 `i `uc
+-> -> 1 `i `uc
+"638
+-> -> 145 `i `uc
+-> -> 2 `i `uc
+"639
+-> -> 9 `i `uc
+-> -> 117 `i `uc
+"640
+-> -> 9 `i `uc
+-> -> 118 `i `uc
+"641
+-> -> 21 `i `uc
+-> -> 128 `i `uc
+"642
+-> -> 37 `i `uc
+-> -> 127 `i `uc
+"643
+-> -> 54 `i `uc
+-> -> 240 `i `uc
+-> -> 216 `i `uc
+"644
+-> -> 70 `i `uc
+-> -> 16 `i `uc
+-> -> 39 `i `uc
+"645
+-> -> 117 `i `uc
+-> -> 8 `i `uc
+"646
+-> -> 149 `i `uc
+-> -> 2 `i `uc
+"647
+-> -> 145 `i `uc
+-> -> 2 `i `uc
+"648
+-> -> 192 `i `uc
+"649
+-> -> 9 `i `uc
+-> -> 104 `i `uc
+"650
+-> -> 161 `i `uc
+-> -> 2 `i `uc
+"651
+-> -> 133 `i `uc
+-> -> 7 `i `uc
+"652
+-> -> 9 `i `uc
+-> -> 34 `i `uc
+"653
+-> -> 21 `i `uc
+-> -> 1 `i `uc
+"654
+-> -> 37 `i `uc
+-> -> 40 `i `uc
+"655
+-> -> 53 `i `uc
+-> -> 1 `i `uc
+"656
+-> -> 69 `i `uc
+-> -> 40 `i `uc
+"657
+-> -> 117 `i `uc
+-> -> 8 `i `uc
+"658
+-> -> 149 `i `uc
+-> -> 1 `i `uc
+"659
+-> -> 145 `i `uc
+-> -> 2 `i `uc
+"660
+-> -> 9 `i `uc
+-> -> 108 `i `uc
+"661
+-> -> 21 `i `uc
+-> -> 0 `i `uc
+"662
+-> -> 38 `i `uc
+-> -> 16 `i `uc
+-> -> 39 `i `uc
+"663
+-> -> 53 `i `uc
+-> -> 0 `i `uc
+"664
+-> -> 70 `i `uc
+-> -> 16 `i `uc
+-> -> 39 `i `uc
+"665
+-> -> 117 `i `uc
+-> -> 16 `i `uc
+"666
+-> -> 149 `i `uc
+-> -> 1 `i `uc
+"667
+-> -> 145 `i `uc
+-> -> 2 `i `uc
+"668
+-> -> 9 `i `uc
+-> -> 105 `i `uc
+"669
+-> -> 21 `i `uc
+-> -> 129 `i `uc
+"670
+-> -> 37 `i `uc
+-> -> 127 `i `uc
+"671
+-> -> 53 `i `uc
+-> -> 0 `i `uc
+"672
+-> -> 70 `i `uc
+-> -> 255 `i `uc
+-> -> 0 `i `uc
+"673
+-> -> 117 `i `uc
+-> -> 8 `i `uc
+"674
+-> -> 149 `i `uc
+-> -> 12 `i `uc
+"675
+-> -> 146 `i `uc
+-> -> 2 `i `uc
+-> -> 1 `i `uc
+"676
+-> -> 192 `i `uc
+"677
+-> -> 9 `i `uc
+-> -> 102 `i `uc
+"678
+-> -> 161 `i `uc
+-> -> 2 `i `uc
+"679
+-> -> 133 `i `uc
+-> -> 8 `i `uc
+"680
+-> -> 5 `i `uc
+-> -> 1 `i `uc
+"681
+-> -> 9 `i `uc
+-> -> 48 `i `uc
+"682
+-> -> 9 `i `uc
+-> -> 49 `i `uc
+"683
+-> -> 21 `i `uc
+-> -> 129 `i `uc
+"684
+-> -> 37 `i `uc
+-> -> 127 `i `uc
+"685
+-> -> 53 `i `uc
+-> -> 0 `i `uc
+"686
+-> -> 70 `i `uc
+-> -> 255 `i `uc
+-> -> 0 `i `uc
+"687
+-> -> 117 `i `uc
+-> -> 8 `i `uc
+"688
+-> -> 149 `i `uc
+-> -> 2 `i `uc
+"689
+-> -> 145 `i `uc
+-> -> 2 `i `uc
+"690
+-> -> 192 `i `uc
+"691
+-> -> 5 `i `uc
+-> -> 15 `i `uc
+"692
+-> -> 9 `i `uc
+-> -> 119 `i `uc
+"693
+-> -> 161 `i `uc
+-> -> 2 `i `uc
+"694
+-> -> 133 `i `uc
+-> -> 10 `i `uc
+"695
+-> -> 9 `i `uc
+-> -> 34 `i `uc
+"696
+-> -> 21 `i `uc
+-> -> 1 `i `uc
+"697
+-> -> 37 `i `uc
+-> -> 40 `i `uc
+"698
+-> -> 53 `i `uc
+-> -> 1 `i `uc
+"699
+-> -> 69 `i `uc
+-> -> 40 `i `uc
+"700
+-> -> 117 `i `uc
+-> -> 8 `i `uc
+"701
+-> -> 149 `i `uc
+-> -> 1 `i `uc
+"702
+-> -> 145 `i `uc
+-> -> 2 `i `uc
+"703
+-> -> 9 `i `uc
+-> -> 120 `i `uc
+"704
+-> -> 161 `i `uc
+-> -> 2 `i `uc
+"705
+-> -> 9 `i `uc
+-> -> 121 `i `uc
+"706
+-> -> 9 `i `uc
+-> -> 122 `i `uc
+"707
+-> -> 9 `i `uc
+-> -> 123 `i `uc
+"708
+-> -> 21 `i `uc
+-> -> 1 `i `uc
+"709
+-> -> 37 `i `uc
+-> -> 3 `i `uc
+"710
+-> -> 117 `i `uc
+-> -> 8 `i `uc
+"711
+-> -> 149 `i `uc
+-> -> 1 `i `uc
+"712
+-> -> 145 `i `uc
+-> -> 0 `i `uc
+"713
+-> -> 192 `i `uc
+"714
+-> -> 9 `i `uc
+-> -> 124 `i `uc
+"715
+-> -> 21 `i `uc
+-> -> 0 `i `uc
+"716
+-> -> 38 `i `uc
+-> -> 255 `i `uc
+-> -> 0 `i `uc
+"717
+-> -> 53 `i `uc
+-> -> 0 `i `uc
+"718
+-> -> 70 `i `uc
+-> -> 255 `i `uc
+-> -> 0 `i `uc
+"719
+-> -> 145 `i `uc
+-> -> 2 `i `uc
+"720
+-> -> 192 `i `uc
+"721
+-> -> 9 `i `uc
+-> -> 144 `i `uc
+"722
+-> -> 161 `i `uc
+-> -> 2 `i `uc
+"723
+-> -> 133 `i `uc
+-> -> 11 `i `uc
+"724
+-> -> 9 `i `uc
+-> -> 34 `i `uc
+"725
+-> -> 37 `i `uc
+-> -> 40 `i `uc
+"726
+-> -> 21 `i `uc
+-> -> 1 `i `uc
+"727
+-> -> 53 `i `uc
+-> -> 1 `i `uc
+"728
+-> -> 69 `i `uc
+-> -> 40 `i `uc
+"729
+-> -> 117 `i `uc
+-> -> 8 `i `uc
+"730
+-> -> 149 `i `uc
+-> -> 1 `i `uc
+"731
+-> -> 145 `i `uc
+-> -> 2 `i `uc
+"732
+-> -> 192 `i `uc
+"733
+-> -> 9 `i `uc
+-> -> 150 `i `uc
+"734
+-> -> 161 `i `uc
+-> -> 2 `i `uc
+"735
+-> -> 133 `i `uc
+-> -> 12 `i `uc
+"736
+-> -> 9 `i `uc
+-> -> 151 `i `uc
+"737
+-> -> 9 `i `uc
+-> -> 152 `i `uc
+"738
+-> -> 9 `i `uc
+-> -> 153 `i `uc
+"739
+-> -> 9 `i `uc
+-> -> 154 `i `uc
+"740
+-> -> 9 `i `uc
+-> -> 155 `i `uc
+"741
+-> -> 9 `i `uc
+-> -> 156 `i `uc
+"742
+-> -> 21 `i `uc
+-> -> 1 `i `uc
+"743
+-> -> 37 `i `uc
+-> -> 6 `i `uc
+"744
+-> -> 117 `i `uc
+-> -> 8 `i `uc
+"745
+-> -> 149 `i `uc
+-> -> 1 `i `uc
+"746
+-> -> 145 `i `uc
+-> -> 0 `i `uc
+"747
+-> -> 192 `i `uc
+"748
+-> -> 9 `i `uc
+-> -> 125 `i `uc
+"749
+-> -> 161 `i `uc
+-> -> 2 `i `uc
+"750
+-> -> 133 `i `uc
+-> -> 13 `i `uc
+"751
+-> -> 9 `i `uc
+-> -> 126 `i `uc
+"752
+-> -> 21 `i `uc
+-> -> 0 `i `uc
+"753
+-> -> 38 `i `uc
+-> -> 255 `i `uc
+-> -> 0 `i `uc
+"754
+-> -> 53 `i `uc
+-> -> 0 `i `uc
+"755
+-> -> 70 `i `uc
+-> -> 16 `i `uc
+-> -> 39 `i `uc
+"756
+-> -> 117 `i `uc
+-> -> 8 `i `uc
+"757
+-> -> 149 `i `uc
+-> -> 1 `i `uc
+"758
+-> -> 145 `i `uc
+-> -> 2 `i `uc
+"759
+-> -> 192 `i `uc
+"760
+-> -> 9 `i `uc
+-> -> 107 `i `uc
+"761
+-> -> 161 `i `uc
+-> -> 2 `i `uc
+"762
+-> -> 133 `i `uc
+-> -> 14 `i `uc
+"763
+-> -> 9 `i `uc
+-> -> 34 `i `uc
+"764
+-> -> 21 `i `uc
+-> -> 1 `i `uc
+"765
+-> -> 37 `i `uc
+-> -> 40 `i `uc
+"766
+-> -> 53 `i `uc
+-> -> 1 `i `uc
+"767
+-> -> 69 `i `uc
+-> -> 40 `i `uc
+"768
+-> -> 117 `i `uc
+-> -> 8 `i `uc
+"769
+-> -> 149 `i `uc
+-> -> 1 `i `uc
+"770
+-> -> 145 `i `uc
+-> -> 2 `i `uc
+"771
+-> -> 9 `i `uc
+-> -> 109 `i `uc
+"772
+-> -> 21 `i `uc
+-> -> 0 `i `uc
+"773
+-> -> 38 `i `uc
+-> -> 255 `i `uc
+-> -> 0 `i `uc
+"774
+-> -> 53 `i `uc
+-> -> 0 `i `uc
+"775
+-> -> 70 `i `uc
+-> -> 255 `i `uc
+-> -> 0 `i `uc
+"776
+-> -> 117 `i `uc
+-> -> 8 `i `uc
+"777
+-> -> 149 `i `uc
+-> -> 1 `i `uc
+"778
+-> -> 145 `i `uc
+-> -> 2 `i `uc
+"779
+-> -> 9 `i `uc
+-> -> 81 `i `uc
+"780
+-> -> 102 `i `uc
+-> -> 3 `i `uc
+-> -> 16 `i `uc
+"781
+-> -> 85 `i `uc
+-> -> 253 `i `uc
+"782
+-> -> 21 `i `uc
+-> -> 0 `i `uc
+"783
+-> -> 38 `i `uc
+-> -> 255 `i `uc
+-> -> 127 `i `uc
+"784
+-> -> 53 `i `uc
+-> -> 0 `i `uc
+"785
+-> -> 70 `i `uc
+-> -> 255 `i `uc
+-> -> 127 `i `uc
+"786
+-> -> 117 `i `uc
+-> -> 16 `i `uc
+"787
+-> -> 149 `i `uc
+-> -> 1 `i `uc
+"788
+-> -> 145 `i `uc
+-> -> 2 `i `uc
+"789
+-> -> 85 `i `uc
+-> -> 0 `i `uc
+"790
+-> -> 102 `i `uc
+-> -> 0 `i `uc
+-> -> 0 `i `uc
+"791
+-> -> 192 `i `uc
+"792
+-> -> 9 `i `uc
+-> -> 171 `i `uc
+"793
+-> -> 161 `i `uc
+-> -> 2 `i `uc
+"794
+-> -> 133 `i `uc
+-> -> 1 `i `uc
+"795
+-> -> 9 `i `uc
+-> -> 37 `i `uc
+"796
+-> -> 161 `i `uc
+-> -> 2 `i `uc
+"797
+-> -> 9 `i `uc
+-> -> 38 `i `uc
+"798
+-> -> 9 `i `uc
+-> -> 39 `i `uc
+"799
+-> -> 9 `i `uc
+-> -> 48 `i `uc
+"800
+-> -> 9 `i `uc
+-> -> 49 `i `uc
+"801
+-> -> 9 `i `uc
+-> -> 50 `i `uc
+"802
+-> -> 9 `i `uc
+-> -> 51 `i `uc
+"803
+-> -> 9 `i `uc
+-> -> 52 `i `uc
+"804
+-> -> 9 `i `uc
+-> -> 64 `i `uc
+"805
+-> -> 9 `i `uc
+-> -> 65 `i `uc
+"806
+-> -> 9 `i `uc
+-> -> 66 `i `uc
+"807
+-> -> 9 `i `uc
+-> -> 67 `i `uc
+"808
+-> -> 9 `i `uc
+-> -> 40 `i `uc
+"809
+-> -> 37 `i `uc
+-> -> 12 `i `uc
+"810
+-> -> 21 `i `uc
+-> -> 1 `i `uc
+"811
+-> -> 53 `i `uc
+-> -> 1 `i `uc
+"812
+-> -> 69 `i `uc
+-> -> 12 `i `uc
+"813
+-> -> 117 `i `uc
+-> -> 8 `i `uc
+"814
+-> -> 149 `i `uc
+-> -> 1 `i `uc
+"815
+-> -> 177 `i `uc
+-> -> 0 `i `uc
+"816
+-> -> 192 `i `uc
+"817
+-> -> 5 `i `uc
+-> -> 1 `i `uc
+"818
+-> -> 9 `i `uc
+-> -> 59 `i `uc
+"819
+-> -> 21 `i `uc
+-> -> 0 `i `uc
+"820
+-> -> 38 `i `uc
+-> -> 255 `i `uc
+-> -> 1 `i `uc
+"821
+-> -> 53 `i `uc
+-> -> 0 `i `uc
+"822
+-> -> 70 `i `uc
+-> -> 255 `i `uc
+-> -> 1 `i `uc
+"823
+-> -> 117 `i `uc
+-> -> 10 `i `uc
+"824
+-> -> 149 `i `uc
+-> -> 1 `i `uc
+"825
+-> -> 177 `i `uc
+-> -> 2 `i `uc
+"826
+-> -> 117 `i `uc
+-> -> 6 `i `uc
+"827
+-> -> 177 `i `uc
+-> -> 1 `i `uc
+"828
+-> -> 192 `i `uc
+"829
+-> -> 5 `i `uc
+-> -> 15 `i `uc
+"830
+-> -> 9 `i `uc
+-> -> 137 `i `uc
+"831
+-> -> 161 `i `uc
+-> -> 2 `i `uc
+"832
+-> -> 133 `i `uc
+-> -> 2 `i `uc
+"833
+-> -> 9 `i `uc
+-> -> 34 `i `uc
+"834
+-> -> 37 `i `uc
+-> -> 40 `i `uc
+"835
+-> -> 21 `i `uc
+-> -> 1 `i `uc
+"836
+-> -> 53 `i `uc
+-> -> 1 `i `uc
+"837
+-> -> 69 `i `uc
+-> -> 40 `i `uc
+"838
+-> -> 117 `i `uc
+-> -> 8 `i `uc
+"839
+-> -> 149 `i `uc
+-> -> 1 `i `uc
+"840
+-> -> 177 `i `uc
+-> -> 2 `i `uc
+"841
+-> -> 9 `i `uc
+-> -> 139 `i `uc
+"842
+-> -> 161 `i `uc
+-> -> 2 `i `uc
+"843
+-> -> 9 `i `uc
+-> -> 140 `i `uc
+"844
+-> -> 9 `i `uc
+-> -> 141 `i `uc
+"845
+-> -> 9 `i `uc
+-> -> 142 `i `uc
+"846
+-> -> 37 `i `uc
+-> -> 3 `i `uc
+"847
+-> -> 21 `i `uc
+-> -> 1 `i `uc
+"848
+-> -> 53 `i `uc
+-> -> 1 `i `uc
+"849
+-> -> 69 `i `uc
+-> -> 3 `i `uc
+"850
+-> -> 117 `i `uc
+-> -> 8 `i `uc
+"851
+-> -> 149 `i `uc
+-> -> 1 `i `uc
+"852
+-> -> 177 `i `uc
+-> -> 0 `i `uc
+"853
+-> -> 192 `i `uc
+"854
+-> -> 9 `i `uc
+-> -> 172 `i `uc
+"855
+-> -> 21 `i `uc
+-> -> 0 `i `uc
+"856
+-> -> 39 `i `uc
+-> -> 255 `i `uc
+-> -> 255 `i `uc
+-> -> 0 `i `uc
+-> -> 0 `i `uc
+"857
+-> -> 53 `i `uc
+-> -> 0 `i `uc
+"858
+-> -> 71 `i `uc
+-> -> 255 `i `uc
+-> -> 255 `i `uc
+-> -> 0 `i `uc
+-> -> 0 `i `uc
+"859
+-> -> 117 `i `uc
+-> -> 16 `i `uc
+"860
+-> -> 149 `i `uc
+-> -> 1 `i `uc
+"861
+-> -> 177 `i `uc
+-> -> 0 `i `uc
+"862
+-> -> 192 `i `uc
+"863
+-> -> 9 `i `uc
+-> -> 127 `i `uc
+"864
+-> -> 161 `i `uc
+-> -> 2 `i `uc
+"865
+-> -> 133 `i `uc
+-> -> 3 `i `uc
+"866
+-> -> 9 `i `uc
+-> -> 128 `i `uc
+"867
+-> -> 117 `i `uc
+-> -> 16 `i `uc
+"868
+-> -> 149 `i `uc
+-> -> 1 `i `uc
+"869
+-> -> 21 `i `uc
+-> -> 0 `i `uc
+"870
+-> -> 53 `i `uc
+-> -> 0 `i `uc
+"871
+-> -> 39 `i `uc
+-> -> 255 `i `uc
+-> -> 255 `i `uc
+-> -> 0 `i `uc
+-> -> 0 `i `uc
+"872
+-> -> 71 `i `uc
+-> -> 255 `i `uc
+-> -> 255 `i `uc
+-> -> 0 `i `uc
+-> -> 0 `i `uc
+"873
+-> -> 177 `i `uc
+-> -> 2 `i `uc
+"874
+-> -> 9 `i `uc
+-> -> 131 `i `uc
+"875
+-> -> 38 `i `uc
+-> -> 255 `i `uc
+-> -> 0 `i `uc
+"876
+-> -> 70 `i `uc
+-> -> 255 `i `uc
+-> -> 0 `i `uc
+"877
+-> -> 117 `i `uc
+-> -> 8 `i `uc
+"878
+-> -> 149 `i `uc
+-> -> 1 `i `uc
+"879
+-> -> 177 `i `uc
+-> -> 2 `i `uc
+"880
+-> -> 9 `i `uc
+-> -> 169 `i `uc
+"881
+-> -> 9 `i `uc
+-> -> 170 `i `uc
+"882
+-> -> 117 `i `uc
+-> -> 1 `i `uc
+"883
+-> -> 149 `i `uc
+-> -> 2 `i `uc
+"884
+-> -> 21 `i `uc
+-> -> 0 `i `uc
+"885
+-> -> 37 `i `uc
+-> -> 1 `i `uc
+"886
+-> -> 53 `i `uc
+-> -> 0 `i `uc
+"887
+-> -> 69 `i `uc
+-> -> 1 `i `uc
+"888
+-> -> 177 `i `uc
+-> -> 2 `i `uc
+"889
+-> -> 117 `i `uc
+-> -> 6 `i `uc
+"890
+-> -> 149 `i `uc
+-> -> 1 `i `uc
+"891
+-> -> 177 `i `uc
+-> -> 3 `i `uc
+"892
+-> -> 192 `i `uc
+"894
 -> -> 192 `i `uc
 ..
 ..
 ..
 ]
-[; ;usb_descriptors.c: 249: const struct{uint8_t report[74];}hid_rpt01={{
+[; ;usb_descriptors.c: 249: const struct{uint8_t report[1274];}hid_rpt01={{
 [; ;usb_descriptors.c: 250: 0x05,0x01,
 [; ;usb_descriptors.c: 251: 0x09,0x05,
 [; ;usb_descriptors.c: 252: 0xA1,0x01,
@@ -6324,6 +8081,569 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;usb_descriptors.c: 282: 0x75,0x08,
 [; ;usb_descriptors.c: 283: 0x95,0x04,
 [; ;usb_descriptors.c: 284: 0x81,0x02,
-[; ;usb_descriptors.c: 285: 0xC0
-[; ;usb_descriptors.c: 286: }
-[; ;usb_descriptors.c: 287: };
+[; ;usb_descriptors.c: 299: 0x05,0x0F,
+[; ;usb_descriptors.c: 300: 0x09,0x92,
+[; ;usb_descriptors.c: 301: 0xA1,0x02,
+[; ;usb_descriptors.c: 303: 0x85,0x02,
+[; ;usb_descriptors.c: 304: 0x09,0x9F,
+[; ;usb_descriptors.c: 305: 0x09,0xA0,
+[; ;usb_descriptors.c: 306: 0x09,0xA4,
+[; ;usb_descriptors.c: 307: 0x09,0xA5,
+[; ;usb_descriptors.c: 308: 0x09,0xA6,
+[; ;usb_descriptors.c: 309: 0x15,0x00,
+[; ;usb_descriptors.c: 310: 0x25,0x01,
+[; ;usb_descriptors.c: 311: 0x35,0x00,
+[; ;usb_descriptors.c: 312: 0x45,0x01,
+[; ;usb_descriptors.c: 313: 0x75,0x01,
+[; ;usb_descriptors.c: 314: 0x95,0x05,
+[; ;usb_descriptors.c: 315: 0x81,0x02,
+[; ;usb_descriptors.c: 316: 0x95,0x03,
+[; ;usb_descriptors.c: 317: 0x81,0x03,
+[; ;usb_descriptors.c: 320: 0x09,0x94,
+[; ;usb_descriptors.c: 321: 0x15,0x00,
+[; ;usb_descriptors.c: 322: 0x25,0x01,
+[; ;usb_descriptors.c: 323: 0x35,0x00,
+[; ;usb_descriptors.c: 324: 0x45,0x01,
+[; ;usb_descriptors.c: 325: 0x75,0x01,
+[; ;usb_descriptors.c: 326: 0x95,0x01,
+[; ;usb_descriptors.c: 327: 0x81,0x02,
+[; ;usb_descriptors.c: 328: 0x09,0x22,
+[; ;usb_descriptors.c: 329: 0x15,0x01,
+[; ;usb_descriptors.c: 330: 0x25,0x28,
+[; ;usb_descriptors.c: 331: 0x35,0x01,
+[; ;usb_descriptors.c: 332: 0x45,0x28,
+[; ;usb_descriptors.c: 333: 0x75,0x07,
+[; ;usb_descriptors.c: 334: 0x95,0x01,
+[; ;usb_descriptors.c: 335: 0x81,0x02,
+[; ;usb_descriptors.c: 336: 0xC0 ,
+[; ;usb_descriptors.c: 350: 0x09,0x21,
+[; ;usb_descriptors.c: 351: 0xA1,0x02,
+[; ;usb_descriptors.c: 352: 0x85,0x01,
+[; ;usb_descriptors.c: 353: 0x09,0x22,
+[; ;usb_descriptors.c: 354: 0x15,0x01,
+[; ;usb_descriptors.c: 355: 0x25,0x28,
+[; ;usb_descriptors.c: 356: 0x35,0x01,
+[; ;usb_descriptors.c: 357: 0x45,0x28,
+[; ;usb_descriptors.c: 358: 0x75,0x08,
+[; ;usb_descriptors.c: 359: 0x95,0x01,
+[; ;usb_descriptors.c: 360: 0x91,0x02,
+[; ;usb_descriptors.c: 362: 0x09,0x25,
+[; ;usb_descriptors.c: 363: 0xA1,0x02,
+[; ;usb_descriptors.c: 364: 0x09,0x26,
+[; ;usb_descriptors.c: 365: 0x09,0x27,
+[; ;usb_descriptors.c: 366: 0x09,0x30,
+[; ;usb_descriptors.c: 367: 0x09,0x31,
+[; ;usb_descriptors.c: 368: 0x09,0x32,
+[; ;usb_descriptors.c: 369: 0x09,0x33,
+[; ;usb_descriptors.c: 370: 0x09,0x34,
+[; ;usb_descriptors.c: 371: 0x09,0x40,
+[; ;usb_descriptors.c: 372: 0x09,0x41,
+[; ;usb_descriptors.c: 373: 0x09,0x42,
+[; ;usb_descriptors.c: 374: 0x09,0x43,
+[; ;usb_descriptors.c: 375: 0x09,0x28,
+[; ;usb_descriptors.c: 376: 0x25,0x0C,
+[; ;usb_descriptors.c: 377: 0x15,0x01,
+[; ;usb_descriptors.c: 378: 0x35,0x01,
+[; ;usb_descriptors.c: 379: 0x45,0x0C,
+[; ;usb_descriptors.c: 380: 0x75,0x08,
+[; ;usb_descriptors.c: 381: 0x95,0x01,
+[; ;usb_descriptors.c: 382: 0x91,0x00,
+[; ;usb_descriptors.c: 384: 0xC0 ,
+[; ;usb_descriptors.c: 386: 0x09,0x50,
+[; ;usb_descriptors.c: 387: 0x09,0x54,
+[; ;usb_descriptors.c: 388: 0x09,0x51,
+[; ;usb_descriptors.c: 389: 0x15,0x00,
+[; ;usb_descriptors.c: 390: 0x26,0xFF,0x7F,
+[; ;usb_descriptors.c: 391: 0x35,0x00,
+[; ;usb_descriptors.c: 392: 0x46,0xFF,0x7F,
+[; ;usb_descriptors.c: 393: 0x66,0x03,0x10,
+[; ;usb_descriptors.c: 394: 0x55,0xFD,
+[; ;usb_descriptors.c: 395: 0x75,0x10,
+[; ;usb_descriptors.c: 396: 0x95,0x03,
+[; ;usb_descriptors.c: 397: 0x91,0x02,
+[; ;usb_descriptors.c: 399: 0x55,0x00,
+[; ;usb_descriptors.c: 400: 0x66,0x00,0x00,
+[; ;usb_descriptors.c: 401: 0x09,0x52,
+[; ;usb_descriptors.c: 402: 0x15,0x00,
+[; ;usb_descriptors.c: 403: 0x26,0xFF,0x00,
+[; ;usb_descriptors.c: 404: 0x35,0x00,
+[; ;usb_descriptors.c: 405: 0x46,0x10,0x27,
+[; ;usb_descriptors.c: 406: 0x75,0x08,
+[; ;usb_descriptors.c: 407: 0x95,0x01,
+[; ;usb_descriptors.c: 408: 0x91,0x02,
+[; ;usb_descriptors.c: 410: 0x09,0x53,
+[; ;usb_descriptors.c: 411: 0x15,0x01,
+[; ;usb_descriptors.c: 412: 0x25,0x08,
+[; ;usb_descriptors.c: 413: 0x35,0x01,
+[; ;usb_descriptors.c: 414: 0x45,0x08,
+[; ;usb_descriptors.c: 415: 0x75,0x08,
+[; ;usb_descriptors.c: 416: 0x95,0x01,
+[; ;usb_descriptors.c: 417: 0x91,0x02,
+[; ;usb_descriptors.c: 419: 0x09,0x55,
+[; ;usb_descriptors.c: 420: 0xA1,0x02,
+[; ;usb_descriptors.c: 421: 0x05,0x01,
+[; ;usb_descriptors.c: 422: 0x09,0x30,
+[; ;usb_descriptors.c: 423: 0x09,0x31,
+[; ;usb_descriptors.c: 424: 0x15,0x00,
+[; ;usb_descriptors.c: 425: 0x25,0x01,
+[; ;usb_descriptors.c: 426: 0x75,0x01,
+[; ;usb_descriptors.c: 427: 0x95,0x02,
+[; ;usb_descriptors.c: 428: 0x91,0x02,
+[; ;usb_descriptors.c: 430: 0xC0 ,
+[; ;usb_descriptors.c: 432: 0x05,0x0F,
+[; ;usb_descriptors.c: 433: 0x09,0x56,
+[; ;usb_descriptors.c: 434: 0x95,0x01,
+[; ;usb_descriptors.c: 435: 0x91,0x02,
+[; ;usb_descriptors.c: 437: 0x95,0x05,
+[; ;usb_descriptors.c: 438: 0x91,0x03,
+[; ;usb_descriptors.c: 440: 0x09,0x57,
+[; ;usb_descriptors.c: 441: 0xA1,0x02,
+[; ;usb_descriptors.c: 442: 0x0B,0x01,0x00,0x0A,0x00,
+[; ;usb_descriptors.c: 443: 0x0B,0x02,0x00,0x0A,0x00,
+[; ;usb_descriptors.c: 444: 0x66,0x14,0x00,
+[; ;usb_descriptors.c: 445: 0x55,0xFE,
+[; ;usb_descriptors.c: 446: 0x15,0x00,
+[; ;usb_descriptors.c: 447: 0x26,0xFF,0x00,
+[; ;usb_descriptors.c: 448: 0x35,0x00,
+[; ;usb_descriptors.c: 449: 0x47,0xA0,0x8C,0x00,0x00,
+[; ;usb_descriptors.c: 450: 0x66,0x00,0x00,
+[; ;usb_descriptors.c: 451: 0x75,0x08,
+[; ;usb_descriptors.c: 452: 0x95,0x02,
+[; ;usb_descriptors.c: 453: 0x91,0x02,
+[; ;usb_descriptors.c: 454: 0x55,0x00,
+[; ;usb_descriptors.c: 455: 0x66,0x00,0x00,
+[; ;usb_descriptors.c: 456: 0xC0 ,
+[; ;usb_descriptors.c: 458: 0x05,0x0F,
+[; ;usb_descriptors.c: 459: 0x09,0xA7,
+[; ;usb_descriptors.c: 460: 0x66,0x03,0x10,
+[; ;usb_descriptors.c: 461: 0x55,0xFD,
+[; ;usb_descriptors.c: 462: 0x15,0x00,
+[; ;usb_descriptors.c: 463: 0x26,0xFF,0x7F,
+[; ;usb_descriptors.c: 464: 0x35,0x00,
+[; ;usb_descriptors.c: 465: 0x46,0xFF,0x7F,
+[; ;usb_descriptors.c: 466: 0x75,0x10,
+[; ;usb_descriptors.c: 467: 0x95,0x01,
+[; ;usb_descriptors.c: 468: 0x91,0x02,
+[; ;usb_descriptors.c: 469: 0x66,0x00,0x00,
+[; ;usb_descriptors.c: 470: 0x55,0x00,
+[; ;usb_descriptors.c: 471: 0xC0 ,
+[; ;usb_descriptors.c: 473: 0x05,0x0F,
+[; ;usb_descriptors.c: 474: 0x09,0x5A,
+[; ;usb_descriptors.c: 475: 0xA1,0x02,
+[; ;usb_descriptors.c: 476: 0x85,0x02,
+[; ;usb_descriptors.c: 477: 0x09,0x22,
+[; ;usb_descriptors.c: 478: 0x15,0x01,
+[; ;usb_descriptors.c: 479: 0x25,0x28,
+[; ;usb_descriptors.c: 480: 0x35,0x01,
+[; ;usb_descriptors.c: 481: 0x45,0x28,
+[; ;usb_descriptors.c: 482: 0x75,0x08,
+[; ;usb_descriptors.c: 483: 0x95,0x01,
+[; ;usb_descriptors.c: 484: 0x91,0x02,
+[; ;usb_descriptors.c: 485: 0x09,0x5B,
+[; ;usb_descriptors.c: 486: 0x09,0x5D,
+[; ;usb_descriptors.c: 487: 0x15,0x00,
+[; ;usb_descriptors.c: 488: 0x26,0xFF,0x00,
+[; ;usb_descriptors.c: 489: 0x35,0x00,
+[; ;usb_descriptors.c: 490: 0x46,0x10,0x27,
+[; ;usb_descriptors.c: 491: 0x95,0x02,
+[; ;usb_descriptors.c: 492: 0x91,0x02,
+[; ;usb_descriptors.c: 493: 0x09,0x5C,
+[; ;usb_descriptors.c: 494: 0x09,0x5E,
+[; ;usb_descriptors.c: 495: 0x66,0x03,0x10,
+[; ;usb_descriptors.c: 496: 0x55,0xFD,
+[; ;usb_descriptors.c: 497: 0x26,0xFF,0x7F,
+[; ;usb_descriptors.c: 498: 0x46,0xFF,0x7F,
+[; ;usb_descriptors.c: 499: 0x75,0x10,
+[; ;usb_descriptors.c: 500: 0x91,0x02,
+[; ;usb_descriptors.c: 501: 0x45,0x00,
+[; ;usb_descriptors.c: 502: 0x66,0x00,0x00,
+[; ;usb_descriptors.c: 503: 0x55,0x00,
+[; ;usb_descriptors.c: 504: 0xC0 ,
+[; ;usb_descriptors.c: 506: 0x09,0x5F,
+[; ;usb_descriptors.c: 507: 0xA1,0x02,
+[; ;usb_descriptors.c: 508: 0x85,0x03,
+[; ;usb_descriptors.c: 509: 0x09,0x22,
+[; ;usb_descriptors.c: 510: 0x15,0x01,
+[; ;usb_descriptors.c: 511: 0x25,0x28,
+[; ;usb_descriptors.c: 512: 0x35,0x01,
+[; ;usb_descriptors.c: 513: 0x45,0x28,
+[; ;usb_descriptors.c: 514: 0x75,0x08,
+[; ;usb_descriptors.c: 515: 0x95,0x01,
+[; ;usb_descriptors.c: 516: 0x91,0x02,
+[; ;usb_descriptors.c: 517: 0x09,0x23,
+[; ;usb_descriptors.c: 518: 0x15,0x00,
+[; ;usb_descriptors.c: 519: 0x25,0x01,
+[; ;usb_descriptors.c: 520: 0x35,0x00,
+[; ;usb_descriptors.c: 521: 0x45,0x01,
+[; ;usb_descriptors.c: 522: 0x75,0x04,
+[; ;usb_descriptors.c: 523: 0x95,0x01,
+[; ;usb_descriptors.c: 524: 0x91,0x02,
+[; ;usb_descriptors.c: 525: 0x09,0x58,
+[; ;usb_descriptors.c: 526: 0xA1,0x02,
+[; ;usb_descriptors.c: 528: 0x0B,0x01,0x00,0x0A,0x00,
+[; ;usb_descriptors.c: 529: 0x0B,0x02,0x00,0x0A,0x00,
+[; ;usb_descriptors.c: 530: 0x75,0x02,
+[; ;usb_descriptors.c: 531: 0x95,0x02,
+[; ;usb_descriptors.c: 532: 0x91,0x02,
+[; ;usb_descriptors.c: 533: 0xC0 ,
+[; ;usb_descriptors.c: 535: 0x15,0x80,
+[; ;usb_descriptors.c: 536: 0x25,0x7F,
+[; ;usb_descriptors.c: 537: 0x36,0xF0,0xD8,
+[; ;usb_descriptors.c: 538: 0x46,0x10,0x27,
+[; ;usb_descriptors.c: 539: 0x09,0x60,
+[; ;usb_descriptors.c: 540: 0x75,0x08,
+[; ;usb_descriptors.c: 541: 0x95,0x01,
+[; ;usb_descriptors.c: 542: 0x91,0x02,
+[; ;usb_descriptors.c: 543: 0x36,0xF0,0xD8,
+[; ;usb_descriptors.c: 544: 0x46,0x10,0x27,
+[; ;usb_descriptors.c: 545: 0x09,0x61,
+[; ;usb_descriptors.c: 546: 0x09,0x62,
+[; ;usb_descriptors.c: 547: 0x95,0x02,
+[; ;usb_descriptors.c: 548: 0x91,0x02,
+[; ;usb_descriptors.c: 549: 0x15,0x00,
+[; ;usb_descriptors.c: 550: 0x26,0xFF,0x00,
+[; ;usb_descriptors.c: 551: 0x35,0x00,
+[; ;usb_descriptors.c: 552: 0x46,0x10,0x27,
+[; ;usb_descriptors.c: 553: 0x09,0x63,
+[; ;usb_descriptors.c: 554: 0x09,0x64,
+[; ;usb_descriptors.c: 555: 0x75,0x08,
+[; ;usb_descriptors.c: 556: 0x95,0x02,
+[; ;usb_descriptors.c: 557: 0x91,0x02,
+[; ;usb_descriptors.c: 558: 0x09,0x65,
+[; ;usb_descriptors.c: 559: 0x46,0x10,0x27,
+[; ;usb_descriptors.c: 560: 0x95,0x01,
+[; ;usb_descriptors.c: 561: 0x91,0x02,
+[; ;usb_descriptors.c: 562: 0xC0 ,
+[; ;usb_descriptors.c: 563: 0x09,0x6E,
+[; ;usb_descriptors.c: 564: 0xA1,0x02,
+[; ;usb_descriptors.c: 565: 0x85,0x04,
+[; ;usb_descriptors.c: 566: 0x09,0x22,
+[; ;usb_descriptors.c: 567: 0x15,0x01,
+[; ;usb_descriptors.c: 568: 0x25,0x28,
+[; ;usb_descriptors.c: 569: 0x35,0x01,
+[; ;usb_descriptors.c: 570: 0x45,0x28,
+[; ;usb_descriptors.c: 571: 0x75,0x08,
+[; ;usb_descriptors.c: 572: 0x95,0x01,
+[; ;usb_descriptors.c: 573: 0x91,0x02,
+[; ;usb_descriptors.c: 574: 0x09,0x70,
+[; ;usb_descriptors.c: 575: 0x15,0x00,
+[; ;usb_descriptors.c: 576: 0x26,0xFF,0x00,
+[; ;usb_descriptors.c: 577: 0x35,0x00,
+[; ;usb_descriptors.c: 578: 0x46,0x10,0x27,
+[; ;usb_descriptors.c: 579: 0x75,0x08,
+[; ;usb_descriptors.c: 580: 0x95,0x01,
+[; ;usb_descriptors.c: 581: 0x91,0x02,
+[; ;usb_descriptors.c: 582: 0x09,0x6F,
+[; ;usb_descriptors.c: 583: 0x15,0x80,
+[; ;usb_descriptors.c: 584: 0x25,0x7F,
+[; ;usb_descriptors.c: 585: 0x36,0xF0,0xD8,
+[; ;usb_descriptors.c: 586: 0x46,0x10,0x27,
+[; ;usb_descriptors.c: 587: 0x95,0x01,
+[; ;usb_descriptors.c: 588: 0x91,0x02,
+[; ;usb_descriptors.c: 589: 0x09,0x71,
+[; ;usb_descriptors.c: 590: 0x66,0x14,0x00,
+[; ;usb_descriptors.c: 591: 0x55,0xFE,
+[; ;usb_descriptors.c: 592: 0x15,0x00,
+[; ;usb_descriptors.c: 593: 0x26,0xFF,0x00,
+[; ;usb_descriptors.c: 594: 0x35,0x00,
+[; ;usb_descriptors.c: 595: 0x47,0xA0,0x8C,0x00,0x00,
+[; ;usb_descriptors.c: 596: 0x91,0x02,
+[; ;usb_descriptors.c: 597: 0x09,0x72,
+[; ;usb_descriptors.c: 598: 0x26,0xFF,0x7F,
+[; ;usb_descriptors.c: 599: 0x46,0xFF,0x7F,
+[; ;usb_descriptors.c: 600: 0x66,0x03,0x10,
+[; ;usb_descriptors.c: 601: 0x55,0xFD,
+[; ;usb_descriptors.c: 602: 0x75,0x10,
+[; ;usb_descriptors.c: 603: 0x95,0x01,
+[; ;usb_descriptors.c: 604: 0x91,0x02,
+[; ;usb_descriptors.c: 605: 0x66,0x00,0x00,
+[; ;usb_descriptors.c: 606: 0x55,0x00,
+[; ;usb_descriptors.c: 607: 0xC0 ,
+[; ;usb_descriptors.c: 608: 0x09,0x73,
+[; ;usb_descriptors.c: 609: 0xA1,0x02,
+[; ;usb_descriptors.c: 610: 0x85,0x05,
+[; ;usb_descriptors.c: 611: 0x09,0x22,
+[; ;usb_descriptors.c: 612: 0x15,0x01,
+[; ;usb_descriptors.c: 613: 0x25,0x28,
+[; ;usb_descriptors.c: 614: 0x35,0x01,
+[; ;usb_descriptors.c: 615: 0x45,0x28,
+[; ;usb_descriptors.c: 616: 0x75,0x08,
+[; ;usb_descriptors.c: 617: 0x95,0x01,
+[; ;usb_descriptors.c: 618: 0x91,0x02,
+[; ;usb_descriptors.c: 619: 0x09,0x70,
+[; ;usb_descriptors.c: 620: 0x16,0x01,0xFF,
+[; ;usb_descriptors.c: 621: 0x26,0xFF,0x00,
+[; ;usb_descriptors.c: 622: 0x36,0xF0,0xD8,
+[; ;usb_descriptors.c: 623: 0x46,0x10,0x27,
+[; ;usb_descriptors.c: 624: 0x75,0x10,
+[; ;usb_descriptors.c: 625: 0x95,0x01,
+[; ;usb_descriptors.c: 626: 0x91,0x02,
+[; ;usb_descriptors.c: 627: 0xC0 ,
+[; ;usb_descriptors.c: 628: 0x09,0x74,
+[; ;usb_descriptors.c: 629: 0xA1,0x02,
+[; ;usb_descriptors.c: 630: 0x85,0x06,
+[; ;usb_descriptors.c: 631: 0x09,0x22,
+[; ;usb_descriptors.c: 632: 0x15,0x01,
+[; ;usb_descriptors.c: 633: 0x25,0x28,
+[; ;usb_descriptors.c: 634: 0x35,0x01,
+[; ;usb_descriptors.c: 635: 0x45,0x28,
+[; ;usb_descriptors.c: 636: 0x75,0x08,
+[; ;usb_descriptors.c: 637: 0x95,0x01,
+[; ;usb_descriptors.c: 638: 0x91,0x02,
+[; ;usb_descriptors.c: 639: 0x09,0x75,
+[; ;usb_descriptors.c: 640: 0x09,0x76,
+[; ;usb_descriptors.c: 641: 0x15,0x80,
+[; ;usb_descriptors.c: 642: 0x25,0x7F,
+[; ;usb_descriptors.c: 643: 0x36,0xF0,0xD8,
+[; ;usb_descriptors.c: 644: 0x46,0x10,0x27,
+[; ;usb_descriptors.c: 645: 0x75,0x08,
+[; ;usb_descriptors.c: 646: 0x95,0x02,
+[; ;usb_descriptors.c: 647: 0x91,0x02,
+[; ;usb_descriptors.c: 648: 0xC0 ,
+[; ;usb_descriptors.c: 649: 0x09,0x68,
+[; ;usb_descriptors.c: 650: 0xA1,0x02,
+[; ;usb_descriptors.c: 651: 0x85,0x07,
+[; ;usb_descriptors.c: 652: 0x09,0x22,
+[; ;usb_descriptors.c: 653: 0x15,0x01,
+[; ;usb_descriptors.c: 654: 0x25,0x28,
+[; ;usb_descriptors.c: 655: 0x35,0x01,
+[; ;usb_descriptors.c: 656: 0x45,0x28,
+[; ;usb_descriptors.c: 657: 0x75,0x08,
+[; ;usb_descriptors.c: 658: 0x95,0x01,
+[; ;usb_descriptors.c: 659: 0x91,0x02,
+[; ;usb_descriptors.c: 660: 0x09,0x6C,
+[; ;usb_descriptors.c: 661: 0x15,0x00,
+[; ;usb_descriptors.c: 662: 0x26,0x10,0x27,
+[; ;usb_descriptors.c: 663: 0x35,0x00,
+[; ;usb_descriptors.c: 664: 0x46,0x10,0x27,
+[; ;usb_descriptors.c: 665: 0x75,0x10,
+[; ;usb_descriptors.c: 666: 0x95,0x01,
+[; ;usb_descriptors.c: 667: 0x91,0x02,
+[; ;usb_descriptors.c: 668: 0x09,0x69,
+[; ;usb_descriptors.c: 669: 0x15,0x81,
+[; ;usb_descriptors.c: 670: 0x25,0x7F,
+[; ;usb_descriptors.c: 671: 0x35,0x00,
+[; ;usb_descriptors.c: 672: 0x46,0xFF,0x00,
+[; ;usb_descriptors.c: 673: 0x75,0x08,
+[; ;usb_descriptors.c: 674: 0x95,0x0C,
+[; ;usb_descriptors.c: 675: 0x92,0x02,0x01,
+[; ;usb_descriptors.c: 676: 0xC0 ,
+[; ;usb_descriptors.c: 677: 0x09,0x66,
+[; ;usb_descriptors.c: 678: 0xA1,0x02,
+[; ;usb_descriptors.c: 679: 0x85,0x08,
+[; ;usb_descriptors.c: 680: 0x05,0x01,
+[; ;usb_descriptors.c: 681: 0x09,0x30,
+[; ;usb_descriptors.c: 682: 0x09,0x31,
+[; ;usb_descriptors.c: 683: 0x15,0x81,
+[; ;usb_descriptors.c: 684: 0x25,0x7F,
+[; ;usb_descriptors.c: 685: 0x35,0x00,
+[; ;usb_descriptors.c: 686: 0x46,0xFF,0x00,
+[; ;usb_descriptors.c: 687: 0x75,0x08,
+[; ;usb_descriptors.c: 688: 0x95,0x02,
+[; ;usb_descriptors.c: 689: 0x91,0x02,
+[; ;usb_descriptors.c: 690: 0xC0 ,
+[; ;usb_descriptors.c: 691: 0x05,0x0F,
+[; ;usb_descriptors.c: 692: 0x09,0x77,
+[; ;usb_descriptors.c: 693: 0xA1,0x02,
+[; ;usb_descriptors.c: 694: 0x85,0x0A,
+[; ;usb_descriptors.c: 695: 0x09,0x22,
+[; ;usb_descriptors.c: 696: 0x15,0x01,
+[; ;usb_descriptors.c: 697: 0x25,0x28,
+[; ;usb_descriptors.c: 698: 0x35,0x01,
+[; ;usb_descriptors.c: 699: 0x45,0x28,
+[; ;usb_descriptors.c: 700: 0x75,0x08,
+[; ;usb_descriptors.c: 701: 0x95,0x01,
+[; ;usb_descriptors.c: 702: 0x91,0x02,
+[; ;usb_descriptors.c: 703: 0x09,0x78,
+[; ;usb_descriptors.c: 704: 0xA1,0x02,
+[; ;usb_descriptors.c: 705: 0x09,0x79,
+[; ;usb_descriptors.c: 706: 0x09,0x7A,
+[; ;usb_descriptors.c: 707: 0x09,0x7B,
+[; ;usb_descriptors.c: 708: 0x15,0x01,
+[; ;usb_descriptors.c: 709: 0x25,0x03,
+[; ;usb_descriptors.c: 710: 0x75,0x08,
+[; ;usb_descriptors.c: 711: 0x95,0x01,
+[; ;usb_descriptors.c: 712: 0x91,0x00,
+[; ;usb_descriptors.c: 713: 0xC0 ,
+[; ;usb_descriptors.c: 714: 0x09,0x7C,
+[; ;usb_descriptors.c: 715: 0x15,0x00,
+[; ;usb_descriptors.c: 716: 0x26,0xFF,0x00,
+[; ;usb_descriptors.c: 717: 0x35,0x00,
+[; ;usb_descriptors.c: 718: 0x46,0xFF,0x00,
+[; ;usb_descriptors.c: 719: 0x91,0x02,
+[; ;usb_descriptors.c: 720: 0xC0 ,
+[; ;usb_descriptors.c: 721: 0x09,0x90,
+[; ;usb_descriptors.c: 722: 0xA1,0x02,
+[; ;usb_descriptors.c: 723: 0x85,0x0B,
+[; ;usb_descriptors.c: 724: 0x09,0x22,
+[; ;usb_descriptors.c: 725: 0x25,0x28,
+[; ;usb_descriptors.c: 726: 0x15,0x01,
+[; ;usb_descriptors.c: 727: 0x35,0x01,
+[; ;usb_descriptors.c: 728: 0x45,0x28,
+[; ;usb_descriptors.c: 729: 0x75,0x08,
+[; ;usb_descriptors.c: 730: 0x95,0x01,
+[; ;usb_descriptors.c: 731: 0x91,0x02,
+[; ;usb_descriptors.c: 732: 0xC0 ,
+[; ;usb_descriptors.c: 733: 0x09,0x96,
+[; ;usb_descriptors.c: 734: 0xA1,0x02,
+[; ;usb_descriptors.c: 735: 0x85,0x0C,
+[; ;usb_descriptors.c: 736: 0x09,0x97,
+[; ;usb_descriptors.c: 737: 0x09,0x98,
+[; ;usb_descriptors.c: 738: 0x09,0x99,
+[; ;usb_descriptors.c: 739: 0x09,0x9A,
+[; ;usb_descriptors.c: 740: 0x09,0x9B,
+[; ;usb_descriptors.c: 741: 0x09,0x9C,
+[; ;usb_descriptors.c: 742: 0x15,0x01,
+[; ;usb_descriptors.c: 743: 0x25,0x06,
+[; ;usb_descriptors.c: 744: 0x75,0x08,
+[; ;usb_descriptors.c: 745: 0x95,0x01,
+[; ;usb_descriptors.c: 746: 0x91,0x00,
+[; ;usb_descriptors.c: 747: 0xC0 ,
+[; ;usb_descriptors.c: 748: 0x09,0x7D,
+[; ;usb_descriptors.c: 749: 0xA1,0x02,
+[; ;usb_descriptors.c: 750: 0x85,0x0D,
+[; ;usb_descriptors.c: 751: 0x09,0x7E,
+[; ;usb_descriptors.c: 752: 0x15,0x00,
+[; ;usb_descriptors.c: 753: 0x26,0xFF,0x00,
+[; ;usb_descriptors.c: 754: 0x35,0x00,
+[; ;usb_descriptors.c: 755: 0x46,0x10,0x27,
+[; ;usb_descriptors.c: 756: 0x75,0x08,
+[; ;usb_descriptors.c: 757: 0x95,0x01,
+[; ;usb_descriptors.c: 758: 0x91,0x02,
+[; ;usb_descriptors.c: 759: 0xC0 ,
+[; ;usb_descriptors.c: 760: 0x09,0x6B,
+[; ;usb_descriptors.c: 761: 0xA1,0x02,
+[; ;usb_descriptors.c: 762: 0x85,0x0E,
+[; ;usb_descriptors.c: 763: 0x09,0x22,
+[; ;usb_descriptors.c: 764: 0x15,0x01,
+[; ;usb_descriptors.c: 765: 0x25,0x28,
+[; ;usb_descriptors.c: 766: 0x35,0x01,
+[; ;usb_descriptors.c: 767: 0x45,0x28,
+[; ;usb_descriptors.c: 768: 0x75,0x08,
+[; ;usb_descriptors.c: 769: 0x95,0x01,
+[; ;usb_descriptors.c: 770: 0x91,0x02,
+[; ;usb_descriptors.c: 771: 0x09,0x6D,
+[; ;usb_descriptors.c: 772: 0x15,0x00,
+[; ;usb_descriptors.c: 773: 0x26,0xFF,0x00,
+[; ;usb_descriptors.c: 774: 0x35,0x00,
+[; ;usb_descriptors.c: 775: 0x46,0xFF,0x00,
+[; ;usb_descriptors.c: 776: 0x75,0x08,
+[; ;usb_descriptors.c: 777: 0x95,0x01,
+[; ;usb_descriptors.c: 778: 0x91,0x02,
+[; ;usb_descriptors.c: 779: 0x09,0x51,
+[; ;usb_descriptors.c: 780: 0x66,0x03,0x10,
+[; ;usb_descriptors.c: 781: 0x55,0xFD,
+[; ;usb_descriptors.c: 782: 0x15,0x00,
+[; ;usb_descriptors.c: 783: 0x26,0xFF,0x7F,
+[; ;usb_descriptors.c: 784: 0x35,0x00,
+[; ;usb_descriptors.c: 785: 0x46,0xFF,0x7F,
+[; ;usb_descriptors.c: 786: 0x75,0x10,
+[; ;usb_descriptors.c: 787: 0x95,0x01,
+[; ;usb_descriptors.c: 788: 0x91,0x02,
+[; ;usb_descriptors.c: 789: 0x55,0x00,
+[; ;usb_descriptors.c: 790: 0x66,0x00,0x00,
+[; ;usb_descriptors.c: 791: 0xC0 ,
+[; ;usb_descriptors.c: 792: 0x09,0xAB,
+[; ;usb_descriptors.c: 793: 0xA1,0x02,
+[; ;usb_descriptors.c: 794: 0x85,0x01,
+[; ;usb_descriptors.c: 795: 0x09,0x25,
+[; ;usb_descriptors.c: 796: 0xA1,0x02,
+[; ;usb_descriptors.c: 797: 0x09,0x26,
+[; ;usb_descriptors.c: 798: 0x09,0x27,
+[; ;usb_descriptors.c: 799: 0x09,0x30,
+[; ;usb_descriptors.c: 800: 0x09,0x31,
+[; ;usb_descriptors.c: 801: 0x09,0x32,
+[; ;usb_descriptors.c: 802: 0x09,0x33,
+[; ;usb_descriptors.c: 803: 0x09,0x34,
+[; ;usb_descriptors.c: 804: 0x09,0x40,
+[; ;usb_descriptors.c: 805: 0x09,0x41,
+[; ;usb_descriptors.c: 806: 0x09,0x42,
+[; ;usb_descriptors.c: 807: 0x09,0x43,
+[; ;usb_descriptors.c: 808: 0x09,0x28,
+[; ;usb_descriptors.c: 809: 0x25,0x0C,
+[; ;usb_descriptors.c: 810: 0x15,0x01,
+[; ;usb_descriptors.c: 811: 0x35,0x01,
+[; ;usb_descriptors.c: 812: 0x45,0x0C,
+[; ;usb_descriptors.c: 813: 0x75,0x08,
+[; ;usb_descriptors.c: 814: 0x95,0x01,
+[; ;usb_descriptors.c: 815: 0xB1,0x00,
+[; ;usb_descriptors.c: 816: 0xC0 ,
+[; ;usb_descriptors.c: 817: 0x05,0x01,
+[; ;usb_descriptors.c: 818: 0x09,0x3B,
+[; ;usb_descriptors.c: 819: 0x15,0x00,
+[; ;usb_descriptors.c: 820: 0x26,0xFF,0x01,
+[; ;usb_descriptors.c: 821: 0x35,0x00,
+[; ;usb_descriptors.c: 822: 0x46,0xFF,0x01,
+[; ;usb_descriptors.c: 823: 0x75,0x0A,
+[; ;usb_descriptors.c: 824: 0x95,0x01,
+[; ;usb_descriptors.c: 825: 0xB1,0x02,
+[; ;usb_descriptors.c: 826: 0x75,0x06,
+[; ;usb_descriptors.c: 827: 0xB1,0x01,
+[; ;usb_descriptors.c: 828: 0xC0 ,
+[; ;usb_descriptors.c: 829: 0x05,0x0F,
+[; ;usb_descriptors.c: 830: 0x09,0x89,
+[; ;usb_descriptors.c: 831: 0xA1,0x02,
+[; ;usb_descriptors.c: 832: 0x85,0x02,
+[; ;usb_descriptors.c: 833: 0x09,0x22,
+[; ;usb_descriptors.c: 834: 0x25,0x28,
+[; ;usb_descriptors.c: 835: 0x15,0x01,
+[; ;usb_descriptors.c: 836: 0x35,0x01,
+[; ;usb_descriptors.c: 837: 0x45,0x28,
+[; ;usb_descriptors.c: 838: 0x75,0x08,
+[; ;usb_descriptors.c: 839: 0x95,0x01,
+[; ;usb_descriptors.c: 840: 0xB1,0x02,
+[; ;usb_descriptors.c: 841: 0x09,0x8B,
+[; ;usb_descriptors.c: 842: 0xA1,0x02,
+[; ;usb_descriptors.c: 843: 0x09,0x8C,
+[; ;usb_descriptors.c: 844: 0x09,0x8D,
+[; ;usb_descriptors.c: 845: 0x09,0x8E,
+[; ;usb_descriptors.c: 846: 0x25,0x03,
+[; ;usb_descriptors.c: 847: 0x15,0x01,
+[; ;usb_descriptors.c: 848: 0x35,0x01,
+[; ;usb_descriptors.c: 849: 0x45,0x03,
+[; ;usb_descriptors.c: 850: 0x75,0x08,
+[; ;usb_descriptors.c: 851: 0x95,0x01,
+[; ;usb_descriptors.c: 852: 0xB1,0x00,
+[; ;usb_descriptors.c: 853: 0xC0 ,
+[; ;usb_descriptors.c: 854: 0x09,0xAC,
+[; ;usb_descriptors.c: 855: 0x15,0x00,
+[; ;usb_descriptors.c: 856: 0x27,0xFF,0xFF,0x00,0x00,
+[; ;usb_descriptors.c: 857: 0x35,0x00,
+[; ;usb_descriptors.c: 858: 0x47,0xFF,0xFF,0x00,0x00,
+[; ;usb_descriptors.c: 859: 0x75,0x10,
+[; ;usb_descriptors.c: 860: 0x95,0x01,
+[; ;usb_descriptors.c: 861: 0xB1,0x00,
+[; ;usb_descriptors.c: 862: 0xC0 ,
+[; ;usb_descriptors.c: 863: 0x09,0x7F,
+[; ;usb_descriptors.c: 864: 0xA1,0x02,
+[; ;usb_descriptors.c: 865: 0x85,0x03,
+[; ;usb_descriptors.c: 866: 0x09,0x80,
+[; ;usb_descriptors.c: 867: 0x75,0x10,
+[; ;usb_descriptors.c: 868: 0x95,0x01,
+[; ;usb_descriptors.c: 869: 0x15,0x00,
+[; ;usb_descriptors.c: 870: 0x35,0x00,
+[; ;usb_descriptors.c: 871: 0x27,0xFF,0xFF,0x00,0x00,
+[; ;usb_descriptors.c: 872: 0x47,0xFF,0xFF,0x00,0x00,
+[; ;usb_descriptors.c: 873: 0xB1,0x02,
+[; ;usb_descriptors.c: 874: 0x09,0x83,
+[; ;usb_descriptors.c: 875: 0x26,0xFF,0x00,
+[; ;usb_descriptors.c: 876: 0x46,0xFF,0x00,
+[; ;usb_descriptors.c: 877: 0x75,0x08,
+[; ;usb_descriptors.c: 878: 0x95,0x01,
+[; ;usb_descriptors.c: 879: 0xB1,0x02,
+[; ;usb_descriptors.c: 880: 0x09,0xA9,
+[; ;usb_descriptors.c: 881: 0x09,0xAA,
+[; ;usb_descriptors.c: 882: 0x75,0x01,
+[; ;usb_descriptors.c: 883: 0x95,0x02,
+[; ;usb_descriptors.c: 884: 0x15,0x00,
+[; ;usb_descriptors.c: 885: 0x25,0x01,
+[; ;usb_descriptors.c: 886: 0x35,0x00,
+[; ;usb_descriptors.c: 887: 0x45,0x01,
+[; ;usb_descriptors.c: 888: 0xB1,0x02,
+[; ;usb_descriptors.c: 889: 0x75,0x06,
+[; ;usb_descriptors.c: 890: 0x95,0x01,
+[; ;usb_descriptors.c: 891: 0xB1,0x03,
+[; ;usb_descriptors.c: 892: 0xC0,
+[; ;usb_descriptors.c: 893: 0xC0
+[; ;usb_descriptors.c: 894: }
+[; ;usb_descriptors.c: 895: };
