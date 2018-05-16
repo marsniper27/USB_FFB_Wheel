@@ -1,19 +1,19 @@
 Version 3.2 HI-TECH Software Intermediate Code
 [p mainexit ]
 "33 ../demo_src/main.c
-[c E6378 0 1 2 .. ]
-[n E6378 . SYSTEM_STATE_USB_START SYSTEM_STATE_USB_SUSPEND SYSTEM_STATE_USB_RESUME  ]
+[c E6380 0 1 2 .. ]
+[n E6380 . SYSTEM_STATE_USB_START SYSTEM_STATE_USB_SUSPEND SYSTEM_STATE_USB_RESUME  ]
 "56 .\system.h
-[v _SYSTEM_Initialize `(v ~T0 @X0 0 ef1`E6378 ]
+[v _SYSTEM_Initialize `(v ~T0 @X0 0 ef1`E6380 ]
 "195 ../../../../../../framework/usb/inc\usb_device.h
 [v _USBDeviceInit `(v ~T0 @X0 0 ef ]
 "299
 [v _USBDeviceTasks `(v ~T0 @X0 0 ef ]
 "61 ../demo_src/main.c
-[c E6042 0 1 2 4 8 16 32 .. ]
-[n E6042 . DETACHED_STATE ATTACHED_STATE POWERED_STATE DEFAULT_STATE ADR_PENDING_STATE ADDRESS_STATE CONFIGURED_STATE  ]
+[c E6044 0 1 2 4 8 16 32 .. ]
+[n E6044 . DETACHED_STATE ATTACHED_STATE POWERED_STATE DEFAULT_STATE ADR_PENDING_STATE ADDRESS_STATE CONFIGURED_STATE  ]
 "2046 ../../../../../../framework/usb/inc\usb_device.h
-[v _USBDeviceState `E6042 ~T0 @X0 0 e ]
+[v _USBDeviceState `E6044 ~T0 @X0 0 e ]
 "459 C:\Program Files (x86)\Microchip\xc8\v1.45\include\pic18f45k50.h
 [s S21 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
 [n S21 . . SUSPND RESUME USBEN PKTDIS SE0 PPBRST ]
@@ -5306,10 +5306,12 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;picdem_fs_usb_k50\buttons.h: 30: {
 [; ;picdem_fs_usb_k50\buttons.h: 31: BUTTON_NONE,
 [; ;picdem_fs_usb_k50\buttons.h: 32: BUTTON_S2,
-[; ;picdem_fs_usb_k50\buttons.h: 33: BUTTON_S3
-[; ;picdem_fs_usb_k50\buttons.h: 35: } BUTTON;
-[; ;picdem_fs_usb_k50\buttons.h: 54: bool BUTTON_IsPressed(BUTTON button);
-[; ;picdem_fs_usb_k50\buttons.h: 72: void BUTTON_Enable(BUTTON button);
+[; ;picdem_fs_usb_k50\buttons.h: 33: BUTTON_S3,
+[; ;picdem_fs_usb_k50\buttons.h: 34: BUTTON_S4,
+[; ;picdem_fs_usb_k50\buttons.h: 35: BUTTON_S5
+[; ;picdem_fs_usb_k50\buttons.h: 37: } BUTTON;
+[; ;picdem_fs_usb_k50\buttons.h: 56: bool BUTTON_IsPressed(BUTTON button);
+[; ;picdem_fs_usb_k50\buttons.h: 74: void BUTTON_Enable(BUTTON button);
 [; ;picdem_fs_usb_k50\leds.h: 29: typedef enum
 [; ;picdem_fs_usb_k50\leds.h: 30: {
 [; ;picdem_fs_usb_k50\leds.h: 31: LED_NONE,
@@ -5915,7 +5917,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [f ]
 [; ;main.c: 33: SYSTEM_Initialize(SYSTEM_STATE_USB_START);
 "33
-[e ( _SYSTEM_Initialize (1 . `E6378 0 ]
+[e ( _SYSTEM_Initialize (1 . `E6380 0 ]
 [; ;main.c: 35: USBDeviceInit();
 "35
 [e ( _USBDeviceInit ..  ]
@@ -5932,7 +5934,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e ( _USBDeviceTasks ..  ]
 [; ;main.c: 61: if( USBDeviceState < CONFIGURED_STATE )
 "61
-[e $ ! < -> _USBDeviceState `i -> . `E6042 6 `i 690  ]
+[e $ ! < -> _USBDeviceState `i -> . `E6044 6 `i 690  ]
 [; ;main.c: 62: {
 "62
 {

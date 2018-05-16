@@ -16,15 +16,4 @@ limitations under the License.
 To request to license the code under the MLA license (www.microchip.com/mla_license), 
 please contact mla_licensing@microchip.com
 *******************************************************************************/
-#include "leds.h"
-#include "buttons.h"
-
-#define BUTTON_X                                BUTTON_S2
-#define BUTTON_SQUARE                           BUTTON_S3
-#define BUTTON_O                                BUTTON_S4
-#define BUTTON_TRIANGLE                         BUTTON_S5
-#define LED_USB_DEVICE_STATE                    LED_D1
-#define WHEEL                                   WHEEL_1
-
-#define self_power                              1
-
+#include "usb_config.h"

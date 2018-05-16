@@ -6983,17 +6983,19 @@ typedef enum
 {
 BUTTON_NONE,
 BUTTON_S2,
-BUTTON_S3
+BUTTON_S3,
+BUTTON_S4,
+BUTTON_S5
 
 } BUTTON;
 
-# 54
+# 56
 bool BUTTON_IsPressed(BUTTON button);
 
-# 72
+# 74
 void BUTTON_Enable(BUTTON button);
 
-# 63 "../../../../../../bsp/picdem_fs_usb_k50/buttons.c"
+# 69 "../../../../../../bsp/picdem_fs_usb_k50/buttons.c"
 bool BUTTON_IsPressed(BUTTON button)
 {
 switch(button)
@@ -7004,6 +7006,12 @@ return ( (PORTBbits.RB4 == 0) ? 1 : 0);
 case BUTTON_S3:
 return ( (PORTBbits.RB5 == 0) ? 1 : 0);
 
+case BUTTON_S4:
+return ( (PORTBbits.RB6 == 0) ? 1 : 0);
+
+case BUTTON_S5:
+return ( (PORTBbits.RB7 == 0) ? 1 : 0);
+
 case BUTTON_NONE:
 return 0;
 }
@@ -7011,7 +7019,7 @@ return 0;
 return 0;
 }
 
-# 96
+# 108
 void BUTTON_Enable(BUTTON button)
 {
 switch(button)
@@ -7025,6 +7033,15 @@ case BUTTON_S3:
 TRISBbits.TRISB5 = 1;
 ANSELBbits.ANSB5 = 0;
 break;
+
+case BUTTON_S4:
+TRISBbits.TRISB6 = 1;
+ANSELBbits.ANSB6 = 0;
+break;
+
+case BUTTON_S5:
+TRISBbits.TRISB7 = 1;
+ANSELBbits.ANSB7 = 0;
 
 case BUTTON_NONE:
 break;

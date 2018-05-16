@@ -1,41 +1,28 @@
 /********************************************************************
- Software License Agreement:
-
- The software supplied herewith by Microchip Technology Incorporated
- (the "Company") for its PIC(R) Microcontroller is intended and
- supplied to you, the Company's customer, for use solely and
- exclusively on Microchip PIC Microcontroller products. The
- software is owned by the Company and/or its supplier, and is
- protected under applicable copyright laws. All rights are reserved.
- Any use in violation of the foregoing restrictions may subject the
- user to criminal sanctions under applicable laws, as well as to
- civil liability for the breach of the terms and conditions of this
- license.
-
- THIS SOFTWARE IS PROVIDED IN AN "AS IS" CONDITION. NO WARRANTIES,
- WHETHER EXPRESS, IMPLIED OR STATUTORY, INCLUDING, BUT NOT LIMITED
- TO, IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A
- PARTICULAR PURPOSE APPLY TO THIS SOFTWARE. THE COMPANY SHALL NOT,
- IN ANY CIRCUMSTANCES, BE LIABLE FOR SPECIAL, INCIDENTAL OR
- CONSEQUENTIAL DAMAGES, FOR ANY REASON WHATSOEVER.
+ * File:   wheel.h
+ * Author: kyle.marshall
+ *
+ * Created on May 16, 2018, 1:18 PM
  *******************************************************************/
 
+#include <xc.h>
 #include <stdbool.h>
-
-#ifndef BUTTONS_H
-#define BUTTONS_H
+#include <buttons.h>
 
 /*** Button Definitions *********************************************/
-typedef enum
-{
-    BUTTON_NONE,
-    BUTTON_S2,
-    BUTTON_S3,
-    BUTTON_S4,
-    BUTTON_S5
-    //S1 is MCLR
-} BUTTON;
+#define Wheel_PORT  PORTAbits.RA0
 
+#define Wheel_TRIS  TRISAbits.TRISA0
+//      S4       MCLR button
+
+#define BUTTON_PRESSED      0
+#define BUTTON_NOT_PRESSED  1
+
+#define PIN_INPUT           1
+#define PIN_OUTPUT          0
+
+#define PIN_DIGITAL         1
+#define PIN_ANALOG          0
 
 /*********************************************************************
 * Function: bool BUTTON_IsPressed(BUTTON button);
@@ -53,7 +40,26 @@ typedef enum
 * Output: TRUE if pressed; FALSE if not pressed.
 *
 ********************************************************************/
-bool BUTTON_IsPressed(BUTTON button);
+unsigned int WHEEL_Turned(WHEEL wheel)
+{
+    ADC_Init();
+    
+    switch(wheel)
+    {
+        case WHEEL_1:
+            ADCON0 &= 0xC5;              //Clearing channel selection bits
+            ADCON0 |= 0<<3;        //Setting channel selection bits
+            __delay_ms(2);               //Acquisition time to charge hold capacitor
+            GO_nDONE = 1;                //Initializes A/D conversion
+            while(GO_nDONE);             //Waiting for conversion to complete
+            return ((ADRESH<<8)+ADRESL); //Return result
+            
+        case WHEEL_NONE:
+            return 128;
+    }
+    
+    return 128;
+}
 
 /*********************************************************************
 * Function: void BUTTON_Enable(BUTTON button);
@@ -71,6 +77,21 @@ bool BUTTON_IsPressed(BUTTON button);
 * Output: None
 *
 ********************************************************************/
-void BUTTON_Enable(BUTTON button);
+void WHEEL_Enable(WHEEL wheel)
+{
+    switch(wheel)
+    {
+        case WHEEL_1:
+            Wheel_TRIS = PIN_INPUT;
+            ANCON1bits.PCFG0 = PIN_ANALOG;
+            
+        case WHEEL_NONE:
+            break;
+    }
+}
 
-#endif //BUTTONS_H
+void ADC_Init()
+{
+  ADCON0 = 0x81;               //Turn ON ADC and Clock Selection
+  ADCON1 = 0x0E;               //All pins as Analog Input and setting Reference Voltages
+}

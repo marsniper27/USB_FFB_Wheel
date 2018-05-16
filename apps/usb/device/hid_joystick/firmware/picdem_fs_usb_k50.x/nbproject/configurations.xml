@@ -24,6 +24,7 @@
       <itemPath>./fixed_address_memory.h</itemPath>
       <itemPath>io_mapping.h</itemPath>
       <itemPath>../demo_src/app_device_joystick.h</itemPath>
+      <itemPath>C:/Users/kyle.marshall/MPLABXProjects/USB_FFB_Wheel.X/framework/usb/inc/wheel.h</itemPath>
     </logicalFolder>
     <logicalFolder name="LinkerScript"
                    displayName="Linker Files"
@@ -46,6 +47,7 @@
       <itemPath>../demo_src/main.c</itemPath>
       <itemPath>system.c</itemPath>
       <itemPath>../demo_src/app_device_joystick.c</itemPath>
+      <itemPath>C:/Users/kyle.marshall/MPLABXProjects/USB_FFB_Wheel.X/framework/usb/inc/wheel.c</itemPath>
     </logicalFolder>
     <logicalFolder name="ExternalFiles"
                    displayName="Important Files"

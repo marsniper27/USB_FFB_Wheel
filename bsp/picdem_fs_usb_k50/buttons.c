@@ -28,12 +28,18 @@
 //      S1       MCLR reset
 #define S2_PORT  PORTBbits.RB4      //AN11
 #define S3_PORT  PORTBbits.RB5      
+#define S4_PORT  PORTBbits.RB6      
+#define S5_PORT  PORTBbits.RB7     
 
 #define S2_TRIS  TRISBbits.TRISB4
 #define S3_TRIS  TRISBbits.TRISB5
+#define S4_TRIS  TRISBbits.TRISB6
+#define S5_TRIS  TRISBbits.TRISB7
 
 #define S2_ANSEL ANSELBbits.ANSB4
 #define S3_ANSEL ANSELBbits.ANSB5
+#define S4_ANSEL ANSELBbits.ANSB6
+#define S5_ANSEL ANSELBbits.ANSB7
 
 #define BUTTON_PRESSED      0
 #define BUTTON_NOT_PRESSED  1
@@ -69,6 +75,12 @@ bool BUTTON_IsPressed(BUTTON button)
 			
         case BUTTON_S3:
             return ( (S3_PORT == BUTTON_PRESSED) ? true : false);
+            
+        case BUTTON_S4:
+            return ( (S4_PORT == BUTTON_PRESSED) ? true : false);
+            
+        case BUTTON_S5:
+            return ( (S5_PORT == BUTTON_PRESSED) ? true : false);
 
         case BUTTON_NONE:
             return false;
@@ -106,6 +118,15 @@ void BUTTON_Enable(BUTTON button)
             S3_TRIS = PIN_INPUT;
             S3_ANSEL = PIN_DIGITAL;
             break;
+			
+        case BUTTON_S4:
+            S4_TRIS = PIN_INPUT;
+            S4_ANSEL = PIN_DIGITAL;
+            break;
+			
+        case BUTTON_S5:
+            S5_TRIS = PIN_INPUT;
+            S5_ANSEL = PIN_DIGITAL;
 
         case BUTTON_NONE:
             break;

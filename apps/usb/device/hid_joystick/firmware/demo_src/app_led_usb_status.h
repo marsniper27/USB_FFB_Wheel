@@ -16,15 +16,22 @@ limitations under the License.
 To request to license the code under the MLA license (www.microchip.com/mla_license), 
 please contact mla_licensing@microchip.com
 *******************************************************************************/
-#include "leds.h"
-#include "buttons.h"
 
-#define BUTTON_X                                BUTTON_S2
-#define BUTTON_SQUARE                           BUTTON_S3
-#define BUTTON_O                                BUTTON_S4
-#define BUTTON_TRIANGLE                         BUTTON_S5
-#define LED_USB_DEVICE_STATE                    LED_D1
-#define WHEEL                                   WHEEL_1
-
-#define self_power                              1
-
+/*********************************************************************
+* Function: void APP_LEDUpdateUSBStatus(void);
+*
+* Overview: Uses one LED to indicate the status of the device on the USB bus.
+*           A fast blink indicates successfully connected.  A slow pulse
+*           indicates that it is still in the process of connecting.  Off
+*           indicates thta it is not attached to the bus or the bus is suspended.
+*           This should be called on every start of frame packet reception and
+*           if a suspend/resume event occurs.
+*
+* PreCondition: LEDs are enabled.
+*
+* Input: None
+*
+* Output: None
+*
+********************************************************************/
+void APP_LEDUpdateUSBStatus(void);

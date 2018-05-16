@@ -7924,14 +7924,16 @@ typedef enum
 {
 BUTTON_NONE,
 BUTTON_S2,
-BUTTON_S3
+BUTTON_S3,
+BUTTON_S4,
+BUTTON_S5
 
 } BUTTON;
 
-# 54
+# 56
 bool BUTTON_IsPressed(BUTTON button);
 
-# 72
+# 74
 void BUTTON_Enable(BUTTON button);
 
 # 29 "../../../../../../bsp/picdem_fs_usb_k50\leds.h"
@@ -8051,14 +8053,48 @@ return;
 
 if(!((lastTransmission != 0x0000) && ((*(volatile uint8_t*)lastTransmission & 0x80) != 0x00)))
 {
+uint8_t ButtonsPressed = 0;
 
 if(BUTTON_IsPressed(BUTTON_S2) == 1)
 {
-
 joystick_input.members.buttons.x = 1;
+ButtonsPressed++;
+}
+else
+{
+joystick_input.members.buttons.x = 0;
+}
+
+if(BUTTON_IsPressed(BUTTON_S3) == 1)
+{
+joystick_input.members.buttons.square = 1;
+ButtonsPressed++;
+}
+else
+{
 joystick_input.members.buttons.square = 0;
+}
+
+if(BUTTON_IsPressed(BUTTON_S4) == 1)
+{
+joystick_input.members.buttons.o = 1;
+ButtonsPressed++;
+}
+else
+{
 joystick_input.members.buttons.o = 0;
+}
+
+if(BUTTON_IsPressed(BUTTON_S5) == 1)
+{
+joystick_input.members.buttons.triangle = 1;
+ButtonsPressed++;
+}
+else
+{
 joystick_input.members.buttons.triangle = 0;
+}
+
 joystick_input.members.buttons.L1 = 0;
 joystick_input.members.buttons.R1 = 0;
 joystick_input.members.buttons.L2 = 0;
@@ -8080,8 +8116,8 @@ joystick_input.members.analog_stick.Y = 0;
 
 lastTransmission = USBTransferOnePacket(1,1,(uint8_t*)&joystick_input,sizeof(joystick_input));
 
-}
-else
+
+if(ButtonsPressed == 0)
 {
 
 
@@ -8102,6 +8138,5 @@ joystick_input.val[6] = 0x80;
 lastTransmission = USBTransferOnePacket(1,1,(uint8_t*)&joystick_input,sizeof(joystick_input));
 }
 }
-
 }
 

@@ -57,17 +57,17 @@ OBJECTDIR=build/${CND_CONF}/${IMAGE_TYPE}
 DISTDIR=dist/${CND_CONF}/${IMAGE_TYPE}
 
 # Source Files Quoted if spaced
-SOURCEFILES_QUOTED_IF_SPACED=../../../../../../bsp/picdem_fs_usb_k50/buttons.c ../../../../../../bsp/picdem_fs_usb_k50/leds.c ../../../../../../framework/usb/src/usb_device.c ../demo_src/usb_descriptors.c ../../../../../../framework/usb/src/usb_device_hid.c ../demo_src/usb_events.c ../demo_src/app_led_usb_status.c ../demo_src/main.c system.c ../demo_src/app_device_joystick.c
+SOURCEFILES_QUOTED_IF_SPACED=../../../../../../bsp/picdem_fs_usb_k50/buttons.c ../../../../../../bsp/picdem_fs_usb_k50/leds.c ../../../../../../framework/usb/src/usb_device.c ../demo_src/usb_descriptors.c ../../../../../../framework/usb/src/usb_device_hid.c ../demo_src/usb_events.c ../demo_src/app_led_usb_status.c ../demo_src/main.c system.c ../demo_src/app_device_joystick.c C:/Users/kyle.marshall/MPLABXProjects/USB_FFB_Wheel.X/framework/usb/inc/wheel.c
 
 # Object Files Quoted if spaced
-OBJECTFILES_QUOTED_IF_SPACED=${OBJECTDIR}/_ext/2111607034/buttons.p1 ${OBJECTDIR}/_ext/2111607034/leds.p1 ${OBJECTDIR}/_ext/838585624/usb_device.p1 ${OBJECTDIR}/_ext/300881143/usb_descriptors.p1 ${OBJECTDIR}/_ext/838585624/usb_device_hid.p1 ${OBJECTDIR}/_ext/300881143/usb_events.p1 ${OBJECTDIR}/_ext/300881143/app_led_usb_status.p1 ${OBJECTDIR}/_ext/300881143/main.p1 ${OBJECTDIR}/system.p1 ${OBJECTDIR}/_ext/300881143/app_device_joystick.p1
-POSSIBLE_DEPFILES=${OBJECTDIR}/_ext/2111607034/buttons.p1.d ${OBJECTDIR}/_ext/2111607034/leds.p1.d ${OBJECTDIR}/_ext/838585624/usb_device.p1.d ${OBJECTDIR}/_ext/300881143/usb_descriptors.p1.d ${OBJECTDIR}/_ext/838585624/usb_device_hid.p1.d ${OBJECTDIR}/_ext/300881143/usb_events.p1.d ${OBJECTDIR}/_ext/300881143/app_led_usb_status.p1.d ${OBJECTDIR}/_ext/300881143/main.p1.d ${OBJECTDIR}/system.p1.d ${OBJECTDIR}/_ext/300881143/app_device_joystick.p1.d
+OBJECTFILES_QUOTED_IF_SPACED=${OBJECTDIR}/_ext/2111607034/buttons.p1 ${OBJECTDIR}/_ext/2111607034/leds.p1 ${OBJECTDIR}/_ext/838585624/usb_device.p1 ${OBJECTDIR}/_ext/300881143/usb_descriptors.p1 ${OBJECTDIR}/_ext/838585624/usb_device_hid.p1 ${OBJECTDIR}/_ext/300881143/usb_events.p1 ${OBJECTDIR}/_ext/300881143/app_led_usb_status.p1 ${OBJECTDIR}/_ext/300881143/main.p1 ${OBJECTDIR}/system.p1 ${OBJECTDIR}/_ext/300881143/app_device_joystick.p1 ${OBJECTDIR}/_ext/38635930/wheel.p1
+POSSIBLE_DEPFILES=${OBJECTDIR}/_ext/2111607034/buttons.p1.d ${OBJECTDIR}/_ext/2111607034/leds.p1.d ${OBJECTDIR}/_ext/838585624/usb_device.p1.d ${OBJECTDIR}/_ext/300881143/usb_descriptors.p1.d ${OBJECTDIR}/_ext/838585624/usb_device_hid.p1.d ${OBJECTDIR}/_ext/300881143/usb_events.p1.d ${OBJECTDIR}/_ext/300881143/app_led_usb_status.p1.d ${OBJECTDIR}/_ext/300881143/main.p1.d ${OBJECTDIR}/system.p1.d ${OBJECTDIR}/_ext/300881143/app_device_joystick.p1.d ${OBJECTDIR}/_ext/38635930/wheel.p1.d
 
 # Object Files
-OBJECTFILES=${OBJECTDIR}/_ext/2111607034/buttons.p1 ${OBJECTDIR}/_ext/2111607034/leds.p1 ${OBJECTDIR}/_ext/838585624/usb_device.p1 ${OBJECTDIR}/_ext/300881143/usb_descriptors.p1 ${OBJECTDIR}/_ext/838585624/usb_device_hid.p1 ${OBJECTDIR}/_ext/300881143/usb_events.p1 ${OBJECTDIR}/_ext/300881143/app_led_usb_status.p1 ${OBJECTDIR}/_ext/300881143/main.p1 ${OBJECTDIR}/system.p1 ${OBJECTDIR}/_ext/300881143/app_device_joystick.p1
+OBJECTFILES=${OBJECTDIR}/_ext/2111607034/buttons.p1 ${OBJECTDIR}/_ext/2111607034/leds.p1 ${OBJECTDIR}/_ext/838585624/usb_device.p1 ${OBJECTDIR}/_ext/300881143/usb_descriptors.p1 ${OBJECTDIR}/_ext/838585624/usb_device_hid.p1 ${OBJECTDIR}/_ext/300881143/usb_events.p1 ${OBJECTDIR}/_ext/300881143/app_led_usb_status.p1 ${OBJECTDIR}/_ext/300881143/main.p1 ${OBJECTDIR}/system.p1 ${OBJECTDIR}/_ext/300881143/app_device_joystick.p1 ${OBJECTDIR}/_ext/38635930/wheel.p1
 
 # Source Files
-SOURCEFILES=../../../../../../bsp/picdem_fs_usb_k50/buttons.c ../../../../../../bsp/picdem_fs_usb_k50/leds.c ../../../../../../framework/usb/src/usb_device.c ../demo_src/usb_descriptors.c ../../../../../../framework/usb/src/usb_device_hid.c ../demo_src/usb_events.c ../demo_src/app_led_usb_status.c ../demo_src/main.c system.c ../demo_src/app_device_joystick.c
+SOURCEFILES=../../../../../../bsp/picdem_fs_usb_k50/buttons.c ../../../../../../bsp/picdem_fs_usb_k50/leds.c ../../../../../../framework/usb/src/usb_device.c ../demo_src/usb_descriptors.c ../../../../../../framework/usb/src/usb_device_hid.c ../demo_src/usb_events.c ../demo_src/app_led_usb_status.c ../demo_src/main.c system.c ../demo_src/app_device_joystick.c C:/Users/kyle.marshall/MPLABXProjects/USB_FFB_Wheel.X/framework/usb/inc/wheel.c
 
 
 CFLAGS=
@@ -173,6 +173,14 @@ ${OBJECTDIR}/_ext/300881143/app_device_joystick.p1: ../demo_src/app_device_joyst
 	@-${MV} ${OBJECTDIR}/_ext/300881143/app_device_joystick.d ${OBJECTDIR}/_ext/300881143/app_device_joystick.p1.d 
 	@${FIXDEPS} ${OBJECTDIR}/_ext/300881143/app_device_joystick.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
 	
+${OBJECTDIR}/_ext/38635930/wheel.p1: C:/Users/kyle.marshall/MPLABXProjects/USB_FFB_Wheel.X/framework/usb/inc/wheel.c  nbproject/Makefile-${CND_CONF}.mk
+	@${MKDIR} "${OBJECTDIR}/_ext/38635930" 
+	@${RM} ${OBJECTDIR}/_ext/38635930/wheel.p1.d 
+	@${RM} ${OBJECTDIR}/_ext/38635930/wheel.p1 
+	${MP_CC} --pass1 $(MP_EXTRA_CC_PRE) --chip=$(MP_PROCESSOR_OPTION) -Q -G  -D__DEBUG=1 --debugger=icd3  --double=24 --float=24 --emi=wordwrite --opt=+asm,-asmfile,+speed,-space,-debug,-local --addrqual=ignore --mode=pro -P -N255 -I"../demo_src" -I"../../../../../../framework/usb/inc" -I"../../../../../../bsp/picdem_fs_usb_k50" -I"." --warn=0 --asmlist -DXPRJ_PICDEM_FSUSB_K50=$(CND_CONF)  --summary=default,-psect,-class,+mem,-hex,-file --output=default,-inhx032 --runtime=default,+clear,+init,-keep,-no_startup,-download,+config,+clib,-plib $(COMPARISON_BUILD)  --output=-mcof,+elf:multilocs --stack=compiled:auto:auto:auto "--errformat=%f:%l: error: (%n) %s" "--warnformat=%f:%l: warning: (%n) %s" "--msgformat=%f:%l: advisory: (%n) %s"    -o${OBJECTDIR}/_ext/38635930/wheel.p1  C:/Users/kyle.marshall/MPLABXProjects/USB_FFB_Wheel.X/framework/usb/inc/wheel.c 
+	@-${MV} ${OBJECTDIR}/_ext/38635930/wheel.d ${OBJECTDIR}/_ext/38635930/wheel.p1.d 
+	@${FIXDEPS} ${OBJECTDIR}/_ext/38635930/wheel.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
+	
 else
 ${OBJECTDIR}/_ext/2111607034/buttons.p1: ../../../../../../bsp/picdem_fs_usb_k50/buttons.c  nbproject/Makefile-${CND_CONF}.mk
 	@${MKDIR} "${OBJECTDIR}/_ext/2111607034" 
@@ -253,6 +261,14 @@ ${OBJECTDIR}/_ext/300881143/app_device_joystick.p1: ../demo_src/app_device_joyst
 	${MP_CC} --pass1 $(MP_EXTRA_CC_PRE) --chip=$(MP_PROCESSOR_OPTION) -Q -G  --double=24 --float=24 --emi=wordwrite --opt=+asm,-asmfile,+speed,-space,-debug,-local --addrqual=ignore --mode=pro -P -N255 -I"../demo_src" -I"../../../../../../framework/usb/inc" -I"../../../../../../bsp/picdem_fs_usb_k50" -I"." --warn=0 --asmlist -DXPRJ_PICDEM_FSUSB_K50=$(CND_CONF)  --summary=default,-psect,-class,+mem,-hex,-file --output=default,-inhx032 --runtime=default,+clear,+init,-keep,-no_startup,-download,+config,+clib,-plib $(COMPARISON_BUILD)  --output=-mcof,+elf:multilocs --stack=compiled:auto:auto:auto "--errformat=%f:%l: error: (%n) %s" "--warnformat=%f:%l: warning: (%n) %s" "--msgformat=%f:%l: advisory: (%n) %s"    -o${OBJECTDIR}/_ext/300881143/app_device_joystick.p1  ../demo_src/app_device_joystick.c 
 	@-${MV} ${OBJECTDIR}/_ext/300881143/app_device_joystick.d ${OBJECTDIR}/_ext/300881143/app_device_joystick.p1.d 
 	@${FIXDEPS} ${OBJECTDIR}/_ext/300881143/app_device_joystick.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
+	
+${OBJECTDIR}/_ext/38635930/wheel.p1: C:/Users/kyle.marshall/MPLABXProjects/USB_FFB_Wheel.X/framework/usb/inc/wheel.c  nbproject/Makefile-${CND_CONF}.mk
+	@${MKDIR} "${OBJECTDIR}/_ext/38635930" 
+	@${RM} ${OBJECTDIR}/_ext/38635930/wheel.p1.d 
+	@${RM} ${OBJECTDIR}/_ext/38635930/wheel.p1 
+	${MP_CC} --pass1 $(MP_EXTRA_CC_PRE) --chip=$(MP_PROCESSOR_OPTION) -Q -G  --double=24 --float=24 --emi=wordwrite --opt=+asm,-asmfile,+speed,-space,-debug,-local --addrqual=ignore --mode=pro -P -N255 -I"../demo_src" -I"../../../../../../framework/usb/inc" -I"../../../../../../bsp/picdem_fs_usb_k50" -I"." --warn=0 --asmlist -DXPRJ_PICDEM_FSUSB_K50=$(CND_CONF)  --summary=default,-psect,-class,+mem,-hex,-file --output=default,-inhx032 --runtime=default,+clear,+init,-keep,-no_startup,-download,+config,+clib,-plib $(COMPARISON_BUILD)  --output=-mcof,+elf:multilocs --stack=compiled:auto:auto:auto "--errformat=%f:%l: error: (%n) %s" "--warnformat=%f:%l: warning: (%n) %s" "--msgformat=%f:%l: advisory: (%n) %s"    -o${OBJECTDIR}/_ext/38635930/wheel.p1  C:/Users/kyle.marshall/MPLABXProjects/USB_FFB_Wheel.X/framework/usb/inc/wheel.c 
+	@-${MV} ${OBJECTDIR}/_ext/38635930/wheel.d ${OBJECTDIR}/_ext/38635930/wheel.p1.d 
+	@${FIXDEPS} ${OBJECTDIR}/_ext/38635930/wheel.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
 	
 endif
 

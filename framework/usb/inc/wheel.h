@@ -1,40 +1,22 @@
-/********************************************************************
- Software License Agreement:
-
- The software supplied herewith by Microchip Technology Incorporated
- (the "Company") for its PIC(R) Microcontroller is intended and
- supplied to you, the Company's customer, for use solely and
- exclusively on Microchip PIC Microcontroller products. The
- software is owned by the Company and/or its supplier, and is
- protected under applicable copyright laws. All rights are reserved.
- Any use in violation of the foregoing restrictions may subject the
- user to criminal sanctions under applicable laws, as well as to
- civil liability for the breach of the terms and conditions of this
- license.
-
- THIS SOFTWARE IS PROVIDED IN AN "AS IS" CONDITION. NO WARRANTIES,
- WHETHER EXPRESS, IMPLIED OR STATUTORY, INCLUDING, BUT NOT LIMITED
- TO, IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A
- PARTICULAR PURPOSE APPLY TO THIS SOFTWARE. THE COMPANY SHALL NOT,
- IN ANY CIRCUMSTANCES, BE LIABLE FOR SPECIAL, INCIDENTAL OR
- CONSEQUENTIAL DAMAGES, FOR ANY REASON WHATSOEVER.
- *******************************************************************/
+/* 
+ * File:   wheel.h
+ * Author: kyle.marshall
+ *
+ * Created on May 16, 2018, 1:18 PM
+ */
 
 #include <stdbool.h>
 
-#ifndef BUTTONS_H
-#define BUTTONS_H
+#ifndef WHEEL_H
+#define	WHEEL_H
 
 /*** Button Definitions *********************************************/
 typedef enum
 {
-    BUTTON_NONE,
-    BUTTON_S2,
-    BUTTON_S3,
-    BUTTON_S4,
-    BUTTON_S5
-    //S1 is MCLR
-} BUTTON;
+    WHEEL_NONE,
+    WHEEL_1
+            
+} WHEEL;
 
 
 /*********************************************************************
@@ -53,7 +35,7 @@ typedef enum
 * Output: TRUE if pressed; FALSE if not pressed.
 *
 ********************************************************************/
-bool BUTTON_IsPressed(BUTTON button);
+bool WHEEL_Turned(WHEEL wheel);
 
 /*********************************************************************
 * Function: void BUTTON_Enable(BUTTON button);
@@ -71,6 +53,6 @@ bool BUTTON_IsPressed(BUTTON button);
 * Output: None
 *
 ********************************************************************/
-void BUTTON_Enable(BUTTON button);
+void WHEEL_Enable(WHEEL wheel);
 
-#endif //BUTTONS_H
+#endif	/* WHEEL_H */
