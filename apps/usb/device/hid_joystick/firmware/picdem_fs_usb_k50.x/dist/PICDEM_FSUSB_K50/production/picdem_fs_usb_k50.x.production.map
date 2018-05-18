@@ -5,7 +5,7 @@ Linker command line:
 --edf=C:\Program Files (x86)\Microchip\xc8\v1.45\dat\en_msgs.txt -cs \
   -h+dist/PICDEM_FSUSB_K50/production\picdem_fs_usb_k50.x.production.sym \
   --cmf=dist/PICDEM_FSUSB_K50/production\picdem_fs_usb_k50.x.production.cmf \
-  -z -Q18F45K50 -oC:\Users\KYLE~1.MAR\AppData\Local\Temp\s21ts.2 \
+  -z -Q18F45K50 -oC:\Users\KYLE~1.MAR\AppData\Local\Temp\s21do.2 \
   -Mdist/PICDEM_FSUSB_K50/production/picdem_fs_usb_k50.x.production.map -E1 \
   -ver=XC8 -ASTACK=07Fh-03ffh -pstack=STACK -ACODE=00h-07FFFh \
   -ACONST=00h-07FFFh -ASMALLCONST=0800h-08FFhx120 \
@@ -23,7 +23,7 @@ Linker command line:
   -pfarbss=FARRAM,fardata=FARRAM,nvFARRAM=FARRAM \
   -pintsave_regs=BIGRAM,bigbss=BIGRAM,bigdata=BIGRAM -pbss=RAM \
   -pidata=CODE,irdata=CODE,ibigdata=CODE,ifardata=CODE -prparam=COMRAM \
-  C:\Users\KYLE~1.MAR\AppData\Local\Temp\s21ts.obj \
+  C:\Users\KYLE~1.MAR\AppData\Local\Temp\s21do.obj \
   dist/PICDEM_FSUSB_K50/production\picdem_fs_usb_k50.x.production.obj 
 
 Object code version is 3.11
@@ -36,7 +36,7 @@ Call graph: (short form)
 
 
                 Name                               Link     Load   Length Selector   Space Scale
-C:\Users\KYLE~1.MAR\AppData\Local\Temp\s21ts.obj
+C:\Users\KYLE~1.MAR\AppData\Local\Temp\s21do.obj
                 init                                 9E       9E        4        4       0
                 reset_vec                             0        0        4        0       0
                 idloc                            200000   200000        8   200000       0

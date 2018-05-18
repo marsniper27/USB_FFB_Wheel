@@ -11,7 +11,7 @@
 # All addresses and the length are given in unqualified hexadecimal
 # in delta units.  Any other numeric values are decimal.
 %PSECTS
-$C:\Users\KYLE~1.MAR\AppData\Local\Temp\s21ts.obj
+$C:\Users\KYLE~1.MAR\AppData\Local\Temp\s21do.obj
 idloc IDLOC 0 200000 200000 8 1
 init CODE 0 9E 9E 4 1
 reset_vec CODE 0 0 0 4 1
@@ -1084,28 +1084,28 @@ CF2 text10 CODE >1744:C:\Users\kyle.marshall\MPLABXProjects\USB_FFB_Wheel.X/fram
 19DC text0 CODE >71:C:\Users\kyle.marshall\MPLABXProjects\USB_FFB_Wheel.X\apps\usb\device\hid_joystick\firmware/demo_src/main.c
 19E0 text0 CODE >78:C:\Users\kyle.marshall\MPLABXProjects\USB_FFB_Wheel.X\apps\usb\device\hid_joystick\firmware/demo_src/main.c
 19E4 text0 CODE >38:C:\Users\kyle.marshall\MPLABXProjects\USB_FFB_Wheel.X\apps\usb\device\hid_joystick\firmware/demo_src/main.c
-19A0 cinit CODE >6332:C:\Users\KYLE~1.MAR\AppData\Local\Temp\s21ts.
-19A0 cinit CODE >6334:C:\Users\KYLE~1.MAR\AppData\Local\Temp\s21ts.
-19A0 cinit CODE >6337:C:\Users\KYLE~1.MAR\AppData\Local\Temp\s21ts.
-19A0 cinit CODE >6445:C:\Users\KYLE~1.MAR\AppData\Local\Temp\s21ts.
-19A4 cinit CODE >6446:C:\Users\KYLE~1.MAR\AppData\Local\Temp\s21ts.
-19A6 cinit CODE >6447:C:\Users\KYLE~1.MAR\AppData\Local\Temp\s21ts.
-19A6 cinit CODE >6448:C:\Users\KYLE~1.MAR\AppData\Local\Temp\s21ts.
-19A8 cinit CODE >6449:C:\Users\KYLE~1.MAR\AppData\Local\Temp\s21ts.
-19AA cinit CODE >6450:C:\Users\KYLE~1.MAR\AppData\Local\Temp\s21ts.
-19AC cinit CODE >6453:C:\Users\KYLE~1.MAR\AppData\Local\Temp\s21ts.
-19B0 cinit CODE >6454:C:\Users\KYLE~1.MAR\AppData\Local\Temp\s21ts.
-19B2 cinit CODE >6455:C:\Users\KYLE~1.MAR\AppData\Local\Temp\s21ts.
-19B2 cinit CODE >6456:C:\Users\KYLE~1.MAR\AppData\Local\Temp\s21ts.
-19B4 cinit CODE >6457:C:\Users\KYLE~1.MAR\AppData\Local\Temp\s21ts.
-19B6 cinit CODE >6458:C:\Users\KYLE~1.MAR\AppData\Local\Temp\s21ts.
-19B8 cinit CODE >6464:C:\Users\KYLE~1.MAR\AppData\Local\Temp\s21ts.
-19B8 cinit CODE >6466:C:\Users\KYLE~1.MAR\AppData\Local\Temp\s21ts.
-19BA cinit CODE >6467:C:\Users\KYLE~1.MAR\AppData\Local\Temp\s21ts.
-19BC cinit CODE >6469:C:\Users\KYLE~1.MAR\AppData\Local\Temp\s21ts.
-19BE cinit CODE >6470:C:\Users\KYLE~1.MAR\AppData\Local\Temp\s21ts.
-19C0 cinit CODE >6471:C:\Users\KYLE~1.MAR\AppData\Local\Temp\s21ts.
-19C2 cinit CODE >6472:C:\Users\KYLE~1.MAR\AppData\Local\Temp\s21ts.
+19A0 cinit CODE >6332:C:\Users\KYLE~1.MAR\AppData\Local\Temp\s21do.
+19A0 cinit CODE >6334:C:\Users\KYLE~1.MAR\AppData\Local\Temp\s21do.
+19A0 cinit CODE >6337:C:\Users\KYLE~1.MAR\AppData\Local\Temp\s21do.
+19A0 cinit CODE >6445:C:\Users\KYLE~1.MAR\AppData\Local\Temp\s21do.
+19A4 cinit CODE >6446:C:\Users\KYLE~1.MAR\AppData\Local\Temp\s21do.
+19A6 cinit CODE >6447:C:\Users\KYLE~1.MAR\AppData\Local\Temp\s21do.
+19A6 cinit CODE >6448:C:\Users\KYLE~1.MAR\AppData\Local\Temp\s21do.
+19A8 cinit CODE >6449:C:\Users\KYLE~1.MAR\AppData\Local\Temp\s21do.
+19AA cinit CODE >6450:C:\Users\KYLE~1.MAR\AppData\Local\Temp\s21do.
+19AC cinit CODE >6453:C:\Users\KYLE~1.MAR\AppData\Local\Temp\s21do.
+19B0 cinit CODE >6454:C:\Users\KYLE~1.MAR\AppData\Local\Temp\s21do.
+19B2 cinit CODE >6455:C:\Users\KYLE~1.MAR\AppData\Local\Temp\s21do.
+19B2 cinit CODE >6456:C:\Users\KYLE~1.MAR\AppData\Local\Temp\s21do.
+19B4 cinit CODE >6457:C:\Users\KYLE~1.MAR\AppData\Local\Temp\s21do.
+19B6 cinit CODE >6458:C:\Users\KYLE~1.MAR\AppData\Local\Temp\s21do.
+19B8 cinit CODE >6464:C:\Users\KYLE~1.MAR\AppData\Local\Temp\s21do.
+19B8 cinit CODE >6466:C:\Users\KYLE~1.MAR\AppData\Local\Temp\s21do.
+19BA cinit CODE >6467:C:\Users\KYLE~1.MAR\AppData\Local\Temp\s21do.
+19BC cinit CODE >6469:C:\Users\KYLE~1.MAR\AppData\Local\Temp\s21do.
+19BE cinit CODE >6470:C:\Users\KYLE~1.MAR\AppData\Local\Temp\s21do.
+19C0 cinit CODE >6471:C:\Users\KYLE~1.MAR\AppData\Local\Temp\s21do.
+19C2 cinit CODE >6472:C:\Users\KYLE~1.MAR\AppData\Local\Temp\s21do.
 # %SYMTAB Section
 # An enumeration of all symbols in the program.
 # The beginning of the section is indicated by %SYMTAB.
@@ -1128,7 +1128,7 @@ _USB1msTickCount 79 0 BANK0 1 bssBANK0 dist/PICDEM_FSUSB_K50/production\picdem_f
 USBTransferOnePacket@dir 42 0 COMRAM 1 cstackCOMRAM dist/PICDEM_FSUSB_K50/production\picdem_fs_usb_k50.x.production.obj
 USBTransferOnePacket@len 45 0 COMRAM 1 cstackCOMRAM dist/PICDEM_FSUSB_K50/production\picdem_fs_usb_k50.x.production.obj
 __Hibigdata 0 0 CODE 0 ibigdata dist/PICDEM_FSUSB_K50/production\picdem_fs_usb_k50.x.production.obj
-__mediumconst 7A6C 0 MEDIUMCONST 0 mediumconst C:\Users\KYLE~1.MAR\AppData\Local\Temp\s21ts.obj
+__mediumconst 7A6C 0 MEDIUMCONST 0 mediumconst C:\Users\KYLE~1.MAR\AppData\Local\Temp\s21do.obj
 __size_of_USBCtrlEPServiceComplete 0 0 ABS 0 - dist/PICDEM_FSUSB_K50/production\picdem_fs_usb_k50.x.production.obj
 __end_of_WHEEL_Enable 171A 0 CODE 0 text21 dist/PICDEM_FSUSB_K50/production\picdem_fs_usb_k50.x.production.obj
 __Heeprom_data 0 0 EEDATA 0 eeprom_data dist/PICDEM_FSUSB_K50/production\picdem_fs_usb_k50.x.production.obj
@@ -1145,12 +1145,12 @@ _UEIE F66 0 ABS 0 - dist/PICDEM_FSUSB_K50/production\picdem_fs_usb_k50.x.product
 _UEIR F67 0 ABS 0 - dist/PICDEM_FSUSB_K50/production\picdem_fs_usb_k50.x.production.obj
 _UEP0 F6A 0 ABS 0 - dist/PICDEM_FSUSB_K50/production\picdem_fs_usb_k50.x.production.obj
 _UEP1 F6B 0 ABS 0 - dist/PICDEM_FSUSB_K50/production\picdem_fs_usb_k50.x.production.obj
-___sp 0 0 STACK 2 stack C:\Users\KYLE~1.MAR\AppData\Local\Temp\s21ts.obj
+___sp 0 0 STACK 2 stack C:\Users\KYLE~1.MAR\AppData\Local\Temp\s21do.obj
 _main 19C6 0 CODE 0 text0 dist/PICDEM_FSUSB_K50/production\picdem_fs_usb_k50.x.production.obj
 _pDst 15 0 COMRAM 1 bssCOMRAM dist/PICDEM_FSUSB_K50/production\picdem_fs_usb_k50.x.production.obj
 btemp 4D 0 COMRAM 1 temp dist/PICDEM_FSUSB_K50/production\picdem_fs_usb_k50.x.production.obj
 __size_of_USBCtrlTrfTxService 0 0 ABS 0 - dist/PICDEM_FSUSB_K50/production\picdem_fs_usb_k50.x.production.obj
-start 9E 0 CODE 0 init C:\Users\KYLE~1.MAR\AppData\Local\Temp\s21ts.obj
+start 9E 0 CODE 0 init C:\Users\KYLE~1.MAR\AppData\Local\Temp\s21do.obj
 __end_of_USBCheckHIDRequest F84 0 CODE 0 text19 dist/PICDEM_FSUSB_K50/production\picdem_fs_usb_k50.x.production.obj
 _USBTransferOnePacket A02 0 CODE 0 text37 dist/PICDEM_FSUSB_K50/production\picdem_fs_usb_k50.x.production.obj
 __size_of_main 0 0 ABS 0 - dist/PICDEM_FSUSB_K50/production\picdem_fs_usb_k50.x.production.obj
@@ -1171,11 +1171,11 @@ APP_LEDUpdateUSBStatus@ledCount F 0 COMRAM 1 bssCOMRAM dist/PICDEM_FSUSB_K50/pro
 _CtrlTrfData 428 0 ABS 1 - dist/PICDEM_FSUSB_K50/production\picdem_fs_usb_k50.x.production.obj
 __end_of_LED_Enable 1760 0 CODE 0 text22 dist/PICDEM_FSUSB_K50/production\picdem_fs_usb_k50.x.production.obj
 __size_of_SYSTEM_Initialize 0 0 ABS 0 - dist/PICDEM_FSUSB_K50/production\picdem_fs_usb_k50.x.production.obj
-__accesstop 60 0 ABS 0 - C:\Users\KYLE~1.MAR\AppData\Local\Temp\s21ts.obj
-intlevel0 0 0 CODE 0 text C:\Users\KYLE~1.MAR\AppData\Local\Temp\s21ts.obj
-intlevel1 0 0 CODE 0 text C:\Users\KYLE~1.MAR\AppData\Local\Temp\s21ts.obj
-intlevel2 0 0 CODE 0 text C:\Users\KYLE~1.MAR\AppData\Local\Temp\s21ts.obj
-intlevel3 0 0 CODE 0 text C:\Users\KYLE~1.MAR\AppData\Local\Temp\s21ts.obj
+__accesstop 60 0 ABS 0 - C:\Users\KYLE~1.MAR\AppData\Local\Temp\s21do.obj
+intlevel0 0 0 CODE 0 text C:\Users\KYLE~1.MAR\AppData\Local\Temp\s21do.obj
+intlevel1 0 0 CODE 0 text C:\Users\KYLE~1.MAR\AppData\Local\Temp\s21do.obj
+intlevel2 0 0 CODE 0 text C:\Users\KYLE~1.MAR\AppData\Local\Temp\s21do.obj
+intlevel3 0 0 CODE 0 text C:\Users\KYLE~1.MAR\AppData\Local\Temp\s21do.obj
 __LbssCOMRAM 0 0 ABS 0 bssCOMRAM dist/PICDEM_FSUSB_K50/production\picdem_fs_usb_k50.x.production.obj
 __LnvFARRAM 0 0 FARRAM 0 nvFARRAM dist/PICDEM_FSUSB_K50/production\picdem_fs_usb_k50.x.production.obj
 _pBDTEntryIn 7 0 COMRAM 1 bssCOMRAM dist/PICDEM_FSUSB_K50/production\picdem_fs_usb_k50.x.production.obj
@@ -1199,8 +1199,8 @@ _ADCON0 FC2 0 ABS 0 - dist/PICDEM_FSUSB_K50/production\picdem_fs_usb_k50.x.produ
 _ADRESL FC3 0 ABS 0 - dist/PICDEM_FSUSB_K50/production\picdem_fs_usb_k50.x.production.obj
 __size_of_BUTTON_Enable 0 0 ABS 0 - dist/PICDEM_FSUSB_K50/production\picdem_fs_usb_k50.x.production.obj
 _idle_rate 2C 0 COMRAM 1 bssCOMRAM dist/PICDEM_FSUSB_K50/production\picdem_fs_usb_k50.x.production.obj
-___inthi_sp 0 0 STACK 2 stack C:\Users\KYLE~1.MAR\AppData\Local\Temp\s21ts.obj
-___intlo_sp 0 0 STACK 2 stack C:\Users\KYLE~1.MAR\AppData\Local\Temp\s21ts.obj
+___inthi_sp 0 0 STACK 2 stack C:\Users\KYLE~1.MAR\AppData\Local\Temp\s21do.obj
+___intlo_sp 0 0 STACK 2 stack C:\Users\KYLE~1.MAR\AppData\Local\Temp\s21do.obj
 WHEEL_Enable@wheel 42 0 COMRAM 1 cstackCOMRAM dist/PICDEM_FSUSB_K50/production\picdem_fs_usb_k50.x.production.obj
 __end_of_USBCtrlEPServiceComplete CF4 0 CODE 0 text10 dist/PICDEM_FSUSB_K50/production\picdem_fs_usb_k50.x.production.obj
 __Hintcode_body 0 0 ABS 0 intcode_body dist/PICDEM_FSUSB_K50/production\picdem_fs_usb_k50.x.production.obj
@@ -1295,7 +1295,7 @@ _USBCtrlEPService 1322 0 CODE 0 text7 dist/PICDEM_FSUSB_K50/production\picdem_fs
 __size_of_USBCtrlEPAllowStatusStage 0 0 ABS 0 - dist/PICDEM_FSUSB_K50/production\picdem_fs_usb_k50.x.production.obj
 __Hbigbss 0 0 BIGRAM 1 bigbss dist/PICDEM_FSUSB_K50/production\picdem_fs_usb_k50.x.production.obj
 __Hbigram 0 0 ABS 0 bigram dist/PICDEM_FSUSB_K50/production\picdem_fs_usb_k50.x.production.obj
-__smallconst 0 0 SMALLCONST 0 smallconst C:\Users\KYLE~1.MAR\AppData\Local\Temp\s21ts.obj
+__smallconst 0 0 SMALLCONST 0 smallconst C:\Users\KYLE~1.MAR\AppData\Local\Temp\s21do.obj
 _USBCheckStdRequest DD4 0 CODE 0 text12 dist/PICDEM_FSUSB_K50/production\picdem_fs_usb_k50.x.production.obj
 _USBIncrement1msInternalTimers 19E6 0 CODE 0 text5 dist/PICDEM_FSUSB_K50/production\picdem_fs_usb_k50.x.production.obj
 USBStdFeatureReqHandler@p 6D 0 BANK0 1 cstackBANK0 dist/PICDEM_FSUSB_K50/production\picdem_fs_usb_k50.x.production.obj
@@ -1503,8 +1503,8 @@ _ep_data_out 11 0 COMRAM 1 bssCOMRAM dist/PICDEM_FSUSB_K50/production\picdem_fs_
 __Lfardata 0 0 FARRAM 0 fardata dist/PICDEM_FSUSB_K50/production\picdem_fs_usb_k50.x.production.obj
 LED_Enable@led 42 0 COMRAM 1 cstackCOMRAM dist/PICDEM_FSUSB_K50/production\picdem_fs_usb_k50.x.production.obj
 USBEnableEndpoint@p 60 0 BANK0 1 cstackBANK0 dist/PICDEM_FSUSB_K50/production\picdem_fs_usb_k50.x.production.obj
-stackhi 3FF 0 ABS 0 - C:\Users\KYLE~1.MAR\AppData\Local\Temp\s21ts.obj
-stacklo 7F 0 ABS 0 - C:\Users\KYLE~1.MAR\AppData\Local\Temp\s21ts.obj
+stackhi 3FF 0 ABS 0 - C:\Users\KYLE~1.MAR\AppData\Local\Temp\s21do.obj
+stacklo 7F 0 ABS 0 - C:\Users\KYLE~1.MAR\AppData\Local\Temp\s21do.obj
 __end_of_USBConfigureEndpoint 14E4 0 CODE 0 text29 dist/PICDEM_FSUSB_K50/production\picdem_fs_usb_k50.x.production.obj
 _USBCtrlEPAllowDataStage 13BA 0 CODE 0 text11 dist/PICDEM_FSUSB_K50/production\picdem_fs_usb_k50.x.production.obj
 __Lintcode 8 0 CODE 0 intcode dist/PICDEM_FSUSB_K50/production\picdem_fs_usb_k50.x.production.obj
@@ -1596,7 +1596,7 @@ __Ltext36 0 0 ABS 0 text36 dist/PICDEM_FSUSB_K50/production\picdem_fs_usb_k50.x.
 __Ltext37 0 0 ABS 0 text37 dist/PICDEM_FSUSB_K50/production\picdem_fs_usb_k50.x.production.obj
 __Ltext38 0 0 ABS 0 text38 dist/PICDEM_FSUSB_K50/production\picdem_fs_usb_k50.x.production.obj
 __end_of_USBCtrlTrfInHandler 11CA 0 CODE 0 text33 dist/PICDEM_FSUSB_K50/production\picdem_fs_usb_k50.x.production.obj
-__ramtop 800 0 RAM 0 ramtop C:\Users\KYLE~1.MAR\AppData\Local\Temp\s21ts.obj
+__ramtop 800 0 RAM 0 ramtop C:\Users\KYLE~1.MAR\AppData\Local\Temp\s21do.obj
 __end_of_APP_LEDUpdateUSBStatus 15F6 0 CODE 0 text24 dist/PICDEM_FSUSB_K50/production\picdem_fs_usb_k50.x.production.obj
 _USBCtrlEPServiceComplete C02 0 CODE 0 text10 dist/PICDEM_FSUSB_K50/production\picdem_fs_usb_k50.x.production.obj
 __Lpowerup 9E 0 CODE 0 powerup dist/PICDEM_FSUSB_K50/production\picdem_fs_usb_k50.x.production.obj

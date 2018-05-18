@@ -7144,8 +7144,16 @@ break;
 
 void WHEEL_Home(WHEEL wheel)
 {
+switch(wheel)
+{
+case WHEEL_W1:
 while(PORTAbits.RA2 != 0)
 {
 
+PORTAbits.RA2=0;
+}
+break;
+case WHEEL_NONE:
+break;
 }
 }

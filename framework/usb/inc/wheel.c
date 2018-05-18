@@ -120,8 +120,16 @@ void WHEEL_Enable(WHEEL wheel)
 
 void WHEEL_Home(WHEEL wheel)
 {
-    while(WZ_PORT != Home)
+    switch(wheel)
     {
-        
+        case WHEEL_W1:
+            while(WZ_PORT != Home)
+            {
+                //we will use this to turn the motor to return the wheel to the home position when the device is activated.
+                WZ_PORT=Home;
+            }
+            break;
+        case WHEEL_NONE:
+            break;
     }
 }

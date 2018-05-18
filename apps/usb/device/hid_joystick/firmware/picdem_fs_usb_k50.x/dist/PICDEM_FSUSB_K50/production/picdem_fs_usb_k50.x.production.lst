@@ -1,7 +1,7 @@
 
 
 Microchip Technology PIC18 LITE Macro Assembler V1.45 build -152302408 
-                                                                                               Fri May 18 16:11:19 2018
+                                                                                               Fri May 18 16:18:25 2018
 
 Microchip Technology Omniscient Code Generator v1.45 (Free mode) build 201711160504
      1                           	processor	18F45K50
@@ -2271,7 +2271,7 @@ Microchip Technology Omniscient Code Generator v1.45 (Free mode) build 201711160
   2256  000624  0E00               	movlw	0
   2257  000626  0100               	movlb	0	; () banked
   2258  000628  6F70               	movwf	USBDeviceTasks@i& (0+255),b
-  2259  00062A                     l4817:
+  2259  00062A                     l4825:
   2260                           
   2261                           ; BSR set to: 0
   2262  00062A  0E03               	movlw	3
@@ -2376,7 +2376,7 @@ Microchip Technology Omniscient Code Generator v1.45 (Free mode) build 201711160
   2360  000694                     l275:
   2361  000694  0100               	movlb	0	; () banked
   2362  000696  2B70               	incf	USBDeviceTasks@i& (0+255),f,b
-  2363  000698  D7C8               	goto	l4817
+  2363  000698  D7C8               	goto	l4825
   2364  00069A                     u4880:
   2365                           
   2366                           ;usb_device.c: 822: }
@@ -2839,7 +2839,7 @@ Microchip Technology Omniscient Code Generator v1.45 (Free mode) build 201711160
   2821                           ;usb_device.c: 307: for(i = 0; i < (sizeof(BDT)/sizeof(BDT_ENTRY)); i++)
   2822  0006D4  0E00               	movlw	0
   2823  0006D6  6E4A               	movwf	USBDeviceInit@i,c
-  2824  0006D8                     l4601:
+  2824  0006D8                     l4609:
   2825  0006D8  0E07               	movlw	7
   2826  0006DA  644A               	cpfsgt	USBDeviceInit@i,c
   2827  0006DC  D001               	goto	l239
@@ -2861,7 +2861,7 @@ Microchip Technology Omniscient Code Generator v1.45 (Free mode) build 201711160
   2843  0006F4  6ADE               	clrf	postinc2,c
   2844  0006F6  6ADD               	clrf	postdec2,c
   2845  0006F8  2A4A               	incf	USBDeviceInit@i,f,c
-  2846  0006FA  D7EE               	goto	l4601
+  2846  0006FA  D7EE               	goto	l4609
   2847  0006FC                     u4500:
   2848                           
   2849                           ;usb_device.c: 310: }
@@ -2929,7 +2929,7 @@ Microchip Technology Omniscient Code Generator v1.45 (Free mode) build 201711160
   2911                           ;usb_device.c: 345: for(i = 0; i < (uint8_t)(1+1u); i++)
   2912  000732  0E00               	movlw	0
   2913  000734  6E4A               	movwf	USBDeviceInit@i,c
-  2914  000736                     l4629:
+  2914  000736                     l4637:
   2915                           
   2916                           ; BSR set to: 0
   2917  000736  0E01               	movlw	1
@@ -2993,7 +2993,7 @@ Microchip Technology Omniscient Code Generator v1.45 (Free mode) build 201711160
   2975  000792  0E00               	movlw	0
   2976  000794  6EDF               	movwf	indf2,c
   2977  000796  2A4A               	incf	USBDeviceInit@i,f,c
-  2978  000798  D7CE               	goto	l4629
+  2978  000798  D7CE               	goto	l4637
   2979  00079A                     u4530:
   2980                           
   2981                           ;usb_device.c: 351: }
@@ -3282,8 +3282,8 @@ Microchip Technology Omniscient Code Generator v1.45 (Free mode) build 201711160
   3261  001764  C045  F04C         	movff	memcpy@s1+1,memcpy@s+1
   3262  001768  C042  F049         	movff	memcpy@d1,memcpy@d
   3263  00176C  C043  F04A         	movff	memcpy@d1+1,memcpy@d+1
-  3264  001770  D010               	goto	l1193
-  3265  001772                     l4497:
+  3264  001770  D010               	goto	l1197
+  3265  001772                     l4505:
   3266  001772  C04B  FFD9         	movff	memcpy@s,fsr2l
   3267  001776  C04C  FFDA         	movff	memcpy@s+1,fsr2h
   3268  00177A  50DF               	movf	indf2,w,c
@@ -3295,16 +3295,16 @@ Microchip Technology Omniscient Code Generator v1.45 (Free mode) build 201711160
   3274  00178A  C048  FFDF         	movff	memcpy@tmp,indf2
   3275  00178E  4A49               	infsnz	memcpy@d,f,c
   3276  001790  2A4A               	incf	memcpy@d+1,f,c
-  3277  001792                     l1193:
+  3277  001792                     l1197:
   3278  001792  0646               	decf	memcpy@n,f,c
   3279  001794  A0D8               	btfss	status,0,c
   3280  001796  0647               	decf	memcpy@n+1,f,c
   3281  001798  2846               	incf	memcpy@n,w,c
-  3282  00179A  E1EB               	bnz	l4497
+  3282  00179A  E1EB               	bnz	l4505
   3283  00179C  2847               	incf	memcpy@n+1,w,c
   3284  00179E  B4D8               	btfsc	status,2,c
   3285  0017A0  0012               	return	
-  3286  0017A2  D7E7               	goto	l1194
+  3286  0017A2  D7E7               	goto	l1198
   3287  0017A4                     __end_of_memcpy:
   3288                           	opt stack 0
   3289                           tblptru	equ	0xFF8
@@ -4202,7 +4202,7 @@ Microchip Technology Omniscient Code Generator v1.45 (Free mode) build 201711160
   4178  000D30  0E00               	movlw	0
   4179  000D32  0100               	movlb	0	; () banked
   4180  000D34  6F69               	movwf	USBStdSetCfgHandler@i& (0+255),b
-  4181  000D36                     l4189:
+  4181  000D36                     l4197:
   4182                           
   4183                           ; BSR set to: 0
   4184  000D36  0E01               	movlw	1
@@ -4241,7 +4241,7 @@ Microchip Technology Omniscient Code Generator v1.45 (Free mode) build 201711160
   4217                           
   4218                           ; BSR set to: 0
   4219  000D66  2B69               	incf	USBStdSetCfgHandler@i& (0+255),f,b
-  4220  000D68  D7E6               	goto	l4189
+  4220  000D68  D7E6               	goto	l4197
   4221  000D6A                     u3960:
   4222                           
   4223                           ; BSR set to: 0
@@ -4381,23 +4381,23 @@ Microchip Technology Omniscient Code Generator v1.45 (Free mode) build 201711160
   4356                           ;incstack = 0
   4357  001974  C042  F048         	movff	memset@p1,memset@p
   4358  001978  C043  F049         	movff	memset@p1+1,memset@p+1
-  4359  00197C  D008               	goto	l1199
-  4360  00197E                     l4051:
+  4359  00197C  D008               	goto	l1203
+  4360  00197E                     l4059:
   4361  00197E  C048  FFD9         	movff	memset@p,fsr2l
   4362  001982  C049  FFDA         	movff	memset@p+1,fsr2h
   4363  001986  C044  FFDF         	movff	memset@c,indf2
   4364  00198A  4A48               	infsnz	memset@p,f,c
   4365  00198C  2A49               	incf	memset@p+1,f,c
-  4366  00198E                     l1199:
+  4366  00198E                     l1203:
   4367  00198E  0646               	decf	memset@n,f,c
   4368  001990  A0D8               	btfss	status,0,c
   4369  001992  0647               	decf	memset@n+1,f,c
   4370  001994  2846               	incf	memset@n,w,c
-  4371  001996  E1F3               	bnz	l4051
+  4371  001996  E1F3               	bnz	l4059
   4372  001998  2847               	incf	memset@n+1,w,c
   4373  00199A  B4D8               	btfsc	status,2,c
   4374  00199C  0012               	return	
-  4375  00199E  D7EF               	goto	l1200
+  4375  00199E  D7EF               	goto	l1204
   4376  0019A0                     __end_of_memset:
   4377                           	opt stack 0
   4378                           tblptru	equ	0xFF8
@@ -5622,12 +5622,12 @@ Microchip Technology Omniscient Code Generator v1.45 (Free mode) build 201711160
   5593  00162A  504C               	movf	??_USER_USB_CALLBACK_EVENT_HANDLER+1,w,c
   5594  00162C  0A00               	xorlw	0	; case 0
   5595  00162E  B4D8               	btfsc	status,2,c
-  5596  001630  D004               	goto	l4897
+  5596  001630  D004               	goto	l4905
   5597  001632  0A7F               	xorlw	127	; case 127
   5598  001634  A4D8               	btfss	status,2,c
   5599  001636  0012               	return	
-  5600  001638  D01A               	goto	l4899
-  5601  00163A                     l4897:
+  5600  001638  D01A               	goto	l4907
+  5601  00163A                     l4905:
   5602                           
   5603                           ; Switch size 1, requested type "space"
   5604                           ; Number of cases is 8, Range of values is 1 to 117
@@ -5661,7 +5661,7 @@ Microchip Technology Omniscient Code Generator v1.45 (Free mode) build 201711160
   5632  001668  A4D8               	btfss	status,2,c
   5633  00166A  0012               	return	
   5634  00166C  D7C8               	goto	l559
-  5635  00166E                     l4899:
+  5635  00166E                     l4907:
   5636                           
   5637                           ; Switch size 1, requested type "space"
   5638                           ; Number of cases is 1, Range of values is 255 to 255
@@ -5784,7 +5784,7 @@ Microchip Technology Omniscient Code Generator v1.45 (Free mode) build 201711160
   5753  000EDA  6E06               	movwf	_inPipes+5,c
   5754  000EDC  0E09               	movlw	9
   5755  000EDE  D00D               	goto	L9
-  5756  000EE0                     l3951:
+  5756  000EE0                     l3959:
   5757                           
   5758                           ; BSR set to: 4
   5759  000EE0  0EC0               	movlw	192
@@ -5818,7 +5818,7 @@ Microchip Technology Omniscient Code Generator v1.45 (Free mode) build 201711160
   5786  000EF8  0EFA               	movlw	250
   5787  000EFA                     L9:
   5788  000EFA  6E05               	movwf	_inPipes+4,c
-  5789  000EFC  D7F1               	goto	l3951
+  5789  000EFC  D7F1               	goto	l3959
   5790  000EFE                     l527:
   5791                           
   5792                           ; BSR set to: 4
@@ -8291,7 +8291,7 @@ Microchip Technology Omniscient Code Generator v1.45 (Free mode) build 201711160
   8256                           
   8257                           ;usb_device.c: 1778: if(inPipes[0].wCount.Val < (uint8_t)8)
   8258  000F88  5006               	movf	_inPipes+5,w,c
-  8259  000F8A  E110               	bnz	l4095
+  8259  000F8A  E110               	bnz	l4103
   8260  000F8C  0E08               	movlw	8
   8261  000F8E  5C05               	subwf	_inPipes+4,w,c
   8262  000F90  B0D8               	btfsc	status,0,c
@@ -8323,7 +8323,7 @@ Microchip Technology Omniscient Code Generator v1.45 (Free mode) build 201711160
   8288  000FAA                     L13:
   8289  000FAA  6E29               	movwf	_shortPacketStatus,c
   8290  000FAC                     l335:
-  8291  000FAC                     l4095:
+  8291  000FAC                     l4103:
   8292                           
   8293                           ;usb_device.c: 1794: }
   8294                           ;usb_device.c: 1795: }
@@ -9097,7 +9097,7 @@ Microchip Technology Omniscient Code Generator v1.45 (Free mode) build 201711160
   9057                           ;wheel.c: 57: if (WHEEL_Type == 0)
   9058  00186C  501C               	movf	_WHEEL_Type,w,c
   9059  00186E  A4D8               	btfss	status,2,c
-  9060  001870  D00F               	goto	l3575
+  9060  001870  D00F               	goto	l3583
   9061                           
   9062                           ;wheel.c: 58: {
   9063                           ;wheel.c: 59: ADCON0 &= 0xC5;
@@ -9125,7 +9125,7 @@ Microchip Technology Omniscient Code Generator v1.45 (Free mode) build 201711160
   9085                           ;wheel.c: 64: return ((ADRESH<<8)+ADRESL);
   9086  00188C  50C3               	movf	4035,w,c	;volatile
   9087  00188E  0012               	return	
-  9088  001890                     l3575:
+  9088  001890                     l3583:
   9089                           
   9090                           ;wheel.c: 71: return 128;
   9091                           
@@ -9148,7 +9148,7 @@ Microchip Technology Omniscient Code Generator v1.45 (Free mode) build 201711160
   9108                           ;	Chosen strategy is simple_byte
   9109  001896  0A00               	xorlw	0	; case 0
   9110  001898  B4D8               	btfsc	status,2,c
-  9111  00189A  D7FA               	goto	l3575
+  9111  00189A  D7FA               	goto	l3583
   9112  00189C  0A01               	xorlw	1	; case 1
   9113  00189E  B4D8               	btfsc	status,2,c
   9114  0018A0  D7E5               	goto	l740
@@ -10381,7 +10381,7 @@ CODE                 0      0       0       0        0.0%
 
 
 Microchip Technology PIC18 Macro Assembler V1.45 build -152302408 
-Symbol Table                                                                                   Fri May 18 16:11:19 2018
+Symbol Table                                                                                   Fri May 18 16:18:25 2018
 
                               _USB_SD_Ptr 7A6D                                        l20 0B2C  
                                       l21 0B38                                        l30 0BA4  
@@ -10497,14 +10497,14 @@ Symbol Table                                                                    
                           _USBDeviceState 002A                             _BUTTON_Enable 11CA  
                    ??_USBCtrlTrfRxService 0042                  USBEnableEndpoint@options 004A  
                             __CFG_LVP$OFF 000000                           __end_of_LED_Off 1912  
-                                    l1200 197E                                      l1193 1792  
-                                    l1194 1772                                      l1199 198E  
-                                    l4051 197E                USBConfigureEndpoint@handle 0048  
-                                    l4095 0FAC                                      l4601 06D8  
-                                    l4189 0D36                                      l3575 1890  
-                                    l4629 0736                                      l3951 0EE0  
-                                    l4497 1772                                      l4817 062A  
-                                    l4897 163A                                      l4899 166E  
+                                    l1203 198E                                      l1204 197E  
+                                    l1197 1792                                      l1198 1772  
+                                    l4103 0FAC                USBConfigureEndpoint@handle 0048  
+                                    l4059 197E                                      l4505 1772  
+                                    l4197 0D36                                      l3583 1890  
+                                    l4609 06D8                                      l4637 0736  
+                                    l4905 163A                                      l4825 062A  
+                                    l4907 166E                                      l3959 0EE0  
                                     u4000 084A                                      u4010 0878  
                                     u4030 08C6                                      u4007 0840  
                                     u4017 086E                                      u4037 08BC  

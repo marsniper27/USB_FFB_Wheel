@@ -5614,21 +5614,53 @@ Version 3.2 HI-TECH Software Intermediate Code
 [v _wheel `E5756 ~T0 @X0 1 r1 ]
 "122
 [f ]
-[; ;wheel.c: 123: while(PORTAbits.RA2 != 0)
+[; ;wheel.c: 123: switch(wheel)
 "123
-[e $U 651  ]
-[e :U 652 ]
+[e $U 652  ]
 [; ;wheel.c: 124: {
 "124
 {
-"126
-}
-[e :U 651 ]
-"123
-[e $ != -> . . _PORTAbits 0 2 `i -> 0 `i 652  ]
+[; ;wheel.c: 125: case WHEEL_W1:
+"125
 [e :U 653 ]
-[; ;wheel.c: 126: }
-[; ;wheel.c: 127: }
+[; ;wheel.c: 126: while(PORTAbits.RA2 != 0)
+"126
+[e $U 654  ]
+[e :U 655 ]
+[; ;wheel.c: 127: {
 "127
+{
+[; ;wheel.c: 129: PORTAbits.RA2=0;
+"129
+[e = . . _PORTAbits 0 2 -> -> 0 `i `uc ]
+"130
+}
+[e :U 654 ]
+"126
+[e $ != -> . . _PORTAbits 0 2 `i -> 0 `i 655  ]
+[e :U 656 ]
+[; ;wheel.c: 130: }
+[; ;wheel.c: 131: break;
+"131
+[e $U 651  ]
+[; ;wheel.c: 132: case WHEEL_NONE:
+"132
+[e :U 657 ]
+[; ;wheel.c: 133: break;
+"133
+[e $U 651  ]
+"134
+}
+[; ;wheel.c: 134: }
+[e $U 651  ]
+"123
+[e :U 652 ]
+[e [\ _wheel , $ . `E5756 1 653
+ , $ . `E5756 0 657
+ 651 ]
+"134
+[e :U 651 ]
+[; ;wheel.c: 135: }
+"135
 [e :UE 650 ]
 }
