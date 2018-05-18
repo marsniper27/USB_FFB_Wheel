@@ -7082,7 +7082,7 @@ uint8_t WHEEL_Position(WHEEL wheel);
 # 57
 void WHEEL_Enable(WHEEL wheel);
 
-# 44 "C:/Users/kyle.marshall/MPLABXProjects/USB_FFB_Wheel.X/framework/usb/inc/wheel.c"
+# 45 "C:/Users/kyle.marshall/MPLABXProjects/USB_FFB_Wheel.X/framework/usb/inc/wheel.c"
 uint8_t WHEEL_Position(WHEEL wheel)
 {
 switch(wheel)
@@ -7102,13 +7102,14 @@ return 128;
 return 128;
 }
 
-# 79
+# 80
 void WHEEL_Enable(WHEEL wheel)
 {
 switch(wheel)
 {
 case WHEEL_W1:
 TRISAbits.TRISA0 = 1;
+ANSELAbits.ANSA0 = 0;
 ADCON0bits.ADON = 1;
 ADCON0bits.CHS = 0b0000;
 ADCON1bits.NVCFG = 0;

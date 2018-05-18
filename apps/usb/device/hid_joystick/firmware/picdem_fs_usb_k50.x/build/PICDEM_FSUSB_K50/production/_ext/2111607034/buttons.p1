@@ -1,5 +1,5 @@
 Version 3.2 HI-TECH Software Intermediate Code
-"86 ../../../../../../bsp/picdem_fs_usb_k50/buttons.c
+"95 ../../../../../../bsp/picdem_fs_usb_k50/buttons.c
 [c E5727 0 1 2 3 4 5 6 7 8 9 10 11 12 13 .. ]
 [n E5727 . BUTTON_NONE BUTTON_S2 BUTTON_S3 BUTTON_S4 BUTTON_S5 BUTTON_S6 BUTTON_S7 BUTTON_S8 BUTTON_S9 BUTTON_S10 BUTTON_S11 BUTTON_S12 BUTTON_S13 BUTTON_S14  ]
 "3057 C:\Program Files (x86)\Microchip\xc8\v1.45\include\pic18f45k50.h
@@ -60,6 +60,14 @@ Version 3.2 HI-TECH Software Intermediate Code
 [n S207 . . . ]
 "5278
 [v _TRISDbits `VS207 ~T0 @X0 0 e@3989 ]
+"365
+[s S17 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S17 . ANSD0 ANSD1 ANSD2 ANSD3 ANSD4 ANSD5 ANSD6 ANSD7 ]
+"364
+[u S16 `S17 1 ]
+[n S16 . . ]
+"376
+[v _ANSELDbits `VS16 ~T0 @X0 0 e@3934 ]
 [; ;htc.h: 26: extern const char __xc8_OPTIM_SPEED;
 [; ;htc.h: 28: extern double __fpnormalize(double);
 [; ;xc8debug.h: 14: extern void __builtin_software_breakpoint(void);
@@ -5357,126 +5365,126 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;picdem_fs_usb_k50\buttons.h: 46: } BUTTON;
 [; ;picdem_fs_usb_k50\buttons.h: 65: bool BUTTON_IsPressed(BUTTON button);
 [; ;picdem_fs_usb_k50\buttons.h: 83: void BUTTON_Enable(BUTTON button);
-"85 ../../../../../../bsp/picdem_fs_usb_k50/buttons.c
+"94 ../../../../../../bsp/picdem_fs_usb_k50/buttons.c
 [v _BUTTON_IsPressed `(uc ~T0 @X0 1 ef1`E5727 ]
-"86
+"95
 {
-[; ;buttons.c: 85: bool BUTTON_IsPressed(BUTTON button)
-[; ;buttons.c: 86: {
+[; ;buttons.c: 94: bool BUTTON_IsPressed(BUTTON button)
+[; ;buttons.c: 95: {
 [e :U _BUTTON_IsPressed ]
-"85
+"94
 [v _button `E5727 ~T0 @X0 1 r1 ]
-"86
+"95
 [f ]
-[; ;buttons.c: 87: switch(button)
-"87
+[; ;buttons.c: 96: switch(button)
+"96
 [e $U 633  ]
-[; ;buttons.c: 88: {
-"88
+[; ;buttons.c: 97: {
+"97
 {
-[; ;buttons.c: 89: case BUTTON_S2:
-"89
+[; ;buttons.c: 98: case BUTTON_S2:
+"98
 [e :U 634 ]
-[; ;buttons.c: 90: return ( (PORTBbits.RB7 == 0) ? 1 : 0);
-"90
+[; ;buttons.c: 99: return ( (PORTBbits.RB7 == 0) ? 1 : 0);
+"99
 [e ) -> ? == -> . . _PORTBbits 0 7 `i -> 0 `i : -> 1 `i -> 0 `i `uc ]
 [e $UE 631  ]
-[; ;buttons.c: 92: case BUTTON_S3:
-"92
+[; ;buttons.c: 101: case BUTTON_S3:
+"101
 [e :U 635 ]
-[; ;buttons.c: 93: return ( (PORTBbits.RB6 == 0) ? 1 : 0);
-"93
+[; ;buttons.c: 102: return ( (PORTBbits.RB6 == 0) ? 1 : 0);
+"102
 [e ) -> ? == -> . . _PORTBbits 0 6 `i -> 0 `i : -> 1 `i -> 0 `i `uc ]
 [e $UE 631  ]
-[; ;buttons.c: 95: case BUTTON_S4:
-"95
+[; ;buttons.c: 104: case BUTTON_S4:
+"104
 [e :U 636 ]
-[; ;buttons.c: 96: return ( (PORTBbits.RB5 == 0) ? 1 : 0);
-"96
+[; ;buttons.c: 105: return ( (PORTBbits.RB5 == 0) ? 1 : 0);
+"105
 [e ) -> ? == -> . . _PORTBbits 0 5 `i -> 0 `i : -> 1 `i -> 0 `i `uc ]
 [e $UE 631  ]
-[; ;buttons.c: 98: case BUTTON_S5:
-"98
+[; ;buttons.c: 107: case BUTTON_S5:
+"107
 [e :U 637 ]
-[; ;buttons.c: 99: return ( (PORTBbits.RB4 == 0) ? 1 : 0);
-"99
+[; ;buttons.c: 108: return ( (PORTBbits.RB4 == 0) ? 1 : 0);
+"108
 [e ) -> ? == -> . . _PORTBbits 0 4 `i -> 0 `i : -> 1 `i -> 0 `i `uc ]
 [e $UE 631  ]
-[; ;buttons.c: 101: case BUTTON_S6:
-"101
+[; ;buttons.c: 110: case BUTTON_S6:
+"110
 [e :U 638 ]
-[; ;buttons.c: 102: return ( (PORTBbits.RB3 == 0) ? 1 : 0);
-"102
+[; ;buttons.c: 111: return ( (PORTBbits.RB3 == 0) ? 1 : 0);
+"111
 [e ) -> ? == -> . . _PORTBbits 0 3 `i -> 0 `i : -> 1 `i -> 0 `i `uc ]
 [e $UE 631  ]
-[; ;buttons.c: 104: case BUTTON_S7:
-"104
+[; ;buttons.c: 113: case BUTTON_S7:
+"113
 [e :U 639 ]
-[; ;buttons.c: 105: return ( (PORTBbits.RB2 == 0) ? 1 : 0);
-"105
+[; ;buttons.c: 114: return ( (PORTBbits.RB2 == 0) ? 1 : 0);
+"114
 [e ) -> ? == -> . . _PORTBbits 0 2 `i -> 0 `i : -> 1 `i -> 0 `i `uc ]
 [e $UE 631  ]
-[; ;buttons.c: 107: case BUTTON_S8:
-"107
+[; ;buttons.c: 116: case BUTTON_S8:
+"116
 [e :U 640 ]
-[; ;buttons.c: 108: return ( (PORTBbits.RB1 == 0) ? 1 : 0);
-"108
+[; ;buttons.c: 117: return ( (PORTBbits.RB1 == 0) ? 1 : 0);
+"117
 [e ) -> ? == -> . . _PORTBbits 0 1 `i -> 0 `i : -> 1 `i -> 0 `i `uc ]
 [e $UE 631  ]
-[; ;buttons.c: 110: case BUTTON_S9:
-"110
+[; ;buttons.c: 119: case BUTTON_S9:
+"119
 [e :U 641 ]
-[; ;buttons.c: 111: return ( (PORTBbits.RB0 == 0) ? 1 : 0);
-"111
+[; ;buttons.c: 120: return ( (PORTBbits.RB0 == 0) ? 1 : 0);
+"120
 [e ) -> ? == -> . . _PORTBbits 0 0 `i -> 0 `i : -> 1 `i -> 0 `i `uc ]
 [e $UE 631  ]
-[; ;buttons.c: 113: case BUTTON_S10:
-"113
+[; ;buttons.c: 122: case BUTTON_S10:
+"122
 [e :U 642 ]
-[; ;buttons.c: 114: return ( (PORTDbits.RD7 == 0) ? 1 : 0);
-"114
+[; ;buttons.c: 123: return ( (PORTDbits.RD7 == 0) ? 1 : 0);
+"123
 [e ) -> ? == -> . . _PORTDbits 0 7 `i -> 0 `i : -> 1 `i -> 0 `i `uc ]
 [e $UE 631  ]
-[; ;buttons.c: 116: case BUTTON_S11:
-"116
+[; ;buttons.c: 125: case BUTTON_S11:
+"125
 [e :U 643 ]
-[; ;buttons.c: 117: return ( (PORTDbits.RD6 == 0) ? 1 : 0);
-"117
+[; ;buttons.c: 126: return ( (PORTDbits.RD6 == 0) ? 1 : 0);
+"126
 [e ) -> ? == -> . . _PORTDbits 0 6 `i -> 0 `i : -> 1 `i -> 0 `i `uc ]
 [e $UE 631  ]
-[; ;buttons.c: 119: case BUTTON_S12:
-"119
+[; ;buttons.c: 128: case BUTTON_S12:
+"128
 [e :U 644 ]
-[; ;buttons.c: 120: return ( (PORTDbits.RD5 == 0) ? 1 : 0);
-"120
+[; ;buttons.c: 129: return ( (PORTDbits.RD5 == 0) ? 1 : 0);
+"129
 [e ) -> ? == -> . . _PORTDbits 0 5 `i -> 0 `i : -> 1 `i -> 0 `i `uc ]
 [e $UE 631  ]
-[; ;buttons.c: 122: case BUTTON_S13:
-"122
+[; ;buttons.c: 131: case BUTTON_S13:
+"131
 [e :U 645 ]
-[; ;buttons.c: 123: return ( (PORTDbits.RD4 == 0) ? 1 : 0);
-"123
+[; ;buttons.c: 132: return ( (PORTDbits.RD4 == 0) ? 1 : 0);
+"132
 [e ) -> ? == -> . . _PORTDbits 0 4 `i -> 0 `i : -> 1 `i -> 0 `i `uc ]
 [e $UE 631  ]
-[; ;buttons.c: 125: case BUTTON_S14:
-"125
+[; ;buttons.c: 134: case BUTTON_S14:
+"134
 [e :U 646 ]
-[; ;buttons.c: 126: return ( (PORTDbits.RD3 == 0) ? 1 : 0);
-"126
+[; ;buttons.c: 135: return ( (PORTDbits.RD3 == 0) ? 1 : 0);
+"135
 [e ) -> ? == -> . . _PORTDbits 0 3 `i -> 0 `i : -> 1 `i -> 0 `i `uc ]
 [e $UE 631  ]
-[; ;buttons.c: 128: case BUTTON_NONE:
-"128
+[; ;buttons.c: 137: case BUTTON_NONE:
+"137
 [e :U 647 ]
-[; ;buttons.c: 129: return 0;
-"129
+[; ;buttons.c: 138: return 0;
+"138
 [e ) -> -> 0 `i `uc ]
 [e $UE 631  ]
-"130
+"139
 }
-[; ;buttons.c: 130: }
+[; ;buttons.c: 139: }
 [e $U 632  ]
-"87
+"96
 [e :U 633 ]
 [e [\ _button , $ . `E5727 1 634
  , $ . `E5727 2 635
@@ -5493,167 +5501,194 @@ Version 3.2 HI-TECH Software Intermediate Code
  , $ . `E5727 13 646
  , $ . `E5727 0 647
  632 ]
-"130
+"139
 [e :U 632 ]
-[; ;buttons.c: 132: return 0;
-"132
+[; ;buttons.c: 141: return 0;
+"141
 [e ) -> -> 0 `i `uc ]
 [e $UE 631  ]
-[; ;buttons.c: 133: }
-"133
+[; ;buttons.c: 142: }
+"142
 [e :UE 631 ]
 }
-"151
-[v _BUTTON_Enable `(v ~T0 @X0 1 ef1`E5727 ]
-"152
-{
-[; ;buttons.c: 151: void BUTTON_Enable(BUTTON button)
-[; ;buttons.c: 152: {
-[e :U _BUTTON_Enable ]
-"151
-[v _button `E5727 ~T0 @X0 1 r1 ]
-"152
-[f ]
-[; ;buttons.c: 153: switch(button)
-"153
-[e $U 650  ]
-[; ;buttons.c: 154: {
-"154
-{
-[; ;buttons.c: 155: case BUTTON_S2:
-"155
-[e :U 651 ]
-[; ;buttons.c: 156: TRISBbits.TRISB7 = 1;
-"156
-[e = . . _TRISBbits 0 7 -> -> 1 `i `uc ]
-[; ;buttons.c: 157: ANSELBbits.ANSB4 = 0;
-"157
-[e = . . _ANSELBbits 0 4 -> -> 0 `i `uc ]
-[; ;buttons.c: 158: break;
-"158
-[e $U 649  ]
-[; ;buttons.c: 160: case BUTTON_S3:
 "160
-[e :U 652 ]
-[; ;buttons.c: 161: TRISBbits.TRISB6 = 1;
+[v _BUTTON_Enable `(v ~T0 @X0 1 ef1`E5727 ]
 "161
-[e = . . _TRISBbits 0 6 -> -> 1 `i `uc ]
-[; ;buttons.c: 162: ANSELBbits.ANSB5 = 0;
+{
+[; ;buttons.c: 160: void BUTTON_Enable(BUTTON button)
+[; ;buttons.c: 161: {
+[e :U _BUTTON_Enable ]
+"160
+[v _button `E5727 ~T0 @X0 1 r1 ]
+"161
+[f ]
+[; ;buttons.c: 162: switch(button)
 "162
-[e = . . _ANSELBbits 0 5 -> -> 0 `i `uc ]
-[; ;buttons.c: 163: break;
+[e $U 650  ]
+[; ;buttons.c: 163: {
 "163
-[e $U 649  ]
-[; ;buttons.c: 165: case BUTTON_S4:
+{
+[; ;buttons.c: 164: case BUTTON_S2:
+"164
+[e :U 651 ]
+[; ;buttons.c: 165: TRISBbits.TRISB7 = 1;
 "165
-[e :U 653 ]
-[; ;buttons.c: 166: TRISBbits.TRISB5 = 1;
+[e = . . _TRISBbits 0 7 -> -> 1 `i `uc ]
+[; ;buttons.c: 166: break;
 "166
-[e = . . _TRISBbits 0 5 -> -> 1 `i `uc ]
-[; ;buttons.c: 167: break;
-"167
 [e $U 649  ]
-[; ;buttons.c: 169: case BUTTON_S5:
+[; ;buttons.c: 168: case BUTTON_S3:
+"168
+[e :U 652 ]
+[; ;buttons.c: 169: TRISBbits.TRISB6 = 1;
 "169
-[e :U 654 ]
-[; ;buttons.c: 170: TRISBbits.TRISB4 = 1;
+[e = . . _TRISBbits 0 6 -> -> 1 `i `uc ]
+[; ;buttons.c: 170: break;
 "170
-[e = . . _TRISBbits 0 4 -> -> 1 `i `uc ]
-[; ;buttons.c: 171: break;
-"171
 [e $U 649  ]
-[; ;buttons.c: 173: case BUTTON_S6:
+[; ;buttons.c: 172: case BUTTON_S4:
+"172
+[e :U 653 ]
+[; ;buttons.c: 173: TRISBbits.TRISB5 = 1;
 "173
-[e :U 655 ]
-[; ;buttons.c: 174: TRISBbits.TRISB3 = 1;
+[e = . . _TRISBbits 0 5 -> -> 1 `i `uc ]
+[; ;buttons.c: 174: ANSELBbits.ANSB5 = 0;
 "174
-[e = . . _TRISBbits 0 3 -> -> 1 `i `uc ]
+[e = . . _ANSELBbits 0 5 -> -> 0 `i `uc ]
 [; ;buttons.c: 175: break;
 "175
 [e $U 649  ]
-[; ;buttons.c: 177: case BUTTON_S7:
+[; ;buttons.c: 177: case BUTTON_S5:
 "177
-[e :U 656 ]
-[; ;buttons.c: 178: TRISBbits.TRISB2 = 1;
+[e :U 654 ]
+[; ;buttons.c: 178: TRISBbits.TRISB4 = 1;
 "178
-[e = . . _TRISBbits 0 2 -> -> 1 `i `uc ]
-[; ;buttons.c: 179: break;
+[e = . . _TRISBbits 0 4 -> -> 1 `i `uc ]
+[; ;buttons.c: 179: ANSELBbits.ANSB4 = 0;
 "179
+[e = . . _ANSELBbits 0 4 -> -> 0 `i `uc ]
+[; ;buttons.c: 180: break;
+"180
 [e $U 649  ]
-[; ;buttons.c: 181: case BUTTON_S8:
-"181
-[e :U 657 ]
-[; ;buttons.c: 182: TRISBbits.TRISB1 = 1;
+[; ;buttons.c: 182: case BUTTON_S6:
 "182
-[e = . . _TRISBbits 0 1 -> -> 1 `i `uc ]
-[; ;buttons.c: 183: break;
+[e :U 655 ]
+[; ;buttons.c: 183: TRISBbits.TRISB3 = 1;
 "183
-[e $U 649  ]
-[; ;buttons.c: 185: case BUTTON_S9:
+[e = . . _TRISBbits 0 3 -> -> 1 `i `uc ]
+[; ;buttons.c: 184: ANSELBbits.ANSB3 = 0;
+"184
+[e = . . _ANSELBbits 0 3 -> -> 0 `i `uc ]
+[; ;buttons.c: 185: break;
 "185
-[e :U 658 ]
-[; ;buttons.c: 186: TRISBbits.TRISB0 = 1;
-"186
-[e = . . _TRISBbits 0 0 -> -> 1 `i `uc ]
-[; ;buttons.c: 187: break;
+[e $U 649  ]
+[; ;buttons.c: 187: case BUTTON_S7:
 "187
-[e $U 649  ]
-[; ;buttons.c: 189: case BUTTON_S10:
+[e :U 656 ]
+[; ;buttons.c: 188: TRISBbits.TRISB2 = 1;
+"188
+[e = . . _TRISBbits 0 2 -> -> 1 `i `uc ]
+[; ;buttons.c: 189: ANSELBbits.ANSB2 = 0;
 "189
-[e :U 659 ]
-[; ;buttons.c: 190: TRISDbits.TRISD7 = 1;
+[e = . . _ANSELBbits 0 2 -> -> 0 `i `uc ]
+[; ;buttons.c: 190: break;
 "190
-[e = . . _TRISDbits 0 7 -> -> 1 `i `uc ]
-[; ;buttons.c: 191: break;
-"191
 [e $U 649  ]
-[; ;buttons.c: 193: case BUTTON_S11:
+[; ;buttons.c: 192: case BUTTON_S8:
+"192
+[e :U 657 ]
+[; ;buttons.c: 193: TRISBbits.TRISB1 = 1;
 "193
-[e :U 660 ]
-[; ;buttons.c: 194: TRISDbits.TRISD6 = 1;
+[e = . . _TRISBbits 0 1 -> -> 1 `i `uc ]
+[; ;buttons.c: 194: ANSELBbits.ANSB1 = 0;
 "194
-[e = . . _TRISDbits 0 6 -> -> 1 `i `uc ]
+[e = . . _ANSELBbits 0 1 -> -> 0 `i `uc ]
 [; ;buttons.c: 195: break;
 "195
 [e $U 649  ]
-[; ;buttons.c: 197: case BUTTON_S12:
+[; ;buttons.c: 197: case BUTTON_S9:
 "197
-[e :U 661 ]
-[; ;buttons.c: 198: TRISDbits.TRISD5 = 1;
+[e :U 658 ]
+[; ;buttons.c: 198: TRISBbits.TRISB0 = 1;
 "198
-[e = . . _TRISDbits 0 5 -> -> 1 `i `uc ]
-[; ;buttons.c: 199: break;
+[e = . . _TRISBbits 0 0 -> -> 1 `i `uc ]
+[; ;buttons.c: 199: ANSELBbits.ANSB0 = 0;
 "199
+[e = . . _ANSELBbits 0 0 -> -> 0 `i `uc ]
+[; ;buttons.c: 200: break;
+"200
 [e $U 649  ]
-[; ;buttons.c: 201: case BUTTON_S13:
-"201
-[e :U 662 ]
-[; ;buttons.c: 202: TRISDbits.TRISD4 = 1;
+[; ;buttons.c: 202: case BUTTON_S10:
 "202
-[e = . . _TRISDbits 0 4 -> -> 1 `i `uc ]
-[; ;buttons.c: 203: break;
+[e :U 659 ]
+[; ;buttons.c: 203: TRISDbits.TRISD7 = 1;
 "203
-[e $U 649  ]
-[; ;buttons.c: 205: case BUTTON_S14:
+[e = . . _TRISDbits 0 7 -> -> 1 `i `uc ]
+[; ;buttons.c: 204: ANSELDbits.ANSD7 = 0;
+"204
+[e = . . _ANSELDbits 0 7 -> -> 0 `i `uc ]
+[; ;buttons.c: 205: break;
 "205
-[e :U 663 ]
-[; ;buttons.c: 206: TRISDbits.TRISD3 = 1;
-"206
-[e = . . _TRISDbits 0 3 -> -> 1 `i `uc ]
-[; ;buttons.c: 207: break;
-"207
 [e $U 649  ]
-[; ;buttons.c: 209: case BUTTON_NONE:
+[; ;buttons.c: 207: case BUTTON_S11:
+"207
+[e :U 660 ]
+[; ;buttons.c: 208: TRISDbits.TRISD6 = 1;
+"208
+[e = . . _TRISDbits 0 6 -> -> 1 `i `uc ]
+[; ;buttons.c: 209: ANSELDbits.ANSD6 = 0;
 "209
-[e :U 664 ]
+[e = . . _ANSELDbits 0 6 -> -> 0 `i `uc ]
 [; ;buttons.c: 210: break;
 "210
 [e $U 649  ]
-"211
-}
-[; ;buttons.c: 211: }
+[; ;buttons.c: 212: case BUTTON_S12:
+"212
+[e :U 661 ]
+[; ;buttons.c: 213: TRISDbits.TRISD5 = 1;
+"213
+[e = . . _TRISDbits 0 5 -> -> 1 `i `uc ]
+[; ;buttons.c: 214: ANSELDbits.ANSD5 = 0;
+"214
+[e = . . _ANSELDbits 0 5 -> -> 0 `i `uc ]
+[; ;buttons.c: 215: break;
+"215
 [e $U 649  ]
-"153
+[; ;buttons.c: 217: case BUTTON_S13:
+"217
+[e :U 662 ]
+[; ;buttons.c: 218: TRISDbits.TRISD4 = 1;
+"218
+[e = . . _TRISDbits 0 4 -> -> 1 `i `uc ]
+[; ;buttons.c: 219: ANSELDbits.ANSD4 = 0;
+"219
+[e = . . _ANSELDbits 0 4 -> -> 0 `i `uc ]
+[; ;buttons.c: 220: break;
+"220
+[e $U 649  ]
+[; ;buttons.c: 222: case BUTTON_S14:
+"222
+[e :U 663 ]
+[; ;buttons.c: 223: TRISDbits.TRISD3 = 1;
+"223
+[e = . . _TRISDbits 0 3 -> -> 1 `i `uc ]
+[; ;buttons.c: 224: ANSELDbits.ANSD3 = 0;
+"224
+[e = . . _ANSELDbits 0 3 -> -> 0 `i `uc ]
+[; ;buttons.c: 225: break;
+"225
+[e $U 649  ]
+[; ;buttons.c: 227: case BUTTON_NONE:
+"227
+[e :U 664 ]
+[; ;buttons.c: 228: break;
+"228
+[e $U 649  ]
+"229
+}
+[; ;buttons.c: 229: }
+[e $U 649  ]
+"162
 [e :U 650 ]
 [e [\ _button , $ . `E5727 1 651
  , $ . `E5727 2 652
@@ -5670,9 +5705,9 @@ Version 3.2 HI-TECH Software Intermediate Code
  , $ . `E5727 13 663
  , $ . `E5727 0 664
  649 ]
-"211
+"229
 [e :U 649 ]
-[; ;buttons.c: 212: }
-"212
+[; ;buttons.c: 230: }
+"230
 [e :UE 648 ]
 }

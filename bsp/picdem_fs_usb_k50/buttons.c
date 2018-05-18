@@ -54,8 +54,17 @@
 #define S13_TRIS 	TRISDbits.TRISD4
 #define S14_TRIS 	TRISDbits.TRISD3
 
-#define S2_ANSEL ANSELBbits.ANSB4
-#define S3_ANSEL ANSELBbits.ANSB5
+#define S4_ANSEL    ANSELBbits.ANSB5
+#define S5_ANSEL    ANSELBbits.ANSB4
+#define S6_ANSEL 	ANSELBbits.ANSB3 
+#define S7_ANSEL 	ANSELBbits.ANSB2 
+#define S8_ANSEL 	ANSELBbits.ANSB1 
+#define S9_ANSEL 	ANSELBbits.ANSB0
+#define S10_ANSEL   ANSELDbits.ANSD7
+#define S11_ANSEL   ANSELDbits.ANSD6
+#define S12_ANSEL 	ANSELDbits.ANSD5 
+#define S13_ANSEL 	ANSELDbits.ANSD4 
+#define S14_ANSEL 	ANSELDbits.ANSD3 
 
 #define BUTTON_PRESSED      0
 #define BUTTON_NOT_PRESSED  1
@@ -154,56 +163,65 @@ void BUTTON_Enable(BUTTON button)
     {
         case BUTTON_S2:
             S2_TRIS = PIN_INPUT;
-            S2_ANSEL = PIN_DIGITAL;
             break;
 			
         case BUTTON_S3:
             S3_TRIS = PIN_INPUT;
-            S3_ANSEL = PIN_DIGITAL;
             break;
         
         case BUTTON_S4:
             S4_TRIS = PIN_INPUT;
+            S4_ANSEL = PIN_DIGITAL;
             break;
 
         case BUTTON_S5:
             S5_TRIS = PIN_INPUT;
+            S5_ANSEL = PIN_DIGITAL;
             break;
 
         case BUTTON_S6:
             S6_TRIS = PIN_INPUT;
+            S6_ANSEL = PIN_DIGITAL;
             break;
 
         case BUTTON_S7:
             S7_TRIS = PIN_INPUT;
+            S7_ANSEL = PIN_DIGITAL;
             break;
 
         case BUTTON_S8:
             S8_TRIS = PIN_INPUT;
+            S8_ANSEL = PIN_DIGITAL;
             break;
 
         case BUTTON_S9:
             S9_TRIS = PIN_INPUT;
+            S9_ANSEL = PIN_DIGITAL;
             break;
 
         case BUTTON_S10:
             S10_TRIS = PIN_INPUT;
+            S10_ANSEL = PIN_DIGITAL;
             break;
 
         case BUTTON_S11:
             S11_TRIS = PIN_INPUT;
+            S11_ANSEL = PIN_DIGITAL;
             break;
 
         case BUTTON_S12:
             S12_TRIS = PIN_INPUT;
+            S12_ANSEL = PIN_DIGITAL;
             break;
 
         case BUTTON_S13:
             S13_TRIS = PIN_INPUT;
+            S13_ANSEL = PIN_DIGITAL;
             break;
 
         case BUTTON_S14:
             S14_TRIS = PIN_INPUT;
+            S14_ANSEL = PIN_DIGITAL;
             break;
             
         case BUTTON_NONE:

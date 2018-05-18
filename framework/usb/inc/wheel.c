@@ -14,7 +14,8 @@
 #define W1_PORT  PORTAbits.RA0
 
 #define W1_TRIS  TRISAbits.TRISA0
-//      S4       MCLR button
+
+#define W1_ANSEL    ANSELAbits.ANSA0
 
 #define PIN_INPUT           1
 #define PIN_OUTPUT          0
@@ -82,6 +83,7 @@ void WHEEL_Enable(WHEEL wheel)
     {
         case WHEEL_W1:
             W1_TRIS = PIN_INPUT;
+            W1_ANSEL = PIN_ANALOG;
             ADCON0bits.ADON = 1;
             ADCON0bits.CHS = 0b0000;
             ADCON1bits.NVCFG = 0;

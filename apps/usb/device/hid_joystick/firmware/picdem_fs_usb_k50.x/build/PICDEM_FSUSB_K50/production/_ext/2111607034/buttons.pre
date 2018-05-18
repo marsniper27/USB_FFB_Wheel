@@ -7004,7 +7004,7 @@ bool BUTTON_IsPressed(BUTTON button);
 # 83
 void BUTTON_Enable(BUTTON button);
 
-# 85 "../../../../../../bsp/picdem_fs_usb_k50/buttons.c"
+# 94 "../../../../../../bsp/picdem_fs_usb_k50/buttons.c"
 bool BUTTON_IsPressed(BUTTON button)
 {
 switch(button)
@@ -7055,63 +7055,72 @@ return 0;
 return 0;
 }
 
-# 151
+# 160
 void BUTTON_Enable(BUTTON button)
 {
 switch(button)
 {
 case BUTTON_S2:
 TRISBbits.TRISB7 = 1;
-ANSELBbits.ANSB4 = 0;
 break;
 
 case BUTTON_S3:
 TRISBbits.TRISB6 = 1;
-ANSELBbits.ANSB5 = 0;
 break;
 
 case BUTTON_S4:
 TRISBbits.TRISB5 = 1;
+ANSELBbits.ANSB5 = 0;
 break;
 
 case BUTTON_S5:
 TRISBbits.TRISB4 = 1;
+ANSELBbits.ANSB4 = 0;
 break;
 
 case BUTTON_S6:
 TRISBbits.TRISB3 = 1;
+ANSELBbits.ANSB3 = 0;
 break;
 
 case BUTTON_S7:
 TRISBbits.TRISB2 = 1;
+ANSELBbits.ANSB2 = 0;
 break;
 
 case BUTTON_S8:
 TRISBbits.TRISB1 = 1;
+ANSELBbits.ANSB1 = 0;
 break;
 
 case BUTTON_S9:
 TRISBbits.TRISB0 = 1;
+ANSELBbits.ANSB0 = 0;
 break;
 
 case BUTTON_S10:
 TRISDbits.TRISD7 = 1;
+ANSELDbits.ANSD7 = 0;
 break;
 
 case BUTTON_S11:
 TRISDbits.TRISD6 = 1;
+ANSELDbits.ANSD6 = 0;
 break;
 
 case BUTTON_S12:
 TRISDbits.TRISD5 = 1;
+ANSELDbits.ANSD5 = 0;
 break;
 
 case BUTTON_S13:
 TRISDbits.TRISD4 = 1;
+ANSELDbits.ANSD4 = 0;
 break;
 
 case BUTTON_S14:
 TRISDbits.TRISD3 = 1;
+ANSELDbits.ANSD3 = 0;
 break;
 
 case BUTTON_NONE:
