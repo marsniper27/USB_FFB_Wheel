@@ -7972,7 +7972,10 @@ bool LED_Get(LED led);
 # 129
 void LED_Enable(LED led);
 
-# 15 "../../../../../../framework/usb/inc\wheel.h"
+# 19 "../../../../../../framework/usb/inc\wheel.h"
+bool WHEEL_Type = 0;
+
+
 typedef enum
 {
 WHEEL_NONE,
@@ -7980,11 +7983,13 @@ WHEEL_W1
 
 } WHEEL;
 
-# 39
+# 46
 uint8_t WHEEL_Position(WHEEL wheel);
 
-# 57
+# 64
 void WHEEL_Enable(WHEEL wheel);
+
+void WHEEL_Home(WHEEL wheel);
 
 # 38 ".\system.h"
 typedef enum
@@ -8227,6 +8232,9 @@ joystick_input.val[3] = 0x80;
 joystick_input.val[4] = 0x80;
 joystick_input.val[5] = 0x80;
 joystick_input.val[6] = 0x80;
+
+
+joystick_input.members.analog_stick.X = WHEEL_Position(WHEEL_W1);
 
 
 lastTransmission = USBTransferOnePacket(1,1,(uint8_t*)&joystick_input,sizeof(joystick_input));

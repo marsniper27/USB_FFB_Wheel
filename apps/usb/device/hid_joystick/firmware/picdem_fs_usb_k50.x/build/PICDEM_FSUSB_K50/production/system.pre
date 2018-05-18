@@ -7944,7 +7944,10 @@ bool USBHALSetEpConfiguration ( uint8_t ep_num, uint16_t max_pkt_size, uint16_t 
 # 603
 bool USBHALInitialize ( unsigned long flags );
 
-# 15 "../../../../../../framework/usb/inc\wheel.h"
+# 19 "../../../../../../framework/usb/inc\wheel.h"
+bool WHEEL_Type = 0;
+
+
 typedef enum
 {
 WHEEL_NONE,
@@ -7952,11 +7955,13 @@ WHEEL_W1
 
 } WHEEL;
 
-# 39
+# 46
 uint8_t WHEEL_Position(WHEEL wheel);
 
-# 57
+# 64
 void WHEEL_Enable(WHEEL wheel);
+
+void WHEEL_Home(WHEEL wheel);
 
 # 38 "system.h"
 typedef enum

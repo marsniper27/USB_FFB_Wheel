@@ -312,6 +312,9 @@ void APP_DeviceJoystickTasks(void)
             joystick_input.val[4] = 0x80;
             joystick_input.val[5] = 0x80;
             joystick_input.val[6] = 0x80;
+            
+            //Add current wheel position as we all ways want this reported.
+            joystick_input.members.analog_stick.X = WHEEL_Position(WHEEL_W1);
 
             //Send the 8 byte packet over USB to the host.
             lastTransmission = HIDTxPacket(JOYSTICK_EP, (uint8_t*)&joystick_input, sizeof(joystick_input));

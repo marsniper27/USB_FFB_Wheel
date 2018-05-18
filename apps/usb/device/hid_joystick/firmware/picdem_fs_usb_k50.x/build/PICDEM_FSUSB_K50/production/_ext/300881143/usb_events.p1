@@ -5,10 +5,10 @@ Version 3.2 HI-TECH Software Intermediate Code
 "37 ../demo_src/app_led_usb_status.h
 [v _APP_LEDUpdateUSBStatus `(v ~T0 @X0 0 ef ]
 "73 ../demo_src/usb_events.c
-[c E6397 0 1 2 .. ]
-[n E6397 . SYSTEM_STATE_USB_START SYSTEM_STATE_USB_SUSPEND SYSTEM_STATE_USB_RESUME  ]
+[c E6400 0 1 2 .. ]
+[n E6400 . SYSTEM_STATE_USB_START SYSTEM_STATE_USB_SUSPEND SYSTEM_STATE_USB_RESUME  ]
 "57 .\system.h
-[v _SYSTEM_Initialize `(v ~T0 @X0 0 ef1`E6397 ]
+[v _SYSTEM_Initialize `(v ~T0 @X0 0 ef1`E6400 ]
 "32 ../demo_src/app_device_joystick.h
 [v _APP_DeviceJoystickInitialize `(v ~T0 @X0 0 ef ]
 "98 ../../../../../../framework/usb/inc\usb_device_hid.h
@@ -5879,13 +5879,20 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;inc\usb_hal.h: 537: unsigned int size );
 [; ;inc\usb_hal.h: 575: bool USBHALSetEpConfiguration ( uint8_t ep_num, uint16_t max_pkt_size, uint16_t flags );
 [; ;inc\usb_hal.h: 603: bool USBHALInitialize ( unsigned long flags );
-[; ;inc\wheel.h: 15: typedef enum
-[; ;inc\wheel.h: 16: {
-[; ;inc\wheel.h: 17: WHEEL_NONE,
-[; ;inc\wheel.h: 18: WHEEL_W1
-[; ;inc\wheel.h: 20: } WHEEL;
-[; ;inc\wheel.h: 39: uint8_t WHEEL_Position(WHEEL wheel);
-[; ;inc\wheel.h: 57: void WHEEL_Enable(WHEEL wheel);
+"19 ../../../../../../framework/usb/inc\wheel.h
+[v _WHEEL_Type `uc ~T0 @X0 1 e ]
+[i _WHEEL_Type
+-> -> 0 `i `uc
+]
+[; ;inc\wheel.h: 19: bool WHEEL_Type = 0;
+[; ;inc\wheel.h: 22: typedef enum
+[; ;inc\wheel.h: 23: {
+[; ;inc\wheel.h: 24: WHEEL_NONE,
+[; ;inc\wheel.h: 25: WHEEL_W1
+[; ;inc\wheel.h: 27: } WHEEL;
+[; ;inc\wheel.h: 46: uint8_t WHEEL_Position(WHEEL wheel);
+[; ;inc\wheel.h: 64: void WHEEL_Enable(WHEEL wheel);
+[; ;inc\wheel.h: 66: void WHEEL_Home(WHEEL wheel);
 [; ;system.h: 38: typedef enum
 [; ;system.h: 39: {
 [; ;system.h: 40: SYSTEM_STATE_USB_START,
@@ -5956,7 +5963,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e ( _APP_LEDUpdateUSBStatus ..  ]
 [; ;usb_events.c: 73: SYSTEM_Initialize(SYSTEM_STATE_USB_SUSPEND);
 "73
-[e ( _SYSTEM_Initialize (1 . `E6397 1 ]
+[e ( _SYSTEM_Initialize (1 . `E6400 1 ]
 [; ;usb_events.c: 74: break;
 "74
 [e $U 687  ]
@@ -5968,7 +5975,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e ( _APP_LEDUpdateUSBStatus ..  ]
 [; ;usb_events.c: 84: SYSTEM_Initialize(SYSTEM_STATE_USB_RESUME);
 "84
-[e ( _SYSTEM_Initialize (1 . `E6397 2 ]
+[e ( _SYSTEM_Initialize (1 . `E6400 2 ]
 [; ;usb_events.c: 85: break;
 "85
 [e $U 687  ]

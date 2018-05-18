@@ -1,7 +1,7 @@
 Version 3.2 HI-TECH Software Intermediate Code
 "80 system.c
-[c E6397 0 1 2 .. ]
-[n E6397 . SYSTEM_STATE_USB_START SYSTEM_STATE_USB_SUSPEND SYSTEM_STATE_USB_RESUME  ]
+[c E6400 0 1 2 .. ]
+[n E6400 . SYSTEM_STATE_USB_START SYSTEM_STATE_USB_SUSPEND SYSTEM_STATE_USB_RESUME  ]
 "6048 C:\Program Files (x86)\Microchip\xc8\v1.45\include\pic18f45k50.h
 [v _OSCTUNE `Vuc ~T0 @X0 0 e@3995 ]
 "12354
@@ -29,10 +29,10 @@ Version 3.2 HI-TECH Software Intermediate Code
 "83 ../../../../../../bsp/picdem_fs_usb_k50\buttons.h
 [v _BUTTON_Enable `(v ~T0 @X0 0 ef1`E5727 ]
 "98 system.c
-[c E6389 0 1 .. ]
-[n E6389 . WHEEL_NONE WHEEL_W1  ]
-"57 ../../../../../../framework/usb/inc\wheel.h
-[v _WHEEL_Enable `(v ~T0 @X0 0 ef1`E6389 ]
+[c E6390 0 1 .. ]
+[n E6390 . WHEEL_NONE WHEEL_W1  ]
+"64 ../../../../../../framework/usb/inc\wheel.h
+[v _WHEEL_Enable `(v ~T0 @X0 0 ef1`E6390 ]
 [; ;htc.h: 26: extern const char __xc8_OPTIM_SPEED;
 [; ;htc.h: 28: extern double __fpnormalize(double);
 [; ;xc8debug.h: 14: extern void __builtin_software_breakpoint(void);
@@ -5896,13 +5896,20 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;inc\usb_hal.h: 537: unsigned int size );
 [; ;inc\usb_hal.h: 575: bool USBHALSetEpConfiguration ( uint8_t ep_num, uint16_t max_pkt_size, uint16_t flags );
 [; ;inc\usb_hal.h: 603: bool USBHALInitialize ( unsigned long flags );
-[; ;inc\wheel.h: 15: typedef enum
-[; ;inc\wheel.h: 16: {
-[; ;inc\wheel.h: 17: WHEEL_NONE,
-[; ;inc\wheel.h: 18: WHEEL_W1
-[; ;inc\wheel.h: 20: } WHEEL;
-[; ;inc\wheel.h: 39: uint8_t WHEEL_Position(WHEEL wheel);
-[; ;inc\wheel.h: 57: void WHEEL_Enable(WHEEL wheel);
+"19 ../../../../../../framework/usb/inc\wheel.h
+[v _WHEEL_Type `uc ~T0 @X0 1 e ]
+[i _WHEEL_Type
+-> -> 0 `i `uc
+]
+[; ;inc\wheel.h: 19: bool WHEEL_Type = 0;
+[; ;inc\wheel.h: 22: typedef enum
+[; ;inc\wheel.h: 23: {
+[; ;inc\wheel.h: 24: WHEEL_NONE,
+[; ;inc\wheel.h: 25: WHEEL_W1
+[; ;inc\wheel.h: 27: } WHEEL;
+[; ;inc\wheel.h: 46: uint8_t WHEEL_Position(WHEEL wheel);
+[; ;inc\wheel.h: 64: void WHEEL_Enable(WHEEL wheel);
+[; ;inc\wheel.h: 66: void WHEEL_Home(WHEEL wheel);
 [; ;system.h: 38: typedef enum
 [; ;system.h: 39: {
 [; ;system.h: 40: SYSTEM_STATE_USB_START,
@@ -5993,14 +6000,14 @@ Version 3.2 HI-TECH Software Intermediate Code
 "63
 [p x EBTRB=OFF ]
 "79
-[v _SYSTEM_Initialize `(v ~T0 @X0 1 ef1`E6397 ]
+[v _SYSTEM_Initialize `(v ~T0 @X0 1 ef1`E6400 ]
 "80
 {
 [; ;system.c: 79: void SYSTEM_Initialize( SYSTEM_STATE state )
 [; ;system.c: 80: {
 [e :U _SYSTEM_Initialize ]
 "79
-[v _state `E6397 ~T0 @X0 1 r1 ]
+[v _state `E6400 ~T0 @X0 1 r1 ]
 "80
 [f ]
 [; ;system.c: 81: switch(state)
@@ -6039,7 +6046,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e ( _BUTTON_Enable (1 . `E5727 1 ]
 [; ;system.c: 98: WHEEL_Enable(WHEEL_W1);
 "98
-[e ( _WHEEL_Enable (1 . `E6389 1 ]
+[e ( _WHEEL_Enable (1 . `E6390 1 ]
 [; ;system.c: 99: break;
 "99
 [e $U 685  ]
@@ -6061,9 +6068,9 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e $U 685  ]
 "81
 [e :U 686 ]
-[e [\ _state , $ . `E6397 0 687
- , $ . `E6397 1 691
- , $ . `E6397 2 692
+[e [\ _state , $ . `E6400 0 687
+ , $ . `E6400 1 691
+ , $ . `E6400 2 692
  685 ]
 "106
 [e :U 685 ]
@@ -6072,9 +6079,9 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e :UE 684 ]
 }
 [v $root$_SYS_InterruptHigh `(v ~T0 @X0 0 e ]
-[v F6407 `(v ~T0 @X0 1 tf ]
+[v F6410 `(v ~T0 @X0 1 tf ]
 "112
-[v _SYS_InterruptHigh `IF6407 ~T0 @X0 1 e ]
+[v _SYS_InterruptHigh `IF6410 ~T0 @X0 1 e ]
 "113
 {
 [; ;system.c: 112: void interrupt SYS_InterruptHigh(void)

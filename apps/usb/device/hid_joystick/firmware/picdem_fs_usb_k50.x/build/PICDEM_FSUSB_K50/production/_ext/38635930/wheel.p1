@@ -1,7 +1,7 @@
 Version 3.2 HI-TECH Software Intermediate Code
-"46 C:/Users/kyle.marshall/MPLABXProjects/USB_FFB_Wheel.X/framework/usb/inc/wheel.c
-[c E5755 0 1 .. ]
-[n E5755 . WHEEL_NONE WHEEL_W1  ]
+"53 C:/Users/kyle.marshall/MPLABXProjects/USB_FFB_Wheel.X/framework/usb/inc/wheel.c
+[c E5756 0 1 .. ]
+[n E5756 . WHEEL_NONE WHEEL_W1  ]
 "9773 C:\Program Files (x86)\Microchip\xc8\v1.45\include\pic18f45k50.h
 [v _ADCON0 `Vuc ~T0 @X0 0 e@4034 ]
 [v F5719 `(v ~T0 @X0 1 tf1`ul ]
@@ -76,6 +76,26 @@ Version 3.2 HI-TECH Software Intermediate Code
 [n S425 . . . . ]
 "9728
 [v _ADCON1bits `VS425 ~T0 @X0 0 e@4033 ]
+"2905
+[s S124 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S124 . RA0 RA1 RA2 RA3 RA4 RA5 RA6 RA7 ]
+"2915
+[s S125 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S125 . AN0 AN1 AN2 AN3 T0CKI AN4 OSC2 ]
+"2924
+[s S126 :2 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S126 . . VREFM VREFP . LVDIN ]
+"2931
+[s S127 :5 `uc 1 :1 `uc 1 ]
+[n S127 . . HLVDIN ]
+"2935
+[s S128 :1 `uc 1 :6 `uc 1 :1 `uc 1 ]
+[n S128 . ULPWUIN . RJPU ]
+"2904
+[u S123 `S124 1 `S125 1 `S126 1 `S127 1 `S128 1 ]
+[n S123 . . . . . . ]
+"2941
+[v _PORTAbits `VS123 ~T0 @X0 0 e@3968 ]
 [; ;htc.h: 26: extern const char __xc8_OPTIM_SPEED;
 [; ;htc.h: 28: extern double __fpnormalize(double);
 [; ;xc8debug.h: 14: extern void __builtin_software_breakpoint(void);
@@ -5353,6 +5373,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;pic18.h: 164: extern __nonreentrant void _delay(unsigned long);
 [; ;pic18.h: 166: extern __nonreentrant void _delaywdt(unsigned long);
 [; ;pic18.h: 168: extern __nonreentrant void _delay3(unsigned char);
+[; ;stdbool.h: 12: typedef unsigned char bool;
 [; ;stdint.h: 13: typedef signed char int8_t;
 [; ;stdint.h: 20: typedef signed int int16_t;
 [; ;stdint.h: 28: typedef signed short long int int24_t;
@@ -5381,139 +5402,233 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;stdint.h: 205: typedef uint32_t uintmax_t;
 [; ;stdint.h: 210: typedef int16_t intptr_t;
 [; ;stdint.h: 215: typedef uint16_t uintptr_t;
-[; ;stdbool.h: 12: typedef unsigned char bool;
-[; ;inc\wheel.h: 15: typedef enum
-[; ;inc\wheel.h: 16: {
-[; ;inc\wheel.h: 17: WHEEL_NONE,
-[; ;inc\wheel.h: 18: WHEEL_W1
-[; ;inc\wheel.h: 20: } WHEEL;
-[; ;inc\wheel.h: 39: uint8_t WHEEL_Position(WHEEL wheel);
-[; ;inc\wheel.h: 57: void WHEEL_Enable(WHEEL wheel);
-"45 C:/Users/kyle.marshall/MPLABXProjects/USB_FFB_Wheel.X/framework/usb/inc/wheel.c
-[v _WHEEL_Position `(uc ~T0 @X0 1 ef1`E5755 ]
-"46
-{
-[; ;wheel.c: 45: uint8_t WHEEL_Position(WHEEL wheel)
-[; ;wheel.c: 46: {
-[e :U _WHEEL_Position ]
-"45
-[v _wheel `E5755 ~T0 @X0 1 r1 ]
-"46
-[f ]
-[; ;wheel.c: 47: switch(wheel)
-"47
-[e $U 633  ]
-[; ;wheel.c: 48: {
-"48
-{
-[; ;wheel.c: 49: case WHEEL_W1:
-"49
-[e :U 634 ]
-[; ;wheel.c: 50: ADCON0 &= 0xC5;
-"50
-[e =& _ADCON0 -> -> 197 `i `uc ]
-[; ;wheel.c: 51: ADCON0 |= 0<<3;
-"51
-[e =| _ADCON0 -> << -> 0 `i -> 3 `i `uc ]
-[; ;wheel.c: 52: _delay((unsigned long)((2)*(20000000/4000.0)));
-"52
-[e ( __delay (1 -> * -> -> 2 `i `d / -> -> 20000000 `l `d .4000.0 `ul ]
-[; ;wheel.c: 53: GO_nDONE = 1;
+"19 ../../../../../../framework/usb/inc\wheel.h
+[v _WHEEL_Type `uc ~T0 @X0 1 e ]
+[i _WHEEL_Type
+-> -> 0 `i `uc
+]
+[; ;inc\wheel.h: 19: bool WHEEL_Type = 0;
+[; ;inc\wheel.h: 22: typedef enum
+[; ;inc\wheel.h: 23: {
+[; ;inc\wheel.h: 24: WHEEL_NONE,
+[; ;inc\wheel.h: 25: WHEEL_W1
+[; ;inc\wheel.h: 27: } WHEEL;
+[; ;inc\wheel.h: 46: uint8_t WHEEL_Position(WHEEL wheel);
+[; ;inc\wheel.h: 64: void WHEEL_Enable(WHEEL wheel);
+[; ;inc\wheel.h: 66: void WHEEL_Home(WHEEL wheel);
+"52 C:/Users/kyle.marshall/MPLABXProjects/USB_FFB_Wheel.X/framework/usb/inc/wheel.c
+[v _WHEEL_Position `(uc ~T0 @X0 1 ef1`E5756 ]
 "53
-[e = _GO_nDONE -> -> 1 `i `b ]
-[; ;wheel.c: 54: while(GO_nDONE);
+{
+[; ;wheel.c: 52: uint8_t WHEEL_Position(WHEEL wheel)
+[; ;wheel.c: 53: {
+[e :U _WHEEL_Position ]
+"52
+[v _wheel `E5756 ~T0 @X0 1 r1 ]
+"53
+[f ]
+[; ;wheel.c: 54: switch(wheel)
 "54
-[e $U 635  ]
-[e :U 636 ]
-[e :U 635 ]
-[e $ _GO_nDONE 636  ]
-[e :U 637 ]
-[; ;wheel.c: 55: return ((ADRESH<<8)+ADRESL);
+[e $U 633  ]
+[; ;wheel.c: 55: {
 "55
+{
+[; ;wheel.c: 56: case WHEEL_W1:
+"56
+[e :U 634 ]
+[; ;wheel.c: 57: if (WHEEL_Type == 0)
+"57
+[e $ ! == -> _WHEEL_Type `i -> 0 `i 635  ]
+[; ;wheel.c: 58: {
+"58
+{
+[; ;wheel.c: 59: ADCON0 &= 0xC5;
+"59
+[e =& _ADCON0 -> -> 197 `i `uc ]
+[; ;wheel.c: 60: ADCON0 |= 0<<3;
+"60
+[e =| _ADCON0 -> << -> 0 `i -> 3 `i `uc ]
+[; ;wheel.c: 61: _delay((unsigned long)((2)*(20000000/4000.0)));
+"61
+[e ( __delay (1 -> * -> -> 2 `i `d / -> -> 20000000 `l `d .4000.0 `ul ]
+[; ;wheel.c: 62: GO_nDONE = 1;
+"62
+[e = _GO_nDONE -> -> 1 `i `b ]
+[; ;wheel.c: 63: while(GO_nDONE);
+"63
+[e $U 636  ]
+[e :U 637 ]
+[e :U 636 ]
+[e $ _GO_nDONE 637  ]
+[e :U 638 ]
+[; ;wheel.c: 64: return ((ADRESH<<8)+ADRESL);
+"64
 [e ) -> + << -> _ADRESH `i -> 8 `i -> _ADRESL `i `uc ]
 [e $UE 631  ]
-[; ;wheel.c: 57: case WHEEL_NONE:
-"57
-[e :U 638 ]
-[; ;wheel.c: 58: return 128;
-"58
-[e ) -> -> 128 `i `uc ]
-[e $UE 631  ]
-"59
+"65
 }
-[; ;wheel.c: 59: }
-[e $U 632  ]
-"47
-[e :U 633 ]
-[e [\ _wheel , $ . `E5755 1 634
- , $ . `E5755 0 638
- 632 ]
-"59
-[e :U 632 ]
-[; ;wheel.c: 61: return 128;
-"61
+[; ;wheel.c: 65: }
+[e $U 639  ]
+"66
+[e :U 635 ]
+[; ;wheel.c: 66: else if (WHEEL_Type == 1)
+[e $ ! == -> _WHEEL_Type `i -> 1 `i 640  ]
+[; ;wheel.c: 67: {
+"67
+{
+"69
+}
+[e :U 640 ]
+"70
+[e :U 639 ]
+[; ;wheel.c: 69: }
+[; ;wheel.c: 70: case WHEEL_NONE:
+[e :U 641 ]
+[; ;wheel.c: 71: return 128;
+"71
 [e ) -> -> 128 `i `uc ]
 [e $UE 631  ]
-[; ;wheel.c: 62: }
-"62
+"72
+}
+[; ;wheel.c: 72: }
+[e $U 632  ]
+"54
+[e :U 633 ]
+[e [\ _wheel , $ . `E5756 1 634
+ , $ . `E5756 0 641
+ 632 ]
+"72
+[e :U 632 ]
+[; ;wheel.c: 74: return 128;
+"74
+[e ) -> -> 128 `i `uc ]
+[e $UE 631  ]
+[; ;wheel.c: 75: }
+"75
 [e :UE 631 ]
 }
-"80
-[v _WHEEL_Enable `(v ~T0 @X0 1 ef1`E5755 ]
-"81
-{
-[; ;wheel.c: 80: void WHEEL_Enable(WHEEL wheel)
-[; ;wheel.c: 81: {
-[e :U _WHEEL_Enable ]
-"80
-[v _wheel `E5755 ~T0 @X0 1 r1 ]
-"81
-[f ]
-[; ;wheel.c: 82: switch(wheel)
-"82
-[e $U 641  ]
-[; ;wheel.c: 83: {
-"83
-{
-[; ;wheel.c: 84: case WHEEL_W1:
-"84
-[e :U 642 ]
-[; ;wheel.c: 85: TRISAbits.TRISA0 = 1;
-"85
-[e = . . _TRISAbits 0 0 -> -> 1 `i `uc ]
-[; ;wheel.c: 86: ANSELAbits.ANSA0 = 0;
-"86
-[e = . . _ANSELAbits 0 0 -> -> 0 `i `uc ]
-[; ;wheel.c: 87: ADCON0bits.ADON = 1;
-"87
-[e = . . _ADCON0bits 1 0 -> -> 1 `i `uc ]
-[; ;wheel.c: 88: ADCON0bits.CHS = 0b0000;
-"88
-[e = . . _ADCON0bits 1 2 -> -> 0 `i `uc ]
-[; ;wheel.c: 89: ADCON1bits.NVCFG = 0;
-"89
-[e = . . _ADCON1bits 0 0 -> -> 0 `i `uc ]
-[; ;wheel.c: 90: ADCON1bits.PVCFG = 0;
-"90
-[e = . . _ADCON1bits 0 1 -> -> 0 `i `uc ]
-[; ;wheel.c: 92: case WHEEL_NONE:
-"92
-[e :U 643 ]
-[; ;wheel.c: 93: break;
 "93
-[e $U 640  ]
+[v _WHEEL_Enable `(v ~T0 @X0 1 ef1`E5756 ]
 "94
-}
-[; ;wheel.c: 94: }
-[e $U 640  ]
-"82
-[e :U 641 ]
-[e [\ _wheel , $ . `E5755 1 642
- , $ . `E5755 0 643
- 640 ]
+{
+[; ;wheel.c: 93: void WHEEL_Enable(WHEEL wheel)
+[; ;wheel.c: 94: {
+[e :U _WHEEL_Enable ]
+"93
+[v _wheel `E5756 ~T0 @X0 1 r1 ]
 "94
-[e :U 640 ]
-[; ;wheel.c: 95: }
+[f ]
+[; ;wheel.c: 95: switch(wheel)
 "95
-[e :UE 639 ]
+[e $U 644  ]
+[; ;wheel.c: 96: {
+"96
+{
+[; ;wheel.c: 97: case WHEEL_W1:
+"97
+[e :U 645 ]
+[; ;wheel.c: 98: TRISAbits.TRISA0 = 1;
+"98
+[e = . . _TRISAbits 0 0 -> -> 1 `i `uc ]
+[; ;wheel.c: 99: if (WHEEL_Type == 0)
+"99
+[e $ ! == -> _WHEEL_Type `i -> 0 `i 646  ]
+[; ;wheel.c: 100: {
+"100
+{
+[; ;wheel.c: 101: ANSELAbits.ANSA0 = 0;
+"101
+[e = . . _ANSELAbits 0 0 -> -> 0 `i `uc ]
+[; ;wheel.c: 102: ADCON0bits.ADON = 1;
+"102
+[e = . . _ADCON0bits 1 0 -> -> 1 `i `uc ]
+[; ;wheel.c: 103: ADCON0bits.CHS = 0b0000;
+"103
+[e = . . _ADCON0bits 1 2 -> -> 0 `i `uc ]
+[; ;wheel.c: 104: ADCON1bits.NVCFG = 0;
+"104
+[e = . . _ADCON1bits 0 0 -> -> 0 `i `uc ]
+[; ;wheel.c: 105: ADCON1bits.PVCFG = 0;
+"105
+[e = . . _ADCON1bits 0 1 -> -> 0 `i `uc ]
+"106
+}
+[; ;wheel.c: 106: }
+[e $U 647  ]
+"107
+[e :U 646 ]
+[; ;wheel.c: 107: else if(WHEEL_Type == 1)
+[e $ ! == -> _WHEEL_Type `i -> 1 `i 648  ]
+[; ;wheel.c: 108: {
+"108
+{
+[; ;wheel.c: 109: TRISAbits.TRISA1 = 1;
+"109
+[e = . . _TRISAbits 0 1 -> -> 1 `i `uc ]
+[; ;wheel.c: 110: TRISAbits.TRISA2 = 1;
+"110
+[e = . . _TRISAbits 0 2 -> -> 1 `i `uc ]
+[; ;wheel.c: 112: ANSELAbits.ANSA0 = 1;
+"112
+[e = . . _ANSELAbits 0 0 -> -> 1 `i `uc ]
+[; ;wheel.c: 113: ANSELAbits.ANSA1 = 1;
+"113
+[e = . . _ANSELAbits 0 1 -> -> 1 `i `uc ]
+[; ;wheel.c: 114: ANSELAbits.ANSA2 = 1;
+"114
+[e = . . _ANSELAbits 0 2 -> -> 1 `i `uc ]
+"115
+}
+[e :U 648 ]
+"116
+[e :U 647 ]
+[; ;wheel.c: 115: }
+[; ;wheel.c: 116: case WHEEL_NONE:
+[e :U 649 ]
+[; ;wheel.c: 117: break;
+"117
+[e $U 643  ]
+"118
+}
+[; ;wheel.c: 118: }
+[e $U 643  ]
+"95
+[e :U 644 ]
+[e [\ _wheel , $ . `E5756 1 645
+ , $ . `E5756 0 649
+ 643 ]
+"118
+[e :U 643 ]
+[; ;wheel.c: 119: }
+"119
+[e :UE 642 ]
+}
+"121
+[v _WHEEL_Home `(v ~T0 @X0 1 ef1`E5756 ]
+"122
+{
+[; ;wheel.c: 121: void WHEEL_Home(WHEEL wheel)
+[; ;wheel.c: 122: {
+[e :U _WHEEL_Home ]
+"121
+[v _wheel `E5756 ~T0 @X0 1 r1 ]
+"122
+[f ]
+[; ;wheel.c: 123: while(PORTAbits.RA2 != 0)
+"123
+[e $U 651  ]
+[e :U 652 ]
+[; ;wheel.c: 124: {
+"124
+{
+"126
+}
+[e :U 651 ]
+"123
+[e $ != -> . . _PORTAbits 0 2 `i -> 0 `i 652  ]
+[e :U 653 ]
+[; ;wheel.c: 126: }
+[; ;wheel.c: 127: }
+"127
+[e :UE 650 ]
 }

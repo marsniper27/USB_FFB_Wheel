@@ -6975,6 +6975,9 @@ extern __nonreentrant void _delaywdt(unsigned long);
 #pragma intrinsic(_delay3)
 extern __nonreentrant void _delay3(unsigned char);
 
+# 12 "C:\Program Files (x86)\Microchip\xc8\v1.45\include\stdbool.h"
+typedef unsigned char bool;
+
 # 13 "C:\Program Files (x86)\Microchip\xc8\v1.45\include\stdint.h"
 typedef signed char int8_t;
 
@@ -7065,10 +7068,10 @@ typedef int16_t intptr_t;
 
 typedef uint16_t uintptr_t;
 
-# 12 "C:\Program Files (x86)\Microchip\xc8\v1.45\include\stdbool.h"
-typedef unsigned char bool;
+# 19 "../../../../../../framework/usb/inc\wheel.h"
+bool WHEEL_Type = 0;
 
-# 15 "../../../../../../framework/usb/inc\wheel.h"
+
 typedef enum
 {
 WHEEL_NONE,
@@ -7076,25 +7079,33 @@ WHEEL_W1
 
 } WHEEL;
 
-# 39
+# 46
 uint8_t WHEEL_Position(WHEEL wheel);
 
-# 57
+# 64
 void WHEEL_Enable(WHEEL wheel);
 
-# 45 "C:/Users/kyle.marshall/MPLABXProjects/USB_FFB_Wheel.X/framework/usb/inc/wheel.c"
+void WHEEL_Home(WHEEL wheel);
+
+# 52 "C:/Users/kyle.marshall/MPLABXProjects/USB_FFB_Wheel.X/framework/usb/inc/wheel.c"
 uint8_t WHEEL_Position(WHEEL wheel)
 {
 switch(wheel)
 {
 case WHEEL_W1:
+if (WHEEL_Type == 0)
+{
 ADCON0 &= 0xC5;
 ADCON0 |= 0<<3;
 _delay((unsigned long)((2)*(20000000/4000.0)));
 GO_nDONE = 1;
 while(GO_nDONE);
 return ((ADRESH<<8)+ADRESL);
+}
+else if (WHEEL_Type == 1)
+{
 
+}
 case WHEEL_NONE:
 return 128;
 }
@@ -7102,20 +7113,39 @@ return 128;
 return 128;
 }
 
-# 80
+# 93
 void WHEEL_Enable(WHEEL wheel)
 {
 switch(wheel)
 {
 case WHEEL_W1:
 TRISAbits.TRISA0 = 1;
+if (WHEEL_Type == 0)
+{
 ANSELAbits.ANSA0 = 0;
 ADCON0bits.ADON = 1;
 ADCON0bits.CHS = 0b0000;
 ADCON1bits.NVCFG = 0;
 ADCON1bits.PVCFG = 0;
+}
+else if(WHEEL_Type == 1)
+{
+TRISAbits.TRISA1 = 1;
+TRISAbits.TRISA2 = 1;
 
+ANSELAbits.ANSA0 = 1;
+ANSELAbits.ANSA1 = 1;
+ANSELAbits.ANSA2 = 1;
+}
 case WHEEL_NONE:
 break;
+}
+}
+
+void WHEEL_Home(WHEEL wheel)
+{
+while(PORTAbits.RA2 != 0)
+{
+
 }
 }

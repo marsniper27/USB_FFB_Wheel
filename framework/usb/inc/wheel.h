@@ -8,10 +8,17 @@
 #include <stdbool.h>
 #include <stdint.h>
 
+
 #ifndef WHEEL_H
 #define	WHEEL_H
 
-/*** Button Definitions *********************************************/
+
+#define POT                 0
+#define ENCODER             1
+
+bool WHEEL_Type = POT; //set according to wheel type
+
+/*** Wheel Definitions *********************************************/
 typedef enum
 {
     WHEEL_NONE,
@@ -55,5 +62,7 @@ uint8_t WHEEL_Position(WHEEL wheel);
 *
 ********************************************************************/
 void WHEEL_Enable(WHEEL wheel);
+
+void WHEEL_Home(WHEEL wheel);
 
 #endif	/* WHEEL_H */
