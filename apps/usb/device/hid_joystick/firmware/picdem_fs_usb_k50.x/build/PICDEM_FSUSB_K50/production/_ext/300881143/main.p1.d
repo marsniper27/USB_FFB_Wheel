@@ -4,6 +4,7 @@
 ../../../../../../framework/usb/inc/usb_common.h  \
 ../demo_src/app_device_joystick.h  \
 ../../../../../../framework/usb/inc/usb_device_hid.h  \
+../../../../../../framework/usb/inc/wheel.h  \
 ./io_mapping.h  \
 ../../../../../../framework/usb/inc/usb_ch9.h  \
 ../../../../../../framework/usb/inc/usb_hal_pic18.h  \

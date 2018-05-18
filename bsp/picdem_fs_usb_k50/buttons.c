@@ -26,20 +26,36 @@
 
 /*** Button Definitions *********************************************/
 //      S1       MCLR reset
-#define S2_PORT  PORTBbits.RB4      //AN11
-#define S3_PORT  PORTBbits.RB5      
-#define S4_PORT  PORTBbits.RB6      
-#define S5_PORT  PORTBbits.RB7     
+#define S2_PORT 	PORTBbits.RB7 //AN11
+#define S3_PORT 	PORTBbits.RB6 
+#define S4_PORT 	PORTBbits.RB5 
+#define S5_PORT 	PORTBbits.RB4 
+#define S6_PORT 	PORTBbits.RB3 
+#define S7_PORT 	PORTBbits.RB2 
+#define S8_PORT 	PORTBbits.RB1 
+#define S9_PORT 	PORTBbits.RB0 
+#define S10_PORT 	PORTDbits.RD7 
+#define S11_PORT 	PORTDbits.RD6 
+#define S12_PORT 	PORTDbits.RD5 
+#define S13_PORT 	PORTDbits.RD4 
+#define S14_PORT 	PORTDbits.RD3
 
-#define S2_TRIS  TRISBbits.TRISB4
-#define S3_TRIS  TRISBbits.TRISB5
-#define S4_TRIS  TRISBbits.TRISB6
-#define S5_TRIS  TRISBbits.TRISB7
+#define S2_TRIS 	TRISBbits.TRISB7
+#define S3_TRIS 	TRISBbits.TRISB6
+#define S4_TRIS 	TRISBbits.TRISB5
+#define S5_TRIS 	TRISBbits.TRISB4
+#define S6_TRIS 	TRISBbits.TRISB3
+#define S7_TRIS 	TRISBbits.TRISB2
+#define S8_TRIS 	TRISBbits.TRISB1
+#define S9_TRIS 	TRISBbits.TRISB0
+#define S10_TRIS 	TRISDbits.TRISD7
+#define S11_TRIS 	TRISDbits.TRISD6
+#define S12_TRIS 	TRISDbits.TRISD5
+#define S13_TRIS 	TRISDbits.TRISD4
+#define S14_TRIS 	TRISDbits.TRISD3
 
 #define S2_ANSEL ANSELBbits.ANSB4
 #define S3_ANSEL ANSELBbits.ANSB5
-#define S4_ANSEL ANSELBbits.ANSB6
-#define S5_ANSEL ANSELBbits.ANSB7
 
 #define BUTTON_PRESSED      0
 #define BUTTON_NOT_PRESSED  1
@@ -81,6 +97,33 @@ bool BUTTON_IsPressed(BUTTON button)
             
         case BUTTON_S5:
             return ( (S5_PORT == BUTTON_PRESSED) ? true : false);
+        
+        case BUTTON_S6:
+            return ( (S6_PORT == BUTTON_PRESSED) ? true : false);
+
+        case BUTTON_S7:
+            return ( (S7_PORT == BUTTON_PRESSED) ? true : false);
+
+        case BUTTON_S8:
+            return ( (S8_PORT == BUTTON_PRESSED) ? true : false);
+
+        case BUTTON_S9:
+            return ( (S9_PORT == BUTTON_PRESSED) ? true : false);
+
+        case BUTTON_S10:
+            return ( (S10_PORT == BUTTON_PRESSED) ? true : false);
+
+        case BUTTON_S11:
+            return ( (S11_PORT == BUTTON_PRESSED) ? true : false);
+
+        case BUTTON_S12:
+            return ( (S12_PORT == BUTTON_PRESSED) ? true : false);
+
+        case BUTTON_S13:
+            return ( (S13_PORT == BUTTON_PRESSED) ? true : false);
+
+        case BUTTON_S14:
+            return ( (S14_PORT == BUTTON_PRESSED) ? true : false);
 
         case BUTTON_NONE:
             return false;
@@ -118,16 +161,51 @@ void BUTTON_Enable(BUTTON button)
             S3_TRIS = PIN_INPUT;
             S3_ANSEL = PIN_DIGITAL;
             break;
-			
+        
         case BUTTON_S4:
             S4_TRIS = PIN_INPUT;
-            S4_ANSEL = PIN_DIGITAL;
             break;
-			
+
         case BUTTON_S5:
             S5_TRIS = PIN_INPUT;
-            S5_ANSEL = PIN_DIGITAL;
+            break;
 
+        case BUTTON_S6:
+            S6_TRIS = PIN_INPUT;
+            break;
+
+        case BUTTON_S7:
+            S7_TRIS = PIN_INPUT;
+            break;
+
+        case BUTTON_S8:
+            S8_TRIS = PIN_INPUT;
+            break;
+
+        case BUTTON_S9:
+            S9_TRIS = PIN_INPUT;
+            break;
+
+        case BUTTON_S10:
+            S10_TRIS = PIN_INPUT;
+            break;
+
+        case BUTTON_S11:
+            S11_TRIS = PIN_INPUT;
+            break;
+
+        case BUTTON_S12:
+            S12_TRIS = PIN_INPUT;
+            break;
+
+        case BUTTON_S13:
+            S13_TRIS = PIN_INPUT;
+            break;
+
+        case BUTTON_S14:
+            S14_TRIS = PIN_INPUT;
+            break;
+            
         case BUTTON_NONE:
             break;
     }

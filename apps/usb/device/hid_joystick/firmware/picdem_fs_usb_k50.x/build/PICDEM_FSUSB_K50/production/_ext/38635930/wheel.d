@@ -1,1 +1,0 @@
- build/PICDEM_FSUSB_K50/production/_ext/38635930/wheel.d  build/PICDEM_FSUSB_K50/production/_ext/38635930/wheel.p1:  C:/Users/kyle.marshall/MPLABXProjects/USB_FFB_Wheel.X/framework/usb/inc/wheel.c ../../../../../../bsp/picdem_fs_usb_k50/buttons.h

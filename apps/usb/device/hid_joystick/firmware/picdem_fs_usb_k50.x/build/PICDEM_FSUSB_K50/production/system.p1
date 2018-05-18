@@ -1,29 +1,38 @@
 Version 3.2 HI-TECH Software Intermediate Code
-[p mainexit ]
-"33 ../demo_src/main.c
+"80 system.c
 [c E6397 0 1 2 .. ]
 [n E6397 . SYSTEM_STATE_USB_START SYSTEM_STATE_USB_SUSPEND SYSTEM_STATE_USB_RESUME  ]
-"57 .\system.h
-[v _SYSTEM_Initialize `(v ~T0 @X0 0 ef1`E6397 ]
-"195 ../../../../../../framework/usb/inc\usb_device.h
-[v _USBDeviceInit `(v ~T0 @X0 0 ef ]
-"299
-[v _USBDeviceTasks `(v ~T0 @X0 0 ef ]
-"61 ../demo_src/main.c
-[c E6053 0 1 2 4 8 16 32 .. ]
-[n E6053 . DETACHED_STATE ATTACHED_STATE POWERED_STATE DEFAULT_STATE ADR_PENDING_STATE ADDRESS_STATE CONFIGURED_STATE  ]
-"2046 ../../../../../../framework/usb/inc\usb_device.h
-[v _USBDeviceState `E6053 ~T0 @X0 0 e ]
-"459 C:\Program Files (x86)\Microchip\xc8\v1.45\include\pic18f45k50.h
-[s S21 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S21 . . SUSPND RESUME USBEN PKTDIS SE0 PPBRST ]
-"458
-[u S20 `S21 1 ]
-[n S20 . . ]
-"469
-[v _UCONbits `VS20 ~T0 @X0 0 e@3936 ]
-"64 ../demo_src/app_device_joystick.h
-[v _APP_DeviceJoystickTasks `(v ~T0 @X0 0 ef ]
+"6048 C:\Program Files (x86)\Microchip\xc8\v1.45\include\pic18f45k50.h
+[v _OSCTUNE `Vuc ~T0 @X0 0 e@3995 ]
+"12354
+[v _OSCCON `Vuc ~T0 @X0 0 e@4051 ]
+"12292
+[v _OSCCON2 `Vuc ~T0 @X0 0 e@4050 ]
+"12298
+[s S547 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S547 . LFIOFS HFIOFR PRISD SOSCGO PLLEN INTSRC SOSCRUN PLLRDY ]
+"12297
+[u S546 `S547 1 ]
+[n S546 . . ]
+"12309
+[v _OSCCON2bits `VS546 ~T0 @X0 0 e@4050 ]
+"8208
+[v _ACTCON `Vuc ~T0 @X0 0 e@4021 ]
+"95 system.c
+[c E5747 0 1 2 3 4 .. ]
+[n E5747 . LED_NONE LED_D1 LED_D2 LED_D3 LED_D4  ]
+"129 ../../../../../../bsp/picdem_fs_usb_k50\leds.h
+[v _LED_Enable `(v ~T0 @X0 0 ef1`E5747 ]
+"97 system.c
+[c E5727 0 1 2 3 4 5 6 7 8 9 10 11 12 13 .. ]
+[n E5727 . BUTTON_NONE BUTTON_S2 BUTTON_S3 BUTTON_S4 BUTTON_S5 BUTTON_S6 BUTTON_S7 BUTTON_S8 BUTTON_S9 BUTTON_S10 BUTTON_S11 BUTTON_S12 BUTTON_S13 BUTTON_S14  ]
+"83 ../../../../../../bsp/picdem_fs_usb_k50\buttons.h
+[v _BUTTON_Enable `(v ~T0 @X0 0 ef1`E5727 ]
+"98 system.c
+[c E6389 0 1 .. ]
+[n E6389 . WHEEL_NONE WHEEL_W1  ]
+"57 ../../../../../../framework/usb/inc\wheel.h
+[v _WHEEL_Enable `(v ~T0 @X0 0 ef1`E6389 ]
 [; ;htc.h: 26: extern const char __xc8_OPTIM_SPEED;
 [; ;htc.h: 28: extern double __fpnormalize(double);
 [; ;xc8debug.h: 14: extern void __builtin_software_breakpoint(void);
@@ -5901,107 +5910,178 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;system.h: 42: SYSTEM_STATE_USB_RESUME
 [; ;system.h: 43: } SYSTEM_STATE;
 [; ;system.h: 57: void SYSTEM_Initialize( SYSTEM_STATE state );
-[; ;inc\usb_device_hid.h: 98: void USBCheckHIDRequest(void);
-[; ;inc\usb_device_hid.h: 280: typedef struct _USB_HID_DSC_HEADER
-[; ;inc\usb_device_hid.h: 281: {
-[; ;inc\usb_device_hid.h: 282: uint8_t bDescriptorType;
-[; ;inc\usb_device_hid.h: 283: uint16_t wDscLength;
-[; ;inc\usb_device_hid.h: 284: } USB_HID_DSC_HEADER;
-[; ;inc\usb_device_hid.h: 288: typedef struct _USB_HID_DSC
-[; ;inc\usb_device_hid.h: 289: {
-[; ;inc\usb_device_hid.h: 290: uint8_t bLength;
-[; ;inc\usb_device_hid.h: 291: uint8_t bDescriptorType;
-[; ;inc\usb_device_hid.h: 292: uint16_t bcdHID;
-[; ;inc\usb_device_hid.h: 293: uint8_t bCountryCode;
-[; ;inc\usb_device_hid.h: 294: uint8_t bNumDsc;
-[; ;inc\usb_device_hid.h: 300: } USB_HID_DSC;
-[; ;inc\usb_device_hid.h: 303: extern volatile CTRL_TRF_SETUP SetupPkt;
-[; ;inc\usb_device_hid.h: 304: extern const uint8_t configDescriptor1[];
-[; ;inc\usb_device_hid.h: 305: extern volatile uint8_t CtrlTrfData[8];
-[; ;app_device_joystick.h: 32: void APP_DeviceJoystickInitialize();
-[; ;app_device_joystick.h: 48: void APP_DeviceJoystickStart();
-[; ;app_device_joystick.h: 64: void APP_DeviceJoystickTasks();
-[; ;app_led_usb_status.h: 37: void APP_LEDUpdateUSBStatus(void);
-[v $root$_main `(v ~T0 @X0 0 e ]
-"31 ../demo_src/main.c
-[v _main `(v ~T0 @X0 1 ef ]
+"23 system.c
+[p x PLLSEL=PLL3X ]
+"24
+[p x CFGPLLEN=OFF ]
+"25
+[p x CPUDIV=NOCLKDIV ]
+"26
+[p x LS48MHZ=SYS48X8 ]
+"27
+[p x FOSC=INTOSCIO ]
+"28
+[p x PCLKEN=OFF ]
+"29
+[p x FCMEN=OFF ]
+"30
+[p x IESO=OFF ]
+"31
+[p x nPWRTEN=OFF ]
 "32
-{
-[; ;main.c: 31: void main(void)
-[; ;main.c: 32: {
-[e :U _main ]
-[f ]
-[; ;main.c: 33: SYSTEM_Initialize(SYSTEM_STATE_USB_START);
+[p x BOREN=SBORDIS ]
 "33
-[e ( _SYSTEM_Initialize (1 . `E6397 0 ]
-[; ;main.c: 35: USBDeviceInit();
+[p x BORV=190 ]
+"34
+[p x nLPBOR=ON ]
 "35
-[e ( _USBDeviceInit ..  ]
-[; ;main.c: 36: ;
-[; ;main.c: 38: while(1)
+[p x WDTEN=SWON ]
+"36
+[p x WDTPS=32768 ]
+"37
+[p x CCP2MX=RC1 ]
 "38
-[e :U 688 ]
-[; ;main.c: 39: {
+[p x PBADEN=OFF ]
 "39
-{
-[; ;main.c: 40: ;
-[; ;main.c: 55: USBDeviceTasks();
+[p x T3CMX=RC0 ]
+"40
+[p x SDOMX=RC7 ]
+"41
+[p x MCLRE=ON ]
+"42
+[p x STVREN=ON ]
+"43
+[p x LVP=OFF ]
+"44
+[p x ICPRT=OFF ]
+"45
+[p x XINST=OFF ]
+"46
+[p x CP0=OFF ]
+"47
+[p x CP1=OFF ]
+"48
+[p x CP2=OFF ]
+"49
+[p x CP3=OFF ]
+"50
+[p x CPB=OFF ]
+"51
+[p x CPD=OFF ]
+"52
+[p x WRT0=OFF ]
+"53
+[p x WRT1=OFF ]
+"54
+[p x WRT2=OFF ]
 "55
-[e ( _USBDeviceTasks ..  ]
-[; ;main.c: 61: if( USBDeviceState < CONFIGURED_STATE )
+[p x WRT3=OFF ]
+"56
+[p x WRTC=OFF ]
+"57
+[p x WRTB=OFF ]
+"58
+[p x WRTD=OFF ]
+"59
+[p x EBTR0=OFF ]
+"60
+[p x EBTR1=OFF ]
 "61
-[e $ ! < -> _USBDeviceState `i -> . `E6053 6 `i 690  ]
-[; ;main.c: 62: {
+[p x EBTR2=OFF ]
 "62
-{
-[; ;main.c: 64: continue;
-"64
-[e $U 687  ]
-"65
-}
-[e :U 690 ]
-[; ;main.c: 65: }
-[; ;main.c: 71: if( UCONbits.SUSPND == 1 )
-"71
-[e $ ! == -> . . _UCONbits 0 1 `i -> 1 `i 691  ]
-[; ;main.c: 72: {
-"72
-{
-[; ;main.c: 74: continue;
-"74
-[e $U 687  ]
-"75
-}
-[e :U 691 ]
-[; ;main.c: 75: }
-[; ;main.c: 78: APP_DeviceJoystickTasks();
-"78
-[e ( _APP_DeviceJoystickTasks ..  ]
+[p x EBTR3=OFF ]
+"63
+[p x EBTRB=OFF ]
+"79
+[v _SYSTEM_Initialize `(v ~T0 @X0 1 ef1`E6397 ]
 "80
-}
+{
+[; ;system.c: 79: void SYSTEM_Initialize( SYSTEM_STATE state )
+[; ;system.c: 80: {
+[e :U _SYSTEM_Initialize ]
+"79
+[v _state `E6397 ~T0 @X0 1 r1 ]
+"80
+[f ]
+[; ;system.c: 81: switch(state)
+"81
+[e $U 686  ]
+[; ;system.c: 82: {
+"82
+{
+[; ;system.c: 83: case SYSTEM_STATE_USB_START:
+"83
 [e :U 687 ]
-"38
+[; ;system.c: 88: OSCTUNE = 0x80;
+"88
+[e = _OSCTUNE -> -> 128 `i `uc ]
+[; ;system.c: 89: OSCCON = 0x70;
+"89
+[e = _OSCCON -> -> 112 `i `uc ]
+[; ;system.c: 90: OSCCON2 = 0x10;
+"90
+[e = _OSCCON2 -> -> 16 `i `uc ]
+[; ;system.c: 91: while(OSCCON2bits.PLLRDY != 1);
+"91
 [e $U 688  ]
 [e :U 689 ]
-[; ;main.c: 80: }
-[; ;main.c: 81: }
-"81
-[e :UE 686 ]
+[e :U 688 ]
+[e $ != -> . . _OSCCON2bits 0 7 `i -> 1 `i 689  ]
+[e :U 690 ]
+[; ;system.c: 92: ACTCON = 0x90;
+"92
+[e = _ACTCON -> -> 144 `i `uc ]
+[; ;system.c: 95: LED_Enable(LED_D1);
+"95
+[e ( _LED_Enable (1 . `E5747 1 ]
+[; ;system.c: 97: BUTTON_Enable(BUTTON_S2);
+"97
+[e ( _BUTTON_Enable (1 . `E5727 1 ]
+[; ;system.c: 98: WHEEL_Enable(WHEEL_W1);
+"98
+[e ( _WHEEL_Enable (1 . `E6389 1 ]
+[; ;system.c: 99: break;
+"99
+[e $U 685  ]
+[; ;system.c: 101: case SYSTEM_STATE_USB_SUSPEND:
+"101
+[e :U 691 ]
+[; ;system.c: 102: break;
+"102
+[e $U 685  ]
+[; ;system.c: 104: case SYSTEM_STATE_USB_RESUME:
+"104
+[e :U 692 ]
+[; ;system.c: 105: break;
+"105
+[e $U 685  ]
+"106
 }
-[; ;main.c: 82: typedef union _SET_GET_EFFECT_STRUCTURE
-[; ;main.c: 83: {
-[; ;main.c: 84: struct
-[; ;main.c: 85: {
-[; ;main.c: 86: uint8_t report_id;
-[; ;main.c: 87: uint8_t effect_type;
-[; ;main.c: 88: uint8_t byte_count;
-[; ;main.c: 90: }SET_REPORT_REQUEST;
-[; ;main.c: 91: struct
-[; ;main.c: 92: {
-[; ;main.c: 93: uint8_t report_id;
-[; ;main.c: 94: uint8_t effect_block_index;
-[; ;main.c: 95: uint8_t block_load_status;
-[; ;main.c: 96: int ram_pool_available;
-[; ;main.c: 97: }PID_BLOCK_LOAD_REPORT;
-[; ;main.c: 99: uint8_t val[8];
-[; ;main.c: 100: }SET_GET_EFFECT_STRUCTURE;
+[; ;system.c: 106: }
+[e $U 685  ]
+"81
+[e :U 686 ]
+[e [\ _state , $ . `E6397 0 687
+ , $ . `E6397 1 691
+ , $ . `E6397 2 692
+ 685 ]
+"106
+[e :U 685 ]
+[; ;system.c: 107: }
+"107
+[e :UE 684 ]
+}
+[v $root$_SYS_InterruptHigh `(v ~T0 @X0 0 e ]
+[v F6407 `(v ~T0 @X0 1 tf ]
+"112
+[v _SYS_InterruptHigh `IF6407 ~T0 @X0 1 e ]
+"113
+{
+[; ;system.c: 112: void interrupt SYS_InterruptHigh(void)
+[; ;system.c: 113: {
+[e :U _SYS_InterruptHigh ]
+[f ]
+[; ;system.c: 117: }
+"117
+[e :UE 693 ]
+}

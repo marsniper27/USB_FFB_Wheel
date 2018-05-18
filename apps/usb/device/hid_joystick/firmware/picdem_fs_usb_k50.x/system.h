@@ -26,6 +26,7 @@ please contact mla_licensing@microchip.com
 #include "buttons.h"
 #include "leds.h"
 #include "usb.h"
+#inlcude "wheel.h"
 
 #include "io_mapping.h"
 

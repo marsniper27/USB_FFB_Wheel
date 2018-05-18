@@ -94,7 +94,8 @@ void SYSTEM_Initialize( SYSTEM_STATE state )
 			
             LED_Enable(LED_USB_DEVICE_STATE);
             
-            BUTTON_Enable(BUTTON_USB_DEVICE_HID_JOYSTICK);
+            BUTTON_Enable(BUTTON_X);
+            WHEEL_Enable(WHEEL_W1);
             break;
 			
         case SYSTEM_STATE_USB_SUSPEND: 

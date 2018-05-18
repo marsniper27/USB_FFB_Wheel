@@ -3,11 +3,22 @@
 [d edition pro ]
 [d chip 18F45K50 ]
 [d frameptr 4065 ]
-"64 C:\Users\kyle.marshall\MPLABXProjects\USB_FFB_Wheel.X/bsp/picdem_fs_usb_k50/buttons.c
+"86 C:\Users\kyle.marshall\MPLABXProjects\USB_FFB_Wheel.X/bsp/picdem_fs_usb_k50/buttons.c
 [e E5727 . `uc
 BUTTON_NONE 0
 BUTTON_S2 1
 BUTTON_S3 2
+BUTTON_S4 3
+BUTTON_S5 4
+BUTTON_S6 5
+BUTTON_S7 6
+BUTTON_S8 7
+BUTTON_S9 8
+BUTTON_S10 9
+BUTTON_S11 10
+BUTTON_S12 11
+BUTTON_S13 12
+BUTTON_S14 13
 ]
 "68 C:\Users\kyle.marshall\MPLABXProjects\USB_FFB_Wheel.X/bsp/picdem_fs_usb_k50/leds.c
 [e E2 . `uc
@@ -75,7 +86,7 @@ EVENT_ATTACH 4
 EVENT_TRANSFER_TERMINATED 5
 ]
 "51 C:\Users\kyle.marshall\MPLABXProjects\USB_FFB_Wheel.X\apps\usb\device\hid_joystick\firmware/demo_src/usb_events.c
-[e E5983 . `ui
+[e E5994 . `ui
 EVENT_NONE 0
 EVENT_DEVICE_STACK_BASE 1
 EVENT_HOST_STACK_BASE 100
@@ -114,13 +125,13 @@ EVENT_USER_BASE 10000
 EVENT_BUS_ERROR 32767
 ]
 "73
-[e E6378 . `uc
+[e E6397 . `uc
 SYSTEM_STATE_USB_START 0
 SYSTEM_STATE_USB_SUSPEND 1
 SYSTEM_STATE_USB_RESUME 2
 ]
 "52
-[e E6051 . `uc
+[e E6062 . `uc
 EVENT_CONFIGURED 1
 EVENT_SET_DESCRIPTOR 2
 EVENT_EP0_REQUEST 3
@@ -128,7 +139,7 @@ EVENT_ATTACH 4
 EVENT_TRANSFER_TERMINATED 5
 ]
 "56 C:\Users\kyle.marshall\MPLABXProjects\USB_FFB_Wheel.X\apps\usb\device\hid_joystick\firmware/demo_src/app_led_usb_status.c
-[e E5764 . `uc
+[e E5775 . `uc
 LED_NONE 0
 LED_D1 1
 LED_D2 2
@@ -136,7 +147,7 @@ LED_D3 3
 LED_D4 4
 ]
 "60
-[e E6042 . `uc
+[e E6053 . `uc
 DETACHED_STATE 0
 ATTACHED_STATE 1
 POWERED_STATE 2
@@ -146,13 +157,13 @@ ADDRESS_STATE 16
 CONFIGURED_STATE 32
 ]
 "33 C:\Users\kyle.marshall\MPLABXProjects\USB_FFB_Wheel.X\apps\usb\device\hid_joystick\firmware/demo_src/main.c
-[e E6378 . `uc
+[e E6397 . `uc
 SYSTEM_STATE_USB_START 0
 SYSTEM_STATE_USB_SUSPEND 1
 SYSTEM_STATE_USB_RESUME 2
 ]
 "61
-[e E6042 . `uc
+[e E6053 . `uc
 DETACHED_STATE 0
 ATTACHED_STATE 1
 POWERED_STATE 2
@@ -162,13 +173,13 @@ ADDRESS_STATE 16
 CONFIGURED_STATE 32
 ]
 "80 C:\Users\kyle.marshall\MPLABXProjects\USB_FFB_Wheel.X\apps\usb\device\hid_joystick\firmware\picdem_fs_usb_k50.x\system.c
-[e E6378 . `uc
+[e E6397 . `uc
 SYSTEM_STATE_USB_START 0
 SYSTEM_STATE_USB_SUSPEND 1
 SYSTEM_STATE_USB_RESUME 2
 ]
 "95
-[e E5736 . `uc
+[e E5747 . `uc
 LED_NONE 0
 LED_D1 1
 LED_D2 2
@@ -180,8 +191,24 @@ LED_D4 4
 BUTTON_NONE 0
 BUTTON_S2 1
 BUTTON_S3 2
+BUTTON_S4 3
+BUTTON_S5 4
+BUTTON_S6 5
+BUTTON_S7 6
+BUTTON_S8 7
+BUTTON_S9 8
+BUTTON_S10 9
+BUTTON_S11 10
+BUTTON_S12 11
+BUTTON_S13 12
+BUTTON_S14 13
 ]
-"147 C:\Users\kyle.marshall\MPLABXProjects\USB_FFB_Wheel.X\apps\usb\device\hid_joystick\firmware/demo_src/app_device_joystick.c
+"98
+[e E6389 . `uc
+WHEEL_NONE 0
+WHEEL_W1 1
+]
+"148 C:\Users\kyle.marshall\MPLABXProjects\USB_FFB_Wheel.X\apps\usb\device\hid_joystick\firmware/demo_src/app_device_joystick.c
 [e E291 . `uc
 DETACHED_STATE 0
 ATTACHED_STATE 1
@@ -196,10 +223,31 @@ CONFIGURED_STATE 32
 BUTTON_NONE 0
 BUTTON_S2 1
 BUTTON_S3 2
+BUTTON_S4 3
+BUTTON_S5 4
+BUTTON_S6 5
+BUTTON_S7 6
+BUTTON_S8 7
+BUTTON_S9 8
+BUTTON_S10 9
+BUTTON_S11 10
+BUTTON_S12 11
+BUTTON_S13 12
+BUTTON_S14 13
 ]
-"63 C:\Users\kyle.marshall\MPLABXProjects\USB_FFB_Wheel.X/bsp/picdem_fs_usb_k50/buttons.c
+"290
+[e E6405 . `uc
+WHEEL_NONE 0
+WHEEL_W1 1
+]
+"45 C:/Users/kyle.marshall/MPLABXProjects/USB_FFB_Wheel.X/framework/usb/inc/wheel.c
+[e E5755 . `uc
+WHEEL_NONE 0
+WHEEL_W1 1
+]
+"85 C:\Users\kyle.marshall\MPLABXProjects\USB_FFB_Wheel.X/bsp/picdem_fs_usb_k50/buttons.c
 [v _BUTTON_IsPressed BUTTON_IsPressed `(uc  1 e 1 0 ]
-"96
+"151
 [v _BUTTON_Enable BUTTON_Enable `(v  1 e 1 0 ]
 "67 C:\Users\kyle.marshall\MPLABXProjects\USB_FFB_Wheel.X/bsp/picdem_fs_usb_k50/leds.c
 [v _LED_On LED_On `(v  1 e 1 0 ]
@@ -255,9 +303,9 @@ BUTTON_S3 2
 [v _USBIncrement1msInternalTimers USBIncrement1msInternalTimers `(v  1 e 1 0 ]
 "153 C:\Users\kyle.marshall\MPLABXProjects\USB_FFB_Wheel.X/framework/usb/src/usb_device_hid.c
 [v _USBCheckHIDRequest USBCheckHIDRequest `(v  1 e 1 0 ]
-"118 C:\Users\kyle.marshall\MPLABXProjects\USB_FFB_Wheel.X\apps\usb\device\hid_joystick\firmware/demo_src/app_device_joystick.c
+"119 C:\Users\kyle.marshall\MPLABXProjects\USB_FFB_Wheel.X\apps\usb\device\hid_joystick\firmware/demo_src/app_device_joystick.c
 [v _APP_DeviceJoystickInitialize APP_DeviceJoystickInitialize `(v  1 e 1 0 ]
-"142
+"143
 [v _APP_DeviceJoystickTasks APP_DeviceJoystickTasks `(v  1 e 1 0 ]
 "50 C:\Users\kyle.marshall\MPLABXProjects\USB_FFB_Wheel.X\apps\usb\device\hid_joystick\firmware/demo_src/app_led_usb_status.c
 [v _APP_LEDUpdateUSBStatus APP_LEDUpdateUSBStatus `(v  1 e 1 0 ]
@@ -265,6 +313,10 @@ BUTTON_S3 2
 [v _main main `(v  1 e 1 0 ]
 "50 C:\Users\kyle.marshall\MPLABXProjects\USB_FFB_Wheel.X\apps\usb\device\hid_joystick\firmware/demo_src/usb_events.c
 [v _USER_USB_CALLBACK_EVENT_HANDLER USER_USB_CALLBACK_EVENT_HANDLER `(uc  1 e 1 0 ]
+"44 C:/Users/kyle.marshall/MPLABXProjects/USB_FFB_Wheel.X/framework/usb/inc/wheel.c
+[v _WHEEL_Position WHEEL_Position `(uc  1 e 1 0 ]
+"79
+[v _WHEEL_Enable WHEEL_Enable `(v  1 e 1 0 ]
 "62 C:\Program Files (x86)\Microchip\xc8\v1.45\sources\common\float.c
 [v ___ftpack __ftpack `(f  1 e 3 0 ]
 "86 C:\Program Files (x86)\Microchip\xc8\v1.45\sources\common\ftadd.c
@@ -291,7 +343,7 @@ BUTTON_S3 2
 [v ___lmul __lmul `(ul  1 e 4 0 ]
 "79 C:\Users\kyle.marshall\MPLABXProjects\USB_FFB_Wheel.X\apps\usb\device\hid_joystick\firmware\picdem_fs_usb_k50.x\system.c
 [v _SYSTEM_Initialize SYSTEM_Initialize `(v  1 e 1 0 ]
-"111
+"112
 [v _SYS_InterruptHigh SYS_InterruptHigh `II(v  1 e 1 0 ]
 "141 C:\Users\kyle.marshall\MPLABXProjects\USB_FFB_Wheel.X/framework/usb/src/usb_device.c
 [v _USBDeviceState USBDeviceState `E6102  1 e 1 0 ]
@@ -299,7 +351,7 @@ BUTTON_S3 2
 [v _USBActiveConfiguration USBActiveConfiguration `uc  1 e 1 0 ]
 "143
 [v _USBAlternateInterface USBAlternateInterface `[1]uc  1 e 1 0 ]
-[s S302 . 1 `uc 1 BC8 1 0 :1:0 
+[s S390 . 1 `uc 1 BC8 1 0 :1:0 
 `uc 1 BC9 1 0 :1:1 
 `uc 1 BSTALL 1 0 :1:2 
 `uc 1 DTSEN 1 0 :1:3 
@@ -309,80 +361,80 @@ BUTTON_S3 2
 `uc 1 UOWN 1 0 :1:7 
 ]
 "144
-[s S311 . 1 `uc 1 . 1 0 :2:0 
+[s S399 . 1 `uc 1 . 1 0 :2:0 
 `uc 1 PID0 1 0 :1:2 
 `uc 1 PID1 1 0 :1:3 
 `uc 1 PID2 1 0 :1:4 
 `uc 1 PID3 1 0 :1:5 
 `uc 1 . 1 0 :1:6 
 ]
-[s S318 . 1 `uc 1 . 1 0 :2:0 
+[s S406 . 1 `uc 1 . 1 0 :2:0 
 `uc 1 PID 1 0 :4:2 
 `uc 1 . 1 0 :2:6 
 ]
-[u S322 _BD_STAT 1 `uc 1 Val 1 0 `S302 1 . 1 0 `S311 1 . 1 0 `S318 1 . 1 0 ]
-[s S327 . 4 `S322 1 STAT 1 0 `uc 1 CNT 1 1 `uc 1 ADRL 1 2 `uc 1 ADRH 1 3 ]
-[s S332 . 4 `uc 1 . 1 0 :8:0 
+[u S410 _BD_STAT 1 `uc 1 Val 1 0 `S390 1 . 1 0 `S399 1 . 1 0 `S406 1 . 1 0 ]
+[s S415 . 4 `S410 1 STAT 1 0 `uc 1 CNT 1 1 `uc 1 ADRL 1 2 `uc 1 ADRH 1 3 ]
+[s S420 . 4 `uc 1 . 1 0 :8:0 
 `uc 1 . 1 1 :8:0 
 `ui 1 ADR 2 2 ]
-[u S336 __BDT 4 `S327 1 . 4 0 `S332 1 . 4 0 `ul 1 Val 4 0 `[4]uc 1 v 4 0 ]
-[v _pBDTEntryEP0OutCurrent pBDTEntryEP0OutCurrent `*.39VES336  1 e 2 0 ]
+[u S424 __BDT 4 `S415 1 . 4 0 `S420 1 . 4 0 `ul 1 Val 4 0 `[4]uc 1 v 4 0 ]
+[v _pBDTEntryEP0OutCurrent pBDTEntryEP0OutCurrent `*.39VES424  1 e 2 0 ]
 "145
-[v _pBDTEntryEP0OutNext pBDTEntryEP0OutNext `*.39VES336  1 e 2 0 ]
+[v _pBDTEntryEP0OutNext pBDTEntryEP0OutNext `*.39VES424  1 e 2 0 ]
 "146
-[v _pBDTEntryOut pBDTEntryOut `[2]*.39VES336  1 e 4 0 ]
+[v _pBDTEntryOut pBDTEntryOut `[2]*.39VES424  1 e 4 0 ]
 "147
-[v _pBDTEntryIn pBDTEntryIn `[2]*.39VES336  1 e 4 0 ]
+[v _pBDTEntryIn pBDTEntryIn `[2]*.39VES424  1 e 4 0 ]
 "148
 [v _shortPacketStatus shortPacketStatus `uc  1 e 1 0 ]
 "149
 [v _controlTransferState controlTransferState `uc  1 e 1 0 ]
-[u S341 . 3 `*.2uc 1 bRam 3 0 `*.2Cuc 1 bRom 3 0 `*.2ui 1 wRam 3 0 `*.2Cui 1 wRom 3 0 ]
+[u S429 . 3 `*.2uc 1 bRam 3 0 `*.2Cuc 1 bRom 3 0 `*.2ui 1 wRam 3 0 `*.2Cui 1 wRom 3 0 ]
 "150
-[s S346 . 1 `uc 1 ctrl_trf_mem 1 0 :1:0 
+[s S434 . 1 `uc 1 ctrl_trf_mem 1 0 :1:0 
 `uc 1 reserved 1 0 :5:1 
 `uc 1 includeZero 1 0 :1:6 
 `uc 1 busy 1 0 :1:7 
 ]
-[u S351 . 1 `S346 1 bits 1 0 `uc 1 Val 1 0 ]
-[s S354 . 2 `uc 1 LB 1 0 `uc 1 HB 1 1 ]
-[u S357 . 2 `ui 1 Val 2 0 `[2]uc 1 v 2 0 `S354 1 byte 2 0 ]
-[s S361 . 6 `S341 1 pSrc 3 0 `S351 1 info 1 3 `S357 1 wCount 2 4 ]
-[v _inPipes inPipes `[1]S361  1 e 6 0 ]
-[u S365 . 3 `*.2uc 1 bRam 3 0 `*.2ui 1 wRam 3 0 ]
+[u S439 . 1 `S434 1 bits 1 0 `uc 1 Val 1 0 ]
+[s S442 . 2 `uc 1 LB 1 0 `uc 1 HB 1 1 ]
+[u S445 . 2 `ui 1 Val 2 0 `[2]uc 1 v 2 0 `S442 1 byte 2 0 ]
+[s S449 . 6 `S429 1 pSrc 3 0 `S439 1 info 1 3 `S445 1 wCount 2 4 ]
+[v _inPipes inPipes `[1]S449  1 e 6 0 ]
+[u S453 . 3 `*.2uc 1 bRam 3 0 `*.2ui 1 wRam 3 0 ]
 "151
-[s S368 . 1 `uc 1 reserved 1 0 :7:0 
+[s S456 . 1 `uc 1 reserved 1 0 :7:0 
 `uc 1 busy 1 0 :1:7 
 ]
-[u S371 . 1 `S368 1 bits 1 0 `uc 1 Val 1 0 ]
-[s S375 . 8 `S365 1 pDst 3 0 `S371 1 info 1 3 `S357 1 wCount 2 4 `*.37(v 1 pFunc 2 6 ]
-[v _outPipes outPipes `[1]S375  1 e 8 0 ]
+[u S459 . 1 `S456 1 bits 1 0 `uc 1 Val 1 0 ]
+[s S463 . 8 `S453 1 pDst 3 0 `S459 1 info 1 3 `S445 1 wCount 2 4 `*.37(v 1 pFunc 2 6 ]
+[v _outPipes outPipes `[1]S463  1 e 8 0 ]
 "152
 [v _pDst pDst `*.39uc  1 e 2 0 ]
 "153
 [v _RemoteWakeup RemoteWakeup `uc  1 e 1 0 ]
 "154
 [v _USBBusIsSuspended USBBusIsSuspended `uc  1 e 1 0 ]
-[s S380 . 1 `uc 1 filler1 1 0 :1:0 
+[s S468 . 1 `uc 1 filler1 1 0 :1:0 
 `uc 1 ping_pong 1 0 :1:1 
 `uc 1 direction 1 0 :1:2 
 `uc 1 endpoint_number 1 0 :4:3 
 ]
 "155
-[u S385 __USTAT 1 `S380 1 . 1 0 `uc 1 Val 1 0 ]
-[v _USTATcopy USTATcopy `S385  1 e 1 0 ]
+[u S473 __USTAT 1 `S468 1 . 1 0 `uc 1 Val 1 0 ]
+[v _USTATcopy USTATcopy `S473  1 e 1 0 ]
 "156
 [v _endpoint_number endpoint_number `uc  1 e 1 0 ]
 "157
 [v _BothEP0OutUOWNsSet BothEP0OutUOWNsSet `uc  1 e 1 0 ]
-[s S388 . 1 `uc 1 ping_pong_state 1 0 :1:0 
+[s S476 . 1 `uc 1 ping_pong_state 1 0 :1:0 
 `uc 1 transfer_terminated 1 0 :1:1 
 ]
 "158
-[u S391 . 1 `S388 1 bits 1 0 `uc 1 Val 1 0 ]
-[v _ep_data_in ep_data_in `[2]S391  1 e 2 0 ]
+[u S479 . 1 `S476 1 bits 1 0 `uc 1 Val 1 0 ]
+[v _ep_data_in ep_data_in `[2]S479  1 e 2 0 ]
 "159
-[v _ep_data_out ep_data_out `[2]S391  1 e 2 0 ]
+[v _ep_data_out ep_data_out `[2]S479  1 e 2 0 ]
 "160
 [v _USBStatusStageTimeoutCounter USBStatusStageTimeoutCounter `uc  1 e 1 0 ]
 "161
@@ -400,13 +452,13 @@ BUTTON_S3 2
 "167
 [v _USBTicksSinceSuspendEnd USBTicksSinceSuspendEnd `uc  1 e 1 0 ]
 "174
-[v _BDT BDT `VE[8]S336  1 e 32 @1024 ]
-[s S394 . 8 `uc 1 bmRequestType 1 0 `uc 1 bRequest 1 1 `ui 1 wValue 2 2 `ui 1 wIndex 2 4 `ui 1 wLength 2 6 ]
+[v _BDT BDT `VE[8]S424  1 e 32 @1024 ]
+[s S482 . 8 `uc 1 bmRequestType 1 0 `uc 1 bRequest 1 1 `ui 1 wValue 2 2 `ui 1 wIndex 2 4 `ui 1 wLength 2 6 ]
 "179
-[s S421 . 8 `uc 1 . 1 0 :8:0 
+[s S509 . 8 `uc 1 . 1 0 :8:0 
 `uc 1 . 1 1 :8:0 
-`S357 1 W_Value 2 2 `S357 1 W_Index 2 4 `S357 1 W_Length 2 6 ]
-[s S427 . 8 `uc 1 Recipient 1 0 :5:0 
+`S445 1 W_Value 2 2 `S445 1 W_Index 2 4 `S445 1 W_Length 2 6 ]
+[s S515 . 8 `uc 1 Recipient 1 0 :5:0 
 `uc 1 RequestType 1 0 :2:5 
 `uc 1 DataDir 1 0 :1:7 
 `uc 1 . 1 1 :8:0 
@@ -416,44 +468,44 @@ BUTTON_S3 2
 `uc 1 . 1 6 :8:0 
 `uc 1 . 1 7 :8:0 
 ]
-[s S438 . 1 `uc 1 recipient 1 0 :5:0 
+[s S526 . 1 `uc 1 recipient 1 0 :5:0 
 `uc 1 type 1 0 :2:5 
 `uc 1 direction 1 0 :1:7 
 ]
-[u S442 . 1 `uc 1 bmRequestType 1 0 `S438 1 . 1 0 ]
-[s S445 . 1 `S442 1 requestInfo 1 0 ]
-[s S447 . 8 `uc 1 . 1 0 :8:0 
+[u S530 . 1 `uc 1 bmRequestType 1 0 `S526 1 . 1 0 ]
+[s S533 . 1 `S530 1 requestInfo 1 0 ]
+[s S535 . 8 `uc 1 . 1 0 :8:0 
 `uc 1 . 1 1 :8:0 
 `uc 1 bDscIndex 1 2 `uc 1 bDescriptorType 1 3 `ui 1 wLangID 2 4 `uc 1 . 1 6 :8:0 
 `uc 1 . 1 7 :8:0 
 ]
-[s S455 . 8 `uc 1 . 1 0 :8:0 
+[s S543 . 8 `uc 1 . 1 0 :8:0 
 `uc 1 . 1 1 :8:0 
 `uc 1 bDevADR 1 2 `uc 1 bDevADRH 1 3 `uc 1 . 1 4 :8:0 
 `uc 1 . 1 5 :8:0 
 `uc 1 . 1 6 :8:0 
 `uc 1 . 1 7 :8:0 
 ]
-[s S464 . 8 `uc 1 . 1 0 :8:0 
+[s S552 . 8 `uc 1 . 1 0 :8:0 
 `uc 1 . 1 1 :8:0 
 `uc 1 bConfigurationValue 1 2 `uc 1 bCfgRSD 1 3 `uc 1 . 1 4 :8:0 
 `uc 1 . 1 5 :8:0 
 `uc 1 . 1 6 :8:0 
 `uc 1 . 1 7 :8:0 
 ]
-[s S473 . 8 `uc 1 . 1 0 :8:0 
+[s S561 . 8 `uc 1 . 1 0 :8:0 
 `uc 1 . 1 1 :8:0 
 `uc 1 bAltID 1 2 `uc 1 bAltID_H 1 3 `uc 1 bIntfID 1 4 `uc 1 bIntfID_H 1 5 `uc 1 . 1 6 :8:0 
 `uc 1 . 1 7 :8:0 
 ]
-[s S482 . 8 `uc 1 . 1 0 :8:0 
+[s S570 . 8 `uc 1 . 1 0 :8:0 
 `uc 1 . 1 1 :8:0 
 `uc 1 . 1 2 :8:0 
 `uc 1 . 1 3 :8:0 
 `uc 1 bEPID 1 4 `uc 1 bEPID_H 1 5 `uc 1 . 1 6 :8:0 
 `uc 1 . 1 7 :8:0 
 ]
-[s S491 . 8 `uc 1 . 1 0 :8:0 
+[s S579 . 8 `uc 1 . 1 0 :8:0 
 `uc 1 . 1 1 :8:0 
 `uc 1 . 1 2 :8:0 
 `uc 1 . 1 3 :8:0 
@@ -464,15 +516,15 @@ BUTTON_S3 2
 `uc 1 . 1 6 :8:0 
 `uc 1 . 1 7 :8:0 
 ]
-[u S502 . 8 `S394 1 . 8 0 `S421 1 . 8 0 `S427 1 . 8 0 `S445 1 . 1 0 `S447 1 . 8 0 `S455 1 . 8 0 `S464 1 . 8 0 `S473 1 . 8 0 `S482 1 . 8 0 `S491 1 . 8 0 ]
-[v _SetupPkt SetupPkt `VES502  1 e 8 @1056 ]
+[u S590 . 8 `S482 1 . 8 0 `S509 1 . 8 0 `S515 1 . 8 0 `S533 1 . 1 0 `S535 1 . 8 0 `S543 1 . 8 0 `S552 1 . 8 0 `S561 1 . 8 0 `S570 1 . 8 0 `S579 1 . 8 0 ]
+[v _SetupPkt SetupPkt `VES590  1 e 8 @1056 ]
 "180
 [v _CtrlTrfData CtrlTrfData `VE[8]uc  1 e 8 @1064 ]
 "79 C:\Users\kyle.marshall\MPLABXProjects\USB_FFB_Wheel.X/framework/usb/src/usb_device_hid.c
 [v _idle_rate idle_rate `uc  1 s 1 idle_rate ]
 "80
 [v _active_protocol active_protocol `uc  1 s 1 active_protocol ]
-[s S2313 . 2 `uc 1 square 1 0 :1:0 
+[s S2420 . 2 `uc 1 square 1 0 :1:0 
 `uc 1 x 1 0 :1:1 
 `uc 1 o 1 0 :1:2 
 `uc 1 triangle 1 0 :1:3 
@@ -488,37 +540,39 @@ BUTTON_S3 2
 `uc 1 . 1 1 :3:5 
 ]
 "96 C:\Users\kyle.marshall\MPLABXProjects\USB_FFB_Wheel.X\apps\usb\device\hid_joystick\firmware/demo_src/app_device_joystick.c
-[s S2328 . 1 `uc 1 hat_switch 1 0 :4:0 
+[s S2435 . 1 `uc 1 hat_switch 1 0 :4:0 
 `uc 1 . 1 0 :4:4 
 ]
-[s S2331 . 4 `uc 1 X 1 0 `uc 1 Y 1 1 `uc 1 Z 1 2 `uc 1 Rz 1 3 ]
-[s S2336 . 7 `S2313 1 buttons 2 0 `S2328 1 hat_switch 1 2 `S2331 1 analog_stick 4 3 ]
-[u S2340 _INTPUT_CONTROLS_TYPEDEF 7 `S2336 1 members 7 0 `[7]uc 1 val 7 0 ]
-[v _joystick_input joystick_input `S2340  1 e 7 @1280 ]
+[s S2438 . 4 `uc 1 X 1 0 `uc 1 Y 1 1 `uc 1 Z 1 2 `uc 1 Rz 1 3 ]
+[s S2443 . 7 `S2420 1 buttons 2 0 `S2435 1 hat_switch 1 2 `S2438 1 analog_stick 4 3 ]
+[u S2447 _INTPUT_CONTROLS_TYPEDEF 7 `S2443 1 members 7 0 `[7]uc 1 val 7 0 ]
+[v _joystick_input joystick_input `S2447  1 e 7 @1280 ]
 "103
 [v _lastTransmission lastTransmission `*.39v  1 e 2 0 ]
-[s S722 _USB_DEVICE_DESCRIPTOR 18 `uc 1 bLength 1 0 `uc 1 bDescriptorType 1 1 `ui 1 bcdUSB 2 2 `uc 1 bDeviceClass 1 4 `uc 1 bDeviceSubClass 1 5 `uc 1 bDeviceProtocol 1 6 `uc 1 bMaxPacketSize0 1 7 `ui 1 idVendor 2 8 `ui 1 idProduct 2 10 `ui 1 bcdDevice 2 12 `uc 1 iManufacturer 1 14 `uc 1 iProduct 1 15 `uc 1 iSerialNumber 1 16 `uc 1 bNumConfigurations 1 17 ]
+"106
+[v _Buttons_Pressed Buttons_Pressed `uc  1 e 1 0 ]
+[s S810 _USB_DEVICE_DESCRIPTOR 18 `uc 1 bLength 1 0 `uc 1 bDescriptorType 1 1 `ui 1 bcdUSB 2 2 `uc 1 bDeviceClass 1 4 `uc 1 bDeviceSubClass 1 5 `uc 1 bDeviceProtocol 1 6 `uc 1 bMaxPacketSize0 1 7 `ui 1 idVendor 2 8 `ui 1 idProduct 2 10 `ui 1 bcdDevice 2 12 `uc 1 iManufacturer 1 14 `uc 1 iProduct 1 15 `uc 1 iSerialNumber 1 16 `uc 1 bNumConfigurations 1 17 ]
 "150 C:\Users\kyle.marshall\MPLABXProjects\USB_FFB_Wheel.X\apps\usb\device\hid_joystick\firmware/demo_src/usb_descriptors.c
-[v _device_dsc device_dsc `CS722  1 e 18 0 ]
+[v _device_dsc device_dsc `CS810  1 e 18 0 ]
 "169
 [v _configDescriptor1 configDescriptor1 `C[41]uc  1 e 41 0 ]
-[s S1899 . 4 `uc 1 bLength 1 0 `uc 1 bDscType 1 1 `[1]ui 1 string 2 2 ]
+[s S1987 . 4 `uc 1 bLength 1 0 `uc 1 bDscType 1 1 `[1]ui 1 string 2 2 ]
 "218
-[v _sd000 sd000 `CS1899  1 e 4 0 ]
-[s S1903 . 52 `uc 1 bLength 1 0 `uc 1 bDscType 1 1 `[25]ui 1 string 50 2 ]
+[v _sd000 sd000 `CS1987  1 e 4 0 ]
+[s S1991 . 52 `uc 1 bLength 1 0 `uc 1 bDscType 1 1 `[25]ui 1 string 50 2 ]
 "223
-[v _sd001 sd001 `CS1903  1 e 52 0 ]
-[s S1907 . 28 `uc 1 bLength 1 0 `uc 1 bDscType 1 1 `[13]ui 1 string 26 2 ]
+[v _sd001 sd001 `CS1991  1 e 52 0 ]
+[s S1995 . 28 `uc 1 bLength 1 0 `uc 1 bDscType 1 1 `[13]ui 1 string 26 2 ]
 "230
-[v _sd002 sd002 `CS1907  1 e 28 0 ]
+[v _sd002 sd002 `CS1995  1 e 28 0 ]
 "236
 [v _USB_CD_Ptr USB_CD_Ptr `C[1]*.25Cuc  1 e 2 0 ]
 "242
 [v _USB_SD_Ptr USB_SD_Ptr `C[3]*.25Cuc  1 e 6 0 ]
-[s S1911 . 1274 `[1274]uc 1 report 1274 0 ]
+[s S1999 . 1274 `[1274]uc 1 report 1274 0 ]
 "249
-[v _hid_rpt01 hid_rpt01 `CS1911  1 e 1274 0 ]
-[s S110 . 1 `uc 1 ANSB0 1 0 :1:0 
+[v _hid_rpt01 hid_rpt01 `CS1999  1 e 1274 0 ]
+[s S168 . 1 `uc 1 ANSB0 1 0 :1:0 
 `uc 1 ANSB1 1 0 :1:1 
 `uc 1 ANSB2 1 0 :1:2 
 `uc 1 ANSB3 1 0 :1:3 
@@ -526,9 +580,9 @@ BUTTON_S3 2
 `uc 1 ANSB5 1 0 :1:5 
 ]
 "290 C:\Program Files (x86)\Microchip\xc8\v1.45\include\pic18f45k50.h
-[u S117 . 1 `S110 1 . 1 0 ]
-[v _ANSELBbits ANSELBbits `VES117  1 e 1 @3932 ]
-[s S239 . 1 `uc 1 ANSD0 1 0 :1:0 
+[u S175 . 1 `S168 1 . 1 0 ]
+[v _ANSELBbits ANSELBbits `VES175  1 e 1 @3932 ]
+[s S335 . 1 `uc 1 ANSD0 1 0 :1:0 
 `uc 1 ANSD1 1 0 :1:1 
 `uc 1 ANSD2 1 0 :1:2 
 `uc 1 ANSD3 1 0 :1:3 
@@ -538,11 +592,11 @@ BUTTON_S3 2
 `uc 1 ANSD7 1 0 :1:7 
 ]
 "376
-[u S248 . 1 `S239 1 . 1 0 ]
-[v _ANSELDbits ANSELDbits `VES248  1 e 1 @3934 ]
+[u S344 . 1 `S335 1 . 1 0 ]
+[v _ANSELDbits ANSELDbits `VES344  1 e 1 @3934 ]
 "453
 [v _UCON UCON `VEuc  1 e 1 @3936 ]
-[s S558 . 1 `uc 1 . 1 0 :1:0 
+[s S646 . 1 `uc 1 . 1 0 :1:0 
 `uc 1 SUSPND 1 0 :1:1 
 `uc 1 RESUME 1 0 :1:2 
 `uc 1 USBEN 1 0 :1:3 
@@ -551,8 +605,8 @@ BUTTON_S3 2
 `uc 1 PPBRST 1 0 :1:6 
 ]
 "469
-[u S566 . 1 `S558 1 . 1 0 ]
-[v _UCONbits UCONbits `VES566  1 e 1 @3936 ]
+[u S654 . 1 `S646 1 . 1 0 ]
+[v _UCONbits UCONbits `VES654  1 e 1 @3936 ]
 "504
 [v _USTAT USTAT `VEuc  1 e 1 @3937 ]
 "564
@@ -561,7 +615,7 @@ BUTTON_S3 2
 [v _UADDR UADDR `VEuc  1 e 1 @3939 ]
 "707
 [v _UIE UIE `VEuc  1 e 1 @3940 ]
-[s S618 . 1 `uc 1 URSTIE 1 0 :1:0 
+[s S706 . 1 `uc 1 URSTIE 1 0 :1:0 
 `uc 1 UERRIE 1 0 :1:1 
 `uc 1 ACTVIE 1 0 :1:2 
 `uc 1 TRNIE 1 0 :1:3 
@@ -570,11 +624,11 @@ BUTTON_S3 2
 `uc 1 SOFIE 1 0 :1:6 
 ]
 "723
-[u S626 . 1 `S618 1 . 1 0 ]
-[v _UIEbits UIEbits `VES626  1 e 1 @3940 ]
+[u S714 . 1 `S706 1 . 1 0 ]
+[v _UIEbits UIEbits `VES714  1 e 1 @3940 ]
 "763
 [v _UIR UIR `VEuc  1 e 1 @3941 ]
-[s S578 . 1 `uc 1 URSTIF 1 0 :1:0 
+[s S666 . 1 `uc 1 URSTIF 1 0 :1:0 
 `uc 1 UERRIF 1 0 :1:1 
 `uc 1 ACTVIF 1 0 :1:2 
 `uc 1 TRNIF 1 0 :1:3 
@@ -583,38 +637,38 @@ BUTTON_S3 2
 `uc 1 SOFIF 1 0 :1:6 
 ]
 "779
-[u S586 . 1 `S578 1 . 1 0 ]
-[v _UIRbits UIRbits `VES586  1 e 1 @3941 ]
+[u S674 . 1 `S666 1 . 1 0 ]
+[v _UIRbits UIRbits `VES674  1 e 1 @3941 ]
 "819
 [v _UEIE UEIE `VEuc  1 e 1 @3942 ]
 "870
 [v _UEIR UEIR `VEuc  1 e 1 @3943 ]
 "1046
 [v _UEP0 UEP0 `VEuc  1 e 1 @3946 ]
-[s S756 . 1 `uc 1 EPSTALL 1 0 :1:0 
+[s S844 . 1 `uc 1 EPSTALL 1 0 :1:0 
 `uc 1 EPINEN 1 0 :1:1 
 `uc 1 EPOUTEN 1 0 :1:2 
 `uc 1 EPCONDIS 1 0 :1:3 
 `uc 1 EPHSHK 1 0 :1:4 
 ]
 "1074
-[s S762 . 1 `uc 1 EP0STALL 1 0 :1:0 
+[s S850 . 1 `uc 1 EP0STALL 1 0 :1:0 
 `uc 1 EP0INEN 1 0 :1:1 
 `uc 1 EP0OUTEN 1 0 :1:2 
 `uc 1 EP0CONDIS 1 0 :1:3 
 `uc 1 EP0HSHK 1 0 :1:4 
 ]
-[s S768 . 1 `uc 1 EPSTALL0 1 0 :1:0 
+[s S856 . 1 `uc 1 EPSTALL0 1 0 :1:0 
 `uc 1 EPINEN0 1 0 :1:1 
 `uc 1 EPOUTEN0 1 0 :1:2 
 `uc 1 EPCONDIS0 1 0 :1:3 
 `uc 1 EPHSHK0 1 0 :1:4 
 ]
-[u S774 . 1 `S756 1 . 1 0 `S762 1 . 1 0 `S768 1 . 1 0 ]
-[v _UEP0bits UEP0bits `VES774  1 e 1 @3946 ]
+[u S862 . 1 `S844 1 . 1 0 `S850 1 . 1 0 `S856 1 . 1 0 ]
+[v _UEP0bits UEP0bits `VES862  1 e 1 @3946 ]
 "1154
 [v _UEP1 UEP1 `VEuc  1 e 1 @3947 ]
-[s S25 . 1 `uc 1 RB0 1 0 :1:0 
+[s S36 . 1 `uc 1 RB0 1 0 :1:0 
 `uc 1 RB1 1 0 :1:1 
 `uc 1 RB2 1 0 :1:2 
 `uc 1 RB3 1 0 :1:3 
@@ -624,7 +678,7 @@ BUTTON_S3 2
 `uc 1 RB7 1 0 :1:7 
 ]
 "3081
-[s S34 . 1 `uc 1 INT0 1 0 :1:0 
+[s S45 . 1 `uc 1 INT0 1 0 :1:0 
 `uc 1 INT1 1 0 :1:1 
 `uc 1 INT2 1 0 :1:2 
 `uc 1 . 1 0 :2:3 
@@ -632,12 +686,36 @@ BUTTON_S3 2
 `uc 1 PGC 1 0 :1:6 
 `uc 1 PGD 1 0 :1:7 
 ]
-[s S42 . 1 `uc 1 . 1 0 :3:0 
+[s S53 . 1 `uc 1 . 1 0 :3:0 
 `uc 1 CCP2_PA2 1 0 :1:3 
 ]
-[u S45 . 1 `S25 1 . 1 0 `S34 1 . 1 0 `S42 1 . 1 0 ]
-[v _PORTBbits PORTBbits `VES45  1 e 1 @3969 ]
-[s S159 . 1 `uc 1 LATD0 1 0 :1:0 
+[u S56 . 1 `S36 1 . 1 0 `S45 1 . 1 0 `S53 1 . 1 0 ]
+[v _PORTBbits PORTBbits `VES56  1 e 1 @3969 ]
+[s S81 . 1 `uc 1 RD0 1 0 :1:0 
+`uc 1 RD1 1 0 :1:1 
+`uc 1 RD2 1 0 :1:2 
+`uc 1 RD3 1 0 :1:3 
+`uc 1 RD4 1 0 :1:4 
+`uc 1 RD5 1 0 :1:5 
+`uc 1 RD6 1 0 :1:6 
+`uc 1 RD7 1 0 :1:7 
+]
+"3334
+[s S90 . 1 `uc 1 SPP0 1 0 :1:0 
+`uc 1 SPP1 1 0 :1:1 
+`uc 1 SPP2 1 0 :1:2 
+`uc 1 SPP3 1 0 :1:3 
+`uc 1 SPP4 1 0 :1:4 
+`uc 1 SPP5 1 0 :1:5 
+`uc 1 SPP6 1 0 :1:6 
+`uc 1 SPP7 1 0 :1:7 
+]
+[s S99 . 1 `uc 1 . 1 0 :7:0 
+`uc 1 SS2 1 0 :1:7 
+]
+[u S102 . 1 `S81 1 . 1 0 `S90 1 . 1 0 `S99 1 . 1 0 ]
+[v _PORTDbits PORTDbits `VES102  1 e 1 @3971 ]
+[s S273 . 1 `uc 1 LATD0 1 0 :1:0 
 `uc 1 LATD1 1 0 :1:1 
 `uc 1 LATD2 1 0 :1:2 
 `uc 1 LATD3 1 0 :1:3 
@@ -647,7 +725,7 @@ BUTTON_S3 2
 `uc 1 LATD7 1 0 :1:7 
 ]
 "4130
-[s S168 . 1 `uc 1 LD0 1 0 :1:0 
+[s S282 . 1 `uc 1 LD0 1 0 :1:0 
 `uc 1 LD1 1 0 :1:1 
 `uc 1 LD2 1 0 :1:2 
 `uc 1 LD3 1 0 :1:3 
@@ -656,9 +734,30 @@ BUTTON_S3 2
 `uc 1 LD6 1 0 :1:6 
 `uc 1 LD7 1 0 :1:7 
 ]
-[u S177 . 1 `S159 1 . 1 0 `S168 1 . 1 0 ]
-[v _LATDbits LATDbits `VES177  1 e 1 @3980 ]
-[s S70 . 1 `uc 1 TRISB0 1 0 :1:0 
+[u S291 . 1 `S273 1 . 1 0 `S282 1 . 1 0 ]
+[v _LATDbits LATDbits `VES291  1 e 1 @3980 ]
+[s S2564 . 1 `uc 1 TRISA0 1 0 :1:0 
+`uc 1 TRISA1 1 0 :1:1 
+`uc 1 TRISA2 1 0 :1:2 
+`uc 1 TRISA3 1 0 :1:3 
+`uc 1 TRISA4 1 0 :1:4 
+`uc 1 TRISA5 1 0 :1:5 
+`uc 1 TRISA6 1 0 :1:6 
+`uc 1 TRISA7 1 0 :1:7 
+]
+"4656
+[s S2573 . 1 `uc 1 RA0 1 0 :1:0 
+`uc 1 RA1 1 0 :1:1 
+`uc 1 RA2 1 0 :1:2 
+`uc 1 RA3 1 0 :1:3 
+`uc 1 RA4 1 0 :1:4 
+`uc 1 RA5 1 0 :1:5 
+`uc 1 RA6 1 0 :1:6 
+`uc 1 RA7 1 0 :1:7 
+]
+[u S2582 . 1 `S2564 1 . 1 0 `S2573 1 . 1 0 ]
+[v _TRISAbits TRISAbits `VES2582  1 e 1 @3986 ]
+[s S128 . 1 `uc 1 TRISB0 1 0 :1:0 
 `uc 1 TRISB1 1 0 :1:1 
 `uc 1 TRISB2 1 0 :1:2 
 `uc 1 TRISB3 1 0 :1:3 
@@ -668,9 +767,9 @@ BUTTON_S3 2
 `uc 1 TRISB7 1 0 :1:7 
 ]
 "4878
-[u S88 . 1 `S70 1 . 1 0 `S25 1 . 1 0 ]
-[v _TRISBbits TRISBbits `VES88  1 e 1 @3987 ]
-[s S199 . 1 `uc 1 TRISD0 1 0 :1:0 
+[u S146 . 1 `S128 1 . 1 0 `S36 1 . 1 0 ]
+[v _TRISBbits TRISBbits `VES146  1 e 1 @3987 ]
+[s S185 . 1 `uc 1 TRISD0 1 0 :1:0 
 `uc 1 TRISD1 1 0 :1:1 
 `uc 1 TRISD2 1 0 :1:2 
 `uc 1 TRISD3 1 0 :1:3 
@@ -680,51 +779,90 @@ BUTTON_S3 2
 `uc 1 TRISD7 1 0 :1:7 
 ]
 "5278
-[s S208 . 1 `uc 1 RD0 1 0 :1:0 
-`uc 1 RD1 1 0 :1:1 
-`uc 1 RD2 1 0 :1:2 
-`uc 1 RD3 1 0 :1:3 
-`uc 1 RD4 1 0 :1:4 
-`uc 1 RD5 1 0 :1:5 
-`uc 1 RD6 1 0 :1:6 
-`uc 1 RD7 1 0 :1:7 
-]
-[u S217 . 1 `S199 1 . 1 0 `S208 1 . 1 0 ]
-[v _TRISDbits TRISDbits `VES217  1 e 1 @3989 ]
+[u S203 . 1 `S185 1 . 1 0 `S81 1 . 1 0 ]
+[v _TRISDbits TRISDbits `VES203  1 e 1 @3989 ]
 "6048
 [v _OSCTUNE OSCTUNE `VEuc  1 e 1 @3995 ]
-[s S513 . 1 `uc 1 TMR1GIE 1 0 :1:0 
+[s S601 . 1 `uc 1 TMR1GIE 1 0 :1:0 
 `uc 1 TMR3GIE 1 0 :1:1 
 `uc 1 USBIE 1 0 :1:2 
 `uc 1 CTMUIE 1 0 :1:3 
 ]
 "6805
-[s S518 . 1 `uc 1 RXB0IE 1 0 :1:0 
+[s S606 . 1 `uc 1 RXB0IE 1 0 :1:0 
 `uc 1 RXB1IE 1 0 :1:1 
 `uc 1 TXB0IE 1 0 :1:2 
 `uc 1 TXB1IE 1 0 :1:3 
 ]
-[s S523 . 1 `uc 1 . 1 0 :1:0 
+[s S611 . 1 `uc 1 . 1 0 :1:0 
 `uc 1 RXBNIE 1 0 :1:1 
 ]
-[u S526 . 1 `S513 1 . 1 0 `S518 1 . 1 0 `S523 1 . 1 0 ]
-[v _PIE3bits PIE3bits `VES526  1 e 1 @4003 ]
-[s S598 . 1 `uc 1 TMR1GIF 1 0 :1:0 
+[u S614 . 1 `S601 1 . 1 0 `S606 1 . 1 0 `S611 1 . 1 0 ]
+[v _PIE3bits PIE3bits `VES614  1 e 1 @4003 ]
+[s S686 . 1 `uc 1 TMR1GIF 1 0 :1:0 
 `uc 1 TMR3GIF 1 0 :1:1 
 `uc 1 USBIF 1 0 :1:2 
 `uc 1 CTMUIF 1 0 :1:3 
 ]
 "6872
-[s S603 . 1 `uc 1 . 1 0 :1:0 
+[s S691 . 1 `uc 1 . 1 0 :1:0 
 `uc 1 RXBNIF 1 0 :1:1 
 ]
-[u S606 . 1 `S598 1 . 1 0 `S603 1 . 1 0 ]
-[v _PIR3bits PIR3bits `VES606  1 e 1 @4004 ]
+[u S694 . 1 `S686 1 . 1 0 `S691 1 . 1 0 ]
+[v _PIR3bits PIR3bits `VES694  1 e 1 @4004 ]
 "8208
 [v _ACTCON ACTCON `VEuc  1 e 1 @4021 ]
+[s S2664 . 1 `uc 1 NVCFG 1 0 :2:0 
+`uc 1 PVCFG 1 0 :2:2 
+`uc 1 . 1 0 :3:4 
+`uc 1 TRIGSEL 1 0 :1:7 
+]
+"9728
+[s S2669 . 1 `uc 1 NVCFG0 1 0 :1:0 
+`uc 1 NVCFG1 1 0 :1:1 
+`uc 1 PVCFG0 1 0 :1:2 
+`uc 1 PVCFG1 1 0 :1:3 
+]
+[s S2674 . 1 `uc 1 . 1 0 :3:0 
+`uc 1 CHSN3 1 0 :1:3 
+]
+[u S2677 . 1 `S2664 1 . 1 0 `S2669 1 . 1 0 `S2674 1 . 1 0 ]
+[v _ADCON1bits ADCON1bits `VES2677  1 e 1 @4033 ]
+"9773
+[v _ADCON0 ADCON0 `VEuc  1 e 1 @4034 ]
+[s S2604 . 1 `uc 1 . 1 0 :1:0 
+`uc 1 GO_NOT_DONE 1 0 :1:1 
+]
+"9813
+[s S2607 . 1 `uc 1 ADON 1 0 :1:0 
+`uc 1 GO_nDONE 1 0 :1:1 
+`uc 1 CHS 1 0 :5:2 
+]
+[s S2611 . 1 `uc 1 . 1 0 :1:0 
+`uc 1 DONE 1 0 :1:1 
+]
+[s S2614 . 1 `uc 1 . 1 0 :1:0 
+`uc 1 GO 1 0 :1:1 
+]
+[s S2617 . 1 `uc 1 . 1 0 :1:0 
+`uc 1 NOT_DONE 1 0 :1:1 
+]
+[s S2620 . 1 `uc 1 . 1 0 :1:0 
+`uc 1 nDONE 1 0 :1:1 
+]
+[s S2623 . 1 `uc 1 . 1 0 :1:0 
+`uc 1 GODONE 1 0 :1:1 
+]
+[s S2626 . 1 `uc 1 . 1 0 :1:0 
+`uc 1 GO_DONE 1 0 :1:1 
+]
+[u S2629 . 1 `S2604 1 . 1 0 `S2607 1 . 1 0 `S2611 1 . 1 0 `S2614 1 . 1 0 `S2617 1 . 1 0 `S2620 1 . 1 0 `S2623 1 . 1 0 `S2626 1 . 1 0 ]
+[v _ADCON0bits ADCON0bits `VES2629  1 e 1 @4034 ]
+"9868
+[v _ADRESL ADRESL `VEuc  1 e 1 @4035 ]
 "12292
 [v _OSCCON2 OSCCON2 `VEuc  1 e 1 @4050 ]
-[s S2261 . 1 `uc 1 LFIOFS 1 0 :1:0 
+[s S2349 . 1 `uc 1 LFIOFS 1 0 :1:0 
 `uc 1 HFIOFR 1 0 :1:1 
 `uc 1 PRISD 1 0 :1:2 
 `uc 1 SOSCGO 1 0 :1:3 
@@ -734,10 +872,12 @@ BUTTON_S3 2
 `uc 1 PLLRDY 1 0 :1:7 
 ]
 "12309
-[u S2270 . 1 `S2261 1 . 1 0 ]
-[v _OSCCON2bits OSCCON2bits `VES2270  1 e 1 @4050 ]
+[u S2358 . 1 `S2349 1 . 1 0 ]
+[v _OSCCON2bits OSCCON2bits `VES2358  1 e 1 @4050 ]
 "12354
 [v _OSCCON OSCCON `VEuc  1 e 1 @4051 ]
+"14499
+[v _GO_nDONE GO_nDONE `VEb  1 e 0 @32273 ]
 "31 C:\Users\kyle.marshall\MPLABXProjects\USB_FFB_Wheel.X\apps\usb\device\hid_joystick\firmware/demo_src/main.c
 [v _main main `(v  1 e 1 0 ]
 {
@@ -747,7 +887,7 @@ BUTTON_S3 2
 [v _USBDeviceTasks USBDeviceTasks `(v  1 e 1 0 ]
 {
 "479
-[v USBDeviceTasks@i i `uc  1 a 1 16 ]
+[v USBDeviceTasks@i i `uc  1 a 1 17 ]
 "827
 } 0
 "2303
@@ -786,11 +926,11 @@ BUTTON_S3 2
 [v _memcpy memcpy `(*.39v  1 e 2 0 ]
 {
 "31
-[v memcpy@s s `*.39Cuc  1 a 2 27 ]
+[v memcpy@s s `*.39Cuc  1 a 2 3 ]
 "30
-[v memcpy@d d `*.39uc  1 a 2 25 ]
+[v memcpy@d d `*.39uc  1 a 2 1 ]
 "32
-[v memcpy@tmp tmp `uc  1 a 1 24 ]
+[v memcpy@tmp tmp `uc  1 a 1 0 ]
 "27
 [v memcpy@d1 d1 `*.39v  1 p 2 18 ]
 [v memcpy@s1 s1 `*.39Cv  1 p 2 20 ]
@@ -821,7 +961,7 @@ BUTTON_S3 2
 [v _USBStdSetCfgHandler USBStdSetCfgHandler `(v  1 s 1 USBStdSetCfgHandler ]
 {
 "1970
-[v USBStdSetCfgHandler@i i `uc  1 a 1 9 ]
+[v USBStdSetCfgHandler@i i `uc  1 a 1 27 ]
 "2024
 } 0
 "8 C:\Program Files (x86)\Microchip\xc8\v1.45\sources\common\memset.c
@@ -838,7 +978,7 @@ BUTTON_S3 2
 "2129 C:\Users\kyle.marshall\MPLABXProjects\USB_FFB_Wheel.X/framework/usb/src/usb_device.c
 [v _USBStdGetStatusHandler USBStdGetStatusHandler `(v  1 s 1 USBStdGetStatusHandler ]
 {
-[s S302 . 1 `uc 1 BC8 1 0 :1:0 
+[s S390 . 1 `uc 1 BC8 1 0 :1:0 
 `uc 1 BC9 1 0 :1:1 
 `uc 1 BSTALL 1 0 :1:2 
 `uc 1 DTSEN 1 0 :1:3 
@@ -848,24 +988,24 @@ BUTTON_S3 2
 `uc 1 UOWN 1 0 :1:7 
 ]
 "2161
-[s S311 . 1 `uc 1 . 1 0 :2:0 
+[s S399 . 1 `uc 1 . 1 0 :2:0 
 `uc 1 PID0 1 0 :1:2 
 `uc 1 PID1 1 0 :1:3 
 `uc 1 PID2 1 0 :1:4 
 `uc 1 PID3 1 0 :1:5 
 `uc 1 . 1 0 :1:6 
 ]
-[s S318 . 1 `uc 1 . 1 0 :2:0 
+[s S406 . 1 `uc 1 . 1 0 :2:0 
 `uc 1 PID 1 0 :4:2 
 `uc 1 . 1 0 :2:6 
 ]
-[u S322 _BD_STAT 1 `uc 1 Val 1 0 `S302 1 . 1 0 `S311 1 . 1 0 `S318 1 . 1 0 ]
-[s S327 . 4 `S322 1 STAT 1 0 `uc 1 CNT 1 1 `uc 1 ADRL 1 2 `uc 1 ADRH 1 3 ]
-[s S332 . 4 `uc 1 . 1 0 :8:0 
+[u S410 _BD_STAT 1 `uc 1 Val 1 0 `S390 1 . 1 0 `S399 1 . 1 0 `S406 1 . 1 0 ]
+[s S415 . 4 `S410 1 STAT 1 0 `uc 1 CNT 1 1 `uc 1 ADRL 1 2 `uc 1 ADRH 1 3 ]
+[s S420 . 4 `uc 1 . 1 0 :8:0 
 `uc 1 . 1 1 :8:0 
 `ui 1 ADR 2 2 ]
-[u S336 __BDT 4 `S327 1 . 4 0 `S332 1 . 4 0 `ul 1 Val 4 0 `[4]uc 1 v 4 0 ]
-[v USBStdGetStatusHandler@p p `*.39S336  1 a 2 19 ]
+[u S424 __BDT 4 `S415 1 . 4 0 `S420 1 . 4 0 `ul 1 Val 4 0 `[4]uc 1 v 4 0 ]
+[v USBStdGetStatusHandler@p p `*.39S424  1 a 2 19 ]
 "2184
 } 0
 "2043
@@ -876,7 +1016,7 @@ BUTTON_S3 2
 "2754
 [v _USBStdFeatureReqHandler USBStdFeatureReqHandler `(v  1 s 1 USBStdFeatureReqHandler ]
 {
-[s S302 . 1 `uc 1 BC8 1 0 :1:0 
+[s S390 . 1 `uc 1 BC8 1 0 :1:0 
 `uc 1 BC9 1 0 :1:1 
 `uc 1 BSTALL 1 0 :1:2 
 `uc 1 DTSEN 1 0 :1:3 
@@ -886,38 +1026,38 @@ BUTTON_S3 2
 `uc 1 UOWN 1 0 :1:7 
 ]
 "2756
-[s S311 . 1 `uc 1 . 1 0 :2:0 
+[s S399 . 1 `uc 1 . 1 0 :2:0 
 `uc 1 PID0 1 0 :1:2 
 `uc 1 PID1 1 0 :1:3 
 `uc 1 PID2 1 0 :1:4 
 `uc 1 PID3 1 0 :1:5 
 `uc 1 . 1 0 :1:6 
 ]
-[s S318 . 1 `uc 1 . 1 0 :2:0 
+[s S406 . 1 `uc 1 . 1 0 :2:0 
 `uc 1 PID 1 0 :4:2 
 `uc 1 . 1 0 :2:6 
 ]
-[u S322 _BD_STAT 1 `uc 1 Val 1 0 `S302 1 . 1 0 `S311 1 . 1 0 `S318 1 . 1 0 ]
-[s S327 . 4 `S322 1 STAT 1 0 `uc 1 CNT 1 1 `uc 1 ADRL 1 2 `uc 1 ADRH 1 3 ]
-[s S332 . 4 `uc 1 . 1 0 :8:0 
+[u S410 _BD_STAT 1 `uc 1 Val 1 0 `S390 1 . 1 0 `S399 1 . 1 0 `S406 1 . 1 0 ]
+[s S415 . 4 `S410 1 STAT 1 0 `uc 1 CNT 1 1 `uc 1 ADRL 1 2 `uc 1 ADRH 1 3 ]
+[s S420 . 4 `uc 1 . 1 0 :8:0 
 `uc 1 . 1 1 :8:0 
 `ui 1 ADR 2 2 ]
-[u S336 __BDT 4 `S327 1 . 4 0 `S332 1 . 4 0 `ul 1 Val 4 0 `[4]uc 1 v 4 0 ]
-[v USBStdFeatureReqHandler@p p `*.39S336  1 a 2 13 ]
+[u S424 __BDT 4 `S415 1 . 4 0 `S420 1 . 4 0 `ul 1 Val 4 0 `[4]uc 1 v 4 0 ]
+[v USBStdFeatureReqHandler@p p `*.39S424  1 a 2 14 ]
 "2761
-[v USBStdFeatureReqHandler@pUEP pUEP `*.39uc  1 a 2 10 ]
-[s S388 . 1 `uc 1 ping_pong_state 1 0 :1:0 
+[v USBStdFeatureReqHandler@pUEP pUEP `*.39uc  1 a 2 11 ]
+[s S476 . 1 `uc 1 ping_pong_state 1 0 :1:0 
 `uc 1 transfer_terminated 1 0 :1:1 
 ]
 "2757
-[u S391 . 1 `S388 1 bits 1 0 `uc 1 Val 1 0 ]
-[v USBStdFeatureReqHandler@current_ep_data current_ep_data `S391  1 a 1 12 ]
+[u S479 . 1 `S476 1 bits 1 0 `uc 1 Val 1 0 ]
+[v USBStdFeatureReqHandler@current_ep_data current_ep_data `S479  1 a 1 13 ]
 "2980
 } 0
 "50 C:\Users\kyle.marshall\MPLABXProjects\USB_FFB_Wheel.X\apps\usb\device\hid_joystick\firmware/demo_src/usb_events.c
 [v _USER_USB_CALLBACK_EVENT_HANDLER USER_USB_CALLBACK_EVENT_HANDLER `(uc  1 e 1 0 ]
 {
-[v USER_USB_CALLBACK_EVENT_HANDLER@event event `E5983  1 p 2 3 ]
+[v USER_USB_CALLBACK_EVENT_HANDLER@event event `E5994  1 p 2 3 ]
 [v USER_USB_CALLBACK_EVENT_HANDLER@pdata pdata `*.39v  1 p 2 5 ]
 [v USER_USB_CALLBACK_EVENT_HANDLER@size size `ui  1 p 2 7 ]
 "112
@@ -930,10 +1070,18 @@ BUTTON_S3 2
 "79 C:\Users\kyle.marshall\MPLABXProjects\USB_FFB_Wheel.X\apps\usb\device\hid_joystick\firmware\picdem_fs_usb_k50.x\system.c
 [v _SYSTEM_Initialize SYSTEM_Initialize `(v  1 e 1 0 ]
 {
-[v SYSTEM_Initialize@state state `E6378  1 a 1 wreg ]
-[v SYSTEM_Initialize@state state `E6378  1 a 1 wreg ]
-[v SYSTEM_Initialize@state state `E6378  1 a 1 19 ]
-"106
+[v SYSTEM_Initialize@state state `E6397  1 a 1 wreg ]
+[v SYSTEM_Initialize@state state `E6397  1 a 1 wreg ]
+[v SYSTEM_Initialize@state state `E6397  1 a 1 19 ]
+"107
+} 0
+"79 C:/Users/kyle.marshall/MPLABXProjects/USB_FFB_Wheel.X/framework/usb/inc/wheel.c
+[v _WHEEL_Enable WHEEL_Enable `(v  1 e 1 0 ]
+{
+[v WHEEL_Enable@wheel wheel `E5755  1 a 1 wreg ]
+[v WHEEL_Enable@wheel wheel `E5755  1 a 1 wreg ]
+[v WHEEL_Enable@wheel wheel `E5755  1 a 1 18 ]
+"93
 } 0
 "228 C:\Users\kyle.marshall\MPLABXProjects\USB_FFB_Wheel.X/bsp/picdem_fs_usb_k50/leds.c
 [v _LED_Enable LED_Enable `(v  1 e 1 0 ]
@@ -943,13 +1091,13 @@ BUTTON_S3 2
 [v LED_Enable@led led `E2  1 a 1 18 ]
 "255
 } 0
-"96 C:\Users\kyle.marshall\MPLABXProjects\USB_FFB_Wheel.X/bsp/picdem_fs_usb_k50/buttons.c
+"151 C:\Users\kyle.marshall\MPLABXProjects\USB_FFB_Wheel.X/bsp/picdem_fs_usb_k50/buttons.c
 [v _BUTTON_Enable BUTTON_Enable `(v  1 e 1 0 ]
 {
 [v BUTTON_Enable@button button `E5727  1 a 1 wreg ]
 [v BUTTON_Enable@button button `E5727  1 a 1 wreg ]
 [v BUTTON_Enable@button button `E5727  1 a 1 18 ]
-"113
+"212
 } 0
 "50 C:\Users\kyle.marshall\MPLABXProjects\USB_FFB_Wheel.X\apps\usb\device\hid_joystick\firmware/demo_src/app_led_usb_status.c
 [v _APP_LEDUpdateUSBStatus APP_LEDUpdateUSBStatus `(v  1 e 1 0 ]
@@ -974,10 +1122,10 @@ BUTTON_S3 2
 [v LED_Off@led led `E2  1 a 1 18 ]
 "131
 } 0
-"118 C:\Users\kyle.marshall\MPLABXProjects\USB_FFB_Wheel.X\apps\usb\device\hid_joystick\firmware/demo_src/app_device_joystick.c
+"119 C:\Users\kyle.marshall\MPLABXProjects\USB_FFB_Wheel.X\apps\usb\device\hid_joystick\firmware/demo_src/app_device_joystick.c
 [v _APP_DeviceJoystickInitialize APP_DeviceJoystickInitialize `(v  1 e 1 0 ]
 {
-"126
+"127
 } 0
 "878 C:\Users\kyle.marshall\MPLABXProjects\USB_FFB_Wheel.X/framework/usb/src/usb_device.c
 [v _USBEnableEndpoint USBEnableEndpoint `(v  1 e 1 0 ]
@@ -996,7 +1144,7 @@ BUTTON_S3 2
 [v _USBConfigureEndpoint USBConfigureEndpoint `(v  1 s 1 USBConfigureEndpoint ]
 {
 [v USBConfigureEndpoint@EPNum EPNum `uc  1 a 1 wreg ]
-[s S302 . 1 `uc 1 BC8 1 0 :1:0 
+[s S390 . 1 `uc 1 BC8 1 0 :1:0 
 `uc 1 BC9 1 0 :1:1 
 `uc 1 BSTALL 1 0 :1:2 
 `uc 1 DTSEN 1 0 :1:3 
@@ -1006,24 +1154,24 @@ BUTTON_S3 2
 `uc 1 UOWN 1 0 :1:7 
 ]
 "1545
-[s S311 . 1 `uc 1 . 1 0 :2:0 
+[s S399 . 1 `uc 1 . 1 0 :2:0 
 `uc 1 PID0 1 0 :1:2 
 `uc 1 PID1 1 0 :1:3 
 `uc 1 PID2 1 0 :1:4 
 `uc 1 PID3 1 0 :1:5 
 `uc 1 . 1 0 :1:6 
 ]
-[s S318 . 1 `uc 1 . 1 0 :2:0 
+[s S406 . 1 `uc 1 . 1 0 :2:0 
 `uc 1 PID 1 0 :4:2 
 `uc 1 . 1 0 :2:6 
 ]
-[u S322 _BD_STAT 1 `uc 1 Val 1 0 `S302 1 . 1 0 `S311 1 . 1 0 `S318 1 . 1 0 ]
-[s S327 . 4 `S322 1 STAT 1 0 `uc 1 CNT 1 1 `uc 1 ADRL 1 2 `uc 1 ADRH 1 3 ]
-[s S332 . 4 `uc 1 . 1 0 :8:0 
+[u S410 _BD_STAT 1 `uc 1 Val 1 0 `S390 1 . 1 0 `S399 1 . 1 0 `S406 1 . 1 0 ]
+[s S415 . 4 `S410 1 STAT 1 0 `uc 1 CNT 1 1 `uc 1 ADRL 1 2 `uc 1 ADRH 1 3 ]
+[s S420 . 4 `uc 1 . 1 0 :8:0 
 `uc 1 . 1 1 :8:0 
 `ui 1 ADR 2 2 ]
-[u S336 __BDT 4 `S327 1 . 4 0 `S332 1 . 4 0 `ul 1 Val 4 0 `[4]uc 1 v 4 0 ]
-[v USBConfigureEndpoint@handle handle `*.39VES336  1 a 2 24 ]
+[u S424 __BDT 4 `S415 1 . 4 0 `S420 1 . 4 0 `ul 1 Val 4 0 `[4]uc 1 v 4 0 ]
+[v USBConfigureEndpoint@handle handle `*.39VES424  1 a 2 24 ]
 "1543
 [v USBConfigureEndpoint@EPNum EPNum `uc  1 a 1 wreg ]
 [v USBConfigureEndpoint@direction direction `uc  1 p 1 18 ]
@@ -1064,16 +1212,24 @@ BUTTON_S3 2
 [v USBCtrlTrfTxService@byteToSend byteToSend `uc  1 a 1 18 ]
 "1825
 } 0
-"142 C:\Users\kyle.marshall\MPLABXProjects\USB_FFB_Wheel.X\apps\usb\device\hid_joystick\firmware/demo_src/app_device_joystick.c
+"143 C:\Users\kyle.marshall\MPLABXProjects\USB_FFB_Wheel.X\apps\usb\device\hid_joystick\firmware/demo_src/app_device_joystick.c
 [v _APP_DeviceJoystickTasks APP_DeviceJoystickTasks `(v  1 e 1 0 ]
 {
-"218
+"320
+} 0
+"44 C:/Users/kyle.marshall/MPLABXProjects/USB_FFB_Wheel.X/framework/usb/inc/wheel.c
+[v _WHEEL_Position WHEEL_Position `(uc  1 e 1 0 ]
+{
+[v WHEEL_Position@wheel wheel `E5755  1 a 1 wreg ]
+[v WHEEL_Position@wheel wheel `E5755  1 a 1 wreg ]
+[v WHEEL_Position@wheel wheel `E5755  1 a 1 19 ]
+"61
 } 0
 "995 C:\Users\kyle.marshall\MPLABXProjects\USB_FFB_Wheel.X/framework/usb/src/usb_device.c
 [v _USBTransferOnePacket USBTransferOnePacket `(*.39v  1 e 2 0 ]
 {
 [v USBTransferOnePacket@ep ep `uc  1 a 1 wreg ]
-[s S302 . 1 `uc 1 BC8 1 0 :1:0 
+[s S390 . 1 `uc 1 BC8 1 0 :1:0 
 `uc 1 BC9 1 0 :1:1 
 `uc 1 BSTALL 1 0 :1:2 
 `uc 1 DTSEN 1 0 :1:3 
@@ -1083,43 +1239,43 @@ BUTTON_S3 2
 `uc 1 UOWN 1 0 :1:7 
 ]
 "997
-[s S311 . 1 `uc 1 . 1 0 :2:0 
+[s S399 . 1 `uc 1 . 1 0 :2:0 
 `uc 1 PID0 1 0 :1:2 
 `uc 1 PID1 1 0 :1:3 
 `uc 1 PID2 1 0 :1:4 
 `uc 1 PID3 1 0 :1:5 
 `uc 1 . 1 0 :1:6 
 ]
-[s S318 . 1 `uc 1 . 1 0 :2:0 
+[s S406 . 1 `uc 1 . 1 0 :2:0 
 `uc 1 PID 1 0 :4:2 
 `uc 1 . 1 0 :2:6 
 ]
-[u S322 _BD_STAT 1 `uc 1 Val 1 0 `S302 1 . 1 0 `S311 1 . 1 0 `S318 1 . 1 0 ]
-[s S327 . 4 `S322 1 STAT 1 0 `uc 1 CNT 1 1 `uc 1 ADRL 1 2 `uc 1 ADRH 1 3 ]
-[s S332 . 4 `uc 1 . 1 0 :8:0 
+[u S410 _BD_STAT 1 `uc 1 Val 1 0 `S390 1 . 1 0 `S399 1 . 1 0 `S406 1 . 1 0 ]
+[s S415 . 4 `S410 1 STAT 1 0 `uc 1 CNT 1 1 `uc 1 ADRL 1 2 `uc 1 ADRH 1 3 ]
+[s S420 . 4 `uc 1 . 1 0 :8:0 
 `uc 1 . 1 1 :8:0 
 `ui 1 ADR 2 2 ]
-[u S336 __BDT 4 `S327 1 . 4 0 `S332 1 . 4 0 `ul 1 Val 4 0 `[4]uc 1 v 4 0 ]
-[v USBTransferOnePacket@handle handle `*.39VES336  1 a 2 27 ]
+[u S424 __BDT 4 `S415 1 . 4 0 `S420 1 . 4 0 `ul 1 Val 4 0 `[4]uc 1 v 4 0 ]
+[v USBTransferOnePacket@handle handle `*.39VES424  1 a 2 1 ]
 "995
 [v USBTransferOnePacket@ep ep `uc  1 a 1 wreg ]
 [v USBTransferOnePacket@dir dir `uc  1 p 1 18 ]
 [v USBTransferOnePacket@data data `*.39uc  1 p 2 19 ]
 [v USBTransferOnePacket@len len `uc  1 p 1 21 ]
 "1000
-[v USBTransferOnePacket@ep ep `uc  1 a 1 26 ]
+[v USBTransferOnePacket@ep ep `uc  1 a 1 0 ]
 "1047
 } 0
-"63 C:\Users\kyle.marshall\MPLABXProjects\USB_FFB_Wheel.X/bsp/picdem_fs_usb_k50/buttons.c
+"85 C:\Users\kyle.marshall\MPLABXProjects\USB_FFB_Wheel.X/bsp/picdem_fs_usb_k50/buttons.c
 [v _BUTTON_IsPressed BUTTON_IsPressed `(uc  1 e 1 0 ]
 {
 [v BUTTON_IsPressed@button button `E5727  1 a 1 wreg ]
 [v BUTTON_IsPressed@button button `E5727  1 a 1 wreg ]
 [v BUTTON_IsPressed@button button `E5727  1 a 1 18 ]
-"78
+"133
 } 0
-"111 C:\Users\kyle.marshall\MPLABXProjects\USB_FFB_Wheel.X\apps\usb\device\hid_joystick\firmware\picdem_fs_usb_k50.x\system.c
+"112 C:\Users\kyle.marshall\MPLABXProjects\USB_FFB_Wheel.X\apps\usb\device\hid_joystick\firmware\picdem_fs_usb_k50.x\system.c
 [v _SYS_InterruptHigh SYS_InterruptHigh `II(v  1 e 1 0 ]
 {
-"116
+"117
 } 0

@@ -103,6 +103,7 @@ typedef union _INTPUT_CONTROLS_TYPEDEF
 USB_VOLATILE USB_HANDLE lastTransmission = 0;
 
 
+bool Buttons_Pressed = 0; //our new bool to track if any button is pressed.
 /*********************************************************************
 * Function: void APP_DeviceJoystickInitialize(void);
 *
@@ -163,71 +164,139 @@ void APP_DeviceJoystickTasks(void)
     //If the last transmission is complete
     if(!HIDTxHandleBusy(lastTransmission))
     {
-        uint8_t ButtonsPressed = 0;
-        //If the button is pressed
         if(BUTTON_IsPressed(BUTTON_X) == true)
-        {
-            joystick_input.members.buttons.x = 1;
-            ButtonsPressed++;
-        }
-        else
-        {
-             joystick_input.members.buttons.x = 0;
-        }
-        
-        if(BUTTON_IsPressed(BUTTON_SQUARE) == true)
-        {
-            joystick_input.members.buttons.square = 1;
-            ButtonsPressed++;
-        }
-        else
-        {
-             joystick_input.members.buttons.square = 0;
-        }
-        
-        if(BUTTON_IsPressed(BUTTON_O) == true)
-        {
-            joystick_input.members.buttons.o = 1;
-            ButtonsPressed++;
-        }
-        else
-        {
-             joystick_input.members.buttons.o = 0;
-        }
-        
-        if(BUTTON_IsPressed(BUTTON_TRIANGLE) == true)
-        {
-            joystick_input.members.buttons.triangle = 1;
-            ButtonsPressed++;
-        }
-        else
-        {
-             joystick_input.members.buttons.triangle = 0;
-        }
-        
-            joystick_input.members.buttons.L1 = 0;
-            joystick_input.members.buttons.R1 = 0;
-            joystick_input.members.buttons.L2 = 0;
-            joystick_input.members.buttons.R2 = 0;
-            joystick_input.members.buttons.select = 0;
-            joystick_input.members.buttons.start = 0;
-            joystick_input.members.buttons.left_stick = 0;
-            joystick_input.members.buttons.right_stick = 0;
-            joystick_input.members.buttons.home = 0;
+		{
+			joystick_input.members.buttons.x = 1;
+			Buttons_Pressed = 1;
+		}
+		else
+		{
+			joystick_input.members.buttons.x = 0;
+		}
+		if(BUTTON_IsPressed(BUTTON_SQUARE) == true)
+		{
+			joystick_input.members.buttons.square = 1;
+			Buttons_Pressed = 1;
+		}
+		else
+		{
+			joystick_input.members.buttons.square = 0;
+		}
+		if(BUTTON_IsPressed(BUTTON_O) == true)
+		{
+			joystick_input.members.buttons.o = 1;
+			Buttons_Pressed = 1;
+		}
+		else
+		{
+			joystick_input.members.buttons.o = 0;
+		}
+		if(BUTTON_IsPressed(BUTTON_TRIANGLE) == true)
+		{
+			joystick_input.members.buttons.triangle = 1;
+			Buttons_Pressed = 1;
+		}
+		else
+		{
+			joystick_input.members.buttons.triangle = 0;
+		}
+		if(BUTTON_IsPressed(BUTTON_L1) == true)
+		{
+			joystick_input.members.buttons.L1 = 1;
+			Buttons_Pressed = 1;
+		}
+		else
+		{
+			joystick_input.members.buttons.L1 = 0;
+		}
+		if(BUTTON_IsPressed(BUTTON_R1) == true)
+		{
+			joystick_input.members.buttons.R1 = 1;
+			Buttons_Pressed = 1;
+		}
+		else
+		{
+			joystick_input.members.buttons.R1 = 0;
+		}
+		if(BUTTON_IsPressed(BUTTON_L2) == true)
+		{
+			joystick_input.members.buttons.L2 = 1;
+			Buttons_Pressed = 1;
+		}
+		else
+		{
+			joystick_input.members.buttons.L2 = 0;
+		}
+		if(BUTTON_IsPressed(BUTTON_R2) == true)
+		{
+			joystick_input.members.buttons.R2 = 1;
+			Buttons_Pressed = 1;
+		}
+		else
+		{
+			joystick_input.members.buttons.R2 = 0;
+		}
+		if(BUTTON_IsPressed(BUTTON_SELECT) == true)
+		{
+			joystick_input.members.buttons.select = 1;
+			Buttons_Pressed = 1;
+		}
+		else
+		{
+			joystick_input.members.buttons.select = 0;
+		}
+		if(BUTTON_IsPressed(BUTTON_START) == true)
+		{
+			joystick_input.members.buttons.start = 1;
+			Buttons_Pressed = 1;
+		}
+		else
+		{
+			joystick_input.members.buttons.start = 0;
+		}
+		if(BUTTON_IsPressed(BUTTON_LEFT_STICK) == true)
+		{
+			joystick_input.members.buttons.left_stick = 1;
+			Buttons_Pressed = 1;
+		}
+		else
+		{
+			joystick_input.members.buttons.left_stick = 0;
+		}
+		if(BUTTON_IsPressed(BUTTON_RIGHT_STICK) == true)
+		{
+			joystick_input.members.buttons.right_stick = 1;
+			Buttons_Pressed = 1;
+		}
+		else
+		{
+			joystick_input.members.buttons.right_stick = 0;
+		}
+		if(BUTTON_IsPressed(BUTTON_HOME) == true)
+		{
+			joystick_input.members.buttons.home = 1;
+			Buttons_Pressed = 1;
+		}
+		else
+		{
+			joystick_input.members.buttons.home = 0;
+		}
 
             //Move the hat switch to the "east" position
             joystick_input.members.hat_switch.hat_switch = HAT_SWITCH_EAST;
 
             //Move the X and Y coordinates to the their extreme values (0x80 is
             //  in the middle - no value).
-            joystick_input.members.analog_stick.X = 0;
+            joystick_input.members.analog_stick.X = WHEEL_Position(WHEEL_W1);
             joystick_input.members.analog_stick.Y = 0;
-
+            
+        //if any button was pressed we will send a message with the currently pressed buttons.
+		if(Buttons_Pressed)
+		{
             //Send the packet over USB to the host.
             lastTransmission = HIDTxPacket(JOYSTICK_EP, (uint8_t*)&joystick_input, sizeof(joystick_input));
-
-        
-        if(ButtonsPressed == 0)
+        }
+        if(!Buttons_Pressed)
         {
             //Reset values of the controller to default state
 

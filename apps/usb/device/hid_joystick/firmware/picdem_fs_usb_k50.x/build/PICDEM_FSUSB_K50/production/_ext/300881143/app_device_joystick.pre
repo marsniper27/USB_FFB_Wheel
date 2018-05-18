@@ -7926,14 +7926,23 @@ BUTTON_NONE,
 BUTTON_S2,
 BUTTON_S3,
 BUTTON_S4,
-BUTTON_S5
+BUTTON_S5,
+BUTTON_S6,
+BUTTON_S7,
+BUTTON_S8,
+BUTTON_S9,
+BUTTON_S10,
+BUTTON_S11,
+BUTTON_S12,
+BUTTON_S13,
+BUTTON_S14
 
 } BUTTON;
 
-# 56
+# 65
 bool BUTTON_IsPressed(BUTTON button);
 
-# 74
+# 83
 void BUTTON_Enable(BUTTON button);
 
 # 29 "../../../../../../bsp/picdem_fs_usb_k50\leds.h"
@@ -7963,7 +7972,21 @@ bool LED_Get(LED led);
 # 129
 void LED_Enable(LED led);
 
-# 37 ".\system.h"
+# 15 "../../../../../../framework/usb/inc\wheel.h"
+typedef enum
+{
+WHEEL_NONE,
+WHEEL_W1
+
+} WHEEL;
+
+# 39
+uint8_t WHEEL_Position(WHEEL wheel);
+
+# 57
+void WHEEL_Enable(WHEEL wheel);
+
+# 38 ".\system.h"
 typedef enum
 {
 SYSTEM_STATE_USB_START,
@@ -7971,7 +7994,7 @@ SYSTEM_STATE_USB_SUSPEND,
 SYSTEM_STATE_USB_RESUME
 } SYSTEM_STATE;
 
-# 56
+# 57
 void SYSTEM_Initialize( SYSTEM_STATE state );
 
 # 37 "../demo_src/app_led_usb_status.h"
@@ -8021,7 +8044,10 @@ INPUT_CONTROLS joystick_input @ 0x500;
 # 103
  void* lastTransmission = 0;
 
-# 118
+
+bool Buttons_Pressed = 0;
+
+# 119
 void APP_DeviceJoystickInitialize(void)
 {
 
@@ -8032,18 +8058,18 @@ lastTransmission = 0;
 USBEnableEndpoint(1,0x02|0x10|0x08);
 }
 
-# 142
+# 143
 void APP_DeviceJoystickTasks(void)
 {
 
-# 147
+# 148
 if( USBDeviceState < CONFIGURED_STATE )
 {
 
 return;
 }
 
-# 157
+# 158
 if( UCONbits.SUSPND == 1 )
 {
 
@@ -8053,71 +8079,139 @@ return;
 
 if(!((lastTransmission != 0x0000) && ((*(volatile uint8_t*)lastTransmission & 0x80) != 0x00)))
 {
-uint8_t ButtonsPressed = 0;
-
 if(BUTTON_IsPressed(BUTTON_S2) == 1)
 {
 joystick_input.members.buttons.x = 1;
-ButtonsPressed++;
+Buttons_Pressed = 1;
 }
 else
 {
 joystick_input.members.buttons.x = 0;
 }
-
 if(BUTTON_IsPressed(BUTTON_S3) == 1)
 {
 joystick_input.members.buttons.square = 1;
-ButtonsPressed++;
+Buttons_Pressed = 1;
 }
 else
 {
 joystick_input.members.buttons.square = 0;
 }
-
 if(BUTTON_IsPressed(BUTTON_S4) == 1)
 {
 joystick_input.members.buttons.o = 1;
-ButtonsPressed++;
+Buttons_Pressed = 1;
 }
 else
 {
 joystick_input.members.buttons.o = 0;
 }
-
 if(BUTTON_IsPressed(BUTTON_S5) == 1)
 {
 joystick_input.members.buttons.triangle = 1;
-ButtonsPressed++;
+Buttons_Pressed = 1;
 }
 else
 {
 joystick_input.members.buttons.triangle = 0;
 }
-
+if(BUTTON_IsPressed(BUTTON_S6) == 1)
+{
+joystick_input.members.buttons.L1 = 1;
+Buttons_Pressed = 1;
+}
+else
+{
 joystick_input.members.buttons.L1 = 0;
+}
+if(BUTTON_IsPressed(BUTTON_S7) == 1)
+{
+joystick_input.members.buttons.R1 = 1;
+Buttons_Pressed = 1;
+}
+else
+{
 joystick_input.members.buttons.R1 = 0;
+}
+if(BUTTON_IsPressed(BUTTON_S8) == 1)
+{
+joystick_input.members.buttons.L2 = 1;
+Buttons_Pressed = 1;
+}
+else
+{
 joystick_input.members.buttons.L2 = 0;
+}
+if(BUTTON_IsPressed(BUTTON_S9) == 1)
+{
+joystick_input.members.buttons.R2 = 1;
+Buttons_Pressed = 1;
+}
+else
+{
 joystick_input.members.buttons.R2 = 0;
+}
+if(BUTTON_IsPressed(BUTTON_S10) == 1)
+{
+joystick_input.members.buttons.select = 1;
+Buttons_Pressed = 1;
+}
+else
+{
 joystick_input.members.buttons.select = 0;
+}
+if(BUTTON_IsPressed(BUTTON_S11) == 1)
+{
+joystick_input.members.buttons.start = 1;
+Buttons_Pressed = 1;
+}
+else
+{
 joystick_input.members.buttons.start = 0;
+}
+if(BUTTON_IsPressed(BUTTON_S12) == 1)
+{
+joystick_input.members.buttons.left_stick = 1;
+Buttons_Pressed = 1;
+}
+else
+{
 joystick_input.members.buttons.left_stick = 0;
+}
+if(BUTTON_IsPressed(BUTTON_S13) == 1)
+{
+joystick_input.members.buttons.right_stick = 1;
+Buttons_Pressed = 1;
+}
+else
+{
 joystick_input.members.buttons.right_stick = 0;
+}
+if(BUTTON_IsPressed(BUTTON_S14) == 1)
+{
+joystick_input.members.buttons.home = 1;
+Buttons_Pressed = 1;
+}
+else
+{
 joystick_input.members.buttons.home = 0;
+}
 
 
 joystick_input.members.hat_switch.hat_switch = 0x2;
 
 
 
-joystick_input.members.analog_stick.X = 0;
+joystick_input.members.analog_stick.X = WHEEL_Position(WHEEL_W1);
 joystick_input.members.analog_stick.Y = 0;
 
 
+if(Buttons_Pressed)
+{
+
 lastTransmission = USBTransferOnePacket(1,1,(uint8_t*)&joystick_input,sizeof(joystick_input));
-
-
-if(ButtonsPressed == 0)
+}
+if(!Buttons_Pressed)
 {
 
 

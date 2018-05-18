@@ -6985,14 +6985,23 @@ BUTTON_NONE,
 BUTTON_S2,
 BUTTON_S3,
 BUTTON_S4,
-BUTTON_S5
+BUTTON_S5,
+BUTTON_S6,
+BUTTON_S7,
+BUTTON_S8,
+BUTTON_S9,
+BUTTON_S10,
+BUTTON_S11,
+BUTTON_S12,
+BUTTON_S13,
+BUTTON_S14
 
 } BUTTON;
 
-# 56
+# 65
 bool BUTTON_IsPressed(BUTTON button);
 
-# 74
+# 83
 void BUTTON_Enable(BUTTON button);
 
 # 29 "../../../../../../bsp/picdem_fs_usb_k50\leds.h"
@@ -7935,7 +7944,21 @@ bool USBHALSetEpConfiguration ( uint8_t ep_num, uint16_t max_pkt_size, uint16_t 
 # 603
 bool USBHALInitialize ( unsigned long flags );
 
-# 37 ".\system.h"
+# 15 "../../../../../../framework/usb/inc\wheel.h"
+typedef enum
+{
+WHEEL_NONE,
+WHEEL_W1
+
+} WHEEL;
+
+# 39
+uint8_t WHEEL_Position(WHEEL wheel);
+
+# 57
+void WHEEL_Enable(WHEEL wheel);
+
+# 38 ".\system.h"
 typedef enum
 {
 SYSTEM_STATE_USB_START,
@@ -7943,7 +7966,7 @@ SYSTEM_STATE_USB_SUSPEND,
 SYSTEM_STATE_USB_RESUME
 } SYSTEM_STATE;
 
-# 56
+# 57
 void SYSTEM_Initialize( SYSTEM_STATE state );
 
 # 98 "../../../../../../framework/usb/inc\usb_device_hid.h"

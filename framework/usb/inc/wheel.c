@@ -6,23 +6,24 @@
  *******************************************************************/
 
 #include <xc.h>
-#include <stdbool.h>
-#include <buttons.h>
+#include <stdint.h>
+#include <wheel.h>
+#include <pic18f45k50.h>
 
 /*** Button Definitions *********************************************/
-#define Wheel_PORT  PORTAbits.RA0
+#define W1_PORT  PORTAbits.RA0
 
-#define Wheel_TRIS  TRISAbits.TRISA0
+#define W1_TRIS  TRISAbits.TRISA0
 //      S4       MCLR button
-
-#define BUTTON_PRESSED      0
-#define BUTTON_NOT_PRESSED  1
 
 #define PIN_INPUT           1
 #define PIN_OUTPUT          0
 
 #define PIN_DIGITAL         1
 #define PIN_ANALOG          0
+
+#define _XTAL_FREQ 20000000
+
 
 /*********************************************************************
 * Function: bool BUTTON_IsPressed(BUTTON button);
@@ -40,13 +41,11 @@
 * Output: TRUE if pressed; FALSE if not pressed.
 *
 ********************************************************************/
-unsigned int WHEEL_Turned(WHEEL wheel)
-{
-    ADC_Init();
-    
+uint8_t WHEEL_Position(WHEEL wheel)
+{    
     switch(wheel)
     {
-        case WHEEL_1:
+        case WHEEL_W1:
             ADCON0 &= 0xC5;              //Clearing channel selection bits
             ADCON0 |= 0<<3;        //Setting channel selection bits
             __delay_ms(2);               //Acquisition time to charge hold capacitor
@@ -81,17 +80,14 @@ void WHEEL_Enable(WHEEL wheel)
 {
     switch(wheel)
     {
-        case WHEEL_1:
-            Wheel_TRIS = PIN_INPUT;
-            ANCON1bits.PCFG0 = PIN_ANALOG;
+        case WHEEL_W1:
+            W1_TRIS = PIN_INPUT;
+            ADCON0bits.ADON = 1;
+            ADCON0bits.CHS = 0b0000;
+            ADCON1bits.NVCFG = 0;
+            ADCON1bits.PVCFG = 0;
             
         case WHEEL_NONE:
             break;
     }
-}
-
-void ADC_Init()
-{
-  ADCON0 = 0x81;               //Turn ON ADC and Clock Selection
-  ADCON1 = 0x0E;               //All pins as Analog Input and setting Reference Voltages
 }

@@ -8,17 +8,17 @@ Version 3.2 HI-TECH Software Intermediate Code
 "469
 [v _UCONbits `VS20 ~T0 @X0 0 e@3936 ]
 "56 ../demo_src/app_led_usb_status.c
-[c E5766 0 1 2 3 4 .. ]
-[n E5766 . LED_NONE LED_D1 LED_D2 LED_D3 LED_D4  ]
+[c E5775 0 1 2 3 4 .. ]
+[n E5775 . LED_NONE LED_D1 LED_D2 LED_D3 LED_D4  ]
 "76 ../../../../../../bsp/picdem_fs_usb_k50\leds.h
-[v _LED_Off `(v ~T0 @X0 0 ef1`E5766 ]
+[v _LED_Off `(v ~T0 @X0 0 ef1`E5775 ]
 "58
-[v _LED_On `(v ~T0 @X0 0 ef1`E5766 ]
+[v _LED_On `(v ~T0 @X0 0 ef1`E5775 ]
 "60 ../demo_src/app_led_usb_status.c
-[c E6044 0 1 2 4 8 16 32 .. ]
-[n E6044 . DETACHED_STATE ATTACHED_STATE POWERED_STATE DEFAULT_STATE ADR_PENDING_STATE ADDRESS_STATE CONFIGURED_STATE  ]
+[c E6053 0 1 2 4 8 16 32 .. ]
+[n E6053 . DETACHED_STATE ATTACHED_STATE POWERED_STATE DEFAULT_STATE ADR_PENDING_STATE ADDRESS_STATE CONFIGURED_STATE  ]
 "2046 ../../../../../../framework/usb/inc\usb_device.h
-[v _USBDeviceState `E6044 ~T0 @X0 0 e ]
+[v _USBDeviceState `E6053 ~T0 @X0 0 e ]
 [; ;stdint.h: 13: typedef signed char int8_t;
 [; ;stdint.h: 20: typedef signed int int16_t;
 [; ;stdint.h: 28: typedef signed short long int int24_t;
@@ -5331,10 +5331,19 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;picdem_fs_usb_k50\buttons.h: 32: BUTTON_S2,
 [; ;picdem_fs_usb_k50\buttons.h: 33: BUTTON_S3,
 [; ;picdem_fs_usb_k50\buttons.h: 34: BUTTON_S4,
-[; ;picdem_fs_usb_k50\buttons.h: 35: BUTTON_S5
-[; ;picdem_fs_usb_k50\buttons.h: 37: } BUTTON;
-[; ;picdem_fs_usb_k50\buttons.h: 56: bool BUTTON_IsPressed(BUTTON button);
-[; ;picdem_fs_usb_k50\buttons.h: 74: void BUTTON_Enable(BUTTON button);
+[; ;picdem_fs_usb_k50\buttons.h: 35: BUTTON_S5,
+[; ;picdem_fs_usb_k50\buttons.h: 36: BUTTON_S6,
+[; ;picdem_fs_usb_k50\buttons.h: 37: BUTTON_S7,
+[; ;picdem_fs_usb_k50\buttons.h: 38: BUTTON_S8,
+[; ;picdem_fs_usb_k50\buttons.h: 39: BUTTON_S9,
+[; ;picdem_fs_usb_k50\buttons.h: 40: BUTTON_S10,
+[; ;picdem_fs_usb_k50\buttons.h: 41: BUTTON_S11,
+[; ;picdem_fs_usb_k50\buttons.h: 42: BUTTON_S12,
+[; ;picdem_fs_usb_k50\buttons.h: 43: BUTTON_S13,
+[; ;picdem_fs_usb_k50\buttons.h: 44: BUTTON_S14
+[; ;picdem_fs_usb_k50\buttons.h: 46: } BUTTON;
+[; ;picdem_fs_usb_k50\buttons.h: 65: bool BUTTON_IsPressed(BUTTON button);
+[; ;picdem_fs_usb_k50\buttons.h: 83: void BUTTON_Enable(BUTTON button);
 [; ;picdem_fs_usb_k50\leds.h: 29: typedef enum
 [; ;picdem_fs_usb_k50\leds.h: 30: {
 [; ;picdem_fs_usb_k50\leds.h: 31: LED_NONE,
@@ -5873,13 +5882,20 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;inc\usb_hal.h: 537: unsigned int size );
 [; ;inc\usb_hal.h: 575: bool USBHALSetEpConfiguration ( uint8_t ep_num, uint16_t max_pkt_size, uint16_t flags );
 [; ;inc\usb_hal.h: 603: bool USBHALInitialize ( unsigned long flags );
-[; ;system.h: 37: typedef enum
-[; ;system.h: 38: {
-[; ;system.h: 39: SYSTEM_STATE_USB_START,
-[; ;system.h: 40: SYSTEM_STATE_USB_SUSPEND,
-[; ;system.h: 41: SYSTEM_STATE_USB_RESUME
-[; ;system.h: 42: } SYSTEM_STATE;
-[; ;system.h: 56: void SYSTEM_Initialize( SYSTEM_STATE state );
+[; ;inc\wheel.h: 15: typedef enum
+[; ;inc\wheel.h: 16: {
+[; ;inc\wheel.h: 17: WHEEL_NONE,
+[; ;inc\wheel.h: 18: WHEEL_W1
+[; ;inc\wheel.h: 20: } WHEEL;
+[; ;inc\wheel.h: 39: uint8_t WHEEL_Position(WHEEL wheel);
+[; ;inc\wheel.h: 57: void WHEEL_Enable(WHEEL wheel);
+[; ;system.h: 38: typedef enum
+[; ;system.h: 39: {
+[; ;system.h: 40: SYSTEM_STATE_USB_START,
+[; ;system.h: 41: SYSTEM_STATE_USB_SUSPEND,
+[; ;system.h: 42: SYSTEM_STATE_USB_RESUME
+[; ;system.h: 43: } SYSTEM_STATE;
+[; ;system.h: 57: void SYSTEM_Initialize( SYSTEM_STATE state );
 "50 ../demo_src/app_led_usb_status.c
 [v _APP_LEDUpdateUSBStatus `(v ~T0 @X0 1 ef ]
 "51
@@ -5889,8 +5905,8 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e :U _APP_LEDUpdateUSBStatus ]
 [f ]
 "52
-[v F6389 `ui ~T0 @X0 1 s ledCount ]
-[i F6389
+[v F6406 `ui ~T0 @X0 1 s ledCount ]
+[i F6406
 -> -> 0 `i `ui
 ]
 [; ;app_led_usb_status.c: 52: static uint16_t ledCount = 0;
@@ -5902,7 +5918,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 {
 [; ;app_led_usb_status.c: 56: LED_Off(LED_D1);
 "56
-[e ( _LED_Off (1 . `E5766 1 ]
+[e ( _LED_Off (1 . `E5775 1 ]
 [; ;app_led_usb_status.c: 57: return;
 "57
 [e $UE 684  ]
@@ -5921,13 +5937,13 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e :U 688 ]
 [; ;app_led_usb_status.c: 65: if(ledCount == 1)
 "65
-[e $ ! == F6389 -> -> 1 `i `ui 689  ]
+[e $ ! == F6406 -> -> 1 `i `ui 689  ]
 [; ;app_led_usb_status.c: 66: {
 "66
 {
 [; ;app_led_usb_status.c: 67: LED_On(LED_D1);
 "67
-[e ( _LED_On (1 . `E5766 1 ]
+[e ( _LED_On (1 . `E5775 1 ]
 "68
 }
 [; ;app_led_usb_status.c: 68: }
@@ -5935,13 +5951,13 @@ Version 3.2 HI-TECH Software Intermediate Code
 "69
 [e :U 689 ]
 [; ;app_led_usb_status.c: 69: else if(ledCount == 75)
-[e $ ! == F6389 -> -> 75 `i `ui 691  ]
+[e $ ! == F6406 -> -> 75 `i `ui 691  ]
 [; ;app_led_usb_status.c: 70: {
 "70
 {
 [; ;app_led_usb_status.c: 71: LED_Off(LED_D1);
 "71
-[e ( _LED_Off (1 . `E5766 1 ]
+[e ( _LED_Off (1 . `E5775 1 ]
 "72
 }
 [; ;app_led_usb_status.c: 72: }
@@ -5949,13 +5965,13 @@ Version 3.2 HI-TECH Software Intermediate Code
 "73
 [e :U 691 ]
 [; ;app_led_usb_status.c: 73: else if(ledCount > 150)
-[e $ ! > F6389 -> -> 150 `i `ui 693  ]
+[e $ ! > F6406 -> -> 150 `i `ui 693  ]
 [; ;app_led_usb_status.c: 74: {
 "74
 {
 [; ;app_led_usb_status.c: 75: ledCount = 0;
 "75
-[e = F6389 -> -> 0 `i `ui ]
+[e = F6406 -> -> 0 `i `ui ]
 "76
 }
 [e :U 693 ]
@@ -5970,13 +5986,13 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e :U 694 ]
 [; ;app_led_usb_status.c: 82: if(ledCount == 1)
 "82
-[e $ ! == F6389 -> -> 1 `i `ui 695  ]
+[e $ ! == F6406 -> -> 1 `i `ui 695  ]
 [; ;app_led_usb_status.c: 83: {
 "83
 {
 [; ;app_led_usb_status.c: 84: LED_On(LED_D1);
 "84
-[e ( _LED_On (1 . `E5766 1 ]
+[e ( _LED_On (1 . `E5775 1 ]
 "85
 }
 [; ;app_led_usb_status.c: 85: }
@@ -5984,13 +6000,13 @@ Version 3.2 HI-TECH Software Intermediate Code
 "86
 [e :U 695 ]
 [; ;app_led_usb_status.c: 86: else if(ledCount == 50)
-[e $ ! == F6389 -> -> 50 `i `ui 697  ]
+[e $ ! == F6406 -> -> 50 `i `ui 697  ]
 [; ;app_led_usb_status.c: 87: {
 "87
 {
 [; ;app_led_usb_status.c: 88: LED_Off(LED_D1);
 "88
-[e ( _LED_Off (1 . `E5766 1 ]
+[e ( _LED_Off (1 . `E5775 1 ]
 "89
 }
 [; ;app_led_usb_status.c: 89: }
@@ -5998,13 +6014,13 @@ Version 3.2 HI-TECH Software Intermediate Code
 "90
 [e :U 697 ]
 [; ;app_led_usb_status.c: 90: else if(ledCount > 950)
-[e $ ! > F6389 -> -> 950 `i `ui 699  ]
+[e $ ! > F6406 -> -> 950 `i `ui 699  ]
 [; ;app_led_usb_status.c: 91: {
 "91
 {
 [; ;app_led_usb_status.c: 92: ledCount = 0;
 "92
-[e = F6389 -> -> 0 `i `ui ]
+[e = F6406 -> -> 0 `i `ui ]
 "93
 }
 [e :U 699 ]
@@ -6020,13 +6036,13 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e $U 686  ]
 "60
 [e :U 687 ]
-[e [\ _USBDeviceState , $ . `E6044 6 688
+[e [\ _USBDeviceState , $ . `E6053 6 688
  694 ]
 "95
 [e :U 686 ]
 [; ;app_led_usb_status.c: 98: ledCount++;
 "98
-[e ++ F6389 -> -> 1 `i `ui ]
+[e ++ F6406 -> -> 1 `i `ui ]
 [; ;app_led_usb_status.c: 99: }
 "99
 [e :UE 684 ]

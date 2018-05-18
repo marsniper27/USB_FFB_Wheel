@@ -6,6 +6,7 @@
  */
 
 #include <stdbool.h>
+#include <stdint.h>
 
 #ifndef WHEEL_H
 #define	WHEEL_H
@@ -14,7 +15,7 @@
 typedef enum
 {
     WHEEL_NONE,
-    WHEEL_1
+    WHEEL_W1
             
 } WHEEL;
 
@@ -35,7 +36,7 @@ typedef enum
 * Output: TRUE if pressed; FALSE if not pressed.
 *
 ********************************************************************/
-bool WHEEL_Turned(WHEEL wheel);
+uint8_t WHEEL_Position(WHEEL wheel);
 
 /*********************************************************************
 * Function: void BUTTON_Enable(BUTTON button);

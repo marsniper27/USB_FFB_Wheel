@@ -1,21 +1,21 @@
 Version 3.2 HI-TECH Software Intermediate Code
 "51 ../demo_src/usb_events.c
-[c E5985 0 1 100 101 102 103 104 105 106 107 108 109 110 111 112 113 114 115 116 117 118 119 120 121 122 123 124 400 500 600 700 800 900 1000 10000 32767 .. ]
-[n E5985 . EVENT_NONE EVENT_DEVICE_STACK_BASE EVENT_HOST_STACK_BASE EVENT_HUB_ATTACH EVENT_STALL EVENT_VBUS_SES_REQUEST EVENT_VBUS_OVERCURRENT EVENT_VBUS_REQUEST_POWER EVENT_VBUS_RELEASE_POWER EVENT_VBUS_POWER_AVAILABLE EVENT_UNSUPPORTED_DEVICE EVENT_CANNOT_ENUMERATE EVENT_CLIENT_INIT_ERROR EVENT_OUT_OF_MEMORY EVENT_UNSPECIFIED_ERROR EVENT_DETACH EVENT_TRANSFER EVENT_SOF EVENT_RESUME EVENT_SUSPEND EVENT_RESET EVENT_DATA_ISOC_READ EVENT_DATA_ISOC_WRITE EVENT_OVERRIDE_CLIENT_DRIVER_SELECTION EVENT_1MS EVENT_ALT_INTERFACE EVENT_HOLD_BEFORE_CONFIGURATION EVENT_GENERIC_BASE EVENT_MSD_BASE EVENT_HID_BASE EVENT_PRINTER_BASE EVENT_CDC_BASE EVENT_CHARGER_BASE EVENT_AUDIO_BASE EVENT_USER_BASE EVENT_BUS_ERROR  ]
+[c E5994 0 1 100 101 102 103 104 105 106 107 108 109 110 111 112 113 114 115 116 117 118 119 120 121 122 123 124 400 500 600 700 800 900 1000 10000 32767 .. ]
+[n E5994 . EVENT_NONE EVENT_DEVICE_STACK_BASE EVENT_HOST_STACK_BASE EVENT_HUB_ATTACH EVENT_STALL EVENT_VBUS_SES_REQUEST EVENT_VBUS_OVERCURRENT EVENT_VBUS_REQUEST_POWER EVENT_VBUS_RELEASE_POWER EVENT_VBUS_POWER_AVAILABLE EVENT_UNSUPPORTED_DEVICE EVENT_CANNOT_ENUMERATE EVENT_CLIENT_INIT_ERROR EVENT_OUT_OF_MEMORY EVENT_UNSPECIFIED_ERROR EVENT_DETACH EVENT_TRANSFER EVENT_SOF EVENT_RESUME EVENT_SUSPEND EVENT_RESET EVENT_DATA_ISOC_READ EVENT_DATA_ISOC_WRITE EVENT_OVERRIDE_CLIENT_DRIVER_SELECTION EVENT_1MS EVENT_ALT_INTERFACE EVENT_HOLD_BEFORE_CONFIGURATION EVENT_GENERIC_BASE EVENT_MSD_BASE EVENT_HID_BASE EVENT_PRINTER_BASE EVENT_CDC_BASE EVENT_CHARGER_BASE EVENT_AUDIO_BASE EVENT_USER_BASE EVENT_BUS_ERROR  ]
 "37 ../demo_src/app_led_usb_status.h
 [v _APP_LEDUpdateUSBStatus `(v ~T0 @X0 0 ef ]
 "73 ../demo_src/usb_events.c
-[c E6380 0 1 2 .. ]
-[n E6380 . SYSTEM_STATE_USB_START SYSTEM_STATE_USB_SUSPEND SYSTEM_STATE_USB_RESUME  ]
-"56 .\system.h
-[v _SYSTEM_Initialize `(v ~T0 @X0 0 ef1`E6380 ]
+[c E6397 0 1 2 .. ]
+[n E6397 . SYSTEM_STATE_USB_START SYSTEM_STATE_USB_SUSPEND SYSTEM_STATE_USB_RESUME  ]
+"57 .\system.h
+[v _SYSTEM_Initialize `(v ~T0 @X0 0 ef1`E6397 ]
 "32 ../demo_src/app_device_joystick.h
 [v _APP_DeviceJoystickInitialize `(v ~T0 @X0 0 ef ]
 "98 ../../../../../../framework/usb/inc\usb_device_hid.h
 [v _USBCheckHIDRequest `(v ~T0 @X0 0 ef ]
 "52 ../demo_src/usb_events.c
-[c E6053 1 2 3 4 5 .. ]
-[n E6053 . EVENT_CONFIGURED EVENT_SET_DESCRIPTOR EVENT_EP0_REQUEST EVENT_ATTACH EVENT_TRANSFER_TERMINATED  ]
+[c E6062 1 2 3 4 5 .. ]
+[n E6062 . EVENT_CONFIGURED EVENT_SET_DESCRIPTOR EVENT_EP0_REQUEST EVENT_ATTACH EVENT_TRANSFER_TERMINATED  ]
 [; ;htc.h: 26: extern const char __xc8_OPTIM_SPEED;
 [; ;htc.h: 28: extern double __fpnormalize(double);
 [; ;xc8debug.h: 14: extern void __builtin_software_breakpoint(void);
@@ -5300,10 +5300,19 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;picdem_fs_usb_k50\buttons.h: 32: BUTTON_S2,
 [; ;picdem_fs_usb_k50\buttons.h: 33: BUTTON_S3,
 [; ;picdem_fs_usb_k50\buttons.h: 34: BUTTON_S4,
-[; ;picdem_fs_usb_k50\buttons.h: 35: BUTTON_S5
-[; ;picdem_fs_usb_k50\buttons.h: 37: } BUTTON;
-[; ;picdem_fs_usb_k50\buttons.h: 56: bool BUTTON_IsPressed(BUTTON button);
-[; ;picdem_fs_usb_k50\buttons.h: 74: void BUTTON_Enable(BUTTON button);
+[; ;picdem_fs_usb_k50\buttons.h: 35: BUTTON_S5,
+[; ;picdem_fs_usb_k50\buttons.h: 36: BUTTON_S6,
+[; ;picdem_fs_usb_k50\buttons.h: 37: BUTTON_S7,
+[; ;picdem_fs_usb_k50\buttons.h: 38: BUTTON_S8,
+[; ;picdem_fs_usb_k50\buttons.h: 39: BUTTON_S9,
+[; ;picdem_fs_usb_k50\buttons.h: 40: BUTTON_S10,
+[; ;picdem_fs_usb_k50\buttons.h: 41: BUTTON_S11,
+[; ;picdem_fs_usb_k50\buttons.h: 42: BUTTON_S12,
+[; ;picdem_fs_usb_k50\buttons.h: 43: BUTTON_S13,
+[; ;picdem_fs_usb_k50\buttons.h: 44: BUTTON_S14
+[; ;picdem_fs_usb_k50\buttons.h: 46: } BUTTON;
+[; ;picdem_fs_usb_k50\buttons.h: 65: bool BUTTON_IsPressed(BUTTON button);
+[; ;picdem_fs_usb_k50\buttons.h: 83: void BUTTON_Enable(BUTTON button);
 [; ;picdem_fs_usb_k50\leds.h: 29: typedef enum
 [; ;picdem_fs_usb_k50\leds.h: 30: {
 [; ;picdem_fs_usb_k50\leds.h: 31: LED_NONE,
@@ -5870,13 +5879,20 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;inc\usb_hal.h: 537: unsigned int size );
 [; ;inc\usb_hal.h: 575: bool USBHALSetEpConfiguration ( uint8_t ep_num, uint16_t max_pkt_size, uint16_t flags );
 [; ;inc\usb_hal.h: 603: bool USBHALInitialize ( unsigned long flags );
-[; ;system.h: 37: typedef enum
-[; ;system.h: 38: {
-[; ;system.h: 39: SYSTEM_STATE_USB_START,
-[; ;system.h: 40: SYSTEM_STATE_USB_SUSPEND,
-[; ;system.h: 41: SYSTEM_STATE_USB_RESUME
-[; ;system.h: 42: } SYSTEM_STATE;
-[; ;system.h: 56: void SYSTEM_Initialize( SYSTEM_STATE state );
+[; ;inc\wheel.h: 15: typedef enum
+[; ;inc\wheel.h: 16: {
+[; ;inc\wheel.h: 17: WHEEL_NONE,
+[; ;inc\wheel.h: 18: WHEEL_W1
+[; ;inc\wheel.h: 20: } WHEEL;
+[; ;inc\wheel.h: 39: uint8_t WHEEL_Position(WHEEL wheel);
+[; ;inc\wheel.h: 57: void WHEEL_Enable(WHEEL wheel);
+[; ;system.h: 38: typedef enum
+[; ;system.h: 39: {
+[; ;system.h: 40: SYSTEM_STATE_USB_START,
+[; ;system.h: 41: SYSTEM_STATE_USB_SUSPEND,
+[; ;system.h: 42: SYSTEM_STATE_USB_RESUME
+[; ;system.h: 43: } SYSTEM_STATE;
+[; ;system.h: 57: void SYSTEM_Initialize( SYSTEM_STATE state );
 [; ;inc\usb_device_hid.h: 98: void USBCheckHIDRequest(void);
 [; ;inc\usb_device_hid.h: 280: typedef struct _USB_HID_DSC_HEADER
 [; ;inc\usb_device_hid.h: 281: {
@@ -5899,14 +5915,14 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;app_device_joystick.h: 64: void APP_DeviceJoystickTasks();
 [; ;app_led_usb_status.h: 37: void APP_LEDUpdateUSBStatus(void);
 "50 ../demo_src/usb_events.c
-[v _USER_USB_CALLBACK_EVENT_HANDLER `(uc ~T0 @X0 1 ef3`E5985`*v`ui ]
+[v _USER_USB_CALLBACK_EVENT_HANDLER `(uc ~T0 @X0 1 ef3`E5994`*v`ui ]
 "51
 {
 [; ;usb_events.c: 50: bool USER_USB_CALLBACK_EVENT_HANDLER(USB_EVENT event, void *pdata, uint16_t size)
 [; ;usb_events.c: 51: {
 [e :U _USER_USB_CALLBACK_EVENT_HANDLER ]
 "50
-[v _event `E5985 ~T0 @X0 1 r1 ]
+[v _event `E5994 ~T0 @X0 1 r1 ]
 [v _pdata `*v ~T0 @X0 1 r2 ]
 [v _size `ui ~T0 @X0 1 r3 ]
 "51
@@ -5940,7 +5956,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e ( _APP_LEDUpdateUSBStatus ..  ]
 [; ;usb_events.c: 73: SYSTEM_Initialize(SYSTEM_STATE_USB_SUSPEND);
 "73
-[e ( _SYSTEM_Initialize (1 . `E6380 1 ]
+[e ( _SYSTEM_Initialize (1 . `E6397 1 ]
 [; ;usb_events.c: 74: break;
 "74
 [e $U 687  ]
@@ -5952,7 +5968,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e ( _APP_LEDUpdateUSBStatus ..  ]
 [; ;usb_events.c: 84: SYSTEM_Initialize(SYSTEM_STATE_USB_RESUME);
 "84
-[e ( _SYSTEM_Initialize (1 . `E6380 2 ]
+[e ( _SYSTEM_Initialize (1 . `E6397 2 ]
 [; ;usb_events.c: 85: break;
 "85
 [e $U 687  ]
@@ -6004,15 +6020,15 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e $U 687  ]
 "52
 [e :U 688 ]
-[e [\ -> _event `i , $ -> . `E5985 16 `i 689
- , $ -> . `E5985 17 `i 690
- , $ -> . `E5985 19 `i 691
- , $ -> . `E5985 18 `i 692
- , $ -> . `E6053 0 `i 693
- , $ -> . `E6053 1 `i 694
- , $ -> . `E6053 2 `i 695
- , $ -> . `E5985 35 `i 696
- , $ -> . `E6053 4 `i 697
+[e [\ -> _event `i , $ -> . `E5994 16 `i 689
+ , $ -> . `E5994 17 `i 690
+ , $ -> . `E5994 19 `i 691
+ , $ -> . `E5994 18 `i 692
+ , $ -> . `E6062 0 `i 693
+ , $ -> . `E6062 1 `i 694
+ , $ -> . `E6062 2 `i 695
+ , $ -> . `E5994 35 `i 696
+ , $ -> . `E6062 4 `i 697
  698 ]
 "110
 [e :U 687 ]

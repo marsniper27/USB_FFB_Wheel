@@ -6985,32 +6985,68 @@ BUTTON_NONE,
 BUTTON_S2,
 BUTTON_S3,
 BUTTON_S4,
-BUTTON_S5
+BUTTON_S5,
+BUTTON_S6,
+BUTTON_S7,
+BUTTON_S8,
+BUTTON_S9,
+BUTTON_S10,
+BUTTON_S11,
+BUTTON_S12,
+BUTTON_S13,
+BUTTON_S14
 
 } BUTTON;
 
-# 56
+# 65
 bool BUTTON_IsPressed(BUTTON button);
 
-# 74
+# 83
 void BUTTON_Enable(BUTTON button);
 
-# 69 "../../../../../../bsp/picdem_fs_usb_k50/buttons.c"
+# 85 "../../../../../../bsp/picdem_fs_usb_k50/buttons.c"
 bool BUTTON_IsPressed(BUTTON button)
 {
 switch(button)
 {
 case BUTTON_S2:
-return ( (PORTBbits.RB4 == 0) ? 1 : 0);
+return ( (PORTBbits.RB7 == 0) ? 1 : 0);
 
 case BUTTON_S3:
-return ( (PORTBbits.RB5 == 0) ? 1 : 0);
-
-case BUTTON_S4:
 return ( (PORTBbits.RB6 == 0) ? 1 : 0);
 
+case BUTTON_S4:
+return ( (PORTBbits.RB5 == 0) ? 1 : 0);
+
 case BUTTON_S5:
-return ( (PORTBbits.RB7 == 0) ? 1 : 0);
+return ( (PORTBbits.RB4 == 0) ? 1 : 0);
+
+case BUTTON_S6:
+return ( (PORTBbits.RB3 == 0) ? 1 : 0);
+
+case BUTTON_S7:
+return ( (PORTBbits.RB2 == 0) ? 1 : 0);
+
+case BUTTON_S8:
+return ( (PORTBbits.RB1 == 0) ? 1 : 0);
+
+case BUTTON_S9:
+return ( (PORTBbits.RB0 == 0) ? 1 : 0);
+
+case BUTTON_S10:
+return ( (PORTDbits.RD7 == 0) ? 1 : 0);
+
+case BUTTON_S11:
+return ( (PORTDbits.RD6 == 0) ? 1 : 0);
+
+case BUTTON_S12:
+return ( (PORTDbits.RD5 == 0) ? 1 : 0);
+
+case BUTTON_S13:
+return ( (PORTDbits.RD4 == 0) ? 1 : 0);
+
+case BUTTON_S14:
+return ( (PORTDbits.RD3 == 0) ? 1 : 0);
 
 case BUTTON_NONE:
 return 0;
@@ -7019,29 +7055,64 @@ return 0;
 return 0;
 }
 
-# 108
+# 151
 void BUTTON_Enable(BUTTON button)
 {
 switch(button)
 {
 case BUTTON_S2:
-TRISBbits.TRISB4 = 1;
+TRISBbits.TRISB7 = 1;
 ANSELBbits.ANSB4 = 0;
 break;
 
 case BUTTON_S3:
-TRISBbits.TRISB5 = 1;
+TRISBbits.TRISB6 = 1;
 ANSELBbits.ANSB5 = 0;
 break;
 
 case BUTTON_S4:
-TRISBbits.TRISB6 = 1;
-ANSELBbits.ANSB6 = 0;
+TRISBbits.TRISB5 = 1;
 break;
 
 case BUTTON_S5:
-TRISBbits.TRISB7 = 1;
-ANSELBbits.ANSB7 = 0;
+TRISBbits.TRISB4 = 1;
+break;
+
+case BUTTON_S6:
+TRISBbits.TRISB3 = 1;
+break;
+
+case BUTTON_S7:
+TRISBbits.TRISB2 = 1;
+break;
+
+case BUTTON_S8:
+TRISBbits.TRISB1 = 1;
+break;
+
+case BUTTON_S9:
+TRISBbits.TRISB0 = 1;
+break;
+
+case BUTTON_S10:
+TRISDbits.TRISD7 = 1;
+break;
+
+case BUTTON_S11:
+TRISDbits.TRISD6 = 1;
+break;
+
+case BUTTON_S12:
+TRISDbits.TRISD5 = 1;
+break;
+
+case BUTTON_S13:
+TRISDbits.TRISD4 = 1;
+break;
+
+case BUTTON_S14:
+TRISDbits.TRISD3 = 1;
+break;
 
 case BUTTON_NONE:
 break;
