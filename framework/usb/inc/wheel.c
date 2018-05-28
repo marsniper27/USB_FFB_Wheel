@@ -9,6 +9,7 @@
 #include <wheel.h>
 #include <pic18f45k50.h>
 
+
 /*** Button Definitions *********************************************/
 #define WA_PORT  PORTAbits.RA0
 #define WB_PORT  PORTAbits.RA1
@@ -56,12 +57,11 @@ uint8_t WHEEL_Position(WHEEL wheel)
         case WHEEL_W1:
             if (WHEEL_Type == POT)
             {
-                ADCON0 &= 0xC5;              //Clearing channel selection bits
-                ADCON0 |= 0<<3;        //Setting channel selection bits
-                __delay_ms(2);               //Acquisition time to charge hold capacitor
-                GO_nDONE = 1;                //Initializes A/D conversion
-                while(GO_nDONE);             //Waiting for conversion to complete
-                return ((ADRESH<<8)+ADRESL); //Return result
+                ADCON0bits.CHS = 0b0000;        //Set chanel
+                __delay_ms(2);                  //Acquisition time to charge hold capacitor
+                GO_nDONE = 1;                   //Initializes A/D conversion
+                while(GO_nDONE);                //Waiting for conversion to complete
+                return ((ADRESH<<8)+ADRESL);    //Return result
             }
             else if (WHEEL_Type == ENCODER)
             {
@@ -99,10 +99,11 @@ void WHEEL_Enable(WHEEL wheel)
             if (WHEEL_Type == POT)
             {
                 WA_ANSEL = PIN_ANALOG;
-                ADCON0bits.ADON = 1;
-                ADCON0bits.CHS = 0b0000;
+                ADCON1bits.CHSN3 = 0b1;
                 ADCON1bits.NVCFG = 0;
                 ADCON1bits.PVCFG = 0;
+                ADCON0bits.CHS = 0b0000;                        
+                ADCON0bits.ADON = 1;
             }
             else if(WHEEL_Type == ENCODER)
             {
@@ -132,4 +133,84 @@ void WHEEL_Home(WHEEL wheel)
         case WHEEL_NONE:
             break;
     }
+}
+
+uint8_t WHEEL_Test(WHEEL wheel)
+{
+    static uint16_t count = 0;
+    static bool direction = 1;
+    
+    switch(wheel)
+    {
+        case WHEEL_W1:
+            if(direction)
+            {
+                if(count < 255)
+                {
+                    count++;
+
+                }
+                if(count == 255)
+                {
+                    direction = 0;
+                }
+            }
+            else if(!direction)
+            {
+                if(count > 0)
+                {
+                    count--;
+
+                }
+                if(count == 0)
+                {
+                    direction = 1;
+                }
+            }
+            break;
+            
+        case WHEEL_NONE:
+            break;
+    }
+    return count;
+}
+
+
+uint8_t PEDAL_Position(PEDAL pedal)
+{
+    switch(pedal)
+    {
+        case PEDAL_BREAK:
+            if (BREAK_Type == POT)
+            {
+                ADCON0bits.CHS = 0011;       //Setting channel selection bits
+                __delay_ms(2);               //Acquisition time to charge hold capacitor
+                GO_nDONE = 1;                //Initializes A/D conversion
+                while(GO_nDONE);             //Waiting for conversion to complete
+                return ((ADRESH<<8)+ADRESL); //Return result
+            }
+            else if (BREAK_Type == ENCODER)
+            {
+                
+            }
+            
+        case PEDAL_CLUTCH:
+            if (CLUTCH_Type == POT)
+            {
+                ADCON0bits.CHS = 0b0100;       //Setting channel selection bits
+                __delay_ms(2);               //Acquisition time to charge hold capacitor
+                GO_nDONE = 1;                //Initializes A/D conversion
+                while(GO_nDONE);             //Waiting for conversion to complete
+                return ((ADRESH<<8)+ADRESL); //Return result
+            }
+            else if (CLUTCH_Type == ENCODER)
+            {
+                
+            }
+            
+        case WHEEL_NONE:
+            return 128;
+    }
+    
+    return 128;
 }

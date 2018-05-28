@@ -7803,7 +7803,11 @@ extern char * strichr(const char *, int);
 extern char * strrchr(const char *, int);
 extern char * strrichr(const char *, int);
 
-# 257 "../../../../../../framework/usb/inc\usb_hal_pic18.h"
+# 197 "../../../../../../framework/usb/inc\usb_hal_pic18.h"
+volatile far BDT ep0Bo;
+volatile far BDT ep0Bi;
+
+# 259
 typedef union _BD_STAT
 {
 uint8_t Val;
@@ -7868,7 +7872,7 @@ unsigned char endpoint_number:4;
 uint8_t Val;
 } USTAT_FIELDS;
 
-# 327
+# 329
 typedef union _POINTER
 {
 struct
@@ -7894,7 +7898,7 @@ const uint16_t* wRom;
 
 } POINTER;
 
-# 597
+# 599
 extern  uint8_t USBActiveConfiguration;
 extern  IN_PIPE inPipes[1];
 extern  OUT_PIPE outPipes[1];
@@ -7947,6 +7951,10 @@ bool USBHALInitialize ( unsigned long flags );
 # 19 "../../../../../../framework/usb/inc\wheel.h"
 bool WHEEL_Type = 0;
 
+bool BREAK_Type = 0;
+
+bool CLUTCH_Type = 0;
+
 
 typedef enum
 {
@@ -7955,13 +7963,24 @@ WHEEL_W1
 
 } WHEEL;
 
-# 46
+typedef enum
+{
+PEDAL_NONE,
+PEDAL_BREAK,
+PEDAL_CLUTCH
+
+} PEDAL;
+
+# 57
 uint8_t WHEEL_Position(WHEEL wheel);
 
-# 64
+# 75
 void WHEEL_Enable(WHEEL wheel);
 
 void WHEEL_Home(WHEEL wheel);
+
+uint8_t WHEEL_Test(WHEEL wheel);
+uint8_t PEDAL_Position(PEDAL pedal);
 
 # 38 ".\system.h"
 typedef enum

@@ -48,8 +48,6 @@
       <itemPath>system.c</itemPath>
       <itemPath>../demo_src/app_device_joystick.c</itemPath>
       <itemPath>C:/Users/kyle.marshall/MPLABXProjects/USB_FFB_Wheel.X/framework/usb/inc/wheel.c</itemPath>
-      <itemPath>C:/Users/kyle.marshall/MPLABXProjects/USB_FFB_Wheel.X/framework/usb/inc/testing.h</itemPath>
-      <itemPath>C:/Users/kyle.marshall/MPLABXProjects/USB_FFB_Wheel.X/framework/usb/inc/testing.cpp</itemPath>
     </logicalFolder>
     <logicalFolder name="ExternalFiles"
                    displayName="Important Files"
@@ -75,7 +73,7 @@
         <targetDevice>PIC18F45K50</targetDevice>
         <targetHeader></targetHeader>
         <targetPluginBoard></targetPluginBoard>
-        <platformTool>ICD3PlatformTool</platformTool>
+        <platformTool>Simulator</platformTool>
         <languageToolchain>XC8</languageToolchain>
         <languageToolchainVersion>1.45</languageToolchainVersion>
         <platform>3</platform>

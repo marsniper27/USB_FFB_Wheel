@@ -7750,7 +7750,11 @@ extern char * strichr(const char *, int);
 extern char * strrchr(const char *, int);
 extern char * strrichr(const char *, int);
 
-# 257 "../../../../../../framework/usb/inc\usb_hal_pic18.h"
+# 197 "../../../../../../framework/usb/inc\usb_hal_pic18.h"
+volatile far BDT ep0Bo;
+volatile far BDT ep0Bi;
+
+# 259
 typedef union _BD_STAT
 {
 uint8_t Val;
@@ -7815,7 +7819,7 @@ unsigned char endpoint_number:4;
 uint8_t Val;
 } USTAT_FIELDS;
 
-# 327
+# 329
 typedef union _POINTER
 {
 struct
@@ -7841,7 +7845,7 @@ const uint16_t* wRom;
 
 } POINTER;
 
-# 597
+# 599
 extern  uint8_t USBActiveConfiguration;
 extern  IN_PIPE inPipes[1];
 extern  OUT_PIPE outPipes[1];
@@ -7915,6 +7919,9 @@ uint8_t bNumDsc;
 } USB_HID_DSC;
 
 
+
+extern volatile unsigned char hid_report_in[64];
+extern volatile unsigned char hid_report_out[64];
 extern volatile CTRL_TRF_SETUP SetupPkt;
 extern const uint8_t configDescriptor1[];
 extern volatile uint8_t CtrlTrfData[8];
@@ -7975,6 +7982,10 @@ void LED_Enable(LED led);
 # 19 "../../../../../../framework/usb/inc\wheel.h"
 bool WHEEL_Type = 0;
 
+bool BREAK_Type = 0;
+
+bool CLUTCH_Type = 0;
+
 
 typedef enum
 {
@@ -7983,13 +7994,24 @@ WHEEL_W1
 
 } WHEEL;
 
-# 46
+typedef enum
+{
+PEDAL_NONE,
+PEDAL_BREAK,
+PEDAL_CLUTCH
+
+} PEDAL;
+
+# 57
 uint8_t WHEEL_Position(WHEEL wheel);
 
-# 64
+# 75
 void WHEEL_Enable(WHEEL wheel);
 
 void WHEEL_Home(WHEEL wheel);
+
+uint8_t WHEEL_Test(WHEEL wheel);
+uint8_t PEDAL_Position(PEDAL pedal);
 
 # 38 ".\system.h"
 typedef enum
@@ -8010,6 +8032,10 @@ typedef union _INTPUT_CONTROLS_TYPEDEF
 {
 struct
 {
+struct
+{
+uint8_t RID;
+}REPORT_ID;
 struct
 {
 uint8_t square:1;
@@ -8034,25 +8060,45 @@ uint8_t :4;
 } hat_switch;
 struct
 {
-uint8_t X;
-uint8_t Y;
-uint8_t Z;
-uint8_t Rz;
+uint16_t X;
+uint16_t Y;
+uint16_t Z;
+uint16_t Rz;
 } analog_stick;
 } members;
-uint8_t val[7];
+uint8_t val[12];
 } INPUT_CONTROLS;
 
-# 96
-INPUT_CONTROLS joystick_input @ 0x500;
+typedef union _SET_GET_EFFECT_STRUCTURE
+{
+struct
+{
+uint8_t report_id;
+uint8_t effect_type;
+uint8_t byte_count;
 
-# 103
- void* lastTransmission = 0;
+}SET_REPORT_REQUEST;
+struct
+{
+uint8_t report_id;
+uint8_t effect_block_index;
+uint8_t block_load_status;
+int ram_pool_available;
+}PID_BLOCK_LOAD_REPORT;
 
-
-bool Buttons_Pressed = 0;
+uint8_t val[8];
+}SET_GET_EFFECT_STRUCTURE;
 
 # 119
+INPUT_CONTROLS joystick_input @ 0x500;
+
+# 126
+ void* lastTransmission = 0;
+SET_GET_EFFECT_STRUCTURE set_get_effect_structure;
+uint8_t CONFIGURED_EFFECT_NUMBER[12];
+bool Buttons_Pressed = 0;
+
+# 142
 void APP_DeviceJoystickInitialize(void)
 {
 
@@ -8063,18 +8109,18 @@ lastTransmission = 0;
 USBEnableEndpoint(1,0x02|0x10|0x08);
 }
 
-# 143
+# 166
 void APP_DeviceJoystickTasks(void)
 {
 
-# 148
+# 171
 if( USBDeviceState < CONFIGURED_STATE )
 {
 
 return;
 }
 
-# 158
+# 181
 if( UCONbits.SUSPND == 1 )
 {
 
@@ -8207,8 +8253,10 @@ joystick_input.members.hat_switch.hat_switch = 0x2;
 
 
 
-joystick_input.members.analog_stick.X = WHEEL_Position(WHEEL_W1);
-joystick_input.members.analog_stick.Y = 0;
+
+joystick_input.members.analog_stick.X = WHEEL_Test(WHEEL_W1);
+joystick_input.members.analog_stick.Y = PEDAL_Position(PEDAL_BREAK);
+joystick_input.members.analog_stick.Z = PEDAL_Position(PEDAL_CLUTCH);
 
 
 if(Buttons_Pressed)
@@ -8234,11 +8282,135 @@ joystick_input.val[5] = 0x80;
 joystick_input.val[6] = 0x80;
 
 
-joystick_input.members.analog_stick.X = WHEEL_Position(WHEEL_W1);
+
+joystick_input.members.analog_stick.X = WHEEL_Test(WHEEL_W1);
+
 
 
 lastTransmission = USBTransferOnePacket(1,1,(uint8_t*)&joystick_input,sizeof(joystick_input));
 }
+}
+}
+
+# 379
+void USBSetEffect(void)
+{
+set_get_effect_structure.SET_REPORT_REQUEST.report_id=hid_report_out[0];
+set_get_effect_structure.SET_REPORT_REQUEST.effect_type=hid_report_out[1];
+set_get_effect_structure.SET_REPORT_REQUEST.byte_count=hid_report_out[2];
+
+# 397
+switch(set_get_effect_structure.SET_REPORT_REQUEST.effect_type)
+{
+case 1:
+set_get_effect_structure.PID_BLOCK_LOAD_REPORT.report_id=2;
+set_get_effect_structure.PID_BLOCK_LOAD_REPORT.effect_block_index=1;
+set_get_effect_structure.PID_BLOCK_LOAD_REPORT.block_load_status=1;
+set_get_effect_structure.PID_BLOCK_LOAD_REPORT.ram_pool_available=0xFFFF;
+
+CONFIGURED_EFFECT_NUMBER[0]=1;
+
+
+break;
+case 2:
+set_get_effect_structure.PID_BLOCK_LOAD_REPORT.report_id=2;
+set_get_effect_structure.PID_BLOCK_LOAD_REPORT.effect_block_index=2;
+set_get_effect_structure.PID_BLOCK_LOAD_REPORT.block_load_status=1;
+set_get_effect_structure.PID_BLOCK_LOAD_REPORT.ram_pool_available=0xFFFF;
+
+CONFIGURED_EFFECT_NUMBER[1]=1;
+
+break;
+case 3:
+set_get_effect_structure.PID_BLOCK_LOAD_REPORT.report_id=2;
+set_get_effect_structure.PID_BLOCK_LOAD_REPORT.effect_block_index=3;
+set_get_effect_structure.PID_BLOCK_LOAD_REPORT.block_load_status=1;
+set_get_effect_structure.PID_BLOCK_LOAD_REPORT.ram_pool_available=0xFFFF;
+
+CONFIGURED_EFFECT_NUMBER[2]=1;
+
+break;
+case 4:
+set_get_effect_structure.PID_BLOCK_LOAD_REPORT.report_id=2;
+set_get_effect_structure.PID_BLOCK_LOAD_REPORT.effect_block_index=4;
+set_get_effect_structure.PID_BLOCK_LOAD_REPORT.block_load_status=1;
+set_get_effect_structure.PID_BLOCK_LOAD_REPORT.ram_pool_available=0xFFFF;
+
+CONFIGURED_EFFECT_NUMBER[3]=1;
+
+break;
+case 5:
+set_get_effect_structure.PID_BLOCK_LOAD_REPORT.report_id=2;
+set_get_effect_structure.PID_BLOCK_LOAD_REPORT.effect_block_index=5;
+set_get_effect_structure.PID_BLOCK_LOAD_REPORT.block_load_status=1;
+set_get_effect_structure.PID_BLOCK_LOAD_REPORT.ram_pool_available=0xFFFF;
+
+CONFIGURED_EFFECT_NUMBER[4]=1;
+
+break;
+case 6:
+set_get_effect_structure.PID_BLOCK_LOAD_REPORT.report_id=2;
+set_get_effect_structure.PID_BLOCK_LOAD_REPORT.effect_block_index=6;
+set_get_effect_structure.PID_BLOCK_LOAD_REPORT.block_load_status=1;
+set_get_effect_structure.PID_BLOCK_LOAD_REPORT.ram_pool_available=0xFFFF;
+
+CONFIGURED_EFFECT_NUMBER[5]=1;
+
+break;
+case 7:
+set_get_effect_structure.PID_BLOCK_LOAD_REPORT.report_id=2;
+set_get_effect_structure.PID_BLOCK_LOAD_REPORT.effect_block_index=7;
+set_get_effect_structure.PID_BLOCK_LOAD_REPORT.block_load_status=1;
+set_get_effect_structure.PID_BLOCK_LOAD_REPORT.ram_pool_available=0xFFFF;
+
+CONFIGURED_EFFECT_NUMBER[6]=1;
+
+break;
+case 8:
+set_get_effect_structure.PID_BLOCK_LOAD_REPORT.report_id=2;
+set_get_effect_structure.PID_BLOCK_LOAD_REPORT.effect_block_index=8;
+set_get_effect_structure.PID_BLOCK_LOAD_REPORT.block_load_status=1;
+set_get_effect_structure.PID_BLOCK_LOAD_REPORT.ram_pool_available=0xFFFF;
+
+CONFIGURED_EFFECT_NUMBER[7]=1;
+
+break;
+case 9:
+set_get_effect_structure.PID_BLOCK_LOAD_REPORT.report_id=2;
+set_get_effect_structure.PID_BLOCK_LOAD_REPORT.effect_block_index=9;
+set_get_effect_structure.PID_BLOCK_LOAD_REPORT.block_load_status=1;
+set_get_effect_structure.PID_BLOCK_LOAD_REPORT.ram_pool_available=0xFFFF;
+
+CONFIGURED_EFFECT_NUMBER[8]=1;
+
+break;
+case 10:
+set_get_effect_structure.PID_BLOCK_LOAD_REPORT.report_id=2;
+set_get_effect_structure.PID_BLOCK_LOAD_REPORT.effect_block_index=10;
+set_get_effect_structure.PID_BLOCK_LOAD_REPORT.block_load_status=1;
+set_get_effect_structure.PID_BLOCK_LOAD_REPORT.ram_pool_available=0xFFFF;
+
+CONFIGURED_EFFECT_NUMBER[9]=1;
+
+break;
+case 11:
+set_get_effect_structure.PID_BLOCK_LOAD_REPORT.report_id=2;
+set_get_effect_structure.PID_BLOCK_LOAD_REPORT.effect_block_index=11;
+set_get_effect_structure.PID_BLOCK_LOAD_REPORT.block_load_status=1;
+set_get_effect_structure.PID_BLOCK_LOAD_REPORT.ram_pool_available=0xFFFF;
+
+CONFIGURED_EFFECT_NUMBER[10]=1;
+
+break;
+case 12:
+set_get_effect_structure.PID_BLOCK_LOAD_REPORT.report_id=2;
+set_get_effect_structure.PID_BLOCK_LOAD_REPORT.effect_block_index=0;
+set_get_effect_structure.PID_BLOCK_LOAD_REPORT.block_load_status=3;
+set_get_effect_structure.PID_BLOCK_LOAD_REPORT.ram_pool_available=0x0000;
+
+CONFIGURED_EFFECT_NUMBER[11]=0;
+
+break;
 }
 }
 

@@ -247,12 +247,16 @@ const uint8_t *const USB_SD_Ptr[]=
 };
 
 const struct{uint8_t report[HID_RPT01_SIZE];}hid_rpt01={{
-  0x05,0x01,        //USAGE_PAGE (Generic Desktop)
-  0x09,0x05,        //USAGE (Game Pad)  0x04 is for joystick
-  0xA1,0x01,        //COLLECTION (Application)
+    //basic setup
+  0x05,0x01,        //  USAGE_PAGE (Generic Desktop)
+  0x09,0x04,        //  USAGE (Joystick)
+  0xA1,0x01,        //  COLLECTION (Application)
+  0x85,0x01,        //  Report ID (1)
   0x15,0x00,        //  LOGICAL_MINIMUM(0)
-  0x25,0x01,        //  LOGICAL_MAXIMUM(1)
   0x35,0x00,        //  PHYSICAL_MINIMUM(0)
+          //JOYSTICK descriptor
+          //buttons
+  0x25,0x01,        //  LOGICAL_MAXIMUM(1)
   0x45,0x01,        //  PHYSICAL_MAXIMUM(1)
   0x75,0x01,        //  REPORT_SIZE(1)
   0x95,0x0D,        //  REPORT_COUNT(13)
@@ -260,9 +264,11 @@ const struct{uint8_t report[HID_RPT01_SIZE];}hid_rpt01={{
   0x19,0x01,        //  USAGE_MINIMUM(Button 1)
   0x29,0x0D,        //  USAGE_MAXIMUM(Button 13)
   0x81,0x02,        //  INPUT(Data,Var,Abs)
+          //???
   0x95,0x03,        //  REPORT_COUNT(3)
   0x81,0x01,        //  INPUT(Cnst,Ary,Abs)
   0x05,0x01,        //  USAGE_PAGE(Generic Desktop)
+          //hat switch
   0x25,0x07,        //  LOGICAL_MAXIMUM(7)
   0x46,0x3B,0x01,   //  PHYSICAL_MAXIMUM(315)
   0x75,0x04,        //  REPORT_SIZE(4)
@@ -271,16 +277,25 @@ const struct{uint8_t report[HID_RPT01_SIZE];}hid_rpt01={{
   0x09,0x39,        //  USAGE(Hat Switch)
   0x81,0x42,        //  INPUT(Data,Var,Abs,Null)
   0x65,0x00,        //  UNIT(None)
+          //X Axis
   0x95,0x01,        //  REPORT_COUNT(1)
   0x81,0x01,        //  INPUT(Cnst,Ary,Abs)
-  0x26,0xFF,0x00,   //  LOGICAL_MAXIMUM(255)
-  0x46,0xFF,0x00,   //  PHYSICAL_MAXIMUM(255)
+  0x26,0xFF,0x03,   //  LOGICAL_MAXIMUM(1023)
+  0x46,0xFF,0x03,   //  PHYSICAL_MAXIMUM(1023)
   0x09,0x30,        //  USAGE(X)
+  0x75,0x0A,        //  REPORT_SIZE(10)
+  0x95,0x01,        //  REPORT_COUNT(1)
+  0x81,0x02,        //  INPUT(Data,Var,Abs)
+          //Y & Z axis
+  0x95,0x01,        //  REPORT_COUNT(1)
+  0x81,0x01,        //  INPUT(Cnst,Ary,Abs)
+  0x26,0xFF,0xFF,   //  LOGICAL_MAXIMUM(255)
+  0x46,0xFF,0x03,   //  PHYSICAL_MAXIMUM(255)
   0x09,0x31,        //  USAGE(Y)
   0x09,0x32,        //  USAGE(Z)
   0x09,0x35,        //  USAGE(Rz)
-  0x75,0x08,        //  REPORT_SIZE(8)
-  0x95,0x04,        //  REPORT_COUNT(4)
+  0x75,0x0A,        //  REPORT_SIZE(8)
+  0x95,0x03,        //  REPORT_COUNT(3)
   0x81,0x02,        //  INPUT(Data,Var,Abs)
           
    /*

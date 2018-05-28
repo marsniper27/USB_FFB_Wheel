@@ -7753,7 +7753,11 @@ extern  USB_DEVICE_STATE USBDeviceState;
 extern  uint8_t USBActiveConfiguration;
 extern  uint8_t USBTicksSinceSuspendEnd;
 
-# 257 "../../../../../../framework/usb/inc\usb_hal_pic18.h"
+# 197 "../../../../../../framework/usb/inc\usb_hal_pic18.h"
+volatile far BDT ep0Bo;
+volatile far BDT ep0Bi;
+
+# 259
 typedef union _BD_STAT
 {
 uint8_t Val;
@@ -7818,7 +7822,7 @@ unsigned char endpoint_number:4;
 uint8_t Val;
 } USTAT_FIELDS;
 
-# 327
+# 329
 typedef union _POINTER
 {
 struct
@@ -7844,7 +7848,7 @@ const uint16_t* wRom;
 
 } POINTER;
 
-# 597
+# 599
 extern  uint8_t USBActiveConfiguration;
 extern  IN_PIPE inPipes[1];
 extern  OUT_PIPE outPipes[1];
@@ -7964,16 +7968,20 @@ volatile BDT_ENTRY BDT[((1 + 1) * 4)] @0x400;
 volatile CTRL_TRF_SETUP SetupPkt @(0x400+(((1 + 1) * 4)*4));
 volatile uint8_t CtrlTrfData[8] @((0x400+(((1 + 1) * 4)*4)) + 8);
 
-# 211
-extern const USB_DEVICE_DESCRIPTOR device_dsc;
+# 188
+volatile unsigned char hid_report_out[64];
+volatile unsigned char hid_report_in[64];
 
 # 218
+extern const USB_DEVICE_DESCRIPTOR device_dsc;
+
+# 225
 extern const uint8_t *const USB_CD_Ptr[];
 
 
 extern const uint8_t *const USB_SD_Ptr[];
 
-# 229
+# 236
 extern bool USER_USB_CALLBACK_EVENT_HANDLER(USB_EVENT event, void *pdata, uint16_t size);
 
 static void USBCtrlEPService(void);
@@ -7993,7 +8001,7 @@ static void USBWakeFromSuspend(void);
 static void USBSuspend(void);
 static void USBStallHandler(void);
 
-# 277
+# 284
 void USBDeviceInit(void)
 {
 uint8_t i;
@@ -8090,12 +8098,12 @@ USBTicksSinceSuspendEnd = 0;
 USBDeviceState = DETACHED_STATE;
 }
 
-# 477
+# 484
 void USBDeviceTasks(void)
 {
 uint8_t i;
 
-# 505
+# 512
 if (1 != 1)
 {
 
@@ -8107,12 +8115,12 @@ UIE = 0;
 
 USBDeviceState = DETACHED_STATE;
 
-# 542
+# 549
 PIR3bits.USBIF = 0;;
 return;
 }
 
-# 566
+# 573
 if(USBDeviceState == DETACHED_STATE)
 {
 
@@ -8131,18 +8139,18 @@ while(!UCONbits.USBEN){UCONbits.USBEN = 1;}
 
 USBDeviceState = ATTACHED_STATE;
 
-# 587
+# 594
 }
 
 
 if(USBDeviceState == ATTACHED_STATE)
 {
 
-# 601
+# 608
 if(!UCONbits.SE0)
 {
 
-# 608
+# 615
 {UIR = 0;};
 
 
@@ -8155,7 +8163,7 @@ USBDeviceState = POWERED_STATE;
 }
 }
 
-# 634
+# 641
 if(UIRbits.ACTVIF && UIEbits.ACTVIE)
 {
 (UIR &= 0xFB);
@@ -8166,14 +8174,14 @@ USBWakeFromSuspend();
 
 }
 
-# 647
+# 654
 if(UCONbits.SUSPND==1)
 {
 PIR3bits.USBIF = 0;;
 return;
 }
 
-# 663
+# 670
 if(UIRbits.URSTIF && UIEbits.URSTIE)
 {
 USBDeviceInit();
@@ -8184,20 +8192,20 @@ USBDeviceInit();
 
 USBDeviceState = DEFAULT_STATE;
 
-# 681
+# 688
 (UIR &= 0xFE);
 }
 
-# 687
+# 694
 if(UIRbits.IDLEIF && UIEbits.IDLEIE)
 {
 
-# 694
+# 701
 USBSuspend();
 
 }
 
-# 708
+# 715
 if(UIRbits.SOFIF)
 {
 
@@ -8210,13 +8218,13 @@ USER_USB_CALLBACK_EVENT_HANDLER(EVENT_SOF,0,1);
 
 USBIncrement1msInternalTimers();
 
-# 735
+# 742
 if(USBStatusStageTimeoutCounter != 0u)
 {
 USBStatusStageTimeoutCounter--;
 }
 
-# 744
+# 751
 if(USBStatusStageTimeoutCounter == 0)
 {
 USBCtrlEPAllowStatusStage();
@@ -8234,17 +8242,17 @@ if(UIRbits.UERRIF && UIEbits.UERRIE)
 USER_USB_CALLBACK_EVENT_HANDLER(EVENT_BUS_ERROR,0,1);
 {UEIR = 0;};
 
-# 767
+# 774
 }
 
-# 774
+# 781
 if(USBDeviceState < DEFAULT_STATE)
 {
 PIR3bits.USBIF = 0;;
 return;
 }
 
-# 783
+# 790
 if(UIEbits.TRNIE)
 {
 for(i = 0; i < 4u; i++)
@@ -8291,7 +8299,7 @@ break;
 PIR3bits.USBIF = 0;;
 }
 
-# 878
+# 885
 void USBEnableEndpoint(uint8_t ep, uint8_t options)
 {
 unsigned char* p;
@@ -8307,13 +8315,13 @@ if(options & 0x02)
 USBConfigureEndpoint(ep, 1);
 }
 
-# 899
+# 906
 p = (unsigned char*)(&UEP0+ep);
 
 *p = options;
 }
 
-# 995
+# 1002
 void* USBTransferOnePacket(uint8_t ep,uint8_t dir,uint8_t* data,uint8_t len)
 {
 volatile BDT_ENTRY* handle;
@@ -8337,7 +8345,7 @@ if(handle == 0)
 return 0;
 }
 
-# 1029
+# 1036
 handle->ADR = ((uint16_t)(data));
 handle->CNT = len;
 handle->STAT.Val &= 0x40;
@@ -8358,7 +8366,7 @@ pBDTEntryOut[ep] = (BDT_ENTRY*)(((uintptr_t)pBDTEntryOut[ep]) ^ 0x0004);
 return (void*)handle;
 }
 
-# 1073
+# 1080
 void USBStallEndpoint(uint8_t ep, uint8_t dir)
 {
 BDT_ENTRY *p;
@@ -8392,7 +8400,7 @@ p->STAT.Val |= 0x80;
 }
 }
 
-# 1129
+# 1136
 void USBCancelIO(uint8_t endpoint)
 {
 if(UCONbits.PKTDIS == 1)
@@ -8402,7 +8410,7 @@ if(UCONbits.PKTDIS == 1)
 pBDTEntryIn[endpoint]->Val &= 0x40;
 pBDTEntryIn[endpoint]->Val ^= 0x40;
 
-# 1143
+# 1150
 pBDTEntryIn[endpoint] = (BDT_ENTRY*)(((uintptr_t)pBDTEntryIn[endpoint]) ^ 0x0004);
 
 pBDTEntryIn[endpoint]->STAT.Val &= 0x40;
@@ -8411,11 +8419,11 @@ pBDTEntryIn[endpoint]->STAT.Val ^= 0x40;
 }
 }
 
-# 1416
+# 1423
 void USBCtrlEPAllowStatusStage(void)
 {
 
-# 1423
+# 1430
 if(USBStatusStageEnabledFlag1 == 0)
 {
 USBStatusStageEnabledFlag1 = 1;
@@ -8454,7 +8462,7 @@ pBDTEntryEP0OutNext->STAT.Val = 0x80;
 }
 }
 
-# 1488
+# 1495
 void USBCtrlEPAllowDataStage(void)
 {
 USBDeferINDataStagePackets = 0;
@@ -8487,7 +8495,7 @@ pBDTEntryIn[0]->STAT.Val |= 0x80;
 }
 }
 
-# 1543
+# 1550
 static void USBConfigureEndpoint(uint8_t EPNum, uint8_t direction)
 {
 volatile BDT_ENTRY* handle;
@@ -8515,24 +8523,24 @@ pBDTEntryIn[EPNum] = handle;
 handle->STAT.DTS = 0;
 (handle+1)->STAT.DTS = 1;
 
-# 1585
+# 1592
 }
 
-# 1616
+# 1623
 static void USBCtrlEPServiceComplete(void)
 {
 
-# 1622
+# 1629
 UCONbits.PKTDIS = 0;
 
-# 1628
+# 1635
 if(inPipes[0].info.bits.busy == 0)
 {
 if(outPipes[0].info.bits.busy == 1)
 {
 controlTransferState = 2;
 
-# 1643
+# 1650
 if(USBDeferOUTDataStagePackets == 0)
 {
 USBCtrlEPAllowDataStage();
@@ -8546,7 +8554,7 @@ USBStatusStageEnabledFlag1 = 0;
 else
 {
 
-# 1659
+# 1666
 pBDTEntryEP0OutNext->CNT = 8;
 pBDTEntryEP0OutNext->ADR = ((uint16_t)(&SetupPkt));
 pBDTEntryEP0OutNext->STAT.Val = 0x00|(0x08 & 0x08)|0x04;
@@ -8561,13 +8569,13 @@ if(SetupPkt.DataDir == (0x80>>7))
 {
 controlTransferState = 1;
 
-# 1685
+# 1692
 if(USBDeferINDataStagePackets == 0)
 {
 USBCtrlEPAllowDataStage();
 }
 
-# 1710
+# 1717
 USBStatusStageEnabledFlag2 = 0;
 USBStatusStageEnabledFlag1 = 0;
 if(USBDeferStatusStagePacket == 0)
@@ -8578,7 +8586,7 @@ USBCtrlEPAllowStatusStage();
 else
 {
 
-# 1729
+# 1736
 controlTransferState = 2;
 
 
@@ -8600,7 +8608,7 @@ USBCtrlEPAllowStatusStage();
 
 }
 
-# 1771
+# 1778
 static void USBCtrlTrfTxService(void)
 {
 uint8_t byteToSend;
@@ -8612,7 +8620,7 @@ if(inPipes[0].wCount.Val < (uint8_t)8)
 {
 byteToSend = inPipes[0].wCount.Val;
 
-# 1787
+# 1794
 if(shortPacketStatus == 0)
 {
 shortPacketStatus = 1;
@@ -8653,7 +8661,7 @@ byteToSend--;
 }
 }
 
-# 1852
+# 1859
 static void USBCtrlTrfRxService(void)
 {
 uint8_t byteToRead;
@@ -8663,7 +8671,7 @@ uint8_t i;
 
 byteToRead = pBDTEntryEP0OutCurrent->CNT;
 
-# 1865
+# 1872
 if(byteToRead > outPipes[0].wCount.Val)
 {
 byteToRead = outPipes[0].wCount.Val;
@@ -8708,7 +8716,7 @@ pBDTEntryEP0OutNext->ADR = ((uint16_t)(&SetupPkt));
 pBDTEntryEP0OutNext->STAT.Val = 0x04;
 pBDTEntryEP0OutNext->STAT.Val |= 0x80;
 
-# 1914
+# 1921
 if(outPipes[0].pFunc != (0))
 {
 
@@ -8719,11 +8727,11 @@ if(outPipes[0].pFunc != (0))
 outPipes[0].pFunc();
 #pragma warning pop
 
-# 1926
+# 1933
 }
 outPipes[0].info.bits.busy = 0;
 
-# 1941
+# 1948
 if(USBDeferStatusStagePacket == 0)
 {
 USBCtrlEPAllowStatusStage();
@@ -8732,7 +8740,7 @@ USBCtrlEPAllowStatusStage();
 
 }
 
-# 1968
+# 1975
 static void USBStdSetCfgHandler(void)
 {
 uint8_t i;
@@ -8791,7 +8799,7 @@ USBDeviceState = CONFIGURED_STATE;
 }
 }
 
-# 2043
+# 2050
 static void USBStdGetDscHandler(void)
 {
 if(SetupPkt.bmRequestType == 0x80)
@@ -8819,7 +8827,7 @@ if(SetupPkt.bDscIndex < 1)
 
 inPipes[0].pSrc.bRom = *(USB_CD_Ptr+SetupPkt.bDscIndex);
 
-# 2074
+# 2081
 inPipes[0].wCount.byte.LB = *(inPipes[0].pSrc.bRom+2);
 inPipes[0].wCount.byte.HB = *(inPipes[0].pSrc.bRom+3);
 }
@@ -8840,7 +8848,7 @@ inPipes[0].pSrc.bRom = *(USB_SD_Ptr+SetupPkt.bDscIndex);
 inPipes[0].wCount.Val = *inPipes[0].pSrc.bRom;
 }
 
-# 2102
+# 2109
 else
 {
 inPipes[0].info.Val = 0;
@@ -8853,7 +8861,7 @@ break;
 }
 }
 
-# 2129
+# 2136
 static void USBStdGetStatusHandler(void)
 {
 CtrlTrfData[0] = 0;
@@ -8864,7 +8872,7 @@ switch(SetupPkt.Recipient)
 case (0x00):
 inPipes[0].info.bits.busy = 1;
 
-# 2142
+# 2149
 if(0 == 1)
 {
 CtrlTrfData[0]|=0x01;
@@ -8881,7 +8889,7 @@ break;
 case (0x02):
 inPipes[0].info.bits.busy = 1;
 
-# 2160
+# 2167
 {
 BDT_ENTRY *p;
 
@@ -8908,11 +8916,11 @@ inPipes[0].wCount.v[0] = 2;
 }
 }
 
-# 2202
+# 2209
 static void USBStallHandler(void)
 {
 
-# 2214
+# 2221
 if(UEP0bits.EPSTALL == 1)
 {
 
@@ -8928,11 +8936,11 @@ UEP0bits.EPSTALL = 0;
 (UIR &= 0xDF);
 }
 
-# 2245
+# 2252
 static void USBSuspend(void)
 {
 
-# 2270
+# 2277
 UIEbits.ACTVIE = 1;
 (UIR &= 0xEF);
 
@@ -8943,19 +8951,19 @@ UCONbits.SUSPND = 1;
 USBBusIsSuspended = 1;
 USBTicksSinceSuspendEnd = 0;
 
-# 2285
+# 2292
 USER_USB_CALLBACK_EVENT_HANDLER(EVENT_SUSPEND,0,0);
 }
 
-# 2303
+# 2310
 static void USBWakeFromSuspend(void)
 {
 USBBusIsSuspended = 0;
 
-# 2311
+# 2318
 USER_USB_CALLBACK_EVENT_HANDLER(EVENT_RESUME,0,0);
 
-# 2318
+# 2325
 UCONbits.SUSPND = 0;
 
 
@@ -8963,7 +8971,7 @@ UCONbits.SUSPND = 0;
 
 UIEbits.ACTVIE = 0;
 
-# 2341
+# 2348
 while(UIRbits.ACTVIF)
 
 {
@@ -8974,7 +8982,7 @@ USBTicksSinceSuspendEnd = 0;
 
 }
 
-# 2372
+# 2379
 static void USBCtrlEPService(void)
 {
 
@@ -8991,7 +8999,7 @@ if((USTATcopy.Val & ~0x02) == 0x00)
 
 pBDTEntryEP0OutCurrent = (volatile BDT_ENTRY*)&BDT[(USTATcopy.Val & 0x7E)>>1];
 
-# 2394
+# 2401
 pBDTEntryEP0OutNext = pBDTEntryEP0OutCurrent;
 
 pBDTEntryEP0OutNext = (volatile BDT_ENTRY*)(((uintptr_t)pBDTEntryEP0OutNext) ^ 0x0004);
@@ -9023,7 +9031,7 @@ USBCtrlTrfInHandler();
 
 }
 
-# 2465
+# 2472
 static void USBCtrlTrfSetupHandler(void)
 {
 
@@ -9036,7 +9044,7 @@ USBDeferOUTDataStagePackets = 0;
 BothEP0OutUOWNsSet = 0;
 controlTransferState = 0;
 
-# 2484
+# 2491
 pBDTEntryIn[0]->STAT.Val &= ~(0x80);
 
 pBDTEntryIn[0] = (volatile BDT_ENTRY*)(((uintptr_t)pBDTEntryIn[0]) ^ 0x0004);
@@ -9049,15 +9057,15 @@ inPipes[0].wCount.Val = 0;
 outPipes[0].info.Val = 0;
 outPipes[0].wCount.Val = 0;
 
-# 2500
+# 2507
 USBCheckStdRequest();
 USER_USB_CALLBACK_EVENT_HANDLER(EVENT_EP0_REQUEST,0,0);
 
-# 2514
+# 2521
 USBCtrlEPServiceComplete();
 }
 
-# 2538
+# 2545
 static void USBCtrlTrfOutHandler(void)
 {
 if(controlTransferState == 2)
@@ -9070,7 +9078,7 @@ else
 
 controlTransferState = 0;
 
-# 2555
+# 2562
 if(BothEP0OutUOWNsSet == 0)
 {
 pBDTEntryEP0OutNext->CNT = 8;
@@ -9085,7 +9093,7 @@ BothEP0OutUOWNsSet = 0;
 }
 }
 
-# 2592
+# 2599
 static void USBCtrlTrfInHandler(void)
 {
 uint8_t lastDTS;
@@ -9117,7 +9125,7 @@ if(controlTransferState == 1)
 pBDTEntryIn[0]->ADR = ((uint16_t)(CtrlTrfData));
 USBCtrlTrfTxService();
 
-# 2627
+# 2634
 if(shortPacketStatus == 2)
 {
 
@@ -9160,7 +9168,7 @@ controlTransferState = 0;
 
 }
 
-# 2686
+# 2693
 static void USBCheckStdRequest(void)
 {
 if(SetupPkt.RequestType != (0x00>>5)) return;
@@ -9210,7 +9218,7 @@ break;
 }
 }
 
-# 2754
+# 2761
 static void USBStdFeatureReqHandler(void)
 {
 BDT_ENTRY *p;
@@ -9220,7 +9228,7 @@ EP_STATUS current_ep_data;
 
 unsigned char* pUEP;
 
-# 2799
+# 2806
 if((SetupPkt.bFeature == 1)&&
 (SetupPkt.Recipient == (0x00)))
 {
@@ -9253,7 +9261,7 @@ p = (BDT_ENTRY*)pBDTEntryIn[SetupPkt.EPNum];
 current_ep_data.Val = ep_data_in[SetupPkt.EPNum].Val;
 }
 
-# 2835
+# 2842
 if(current_ep_data.bits.ping_pong_state == 0)
 {
 p = (BDT_ENTRY*)(((uintptr_t)p) & (~0x0004));
@@ -9321,7 +9329,7 @@ p->STAT.Val |= 0x40;
 
 p = (BDT_ENTRY*)(((uintptr_t)p) ^ 0x0004);
 
-# 2906
+# 2913
 if((current_ep_data.bits.transfer_terminated != 0) || (p->STAT.UOWN == 1))
 {
 if(SetupPkt.EPDir == 0)
@@ -9344,7 +9352,7 @@ else
 p->STAT.Val &= ~(0x80 | 0x40 | 0x04);
 }
 
-# 2973
+# 2980
 pUEP = (unsigned char*)(&UEP0+SetupPkt.EPNum);
 
 
@@ -9354,11 +9362,11 @@ pUEP = (unsigned char*)(&UEP0+SetupPkt.EPNum);
 }
 }
 
-# 3025
+# 3032
 void USBIncrement1msInternalTimers(void)
 {
 
-# 3033
+# 3040
 USB1msTickCount++;
 if(USBBusIsSuspended == 0)
 {
@@ -9371,11 +9379,11 @@ USBTicksSinceSuspendEnd = 255;
 }
 }
 
-# 3104
+# 3111
 uint32_t USBGet1msTickCount(void)
 {
 
-# 3120
+# 3127
 return USB1msTickCount;
 
 }

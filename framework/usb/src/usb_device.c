@@ -182,6 +182,13 @@ volatile uint8_t CtrlTrfData[USB_EP0_BUFF_SIZE] CTRL_TRF_DATA_ADDR_TAG;
 /********************************************************************
  * non-EP0 Buffer Space
  *******************************************************************/
+
+// Can provide compile time option to do software pingpong
+#if defined(USB_USE_HID)
+    volatile unsigned char hid_report_out[HID_INT_OUT_EP_SIZE];
+    volatile unsigned char hid_report_in[HID_INT_IN_EP_SIZE];
+#endif
+
 #if defined(USB_USE_MSD)
     //Check if the MSD application specific USB endpoint buffer placement address 
     //macros have already been defined or not (ex: in a processor specific header)

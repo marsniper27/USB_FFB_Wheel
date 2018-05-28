@@ -7071,6 +7071,10 @@ typedef uint16_t uintptr_t;
 # 19 "../../../../../../framework/usb/inc\wheel.h"
 bool WHEEL_Type = 0;
 
+bool BREAK_Type = 0;
+
+bool CLUTCH_Type = 0;
+
 
 typedef enum
 {
@@ -7079,15 +7083,26 @@ WHEEL_W1
 
 } WHEEL;
 
-# 46
+typedef enum
+{
+PEDAL_NONE,
+PEDAL_BREAK,
+PEDAL_CLUTCH
+
+} PEDAL;
+
+# 57
 uint8_t WHEEL_Position(WHEEL wheel);
 
-# 64
+# 75
 void WHEEL_Enable(WHEEL wheel);
 
 void WHEEL_Home(WHEEL wheel);
 
-# 52 "C:/Users/kyle.marshall/MPLABXProjects/USB_FFB_Wheel.X/framework/usb/inc/wheel.c"
+uint8_t WHEEL_Test(WHEEL wheel);
+uint8_t PEDAL_Position(PEDAL pedal);
+
+# 53 "C:/Users/kyle.marshall/MPLABXProjects/USB_FFB_Wheel.X/framework/usb/inc/wheel.c"
 uint8_t WHEEL_Position(WHEEL wheel)
 {
 switch(wheel)
@@ -7095,8 +7110,7 @@ switch(wheel)
 case WHEEL_W1:
 if (WHEEL_Type == 0)
 {
-ADCON0 &= 0xC5;
-ADCON0 |= 0<<3;
+ADCON0bits.CHS = 0b0000;
 _delay((unsigned long)((2)*(20000000/4000.0)));
 GO_nDONE = 1;
 while(GO_nDONE);
@@ -7123,10 +7137,11 @@ TRISAbits.TRISA0 = 1;
 if (WHEEL_Type == 0)
 {
 ANSELAbits.ANSA0 = 0;
-ADCON0bits.ADON = 1;
-ADCON0bits.CHS = 0b0000;
+ADCON1bits.CHSN3 = 0b1;
 ADCON1bits.NVCFG = 0;
 ADCON1bits.PVCFG = 0;
+ADCON0bits.CHS = 0b0000;
+ADCON0bits.ADON = 1;
 }
 else if(WHEEL_Type == 1)
 {
@@ -7156,4 +7171,84 @@ break;
 case WHEEL_NONE:
 break;
 }
+}
+
+uint8_t WHEEL_Test(WHEEL wheel)
+{
+static uint16_t count = 0;
+static bool direction = 1;
+
+switch(wheel)
+{
+case WHEEL_W1:
+if(direction)
+{
+if(count < 255)
+{
+count++;
+
+}
+if(count == 255)
+{
+direction = 0;
+}
+}
+else if(!direction)
+{
+if(count > 0)
+{
+count--;
+
+}
+if(count == 0)
+{
+direction = 1;
+}
+}
+break;
+
+case WHEEL_NONE:
+break;
+}
+return count;
+}
+
+
+uint8_t PEDAL_Position(PEDAL pedal)
+{
+switch(pedal)
+{
+case PEDAL_BREAK:
+if (BREAK_Type == 0)
+{
+ADCON0bits.CHS = 0011;
+_delay((unsigned long)((2)*(20000000/4000.0)));
+GO_nDONE = 1;
+while(GO_nDONE);
+return ((ADRESH<<8)+ADRESL);
+}
+else if (BREAK_Type == 1)
+{
+
+}
+
+case PEDAL_CLUTCH:
+if (CLUTCH_Type == 0)
+{
+ADCON0bits.CHS = 0b0100;
+_delay((unsigned long)((2)*(20000000/4000.0)));
+GO_nDONE = 1;
+while(GO_nDONE);
+return ((ADRESH<<8)+ADRESL);
+}
+else if (CLUTCH_Type == 1)
+{
+
+}
+
+case WHEEL_NONE:
+return 128;
+}
+
+return 128;
 }

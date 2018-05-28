@@ -7750,7 +7750,11 @@ extern char * strichr(const char *, int);
 extern char * strrchr(const char *, int);
 extern char * strrichr(const char *, int);
 
-# 257 "../../../../../../framework/usb/inc\usb_hal_pic18.h"
+# 197 "../../../../../../framework/usb/inc\usb_hal_pic18.h"
+volatile far BDT ep0Bo;
+volatile far BDT ep0Bi;
+
+# 259
 typedef union _BD_STAT
 {
 uint8_t Val;
@@ -7815,7 +7819,7 @@ unsigned char endpoint_number:4;
 uint8_t Val;
 } USTAT_FIELDS;
 
-# 327
+# 329
 typedef union _POINTER
 {
 struct
@@ -7841,7 +7845,7 @@ const uint16_t* wRom;
 
 } POINTER;
 
-# 597
+# 599
 extern  uint8_t USBActiveConfiguration;
 extern  IN_PIPE inPipes[1];
 extern  OUT_PIPE outPipes[1];
@@ -7915,6 +7919,9 @@ uint8_t bNumDsc;
 } USB_HID_DSC;
 
 
+
+extern volatile unsigned char hid_report_in[64];
+extern volatile unsigned char hid_report_out[64];
 extern volatile CTRL_TRF_SETUP SetupPkt;
 extern const uint8_t configDescriptor1[];
 extern volatile uint8_t CtrlTrfData[8];
@@ -7939,7 +7946,7 @@ uint8_t protocol;
 static uint8_t idle_rate;
 static uint8_t active_protocol;
 
-extern const struct{uint8_t report[1274];}hid_rpt01;
+extern const struct{uint8_t report[1286];}hid_rpt01;
 
 # 153
 void USBCheckHIDRequest(void)
@@ -7963,7 +7970,7 @@ break;
 case 0x22:
 if(USBActiveConfiguration == 1)
 {
-{ inPipes[0].pSrc.bRom = (const uint8_t*)&hid_rpt01; inPipes[0].wCount.Val = 1274; inPipes[0].info.Val = 0x40 | 0x80 | 0x00; };
+{ inPipes[0].pSrc.bRom = (const uint8_t*)&hid_rpt01; inPipes[0].wCount.Val = 1286; inPipes[0].info.Val = 0x40 | 0x80 | 0x00; };
 
 # 183
 }

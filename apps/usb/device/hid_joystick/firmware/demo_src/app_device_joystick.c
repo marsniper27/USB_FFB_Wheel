@@ -49,6 +49,10 @@ typedef union _INTPUT_CONTROLS_TYPEDEF
     {
         struct
         {
+            uint8_t RID;
+        }REPORT_ID;
+        struct
+        {
             uint8_t square:1;
             uint8_t x:1;
             uint8_t o:1;
@@ -71,15 +75,34 @@ typedef union _INTPUT_CONTROLS_TYPEDEF
         } hat_switch;
         struct
         {
-            uint8_t X;
-            uint8_t Y;
-            uint8_t Z;
-            uint8_t Rz;
+            uint16_t X;
+            uint16_t Y;
+            uint16_t Z;
+            uint16_t Rz;
         } analog_stick;
     } members;
-    uint8_t val[7];
+    uint8_t val[12];
 } INPUT_CONTROLS;
 
+typedef union _SET_GET_EFFECT_STRUCTURE
+{
+    struct
+    {
+        uint8_t report_id;
+        uint8_t effect_type;
+        uint8_t byte_count; // valid only for custom force data effect.
+          // custom force effects are not supported by this device.
+    }SET_REPORT_REQUEST;
+    struct
+    {
+        uint8_t report_id; // 2
+        uint8_t effect_block_index; // index dell'effetto
+        uint8_t block_load_status; // 1 ok, 2 -out of memory, 3 JC was here, or maybe not ? case: undefined.
+        int ram_pool_available;
+    }PID_BLOCK_LOAD_REPORT;
+
+   uint8_t val[8];
+}SET_GET_EFFECT_STRUCTURE;
 
 /** VARIABLES ******************************************************/
 /* Some processors have a limited range of RAM addresses where the USB module
@@ -101,8 +124,8 @@ typedef union _INTPUT_CONTROLS_TYPEDEF
 
 
 USB_VOLATILE USB_HANDLE lastTransmission = 0;
-
-
+SET_GET_EFFECT_STRUCTURE set_get_effect_structure;
+uint8_t CONFIGURED_EFFECT_NUMBER[12];
 bool Buttons_Pressed = 0; //our new bool to track if any button is pressed.
 /*********************************************************************
 * Function: void APP_DeviceJoystickInitialize(void);
@@ -287,8 +310,10 @@ void APP_DeviceJoystickTasks(void)
 
             //Move the X and Y coordinates to the their extreme values (0x80 is
             //  in the middle - no value).
-            joystick_input.members.analog_stick.X = WHEEL_Position(WHEEL_W1);
-            joystick_input.members.analog_stick.Y = 0;
+            //joystick_input.members.analog_stick.X = WHEEL_Position(WHEEL_W1);
+            joystick_input.members.analog_stick.X = WHEEL_Test(WHEEL_W1);
+            joystick_input.members.analog_stick.Y = PEDAL_Position(PEDAL_BREAK);
+            joystick_input.members.analog_stick.Z = PEDAL_Position(PEDAL_CLUTCH);
             
         //if any button was pressed we will send a message with the currently pressed buttons.
 		if(Buttons_Pressed)
@@ -314,12 +339,173 @@ void APP_DeviceJoystickTasks(void)
             joystick_input.val[6] = 0x80;
             
             //Add current wheel position as we all ways want this reported.
-            joystick_input.members.analog_stick.X = WHEEL_Position(WHEEL_W1);
+            //joystick_input.members.analog_stick.X = WHEEL_Position(WHEEL_W1);
+            joystick_input.members.analog_stick.X = WHEEL_Test(WHEEL_W1);
+            
 
             //Send the 8 byte packet over USB to the host.
             lastTransmission = HIDTxPacket(JOYSTICK_EP, (uint8_t*)&joystick_input, sizeof(joystick_input));
         }
     }
 }//end ProcessIO
+
+/*******************************************************************
+ * Function: void USBSetEffect(void)
+ * 
+ *
+ * PreCondition: None
+ *
+ * Input: None
+ * 
+ * 
+ *
+ * Output: None
+ *
+ * Side Effects: None
+ *
+ * Overview: This function is called from USER_SET_REPORT_HANDLER
+ * to handle the PID class specific request: SET REPORT REQUEST
+ * SET REPORT REQUEST is issued by the host application when it needs
+ * to create a new effect. The output report, specifies wich
+ * effect type to create.
+ * The firmware creates the effect ( sets CONFIGURED_EFFECT_NUMBER[EFFECT TYPE] to 1 )
+ * and prepares the get_report for the host.
+ * The set report request is saved in hid_report_out[n]
+ * 
+ *
+ * Note: None
+ *******************************************************************/
+
+void USBSetEffect(void)
+{
+    set_get_effect_structure.SET_REPORT_REQUEST.report_id=hid_report_out[0]; // 1: based on the pid report descriptor
+    set_get_effect_structure.SET_REPORT_REQUEST.effect_type=hid_report_out[1];// the type of effect, based on pid report descriptor
+    set_get_effect_structure.SET_REPORT_REQUEST.byte_count=hid_report_out[2]; // this device does not support custom effects
+
+    /*
+     struct
+     {
+      BYTE report_id; // 2
+      BYTE effect_block_index; // index dell'effetto
+      BYTE block_load_status; // 1 ok, 2 -out of memory, 3 JC was here, or maybe not ? case: undefined.
+      int ram_pool_available;
+     }PID_BLOCK_LOAD_REPORT;
+
+    BYTE val[8];
+    }SET_GET_EFFECT_STRUCTURE;
+    */
+    switch(set_get_effect_structure.SET_REPORT_REQUEST.effect_type)
+    { 
+        case 1:// Usage ET Constant Force 0
+            set_get_effect_structure.PID_BLOCK_LOAD_REPORT.report_id=2; // 2= PID BLOCK LOAD REPORT
+            set_get_effect_structure.PID_BLOCK_LOAD_REPORT.effect_block_index=1; //0=i can't create effect, 1 = CONSTANT FORCE, index in the array = effect_block_index-1 : 0
+            set_get_effect_structure.PID_BLOCK_LOAD_REPORT.block_load_status=1; // ok, i can load this, because i have already memory for it, and because : reasons
+            set_get_effect_structure.PID_BLOCK_LOAD_REPORT.ram_pool_available=0xFFFF; // i have no ideea why i need this, however i have no more memory except for the effects already preallocated. 
+
+            CONFIGURED_EFFECT_NUMBER[0]=1; // I HAVE CONFIGURED CONSTANT FORCE EFFECT FOR THIS DEVICE
+            // now, when the host issues a get_report, i send the SET_GET_EFFECT_STRUCTURE.PID_BLOCK_LOAD_REPORT.
+
+            break;
+        case 2:// Usage ET Ramp 1
+            set_get_effect_structure.PID_BLOCK_LOAD_REPORT.report_id=2; // 2= PID BLOCK LOAD REPORT
+            set_get_effect_structure.PID_BLOCK_LOAD_REPORT.effect_block_index=2; //0=i can't create effect, 1 = CONSTANT FORCE, index in the array = effect_block_index-1 : 0
+            set_get_effect_structure.PID_BLOCK_LOAD_REPORT.block_load_status=1; // ok, i can load this, because i have already memory for it, and because : reasons
+            set_get_effect_structure.PID_BLOCK_LOAD_REPORT.ram_pool_available=0xFFFF; // i have no ideea why i need this, however i have no more memory except for the effects already preallocated. 
+
+            CONFIGURED_EFFECT_NUMBER[1]=1; // I HAVE CONFIGURED CONSTANT FORCE EFFECT FOR THIS DEVICE
+            // now, when the host issues a get_report blah blah, i send the SET_GET_EFFECT_STRUCTURE.PID_BLOCK_LOAD_REPORT.
+            break;
+        case 3:// Usage ET Square 2
+            set_get_effect_structure.PID_BLOCK_LOAD_REPORT.report_id=2; // 2= PID BLOCK LOAD REPORT
+            set_get_effect_structure.PID_BLOCK_LOAD_REPORT.effect_block_index=3; //0=i can't create effect, 1 = CONSTANT FORCE, index in the array = effect_block_index-1 : 0
+            set_get_effect_structure.PID_BLOCK_LOAD_REPORT.block_load_status=1; // ok, i can load this, because i have already memory for it, and because : reasons
+            set_get_effect_structure.PID_BLOCK_LOAD_REPORT.ram_pool_available=0xFFFF; // i have no ideea why i need this, however i have no more memory except for the effects already preallocated. 
+
+            CONFIGURED_EFFECT_NUMBER[2]=1; // I HAVE CONFIGURED CONSTANT FORCE EFFECT FOR THIS DEVICE
+            // now, when the host issues a get_report blah blah, i send the SET_GET_EFFECT_STRUCTURE.PID_BLOCK_LOAD_REPORT.
+            break;
+        case 4:// Usage ET Sine 3
+            set_get_effect_structure.PID_BLOCK_LOAD_REPORT.report_id=2; // 2= PID BLOCK LOAD REPORT
+            set_get_effect_structure.PID_BLOCK_LOAD_REPORT.effect_block_index=4; //0=i can't create effect, 1 = CONSTANT FORCE, index in the array = effect_block_index-1 : 0
+            set_get_effect_structure.PID_BLOCK_LOAD_REPORT.block_load_status=1; // ok, i can load this, because i have already memory for it, and because : reasons
+            set_get_effect_structure.PID_BLOCK_LOAD_REPORT.ram_pool_available=0xFFFF; // i have no ideea why i need this, however i have no more memory except for the effects already preallocated.
+
+            CONFIGURED_EFFECT_NUMBER[3]=1; // I HAVE CONFIGURED CONSTANT FORCE EFFECT FOR THIS DEVICE
+            // now, when the host issues a get_report blah blah, i send the SET_GET_EFFECT_STRUCTURE.PID_BLOCK_LOAD_REPORT.
+            break;
+        case 5:// Usage ET Triangle 4
+            set_get_effect_structure.PID_BLOCK_LOAD_REPORT.report_id=2; // 2= PID BLOCK LOAD REPORT
+            set_get_effect_structure.PID_BLOCK_LOAD_REPORT.effect_block_index=5; //0=i can't create effect, 1 = CONSTANT FORCE, index in the array = effect_block_index-1 : 0
+            set_get_effect_structure.PID_BLOCK_LOAD_REPORT.block_load_status=1; // ok, i can load this, because i have already memory for it, and because : reasons
+            set_get_effect_structure.PID_BLOCK_LOAD_REPORT.ram_pool_available=0xFFFF; // i have no ideea why i need this, however i have no more memory except for the effects already preallocated. 
+
+            CONFIGURED_EFFECT_NUMBER[4]=1; // I HAVE CONFIGURED CONSTANT FORCE EFFECT FOR THIS DEVICE
+            // now, when the host issues a get_report blah blah, i send the SET_GET_EFFECT_STRUCTURE.PID_BLOCK_LOAD_REPORT.
+            break;
+        case 6:// Usage ET Sawtooth Up 5
+            set_get_effect_structure.PID_BLOCK_LOAD_REPORT.report_id=2; // 2= PID BLOCK LOAD REPORT
+            set_get_effect_structure.PID_BLOCK_LOAD_REPORT.effect_block_index=6; //0=i can't create effect, 1 = CONSTANT FORCE, index in the array = effect_block_index-1 : 0
+            set_get_effect_structure.PID_BLOCK_LOAD_REPORT.block_load_status=1; // ok, i can load this, because i have already memory for it, and because : reasons
+            set_get_effect_structure.PID_BLOCK_LOAD_REPORT.ram_pool_available=0xFFFF; // i have no ideea why i need this, however i have no more memory except for the effects already preallocated. 
+
+            CONFIGURED_EFFECT_NUMBER[5]=1; // I HAVE CONFIGURED CONSTANT FORCE EFFECT FOR THIS DEVICE
+            // now, when the host issues a get_report blah blah, i send the SET_GET_EFFECT_STRUCTURE.PID_BLOCK_LOAD_REPORT.
+            break;
+        case 7:// Usage ET Sawtooth Down 6
+            set_get_effect_structure.PID_BLOCK_LOAD_REPORT.report_id=2; // 2= PID BLOCK LOAD REPORT
+            set_get_effect_structure.PID_BLOCK_LOAD_REPORT.effect_block_index=7; //0=i can't create effect, 1 = CONSTANT FORCE, index in the array = effect_block_index-1 : 0
+            set_get_effect_structure.PID_BLOCK_LOAD_REPORT.block_load_status=1; // ok, i can load this, because i have already memory for it, and because : reasons
+            set_get_effect_structure.PID_BLOCK_LOAD_REPORT.ram_pool_available=0xFFFF; // i have no ideea why i need this, however i have no more memory except for the effects already preallocated. 
+
+            CONFIGURED_EFFECT_NUMBER[6]=1; // I HAVE CONFIGURED CONSTANT FORCE EFFECT FOR THIS DEVICE
+            // now, when the host issues a get_report blah blah, i send the SET_GET_EFFECT_STRUCTURE.PID_BLOCK_LOAD_REPORT.
+            break;
+        case 8:// Usage ET Spring 7
+            set_get_effect_structure.PID_BLOCK_LOAD_REPORT.report_id=2; // 2= PID BLOCK LOAD REPORT
+            set_get_effect_structure.PID_BLOCK_LOAD_REPORT.effect_block_index=8; //0=i can't create effect, 1 = CONSTANT FORCE, index in the array = effect_block_index-1 : 0
+            set_get_effect_structure.PID_BLOCK_LOAD_REPORT.block_load_status=1; // ok, i can load this  because i have already memory for it, and because : reasons
+            set_get_effect_structure.PID_BLOCK_LOAD_REPORT.ram_pool_available=0xFFFF; // i have no ideea why i need this, however i have no more memory except for the effects already preallocated.
+
+            CONFIGURED_EFFECT_NUMBER[7]=1; // I HAVE CONFIGURED CONSTANT FORCE EFFECT FOR THIS DEVICE
+            // now, when the host issues a get_report blah blah, i send the SET_GET_EFFECT_STRUCTURE.PID_BLOCK_LOAD_REPORT.
+            break;
+        case 9:// Usage ET Damper 8
+            set_get_effect_structure.PID_BLOCK_LOAD_REPORT.report_id=2; // 2= PID BLOCK LOAD REPORT
+            set_get_effect_structure.PID_BLOCK_LOAD_REPORT.effect_block_index=9; //0=i can't create effect, 1 = CONSTANT FORCE, index in the array = effect_block_index-1 : 0
+            set_get_effect_structure.PID_BLOCK_LOAD_REPORT.block_load_status=1; // ok, i can load this , because i have already memory for it, and because : reasons
+            set_get_effect_structure.PID_BLOCK_LOAD_REPORT.ram_pool_available=0xFFFF; // i have no ideea why i need this, however i have no more memory except for the effects already preallocated. 
+
+            CONFIGURED_EFFECT_NUMBER[8]=1; // I HAVE CONFIGURED CONSTANT FORCE EFFECT FOR THIS DEVICE
+            // now, when the host issues a get_report blah blah, i send the SET_GET_EFFECT_STRUCTURE.PID_BLOCK_LOAD_REPORT.
+            break;
+        case 10:// Usage ET Inertia 9
+            set_get_effect_structure.PID_BLOCK_LOAD_REPORT.report_id=2; // 2= PID BLOCK LOAD REPORT
+            set_get_effect_structure.PID_BLOCK_LOAD_REPORT.effect_block_index=10; //0=i can't create effect, 1 = CONSTANT FORCE, index in the array = effect_block_index-1 : 0
+            set_get_effect_structure.PID_BLOCK_LOAD_REPORT.block_load_status=1; // ok, i can load this , because i have already memory for it, and because : reasons
+            set_get_effect_structure.PID_BLOCK_LOAD_REPORT.ram_pool_available=0xFFFF; // i have no ideea why i need this, however i have no more memory except for the effects already preallocated. 
+
+            CONFIGURED_EFFECT_NUMBER[9]=1; // I HAVE CONFIGURED CONSTANT FORCE EFFECT FOR THIS DEVICE
+            // now, when the host issues a get_report blah blah, i send the SET_GET_EFFECT_STRUCTURE.PID_BLOCK_LOAD_REPORT.
+            break;
+        case 11:// Usage ET Friction 10
+            set_get_effect_structure.PID_BLOCK_LOAD_REPORT.report_id=2; // 2= PID BLOCK LOAD REPORT
+            set_get_effect_structure.PID_BLOCK_LOAD_REPORT.effect_block_index=11; //0=i can't create effect, 1 = CONSTANT FORCE, index in the array = effect_block_index-1 : 0
+            set_get_effect_structure.PID_BLOCK_LOAD_REPORT.block_load_status=1; // ok, i can load this , because i have already memory for it, and because : reasons
+            set_get_effect_structure.PID_BLOCK_LOAD_REPORT.ram_pool_available=0xFFFF; // i have no ideea why i need this, however i have no more memory except for the effects already preallocated. 
+
+            CONFIGURED_EFFECT_NUMBER[10]=1; // I HAVE CONFIGURED CONSTANT FORCE EFFECT FOR THIS DEVICE
+            // now, when the host issues a get_report blah blah, i send the SET_GET_EFFECT_STRUCTURE.PID_BLOCK_LOAD_REPORT.
+            break;
+        case 12:// Usage ET Custom Force Data 11 ! NOT SUPPORTED BY THIS DEVICE !
+            set_get_effect_structure.PID_BLOCK_LOAD_REPORT.report_id=2; // 2= PID BLOCK LOAD REPORT
+            set_get_effect_structure.PID_BLOCK_LOAD_REPORT.effect_block_index=0; //0=i can't create effect, 1 = CONSTANT FORCE, index in the array = effect_block_index-1 : 0
+            set_get_effect_structure.PID_BLOCK_LOAD_REPORT.block_load_status=3; // ok, i can load this , because i have already memory for it, and because : reasons
+            set_get_effect_structure.PID_BLOCK_LOAD_REPORT.ram_pool_available=0x0000; // i have no ideea why i need this, however i have no more memory except for the effects already preallocated. 
+
+            CONFIGURED_EFFECT_NUMBER[11]=0; // 
+            // now, when the host issues a get_report , i send the SET_GET_EFFECT_STRUCTURE.PID_BLOCK_LOAD_REPORT.
+            break;
+    } 
+}
 
 #endif
