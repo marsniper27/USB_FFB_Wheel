@@ -87,13 +87,16 @@ extern const struct{uint8_t report[HID_RPT01_SIZE];}hid_rpt01;
 // *****************************************************************************
 // *****************************************************************************
 #if defined USER_GET_REPORT_HANDLER
-    void USER_GET_REPORT_HANDLER(void);
+   // void USER_GET_REPORT_HANDLER(void);
 #endif
 
 #if defined USER_SET_REPORT_HANDLER
     extern void USER_SET_REPORT_HANDLER(void);
 #endif     
+    
+    
 
+   // void USER_GET_REPORT_HANDLER(void);
 // *****************************************************************************
 // *****************************************************************************
 // Section: Macros or Functions
@@ -319,3 +322,70 @@ void USBCheckHIDRequest(void)
 /*******************************************************************************
  End of File
 */
+void USER_GET_REPORT_HANDLER(void)
+ {
+  /*
+     OK, SET REPORT has arrived, the effect was allocated or less.
+    the host sends a get report, so he wants the censored, i mean the data.
+    the data was already preconfigured by USBSetEffect,so now, USBSendPIDBlockLoadReport(),will send the data to
+    the censored, i mean , host.
+  */
+  switch(SetupPkt.W_Value.byte.LB) 
+  {
+  case 0x02:// REPORT ID? 2? PURRFECT, SEND THE censored DATA TO THE HOST
+   switch(SetupPkt.W_Value.byte.HB) // REPORT TYPE
+    {
+     case 0x01:// INPUT REPORT
+        // IGNORE FOR NOW....
+     break;
+     case 0x02: // OUTPUT, the host wants to send me the data
+        // IGNORE FOR NOW....
+     break;
+     case 0x03:// FEATURE, the host wants ME to send the data
+         USBSendPIDBlockLoadReport();
+     break;
+    } 
+  
+  break;
+  }
+    
+ }
+
+void USER_SET_REPORT_HANDLER(void)
+ {
+  //I get the set report, then i get the DATA !
+  // THE DEVICE NOW NEEDS TO ALLOCATE THE EFFECT
+  // ONCE THE EFFECT IS ALLOCATED; THE HOST SENDS A GET REPORT, function above
+  /*
+  Offset Field Size Value Description
+  0 bmRequestType 1 10100001b From device to host
+  1 bRequest 1 0x01 Get_Report
+  2 wValue 2 0x0203 Report ID (2) and Report Type (feature)
+  4 wIndex 2 0x0000 Interface
+  6 wLength 2 0x0500 Number of bytes to transfer in the data phase
+  (5 bytes)
+  */
+  // DEVICE RESPONDS TO THE GET REPORT; WITH THE PID BLOCK LOAD REPORT
+  
+  //USBSetEffect();
+  // I HAVE TO: 1: BE SURE I CHECK THE FEATURE, BECAUSE: REASONS
+  
+  switch(SetupPkt.W_Value.byte.LB) 
+  {
+  case 0x01: // report ID: 1, SET NEW EFFECT,APPLICATION DATA, etc , and now ?
+     // NOW I CHECK THE REPORT TYPE ! INPUT? OUTPUT? FEATURE ? 
+
+   if(SetupPkt.W_Value.byte.HB==0x02) // FEATURE, the host wants to send me the data, to set the effects. aka effect start 
+   {
+   // READ THE DATA, FEEL THE DATA, SAVE THE DATA! and set the data effect, read it, and set it
+   USBEP0Receive((uint8_t*)&hid_report_out[0], SetupPkt.wLength, USBSetDataEffect);
+   } 
+ 
+   if(SetupPkt.W_Value.byte.HB==0x03) 
+   {
+   // READ THE DATA, FEEL THE DATA, SAVE THE DATA! and set the effect
+   USBEP0Receive((uint8_t*)&hid_report_out[0], SetupPkt.wLength, USBSetEffect); 
+   } 
+  break;
+  }
+ }

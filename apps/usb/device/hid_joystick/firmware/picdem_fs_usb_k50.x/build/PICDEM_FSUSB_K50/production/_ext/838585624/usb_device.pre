@@ -7753,11 +7753,7 @@ extern  USB_DEVICE_STATE USBDeviceState;
 extern  uint8_t USBActiveConfiguration;
 extern  uint8_t USBTicksSinceSuspendEnd;
 
-# 197 "../../../../../../framework/usb/inc\usb_hal_pic18.h"
-volatile far BDT ep0Bo;
-volatile far BDT ep0Bi;
-
-# 259
+# 257 "../../../../../../framework/usb/inc\usb_hal_pic18.h"
 typedef union _BD_STAT
 {
 uint8_t Val;
@@ -7822,7 +7818,7 @@ unsigned char endpoint_number:4;
 uint8_t Val;
 } USTAT_FIELDS;
 
-# 329
+# 327
 typedef union _POINTER
 {
 struct
@@ -7848,7 +7844,7 @@ const uint16_t* wRom;
 
 } POINTER;
 
-# 599
+# 597
 extern  uint8_t USBActiveConfiguration;
 extern  IN_PIPE inPipes[1];
 extern  OUT_PIPE outPipes[1];

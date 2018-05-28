@@ -7750,11 +7750,7 @@ extern char * strichr(const char *, int);
 extern char * strrchr(const char *, int);
 extern char * strrichr(const char *, int);
 
-# 197 "../../../../../../framework/usb/inc\usb_hal_pic18.h"
-volatile far BDT ep0Bo;
-volatile far BDT ep0Bi;
-
-# 259
+# 257 "../../../../../../framework/usb/inc\usb_hal_pic18.h"
 typedef union _BD_STAT
 {
 uint8_t Val;
@@ -7819,7 +7815,7 @@ unsigned char endpoint_number:4;
 uint8_t Val;
 } USTAT_FIELDS;
 
-# 329
+# 327
 typedef union _POINTER
 {
 struct
@@ -7845,7 +7841,7 @@ const uint16_t* wRom;
 
 } POINTER;
 
-# 599
+# 597
 extern  uint8_t USBActiveConfiguration;
 extern  IN_PIPE inPipes[1];
 extern  OUT_PIPE outPipes[1];
@@ -7895,10 +7891,10 @@ bool USBHALSetEpConfiguration ( uint8_t ep_num, uint16_t max_pkt_size, uint16_t 
 # 603
 bool USBHALInitialize ( unsigned long flags );
 
-# 98 "../../../../../../framework/usb/inc\usb_device_hid.h"
+# 101 "../../../../../../framework/usb/inc\usb_device_hid.h"
 void USBCheckHIDRequest(void);
 
-# 280
+# 283
 typedef struct _USB_HID_DSC_HEADER
 {
 uint8_t bDescriptorType;
@@ -7915,9 +7911,8 @@ uint16_t bcdHID;
 uint8_t bCountryCode;
 uint8_t bNumDsc;
 
-# 300
+# 303
 } USB_HID_DSC;
-
 
 
 extern volatile unsigned char hid_report_in[64];
@@ -7925,6 +7920,12 @@ extern volatile unsigned char hid_report_out[64];
 extern volatile CTRL_TRF_SETUP SetupPkt;
 extern const uint8_t configDescriptor1[];
 extern volatile uint8_t CtrlTrfData[8];
+
+extern void USER_SET_REPORT_HANDLER(void);
+void USER_GET_REPORT_HANDLER(void);
+void USBSendPIDBlockLoadReport(void);
+void USBSetDataEffect(void);
+void USBSetEffect(void);
 
 # 59 "../../../../../../framework/usb/src/usb_device_hid.c"
 typedef struct 
@@ -7948,13 +7949,13 @@ static uint8_t active_protocol;
 
 extern const struct{uint8_t report[1286];}hid_rpt01;
 
-# 153
+# 156
 void USBCheckHIDRequest(void)
 {
 if(SetupPkt.Recipient != (0x01)) return;
 if(SetupPkt.bIntfID != 0x00) return;
 
-# 163
+# 166
 if(SetupPkt.bRequest == 6)
 {
 switch(SetupPkt.bDescriptorType)
@@ -7964,7 +7965,7 @@ if(USBActiveConfiguration == 1)
 {
 { inPipes[0].pSrc.bRom = (const uint8_t*)&configDescriptor1 + 18; inPipes[0].wCount.Val = sizeof(USB_HID_DSC)+3; inPipes[0].info.Val = 0x40 | 0x80 | 0x00; };
 
-# 174
+# 177
 }
 break;
 case 0x22:
@@ -7972,12 +7973,12 @@ if(USBActiveConfiguration == 1)
 {
 { inPipes[0].pSrc.bRom = (const uint8_t*)&hid_rpt01; inPipes[0].wCount.Val = 1286; inPipes[0].info.Val = 0x40 | 0x80 | 0x00; };
 
-# 183
+# 186
 }
 break;
 case 0x23:
 
-# 197
+# 200
 break;
 }
 }
@@ -7991,16 +7992,16 @@ switch(SetupPkt.bRequest)
 {
 case 0x01:
 
-# 212
+# 215
 break;
 case 0x09:
 
-# 217
+# 220
 break;
 case 0x02:
 { inPipes[0].pSrc.bRam = (uint8_t*)&idle_rate; inPipes[0].wCount.Val = 1; inPipes[0].info.Val = 0x40 | 0x80 | 0x01; };
 
-# 223
+# 226
 break;
 case 0x0A:
 inPipes[0].info.Val = 0x00 | 0x80;
@@ -8010,7 +8011,7 @@ break;
 case 0x03:
 { inPipes[0].pSrc.bRam = (uint8_t*)&active_protocol; inPipes[0].wCount.Val = 1; inPipes[0].info.Val = 0x00 | 0x80 | 0x01; };
 
-# 234
+# 237
 break;
 case 0x0B:
 inPipes[0].info.Val = 0x00 | 0x80;
@@ -8020,3 +8021,52 @@ break;
 
 }
 
+# 325
+void USER_GET_REPORT_HANDLER(void)
+{
+
+# 333
+switch(SetupPkt.W_Value.byte.LB)
+{
+case 0x02:
+switch(SetupPkt.W_Value.byte.HB)
+{
+case 0x01:
+
+break;
+case 0x02:
+
+break;
+case 0x03:
+USBSendPIDBlockLoadReport();
+break;
+}
+
+break;
+}
+
+}
+
+void USER_SET_REPORT_HANDLER(void)
+{
+
+# 373
+switch(SetupPkt.W_Value.byte.LB)
+{
+case 0x01:
+
+
+if(SetupPkt.W_Value.byte.HB==0x02)
+{
+
+{outPipes[0].pDst.bRam = (uint8_t*)&hid_report_out[0];outPipes[0].wCount.Val = SetupPkt.wLength;outPipes[0].pFunc = USBSetDataEffect;outPipes[0].info.bits.busy = 1; };
+}
+
+if(SetupPkt.W_Value.byte.HB==0x03)
+{
+
+{outPipes[0].pDst.bRam = (uint8_t*)&hid_report_out[0];outPipes[0].wCount.Val = SetupPkt.wLength;outPipes[0].pFunc = USBSetEffect;outPipes[0].info.bits.busy = 1; };
+}
+break;
+}
+}

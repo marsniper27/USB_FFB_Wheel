@@ -57,6 +57,9 @@ please contact mla_licensing@microchip.com
 #define HID_PROTOCOL_KEYBOARD       0x01
 #define HID_PROTOCOL_MOUSE          0x02
 
+//#define USER_SET_REPORT_HANDLER
+//#define USER_GET_REPORT_HANDLER
+
 /********************************************************************
 	Function:
 		void USBCheckHIDRequest(void)
@@ -300,11 +303,16 @@ typedef struct _USB_HID_DSC
 } USB_HID_DSC;
 
 /** Section: EXTERNS ********************************************************/
-
 extern volatile unsigned char hid_report_in[HID_INT_IN_EP_SIZE];
 extern volatile unsigned char hid_report_out[HID_INT_OUT_EP_SIZE];
 extern volatile CTRL_TRF_SETUP SetupPkt;
 extern const uint8_t configDescriptor1[];
 extern volatile uint8_t CtrlTrfData[USB_EP0_BUFF_SIZE];
+
+extern void USER_SET_REPORT_HANDLER(void);
+void USER_GET_REPORT_HANDLER(void);
+void USBSendPIDBlockLoadReport(void);
+void USBSetDataEffect(void);
+void USBSetEffect(void);
 
 #endif //HID_H

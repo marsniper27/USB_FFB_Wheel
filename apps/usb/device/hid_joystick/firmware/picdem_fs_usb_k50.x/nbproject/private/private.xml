@@ -14,6 +14,11 @@
             <file>file:/C:/Users/kyle.marshall/MPLABXProjects/USB_FFB_Wheel.X/framework/usb/inc/usb.h</file>
             <file>file:/C:/Users/kyle.marshall/MPLABXProjects/USB_FFB_Wheel.X/framework/usb/inc/usb_ch9.h</file>
             <file>file:/C:/Users/kyle.marshall/MPLABXProjects/USB_FFB_Wheel.X/apps/usb/device/hid_joystick/firmware/demo_src/usb_config.h</file>
+            <file>file:/C:/Users/kyle.marshall/MPLABXProjects/USB_FFB_Wheel.X/apps/usb/device/hid_joystick/firmware/picdem_fs_usb_k50.x/fixed_address_memory.h</file>
+            <file>file:/C:/Users/kyle.marshall/MPLABXProjects/USB_FFB_Wheel.X/apps/usb/device/hid_joystick/firmware/demo_src/usb_descriptors.c</file>
+            <file>file:/C:/Users/kyle.marshall/MPLABXProjects/USB_FFB_Wheel.X/apps/usb/device/hid_joystick/firmware/demo_src/app_device_joystick.h</file>
+            <file>file:/C:/Users/kyle.marshall/MPLABXProjects/USB_FFB_Wheel.X/bsp/picdem_fs_usb_k50/buttons.h</file>
+            <file>file:/C:/Users/kyle.marshall/MPLABXProjects/USB_FFB_Wheel.X/bsp/picdem_fs_usb_k50/leds.h</file>
         </group>
     </open-files>
 </project-private>

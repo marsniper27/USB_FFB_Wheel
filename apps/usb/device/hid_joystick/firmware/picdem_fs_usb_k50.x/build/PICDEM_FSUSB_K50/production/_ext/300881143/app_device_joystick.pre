@@ -7750,11 +7750,7 @@ extern char * strichr(const char *, int);
 extern char * strrchr(const char *, int);
 extern char * strrichr(const char *, int);
 
-# 197 "../../../../../../framework/usb/inc\usb_hal_pic18.h"
-volatile far BDT ep0Bo;
-volatile far BDT ep0Bi;
-
-# 259
+# 257 "../../../../../../framework/usb/inc\usb_hal_pic18.h"
 typedef union _BD_STAT
 {
 uint8_t Val;
@@ -7819,7 +7815,7 @@ unsigned char endpoint_number:4;
 uint8_t Val;
 } USTAT_FIELDS;
 
-# 329
+# 327
 typedef union _POINTER
 {
 struct
@@ -7845,7 +7841,7 @@ const uint16_t* wRom;
 
 } POINTER;
 
-# 599
+# 597
 extern  uint8_t USBActiveConfiguration;
 extern  IN_PIPE inPipes[1];
 extern  OUT_PIPE outPipes[1];
@@ -7895,10 +7891,10 @@ bool USBHALSetEpConfiguration ( uint8_t ep_num, uint16_t max_pkt_size, uint16_t 
 # 603
 bool USBHALInitialize ( unsigned long flags );
 
-# 98 "../../../../../../framework/usb/inc\usb_device_hid.h"
+# 101 "../../../../../../framework/usb/inc\usb_device_hid.h"
 void USBCheckHIDRequest(void);
 
-# 280
+# 283
 typedef struct _USB_HID_DSC_HEADER
 {
 uint8_t bDescriptorType;
@@ -7915,9 +7911,8 @@ uint16_t bcdHID;
 uint8_t bCountryCode;
 uint8_t bNumDsc;
 
-# 300
+# 303
 } USB_HID_DSC;
-
 
 
 extern volatile unsigned char hid_report_in[64];
@@ -7925,6 +7920,12 @@ extern volatile unsigned char hid_report_out[64];
 extern volatile CTRL_TRF_SETUP SetupPkt;
 extern const uint8_t configDescriptor1[];
 extern volatile uint8_t CtrlTrfData[8];
+
+extern void USER_SET_REPORT_HANDLER(void);
+void USER_GET_REPORT_HANDLER(void);
+void USBSendPIDBlockLoadReport(void);
+void USBSetDataEffect(void);
+void USBSetEffect(void);
 
 # 29 "../../../../../../bsp/picdem_fs_usb_k50\buttons.h"
 typedef enum
@@ -8069,6 +8070,9 @@ uint16_t Rz;
 uint8_t val[12];
 } INPUT_CONTROLS;
 
+
+
+
 typedef union _SET_GET_EFFECT_STRUCTURE
 {
 struct
@@ -8089,16 +8093,139 @@ int ram_pool_available;
 uint8_t val[8];
 }SET_GET_EFFECT_STRUCTURE;
 
-# 119
+typedef union _EFFECT_BLOCK
+{
+struct
+{
+uint8_t set_effect_report;
+uint8_t effect_block_index;
+uint8_t parameter_block_offset;
+
+uint8_t rom_flag;
+}effect_block_parameters;
+
+uint8_t val[5];
+}EFFECT_BLOCK;
+
+typedef union _EFFECT
+{
+struct
+{
+uint8_t effect_type;
+uint8_t effect_duration;
+uint8_t effect_sample_period;
+uint8_t effect_gain;
+uint8_t effect_trigger_button;
+uint8_t trigger_repeat_interval;
+uint8_t axes_enable;
+uint8_t direction_enable;
+uint8_t direction;
+uint8_t start_delay;
+
+uint8_t type_specific_block_handle_number;
+uint8_t type_specific_block_handle_1;
+uint8_t type_specific_block_handle_2;
+
+
+}effect_parameters;
+uint8_t val[13];
+}EFFECT;
+
+typedef union _ENVELOPE_BLOCK
+{
+struct
+{
+uint8_t attack_level;
+uint8_t attack_time;
+uint8_t fade_level;
+uint8_t fade_time;
+}envelope_block_parameters;
+
+uint8_t val[4];
+}ENVELOPE_BLOCK;
+
+typedef union _CONDITION_BLOCK
+{
+struct
+{
+uint8_t cp_offset;
+uint8_t positive_coefficient;
+uint8_t negative_coefficient;
+uint8_t positive_saturation;
+uint8_t negative_saturation;
+uint8_t dead_band;
+}condition_block_parameters;
+
+uint8_t val[6];
+}CONDITION_BLOCK;
+
+typedef union _PERIODIC_BLOCK
+{
+struct
+{
+uint8_t offset;
+uint8_t magnitude;
+uint8_t phase;
+uint8_t period;
+}periodic_block_parameters;
+
+uint8_t val[4];
+}PERIODIC_BLOCK;
+
+typedef union _CONSTANT_FORCE_BLOCK
+{
+struct
+{
+uint8_t magnitude;
+}constant_force_block_parameters;
+
+uint8_t val[1];
+}CONSTANT_FORCE_BLOCK;
+
+typedef union _RAMP_FORCE_BLOCK
+{
+struct
+{
+uint8_t ramp_start;
+uint8_t ramp_end;
+}ramp_force_block_parameters;
+
+uint8_t val[2];
+}RAMP_FORCE_BLOCK;
+
+typedef union _EFFECT_OPERATIONS
+{
+struct
+{
+uint8_t op_effect_start;
+uint8_t op_effect_start_solo;
+uint8_t op_effect_stop;
+uint8_t loop_count;
+}effect_operations_parameters;
+
+uint8_t val[4];
+}EFFECT_OPERATIONS;
+
+typedef union _DEVICE_GAIN
+{
+struct
+{
+uint8_t device_gain;
+}device_gain_parameters;
+
+uint8_t val[1];
+}DEVICE_GAIN;
+
+# 246
 INPUT_CONTROLS joystick_input @ 0x500;
 
-# 126
+# 253
  void* lastTransmission = 0;
 SET_GET_EFFECT_STRUCTURE set_get_effect_structure;
 uint8_t CONFIGURED_EFFECT_NUMBER[12];
 bool Buttons_Pressed = 0;
 
-# 142
+# 269
 void APP_DeviceJoystickInitialize(void)
 {
 
@@ -8109,18 +8236,18 @@ lastTransmission = 0;
 USBEnableEndpoint(1,0x02|0x10|0x08);
 }
 
-# 166
+# 293
 void APP_DeviceJoystickTasks(void)
 {
 
-# 171
+# 298
 if( USBDeviceState < CONFIGURED_STATE )
 {
 
 return;
 }
 
-# 181
+# 308
 if( UCONbits.SUSPND == 1 )
 {
 
@@ -8292,14 +8419,14 @@ lastTransmission = USBTransferOnePacket(1,1,(uint8_t*)&joystick_input,sizeof(joy
 }
 }
 
-# 379
+# 506
 void USBSetEffect(void)
 {
 set_get_effect_structure.SET_REPORT_REQUEST.report_id=hid_report_out[0];
 set_get_effect_structure.SET_REPORT_REQUEST.effect_type=hid_report_out[1];
 set_get_effect_structure.SET_REPORT_REQUEST.byte_count=hid_report_out[2];
 
-# 397
+# 524
 switch(set_get_effect_structure.SET_REPORT_REQUEST.effect_type)
 {
 case 1:
@@ -8412,5 +8539,18 @@ CONFIGURED_EFFECT_NUMBER[11]=0;
 
 break;
 }
+}
+void USBSendPIDBlockLoadReport(void)
+{
+
+# 661
+{ inPipes[0].pSrc.bRam = (uint8_t*)&set_get_effect_structure.PID_BLOCK_LOAD_REPORT; inPipes[0].wCount.Val = 5; inPipes[0].info.Val = 0x01 | 0x80 | 0x01; };
+}
+
+# 667
+void USBSetDataEffect(void)
+{
+
+# 682
 }
 
