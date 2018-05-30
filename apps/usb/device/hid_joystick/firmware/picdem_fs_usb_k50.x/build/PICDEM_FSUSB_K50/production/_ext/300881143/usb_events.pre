@@ -7989,10 +7989,10 @@ SYSTEM_STATE_USB_RESUME
 # 57
 void SYSTEM_Initialize( SYSTEM_STATE state );
 
-# 101 "../../../../../../framework/usb/inc\usb_device_hid.h"
+# 100 "../../../../../../framework/usb/inc\usb_device_hid.h"
 void USBCheckHIDRequest(void);
 
-# 283
+# 282
 typedef struct _USB_HID_DSC_HEADER
 {
 uint8_t bDescriptorType;
@@ -8009,7 +8009,7 @@ uint16_t bcdHID;
 uint8_t bCountryCode;
 uint8_t bNumDsc;
 
-# 303
+# 302
 } USB_HID_DSC;
 
 
@@ -8019,8 +8019,8 @@ extern volatile CTRL_TRF_SETUP SetupPkt;
 extern const uint8_t configDescriptor1[];
 extern volatile uint8_t CtrlTrfData[8];
 
-extern void USER_SET_REPORT_HANDLER(void);
-void USER_GET_REPORT_HANDLER(void);
+
+
 void USBSendPIDBlockLoadReport(void);
 void USBSetDataEffect(void);
 void USBSetEffect(void);

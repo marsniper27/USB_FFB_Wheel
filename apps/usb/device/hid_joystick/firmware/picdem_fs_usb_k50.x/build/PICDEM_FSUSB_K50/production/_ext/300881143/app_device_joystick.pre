@@ -7891,10 +7891,10 @@ bool USBHALSetEpConfiguration ( uint8_t ep_num, uint16_t max_pkt_size, uint16_t 
 # 603
 bool USBHALInitialize ( unsigned long flags );
 
-# 101 "../../../../../../framework/usb/inc\usb_device_hid.h"
+# 100 "../../../../../../framework/usb/inc\usb_device_hid.h"
 void USBCheckHIDRequest(void);
 
-# 283
+# 282
 typedef struct _USB_HID_DSC_HEADER
 {
 uint8_t bDescriptorType;
@@ -7911,7 +7911,7 @@ uint16_t bcdHID;
 uint8_t bCountryCode;
 uint8_t bNumDsc;
 
-# 303
+# 302
 } USB_HID_DSC;
 
 
@@ -7921,8 +7921,8 @@ extern volatile CTRL_TRF_SETUP SetupPkt;
 extern const uint8_t configDescriptor1[];
 extern volatile uint8_t CtrlTrfData[8];
 
-extern void USER_SET_REPORT_HANDLER(void);
-void USER_GET_REPORT_HANDLER(void);
+
+
 void USBSendPIDBlockLoadReport(void);
 void USBSetDataEffect(void);
 void USBSetEffect(void);
@@ -8266,12 +8266,14 @@ if(!((USBOutHandle != 0x0000) && ((*(volatile uint8_t*)USBOutHandle & 0x80) != 0
 
 USBSetEffect();
 
+USBInHandle = USBTransferOnePacket(1,1,(uint8_t*)&ToSendDataBuffer[0],64);
+
 
 
 switch(ReceivedDataBuffer[0])
 {
 
-# 384
+# 386
 }
 
 USBOutHandle = USBTransferOnePacket(1,0,(uint8_t*)&ReceivedDataBuffer[0],64);
@@ -8442,14 +8444,13 @@ USBInHandle = USBTransferOnePacket(1,1,(uint8_t*)&joystick_input,sizeof(joystick
 }
 }
 
-# 581
+# 583
 void USBSetEffect(void)
 {
 set_get_effect_structure.SET_REPORT_REQUEST.report_id=ReceivedDataBuffer[0];
 set_get_effect_structure.SET_REPORT_REQUEST.effect_type=ReceivedDataBuffer[1];
 set_get_effect_structure.SET_REPORT_REQUEST.byte_count=ReceivedDataBuffer[2];
 
-# 599
 switch(set_get_effect_structure.SET_REPORT_REQUEST.effect_type)
 {
 case 1:
@@ -8566,21 +8567,21 @@ break;
 void USBSendPIDBlockLoadReport(void)
 {
 
-# 736
+# 726
 { inPipes[0].pSrc.bRam = (uint8_t*)&set_get_effect_structure.PID_BLOCK_LOAD_REPORT; inPipes[0].wCount.Val = 5; inPipes[0].info.Val = 0x01 | 0x80 | 0x01; };
 }
 
-# 742
+# 732
 void USBSetDataEffect(void)
 {
 
-# 757
+# 747
 }
 
 void USER_SET_REPORT_HANDLER(void)
 {
 
-# 778
+# 768
 switch(SetupPkt.W_Value.byte.LB)
 {
 case 0x01:

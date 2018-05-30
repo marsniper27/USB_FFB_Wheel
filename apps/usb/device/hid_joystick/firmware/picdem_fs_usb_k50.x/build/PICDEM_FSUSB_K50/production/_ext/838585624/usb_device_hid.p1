@@ -56,7 +56,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 "267
 [u S9 `S10 1 `S11 1 `S18 1 `S19 1 `S22 1 `S23 1 `S24 1 `S25 1 `S26 1 `S27 1 ]
 [n S9 . . . . . . . . . . . ]
-"308 ../../../../../../framework/usb/inc\usb_device_hid.h
+"307 ../../../../../../framework/usb/inc\usb_device_hid.h
 [v _SetupPkt `VS9 ~T0 @X0 0 e ]
 "2047 ../../../../../../framework/usb/inc\usb_device.h
 [v _USBActiveConfiguration `uc ~T0 @X0 0 e ]
@@ -80,16 +80,20 @@ Version 3.2 HI-TECH Software Intermediate Code
 [n S35 . pSrc info wCount ]
 "2019
 [v _inPipes `S35 ~T0 @X0 -> 0 `x e ]
-"309 ../../../../../../framework/usb/inc\usb_device_hid.h
+"308 ../../../../../../framework/usb/inc\usb_device_hid.h
 [v _configDescriptor1 `Cuc ~T0 @X0 -> 0 `x e ]
-"291
+"290
 [s S685 `uc 1 `uc 1 `ui 1 `uc 1 `uc 1 ]
 [n S685 _USB_HID_DSC bLength bDescriptorType bcdHID bCountryCode bNumDsc ]
 "82 ../../../../../../framework/usb/src/usb_device_hid.c
 [s S688 `uc -> 1286 `i ]
 [n S688 . report ]
 [v _hid_rpt01 `CS688 ~T0 @X0 0 e ]
-"314 ../../../../../../framework/usb/inc\usb_device_hid.h
+"90
+[v _USER_GET_REPORT_HANDLER `(v ~T0 @X0 0 ef ]
+"94
+[v _USER_SET_REPORT_HANDLER `(v ~T0 @X0 0 ef ]
+"313 ../../../../../../framework/usb/inc\usb_device_hid.h
 [v _USBSendPIDBlockLoadReport `(v ~T0 @X0 0 ef ]
 [; ;stdint.h: 13: typedef signed char int8_t;
 [; ;stdint.h: 20: typedef signed int int16_t;
@@ -5922,28 +5926,26 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;inc\usb_hal.h: 537: unsigned int size );
 [; ;inc\usb_hal.h: 575: bool USBHALSetEpConfiguration ( uint8_t ep_num, uint16_t max_pkt_size, uint16_t flags );
 [; ;inc\usb_hal.h: 603: bool USBHALInitialize ( unsigned long flags );
-[; ;inc\usb_device_hid.h: 101: void USBCheckHIDRequest(void);
-[; ;inc\usb_device_hid.h: 283: typedef struct _USB_HID_DSC_HEADER
-[; ;inc\usb_device_hid.h: 284: {
-[; ;inc\usb_device_hid.h: 285: uint8_t bDescriptorType;
-[; ;inc\usb_device_hid.h: 286: uint16_t wDscLength;
-[; ;inc\usb_device_hid.h: 287: } USB_HID_DSC_HEADER;
-[; ;inc\usb_device_hid.h: 291: typedef struct _USB_HID_DSC
-[; ;inc\usb_device_hid.h: 292: {
-[; ;inc\usb_device_hid.h: 293: uint8_t bLength;
-[; ;inc\usb_device_hid.h: 294: uint8_t bDescriptorType;
-[; ;inc\usb_device_hid.h: 295: uint16_t bcdHID;
-[; ;inc\usb_device_hid.h: 296: uint8_t bCountryCode;
-[; ;inc\usb_device_hid.h: 297: uint8_t bNumDsc;
-[; ;inc\usb_device_hid.h: 303: } USB_HID_DSC;
-[; ;inc\usb_device_hid.h: 308: extern volatile CTRL_TRF_SETUP SetupPkt;
-[; ;inc\usb_device_hid.h: 309: extern const uint8_t configDescriptor1[];
-[; ;inc\usb_device_hid.h: 310: extern volatile uint8_t CtrlTrfData[8];
-[; ;inc\usb_device_hid.h: 312: extern void USER_SET_REPORT_HANDLER(void);
-[; ;inc\usb_device_hid.h: 313: void USER_GET_REPORT_HANDLER(void);
-[; ;inc\usb_device_hid.h: 314: void USBSendPIDBlockLoadReport(void);
-[; ;inc\usb_device_hid.h: 315: void USBSetDataEffect(void);
-[; ;inc\usb_device_hid.h: 316: void USBSetEffect(void);
+[; ;inc\usb_device_hid.h: 100: void USBCheckHIDRequest(void);
+[; ;inc\usb_device_hid.h: 282: typedef struct _USB_HID_DSC_HEADER
+[; ;inc\usb_device_hid.h: 283: {
+[; ;inc\usb_device_hid.h: 284: uint8_t bDescriptorType;
+[; ;inc\usb_device_hid.h: 285: uint16_t wDscLength;
+[; ;inc\usb_device_hid.h: 286: } USB_HID_DSC_HEADER;
+[; ;inc\usb_device_hid.h: 290: typedef struct _USB_HID_DSC
+[; ;inc\usb_device_hid.h: 291: {
+[; ;inc\usb_device_hid.h: 292: uint8_t bLength;
+[; ;inc\usb_device_hid.h: 293: uint8_t bDescriptorType;
+[; ;inc\usb_device_hid.h: 294: uint16_t bcdHID;
+[; ;inc\usb_device_hid.h: 295: uint8_t bCountryCode;
+[; ;inc\usb_device_hid.h: 296: uint8_t bNumDsc;
+[; ;inc\usb_device_hid.h: 302: } USB_HID_DSC;
+[; ;inc\usb_device_hid.h: 307: extern volatile CTRL_TRF_SETUP SetupPkt;
+[; ;inc\usb_device_hid.h: 308: extern const uint8_t configDescriptor1[];
+[; ;inc\usb_device_hid.h: 309: extern volatile uint8_t CtrlTrfData[8];
+[; ;inc\usb_device_hid.h: 313: void USBSendPIDBlockLoadReport(void);
+[; ;inc\usb_device_hid.h: 314: void USBSetDataEffect(void);
+[; ;inc\usb_device_hid.h: 315: void USBSetEffect(void);
 [; ;usb_device_hid.c: 59: typedef struct 
 [; ;usb_device_hid.c: 60: {
 [; ;usb_device_hid.c: 61: unsigned :8;
@@ -5964,191 +5966,199 @@ Version 3.2 HI-TECH Software Intermediate Code
 [v _active_protocol `uc ~T0 @X0 1 s ]
 [; ;usb_device_hid.c: 80: static uint8_t active_protocol;
 [; ;usb_device_hid.c: 82: extern const struct{uint8_t report[1286];}hid_rpt01;
-"156
+[; ;usb_device_hid.c: 90: void USER_GET_REPORT_HANDLER(void);
+[; ;usb_device_hid.c: 94: extern void USER_SET_REPORT_HANDLER(void);
+"153
 [v _USBCheckHIDRequest `(v ~T0 @X0 1 ef ]
-"157
+"154
 {
-[; ;usb_device_hid.c: 156: void USBCheckHIDRequest(void)
-[; ;usb_device_hid.c: 157: {
+[; ;usb_device_hid.c: 153: void USBCheckHIDRequest(void)
+[; ;usb_device_hid.c: 154: {
 [e :U _USBCheckHIDRequest ]
 [f ]
-[; ;usb_device_hid.c: 158: if(SetupPkt.Recipient != (0x01)) return;
-"158
+[; ;usb_device_hid.c: 155: if(SetupPkt.Recipient != (0x01)) return;
+"155
 [e $ ! != -> . . _SetupPkt 2 0 `i -> 1 `i 690  ]
 [e $UE 689  ]
 [e :U 690 ]
-[; ;usb_device_hid.c: 159: if(SetupPkt.bIntfID != 0x00) return;
-"159
+[; ;usb_device_hid.c: 156: if(SetupPkt.bIntfID != 0x00) return;
+"156
 [e $ ! != -> . . _SetupPkt 7 4 `i -> 0 `i 691  ]
 [e $UE 689  ]
 [e :U 691 ]
-[; ;usb_device_hid.c: 166: if(SetupPkt.bRequest == 6)
-"166
+[; ;usb_device_hid.c: 163: if(SetupPkt.bRequest == 6)
+"163
 [e $ ! == -> . . _SetupPkt 0 1 `i -> 6 `i 692  ]
-[; ;usb_device_hid.c: 167: {
-"167
+[; ;usb_device_hid.c: 164: {
+"164
 {
-[; ;usb_device_hid.c: 168: switch(SetupPkt.bDescriptorType)
-"168
+[; ;usb_device_hid.c: 165: switch(SetupPkt.bDescriptorType)
+"165
 [e $U 694  ]
+[; ;usb_device_hid.c: 166: {
+"166
+{
+[; ;usb_device_hid.c: 167: case 0x21:
+"167
+[e :U 695 ]
+[; ;usb_device_hid.c: 168: if(USBActiveConfiguration == 1)
+"168
+[e $ ! == -> _USBActiveConfiguration `i -> 1 `i 696  ]
 [; ;usb_device_hid.c: 169: {
 "169
 {
-[; ;usb_device_hid.c: 170: case 0x21:
+[; ;usb_device_hid.c: 170: { inPipes[0].pSrc.bRom = (const uint8_t*)&configDescriptor1 + 18; inPipes[0].wCount.Val = sizeof(USB_HID_DSC)+3; inPipes[0].info.Val = 0x40 | 0x80 | 0x00; };
 "170
-[e :U 695 ]
-[; ;usb_device_hid.c: 171: if(USBActiveConfiguration == 1)
-"171
-[e $ ! == -> _USBActiveConfiguration `i -> 1 `i 696  ]
-[; ;usb_device_hid.c: 172: {
-"172
-{
-[; ;usb_device_hid.c: 173: { inPipes[0].pSrc.bRom = (const uint8_t*)&configDescriptor1 + 18; inPipes[0].wCount.Val = sizeof(USB_HID_DSC)+3; inPipes[0].info.Val = 0x40 | 0x80 | 0x00; };
-"173
 {
 [e = . . *U + &U _inPipes * -> -> -> 0 `i `ui `ux -> -> # *U &U _inPipes `ui `ux 0 1 + &U _configDescriptor1 * -> -> 18 `i `x -> -> # *U &U _configDescriptor1 `i `x ]
 [e = . . *U + &U _inPipes * -> -> -> 0 `i `ui `ux -> -> # *U &U _inPipes `ui `ux 2 0 + -> # `S685 `ui -> -> 3 `i `ui ]
 [e = . . *U + &U _inPipes * -> -> -> 0 `i `ui `ux -> -> # *U &U _inPipes `ui `ux 1 1 -> | | -> 64 `i -> 128 `i -> 0 `i `uc ]
 }
-"177
+"174
 }
 [e :U 696 ]
-[; ;usb_device_hid.c: 177: }
-[; ;usb_device_hid.c: 178: break;
-"178
+[; ;usb_device_hid.c: 174: }
+[; ;usb_device_hid.c: 175: break;
+"175
 [e $U 693  ]
-[; ;usb_device_hid.c: 179: case 0x22:
-"179
+[; ;usb_device_hid.c: 176: case 0x22:
+"176
 [e :U 697 ]
-[; ;usb_device_hid.c: 180: if(USBActiveConfiguration == 1)
-"180
+[; ;usb_device_hid.c: 177: if(USBActiveConfiguration == 1)
+"177
 [e $ ! == -> _USBActiveConfiguration `i -> 1 `i 698  ]
-[; ;usb_device_hid.c: 181: {
-"181
+[; ;usb_device_hid.c: 178: {
+"178
 {
-[; ;usb_device_hid.c: 182: { inPipes[0].pSrc.bRom = (const uint8_t*)&hid_rpt01; inPipes[0].wCount.Val = 1286; inPipes[0].info.Val = 0x40 | 0x80 | 0x00; };
-"182
+[; ;usb_device_hid.c: 179: { inPipes[0].pSrc.bRom = (const uint8_t*)&hid_rpt01; inPipes[0].wCount.Val = 1286; inPipes[0].info.Val = 0x40 | 0x80 | 0x00; };
+"179
 {
 [e = . . *U + &U _inPipes * -> -> -> 0 `i `ui `ux -> -> # *U &U _inPipes `ui `ux 0 1 -> &U _hid_rpt01 `*Cuc ]
 [e = . . *U + &U _inPipes * -> -> -> 0 `i `ui `ux -> -> # *U &U _inPipes `ui `ux 2 0 -> -> 1286 `i `ui ]
 [e = . . *U + &U _inPipes * -> -> -> 0 `i `ui `ux -> -> # *U &U _inPipes `ui `ux 1 1 -> | | -> 64 `i -> 128 `i -> 0 `i `uc ]
 }
-"186
+"183
 }
 [e :U 698 ]
-[; ;usb_device_hid.c: 186: }
-[; ;usb_device_hid.c: 187: break;
-"187
+[; ;usb_device_hid.c: 183: }
+[; ;usb_device_hid.c: 184: break;
+"184
 [e $U 693  ]
-[; ;usb_device_hid.c: 188: case 0x23:
-"188
+[; ;usb_device_hid.c: 185: case 0x23:
+"185
 [e :U 699 ]
-[; ;usb_device_hid.c: 200: break;
-"200
+[; ;usb_device_hid.c: 197: break;
+"197
 [e $U 693  ]
-"201
+"198
 }
-[; ;usb_device_hid.c: 201: }
+[; ;usb_device_hid.c: 198: }
 [e $U 693  ]
-"168
+"165
 [e :U 694 ]
 [e [\ . . _SetupPkt 4 3 , $ -> -> 33 `i `uc 695
  , $ -> -> 34 `i `uc 697
  , $ -> -> 35 `i `uc 699
  693 ]
-"201
+"198
 [e :U 693 ]
-"202
+"199
 }
 [e :U 692 ]
-[; ;usb_device_hid.c: 202: }
-[; ;usb_device_hid.c: 204: if(SetupPkt.RequestType != (0x20>>5))
-"204
+[; ;usb_device_hid.c: 199: }
+[; ;usb_device_hid.c: 201: if(SetupPkt.RequestType != (0x20>>5))
+"201
 [e $ ! != -> . . _SetupPkt 2 1 `i >> -> 32 `i -> 5 `i 700  ]
-[; ;usb_device_hid.c: 205: {
-"205
+[; ;usb_device_hid.c: 202: {
+"202
 {
-[; ;usb_device_hid.c: 206: return;
-"206
+[; ;usb_device_hid.c: 203: return;
+"203
 [e $UE 689  ]
-"207
+"204
 }
 [e :U 700 ]
-[; ;usb_device_hid.c: 207: }
-[; ;usb_device_hid.c: 209: switch(SetupPkt.bRequest)
-"209
+[; ;usb_device_hid.c: 204: }
+[; ;usb_device_hid.c: 206: switch(SetupPkt.bRequest)
+"206
 [e $U 702  ]
-[; ;usb_device_hid.c: 210: {
-"210
+[; ;usb_device_hid.c: 207: {
+"207
 {
-[; ;usb_device_hid.c: 211: case 0x01:
-"211
+[; ;usb_device_hid.c: 208: case 0x01:
+"208
 [e :U 703 ]
-[; ;usb_device_hid.c: 215: break;
-"215
+[; ;usb_device_hid.c: 210: USER_GET_REPORT_HANDLER();
+"210
+[e ( _USER_GET_REPORT_HANDLER ..  ]
+[; ;usb_device_hid.c: 212: break;
+"212
 [e $U 701  ]
-[; ;usb_device_hid.c: 216: case 0x09:
-"216
+[; ;usb_device_hid.c: 213: case 0x09:
+"213
 [e :U 704 ]
-[; ;usb_device_hid.c: 220: break;
-"220
+[; ;usb_device_hid.c: 215: USER_SET_REPORT_HANDLER();
+"215
+[e ( _USER_SET_REPORT_HANDLER ..  ]
+[; ;usb_device_hid.c: 217: break;
+"217
 [e $U 701  ]
-[; ;usb_device_hid.c: 221: case 0x02:
-"221
+[; ;usb_device_hid.c: 218: case 0x02:
+"218
 [e :U 705 ]
-[; ;usb_device_hid.c: 222: { inPipes[0].pSrc.bRam = (uint8_t*)&idle_rate; inPipes[0].wCount.Val = 1; inPipes[0].info.Val = 0x40 | 0x80 | 0x01; };
-"222
+[; ;usb_device_hid.c: 219: { inPipes[0].pSrc.bRam = (uint8_t*)&idle_rate; inPipes[0].wCount.Val = 1; inPipes[0].info.Val = 0x40 | 0x80 | 0x01; };
+"219
 {
 [e = . . *U + &U _inPipes * -> -> -> 0 `i `ui `ux -> -> # *U &U _inPipes `ui `ux 0 0 &U _idle_rate ]
 [e = . . *U + &U _inPipes * -> -> -> 0 `i `ui `ux -> -> # *U &U _inPipes `ui `ux 2 0 -> -> 1 `i `ui ]
 [e = . . *U + &U _inPipes * -> -> -> 0 `i `ui `ux -> -> # *U &U _inPipes `ui `ux 1 1 -> | | -> 64 `i -> 128 `i -> 1 `i `uc ]
 }
-[; ;usb_device_hid.c: 226: break;
-"226
+[; ;usb_device_hid.c: 223: break;
+"223
 [e $U 701  ]
-[; ;usb_device_hid.c: 227: case 0x0A:
-"227
+[; ;usb_device_hid.c: 224: case 0x0A:
+"224
 [e :U 706 ]
-[; ;usb_device_hid.c: 228: inPipes[0].info.Val = 0x00 | 0x80;
-"228
+[; ;usb_device_hid.c: 225: inPipes[0].info.Val = 0x00 | 0x80;
+"225
 [e = . . *U + &U _inPipes * -> -> -> 0 `i `ui `ux -> -> # *U &U _inPipes `ui `ux 1 1 -> | -> 0 `i -> 128 `i `uc ]
-[; ;usb_device_hid.c: 229: idle_rate = SetupPkt.W_Value.byte.HB;
-"229
+[; ;usb_device_hid.c: 226: idle_rate = SetupPkt.W_Value.byte.HB;
+"226
 [e = _idle_rate . . . . _SetupPkt 1 2 2 1 ]
-[; ;usb_device_hid.c: 230: ;
-[; ;usb_device_hid.c: 231: break;
-"231
+[; ;usb_device_hid.c: 227: ;
+[; ;usb_device_hid.c: 228: break;
+"228
 [e $U 701  ]
-[; ;usb_device_hid.c: 232: case 0x03:
-"232
+[; ;usb_device_hid.c: 229: case 0x03:
+"229
 [e :U 707 ]
-[; ;usb_device_hid.c: 233: { inPipes[0].pSrc.bRam = (uint8_t*)&active_protocol; inPipes[0].wCount.Val = 1; inPipes[0].info.Val = 0x00 | 0x80 | 0x01; };
-"233
+[; ;usb_device_hid.c: 230: { inPipes[0].pSrc.bRam = (uint8_t*)&active_protocol; inPipes[0].wCount.Val = 1; inPipes[0].info.Val = 0x00 | 0x80 | 0x01; };
+"230
 {
 [e = . . *U + &U _inPipes * -> -> -> 0 `i `ui `ux -> -> # *U &U _inPipes `ui `ux 0 0 &U _active_protocol ]
 [e = . . *U + &U _inPipes * -> -> -> 0 `i `ui `ux -> -> # *U &U _inPipes `ui `ux 2 0 -> -> 1 `i `ui ]
 [e = . . *U + &U _inPipes * -> -> -> 0 `i `ui `ux -> -> # *U &U _inPipes `ui `ux 1 1 -> | | -> 0 `i -> 128 `i -> 1 `i `uc ]
 }
-[; ;usb_device_hid.c: 237: break;
-"237
+[; ;usb_device_hid.c: 234: break;
+"234
 [e $U 701  ]
-[; ;usb_device_hid.c: 238: case 0x0B:
-"238
+[; ;usb_device_hid.c: 235: case 0x0B:
+"235
 [e :U 708 ]
-[; ;usb_device_hid.c: 239: inPipes[0].info.Val = 0x00 | 0x80;
-"239
+[; ;usb_device_hid.c: 236: inPipes[0].info.Val = 0x00 | 0x80;
+"236
 [e = . . *U + &U _inPipes * -> -> -> 0 `i `ui `ux -> -> # *U &U _inPipes `ui `ux 1 1 -> | -> 0 `i -> 128 `i `uc ]
-[; ;usb_device_hid.c: 240: active_protocol = SetupPkt.W_Value.byte.LB;
-"240
+[; ;usb_device_hid.c: 237: active_protocol = SetupPkt.W_Value.byte.LB;
+"237
 [e = _active_protocol . . . . _SetupPkt 1 2 2 0 ]
-[; ;usb_device_hid.c: 241: break;
-"241
+[; ;usb_device_hid.c: 238: break;
+"238
 [e $U 701  ]
-"242
+"239
 }
-[; ;usb_device_hid.c: 242: }
+[; ;usb_device_hid.c: 239: }
 [e $U 701  ]
-"209
+"206
 [e :U 702 ]
 [e [\ . . _SetupPkt 0 1 , $ -> -> 1 `i `uc 703
  , $ -> -> 9 `i `uc 704
@@ -6157,82 +6167,82 @@ Version 3.2 HI-TECH Software Intermediate Code
  , $ -> -> 3 `i `uc 707
  , $ -> -> 11 `i `uc 708
  701 ]
-"242
+"239
 [e :U 701 ]
-[; ;usb_device_hid.c: 244: }
-"244
+[; ;usb_device_hid.c: 241: }
+"241
 [e :UE 689 ]
 }
-"325
+"322
 [v _USER_GET_REPORT_HANDLER `(v ~T0 @X0 1 ef ]
-"326
+"323
 {
-[; ;usb_device_hid.c: 325: void USER_GET_REPORT_HANDLER(void)
-[; ;usb_device_hid.c: 326: {
+[; ;usb_device_hid.c: 322: void USER_GET_REPORT_HANDLER(void)
+[; ;usb_device_hid.c: 323: {
 [e :U _USER_GET_REPORT_HANDLER ]
 [f ]
-[; ;usb_device_hid.c: 333: switch(SetupPkt.W_Value.byte.LB)
-"333
+[; ;usb_device_hid.c: 330: switch(SetupPkt.W_Value.byte.LB)
+"330
 [e $U 711  ]
+[; ;usb_device_hid.c: 331: {
+"331
+{
+[; ;usb_device_hid.c: 332: case 0x02:
+"332
+[e :U 712 ]
+[; ;usb_device_hid.c: 333: switch(SetupPkt.W_Value.byte.HB)
+"333
+[e $U 714  ]
 [; ;usb_device_hid.c: 334: {
 "334
 {
-[; ;usb_device_hid.c: 335: case 0x02:
+[; ;usb_device_hid.c: 335: case 0x01:
 "335
-[e :U 712 ]
-[; ;usb_device_hid.c: 336: switch(SetupPkt.W_Value.byte.HB)
-"336
-[e $U 714  ]
-[; ;usb_device_hid.c: 337: {
-"337
-{
-[; ;usb_device_hid.c: 338: case 0x01:
-"338
 [e :U 715 ]
+[; ;usb_device_hid.c: 337: break;
+"337
+[e $U 713  ]
+[; ;usb_device_hid.c: 338: case 0x02:
+"338
+[e :U 716 ]
 [; ;usb_device_hid.c: 340: break;
 "340
 [e $U 713  ]
-[; ;usb_device_hid.c: 341: case 0x02:
+[; ;usb_device_hid.c: 341: case 0x03:
 "341
-[e :U 716 ]
+[e :U 717 ]
+[; ;usb_device_hid.c: 342: USBSendPIDBlockLoadReport();
+"342
+[e ( _USBSendPIDBlockLoadReport ..  ]
 [; ;usb_device_hid.c: 343: break;
 "343
 [e $U 713  ]
-[; ;usb_device_hid.c: 344: case 0x03:
 "344
-[e :U 717 ]
-[; ;usb_device_hid.c: 345: USBSendPIDBlockLoadReport();
-"345
-[e ( _USBSendPIDBlockLoadReport ..  ]
-[; ;usb_device_hid.c: 346: break;
-"346
-[e $U 713  ]
-"347
 }
-[; ;usb_device_hid.c: 347: }
+[; ;usb_device_hid.c: 344: }
 [e $U 713  ]
-"336
+"333
 [e :U 714 ]
 [e [\ . . . . _SetupPkt 1 2 2 1 , $ -> -> 1 `i `uc 715
  , $ -> -> 2 `i `uc 716
  , $ -> -> 3 `i `uc 717
  713 ]
-"347
+"344
 [e :U 713 ]
-[; ;usb_device_hid.c: 349: break;
-"349
+[; ;usb_device_hid.c: 346: break;
+"346
 [e $U 710  ]
-"350
+"347
 }
-[; ;usb_device_hid.c: 350: }
+[; ;usb_device_hid.c: 347: }
 [e $U 710  ]
-"333
+"330
 [e :U 711 ]
 [e [\ . . . . _SetupPkt 1 2 2 0 , $ -> -> 2 `i `uc 712
  710 ]
-"350
+"347
 [e :U 710 ]
-[; ;usb_device_hid.c: 352: }
-"352
+[; ;usb_device_hid.c: 349: }
+"349
 [e :UE 709 ]
 }

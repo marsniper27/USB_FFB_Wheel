@@ -86,17 +86,14 @@ extern const struct{uint8_t report[HID_RPT01_SIZE];}hid_rpt01;
 // Section: Prototypes
 // *****************************************************************************
 // *****************************************************************************
-#if defined USER_GET_REPORT_HANDLER
-   // void USER_GET_REPORT_HANDLER(void);
+#if defined USER_GET_REPORT
+    void USER_GET_REPORT_HANDLER(void);
 #endif
 
-#if defined USER_SET_REPORT_HANDLER
+#if defined USER_SET_REPORT
     extern void USER_SET_REPORT_HANDLER(void);
 #endif     
     
-    
-
-   // void USER_GET_REPORT_HANDLER(void);
 // *****************************************************************************
 // *****************************************************************************
 // Section: Macros or Functions
@@ -209,12 +206,12 @@ void USBCheckHIDRequest(void)
     switch(SetupPkt.bRequest)
     {
         case GET_REPORT:
-            #if defined USER_GET_REPORT_HANDLER
+            #if defined USER_GET_REPORT
                 USER_GET_REPORT_HANDLER();
             #endif
             break;
         case SET_REPORT:
-            #if defined USER_SET_REPORT_HANDLER
+            #if defined USER_SET_REPORT
                 USER_SET_REPORT_HANDLER();
             #endif       
             break;
@@ -332,22 +329,22 @@ void USER_GET_REPORT_HANDLER(void)
   */
   switch(SetupPkt.W_Value.byte.LB) 
   {
-  case 0x02:// REPORT ID? 2? PURRFECT, SEND THE censored DATA TO THE HOST
-   switch(SetupPkt.W_Value.byte.HB) // REPORT TYPE
-    {
-     case 0x01:// INPUT REPORT
-        // IGNORE FOR NOW....
-     break;
-     case 0x02: // OUTPUT, the host wants to send me the data
-        // IGNORE FOR NOW....
-     break;
-     case 0x03:// FEATURE, the host wants ME to send the data
-         USBSendPIDBlockLoadReport();
-     break;
-    } 
-  
-  break;
-  }
+    case 0x02:// REPORT ID? 2? PURRFECT, SEND THE censored DATA TO THE HOST
+        switch(SetupPkt.W_Value.byte.HB) // REPORT TYPE
+         {
+            case 0x01:// INPUT REPORT
+                    // IGNORE FOR NOW....
+                break;
+            case 0x02: // OUTPUT, the host wants to send me the data
+                    // IGNORE FOR NOW....
+                break;
+            case 0x03:// FEATURE, the host wants ME to send the data
+                USBSendPIDBlockLoadReport();
+                break;
+         } 
+
+       break;
+    }
     
  }
 

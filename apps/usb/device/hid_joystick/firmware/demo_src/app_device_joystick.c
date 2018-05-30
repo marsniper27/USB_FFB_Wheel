@@ -329,6 +329,8 @@ void APP_DeviceJoystickTasks(void)
     {   
         
         USBSetEffect();
+        
+        USBInHandle = HIDTxPacket(JOYSTICK_EP, (uint8_t*)&ToSendDataBuffer[0],64);//send our response
         //We just received a packet of data from the USB host.
         //Check the first uint8_t of the packet to see what command the host
         //application software wants us to fulfill.
@@ -584,18 +586,6 @@ void USBSetEffect(void)
     set_get_effect_structure.SET_REPORT_REQUEST.effect_type=ReceivedDataBuffer[1];// the type of effect, based on pid report descriptor
     set_get_effect_structure.SET_REPORT_REQUEST.byte_count=ReceivedDataBuffer[2]; // this device does not support custom effects
 
-    /*
-     struct
-     {
-      uint8_t report_id; // 2
-      uint8_t effect_block_index; // index dell'effetto
-      uint8_t block_load_status; // 1 ok, 2 -out of memory, 3 JC was here, or maybe not ? case: undefined.
-      int ram_pool_available;
-     }PID_BLOCK_LOAD_REPORT;
-
-    uint8_t val[8];
-    }SET_GET_EFFECT_STRUCTURE;
-    */
     switch(set_get_effect_structure.SET_REPORT_REQUEST.effect_type)
     { 
         case 1:// Usage ET Constant Force 0

@@ -11,7 +11,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [v _SYSTEM_Initialize `(v ~T0 @X0 0 ef1`E6411 ]
 "32 ../demo_src/app_device_joystick.h
 [v _APP_DeviceJoystickInitialize `(v ~T0 @X0 0 ef ]
-"101 ../../../../../../framework/usb/inc\usb_device_hid.h
+"100 ../../../../../../framework/usb/inc\usb_device_hid.h
 [v _USBCheckHIDRequest `(v ~T0 @X0 0 ef ]
 "52 ../demo_src/usb_events.c
 [c E6062 1 2 3 4 5 .. ]
@@ -5920,28 +5920,26 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;system.h: 42: SYSTEM_STATE_USB_RESUME
 [; ;system.h: 43: } SYSTEM_STATE;
 [; ;system.h: 57: void SYSTEM_Initialize( SYSTEM_STATE state );
-[; ;inc\usb_device_hid.h: 101: void USBCheckHIDRequest(void);
-[; ;inc\usb_device_hid.h: 283: typedef struct _USB_HID_DSC_HEADER
-[; ;inc\usb_device_hid.h: 284: {
-[; ;inc\usb_device_hid.h: 285: uint8_t bDescriptorType;
-[; ;inc\usb_device_hid.h: 286: uint16_t wDscLength;
-[; ;inc\usb_device_hid.h: 287: } USB_HID_DSC_HEADER;
-[; ;inc\usb_device_hid.h: 291: typedef struct _USB_HID_DSC
-[; ;inc\usb_device_hid.h: 292: {
-[; ;inc\usb_device_hid.h: 293: uint8_t bLength;
-[; ;inc\usb_device_hid.h: 294: uint8_t bDescriptorType;
-[; ;inc\usb_device_hid.h: 295: uint16_t bcdHID;
-[; ;inc\usb_device_hid.h: 296: uint8_t bCountryCode;
-[; ;inc\usb_device_hid.h: 297: uint8_t bNumDsc;
-[; ;inc\usb_device_hid.h: 303: } USB_HID_DSC;
-[; ;inc\usb_device_hid.h: 308: extern volatile CTRL_TRF_SETUP SetupPkt;
-[; ;inc\usb_device_hid.h: 309: extern const uint8_t configDescriptor1[];
-[; ;inc\usb_device_hid.h: 310: extern volatile uint8_t CtrlTrfData[8];
-[; ;inc\usb_device_hid.h: 312: extern void USER_SET_REPORT_HANDLER(void);
-[; ;inc\usb_device_hid.h: 313: void USER_GET_REPORT_HANDLER(void);
-[; ;inc\usb_device_hid.h: 314: void USBSendPIDBlockLoadReport(void);
-[; ;inc\usb_device_hid.h: 315: void USBSetDataEffect(void);
-[; ;inc\usb_device_hid.h: 316: void USBSetEffect(void);
+[; ;inc\usb_device_hid.h: 100: void USBCheckHIDRequest(void);
+[; ;inc\usb_device_hid.h: 282: typedef struct _USB_HID_DSC_HEADER
+[; ;inc\usb_device_hid.h: 283: {
+[; ;inc\usb_device_hid.h: 284: uint8_t bDescriptorType;
+[; ;inc\usb_device_hid.h: 285: uint16_t wDscLength;
+[; ;inc\usb_device_hid.h: 286: } USB_HID_DSC_HEADER;
+[; ;inc\usb_device_hid.h: 290: typedef struct _USB_HID_DSC
+[; ;inc\usb_device_hid.h: 291: {
+[; ;inc\usb_device_hid.h: 292: uint8_t bLength;
+[; ;inc\usb_device_hid.h: 293: uint8_t bDescriptorType;
+[; ;inc\usb_device_hid.h: 294: uint16_t bcdHID;
+[; ;inc\usb_device_hid.h: 295: uint8_t bCountryCode;
+[; ;inc\usb_device_hid.h: 296: uint8_t bNumDsc;
+[; ;inc\usb_device_hid.h: 302: } USB_HID_DSC;
+[; ;inc\usb_device_hid.h: 307: extern volatile CTRL_TRF_SETUP SetupPkt;
+[; ;inc\usb_device_hid.h: 308: extern const uint8_t configDescriptor1[];
+[; ;inc\usb_device_hid.h: 309: extern volatile uint8_t CtrlTrfData[8];
+[; ;inc\usb_device_hid.h: 313: void USBSendPIDBlockLoadReport(void);
+[; ;inc\usb_device_hid.h: 314: void USBSetDataEffect(void);
+[; ;inc\usb_device_hid.h: 315: void USBSetEffect(void);
 [; ;app_device_joystick.h: 32: void APP_DeviceJoystickInitialize();
 [; ;app_device_joystick.h: 48: void APP_DeviceJoystickStart();
 [; ;app_device_joystick.h: 64: void APP_DeviceJoystickTasks();

@@ -7891,10 +7891,10 @@ bool USBHALSetEpConfiguration ( uint8_t ep_num, uint16_t max_pkt_size, uint16_t 
 # 603
 bool USBHALInitialize ( unsigned long flags );
 
-# 101 "../../../../../../framework/usb/inc\usb_device_hid.h"
+# 100 "../../../../../../framework/usb/inc\usb_device_hid.h"
 void USBCheckHIDRequest(void);
 
-# 283
+# 282
 typedef struct _USB_HID_DSC_HEADER
 {
 uint8_t bDescriptorType;
@@ -7911,7 +7911,7 @@ uint16_t bcdHID;
 uint8_t bCountryCode;
 uint8_t bNumDsc;
 
-# 303
+# 302
 } USB_HID_DSC;
 
 
@@ -7921,8 +7921,8 @@ extern volatile CTRL_TRF_SETUP SetupPkt;
 extern const uint8_t configDescriptor1[];
 extern volatile uint8_t CtrlTrfData[8];
 
-extern void USER_SET_REPORT_HANDLER(void);
-void USER_GET_REPORT_HANDLER(void);
+
+
 void USBSendPIDBlockLoadReport(void);
 void USBSetDataEffect(void);
 void USBSetEffect(void);
@@ -7949,13 +7949,20 @@ static uint8_t active_protocol;
 
 extern const struct{uint8_t report[1286];}hid_rpt01;
 
-# 156
+# 90
+void USER_GET_REPORT_HANDLER(void);
+
+
+
+extern void USER_SET_REPORT_HANDLER(void);
+
+# 153
 void USBCheckHIDRequest(void)
 {
 if(SetupPkt.Recipient != (0x01)) return;
 if(SetupPkt.bIntfID != 0x00) return;
 
-# 166
+# 163
 if(SetupPkt.bRequest == 6)
 {
 switch(SetupPkt.bDescriptorType)
@@ -7965,7 +7972,7 @@ if(USBActiveConfiguration == 1)
 {
 { inPipes[0].pSrc.bRom = (const uint8_t*)&configDescriptor1 + 18; inPipes[0].wCount.Val = sizeof(USB_HID_DSC)+3; inPipes[0].info.Val = 0x40 | 0x80 | 0x00; };
 
-# 177
+# 174
 }
 break;
 case 0x22:
@@ -7973,12 +7980,12 @@ if(USBActiveConfiguration == 1)
 {
 { inPipes[0].pSrc.bRom = (const uint8_t*)&hid_rpt01; inPipes[0].wCount.Val = 1286; inPipes[0].info.Val = 0x40 | 0x80 | 0x00; };
 
-# 186
+# 183
 }
 break;
 case 0x23:
 
-# 200
+# 197
 break;
 }
 }
@@ -7992,16 +7999,18 @@ switch(SetupPkt.bRequest)
 {
 case 0x01:
 
-# 215
+USER_GET_REPORT_HANDLER();
+
 break;
 case 0x09:
 
-# 220
+USER_SET_REPORT_HANDLER();
+
 break;
 case 0x02:
 { inPipes[0].pSrc.bRam = (uint8_t*)&idle_rate; inPipes[0].wCount.Val = 1; inPipes[0].info.Val = 0x40 | 0x80 | 0x01; };
 
-# 226
+# 223
 break;
 case 0x0A:
 inPipes[0].info.Val = 0x00 | 0x80;
@@ -8011,7 +8020,7 @@ break;
 case 0x03:
 { inPipes[0].pSrc.bRam = (uint8_t*)&active_protocol; inPipes[0].wCount.Val = 1; inPipes[0].info.Val = 0x00 | 0x80 | 0x01; };
 
-# 237
+# 234
 break;
 case 0x0B:
 inPipes[0].info.Val = 0x00 | 0x80;
@@ -8021,11 +8030,11 @@ break;
 
 }
 
-# 325
+# 322
 void USER_GET_REPORT_HANDLER(void)
 {
 
-# 333
+# 330
 switch(SetupPkt.W_Value.byte.LB)
 {
 case 0x02:
