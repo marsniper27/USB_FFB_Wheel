@@ -7915,8 +7915,8 @@ uint8_t bNumDsc;
 } USB_HID_DSC;
 
 
-extern volatile unsigned char hid_report_in[64];
-extern volatile unsigned char hid_report_out[64];
+
+
 extern volatile CTRL_TRF_SETUP SetupPkt;
 extern const uint8_t configDescriptor1[];
 extern volatile uint8_t CtrlTrfData[8];
@@ -8047,26 +8047,3 @@ break;
 
 }
 
-void USER_SET_REPORT_HANDLER(void)
-{
-
-# 373
-switch(SetupPkt.W_Value.byte.LB)
-{
-case 0x01:
-
-
-if(SetupPkt.W_Value.byte.HB==0x02)
-{
-
-{outPipes[0].pDst.bRam = (uint8_t*)&hid_report_out[0];outPipes[0].wCount.Val = SetupPkt.wLength;outPipes[0].pFunc = USBSetDataEffect;outPipes[0].info.bits.busy = 1; };
-}
-
-if(SetupPkt.W_Value.byte.HB==0x03)
-{
-
-{outPipes[0].pDst.bRam = (uint8_t*)&hid_report_out[0];outPipes[0].wCount.Val = SetupPkt.wLength;outPipes[0].pFunc = USBSetEffect;outPipes[0].info.bits.busy = 1; };
-}
-break;
-}
-}

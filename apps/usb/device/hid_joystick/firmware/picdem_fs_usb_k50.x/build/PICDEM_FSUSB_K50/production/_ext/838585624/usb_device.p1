@@ -223,10 +223,10 @@ Version 3.2 HI-TECH Software Intermediate Code
 [n S631 _USB_DEVICE_DESCRIPTOR bLength bDescriptorType bcdUSB bDeviceClass bDeviceSubClass bDeviceProtocol bMaxPacketSize0 idVendor idProduct bcdDevice iManufacturer iProduct iSerialNumber bNumConfigurations ]
 "218 ../../../../../../framework/usb/src/usb_device.c
 [v _device_dsc `CS631 ~T0 @X0 0 e ]
-[v F6397 `*Cuc ~T0 @X0 1 t ]
+[v F6395 `*Cuc ~T0 @X0 1 t ]
 "225
 [v _USB_CD_Ptr `C*Cuc ~T0 @X0 -> 0 `x e ]
-[v F6400 `*Cuc ~T0 @X0 1 t ]
+[v F6398 `*Cuc ~T0 @X0 1 t ]
 "228
 [v _USB_SD_Ptr `C*Cuc ~T0 @X0 -> 0 `x e ]
 "1052 C:\Program Files (x86)\Microchip\xc8\v1.45\include\pic18f45k50.h
@@ -6205,12 +6205,6 @@ Version 3.2 HI-TECH Software Intermediate Code
 "180
 [v _CtrlTrfData `Vuc ~T0 @X0 -> 8 `i e@1064 ]
 [; ;usb_device.c: 180: volatile uint8_t CtrlTrfData[8] @((0x400+(((1 + 1) * 4)*4)) + 8);
-"188
-[v _hid_report_out `Vuc ~T0 @X0 -> 64 `i e ]
-[; ;usb_device.c: 188: volatile unsigned char hid_report_out[64];
-"189
-[v _hid_report_in `Vuc ~T0 @X0 -> 64 `i e ]
-[; ;usb_device.c: 189: volatile unsigned char hid_report_in[64];
 [; ;usb_device.c: 218: extern const USB_DEVICE_DESCRIPTOR device_dsc;
 [; ;usb_device.c: 225: extern const uint8_t *const USB_CD_Ptr[];
 [; ;usb_device.c: 228: extern const uint8_t *const USB_SD_Ptr[];

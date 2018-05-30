@@ -243,14 +243,18 @@ uint8_t val[1];
             INPUT_CONTROLS joystick_input;
         #pragma udata
     #elif defined(__XC8)
-        INPUT_CONTROLS joystick_input @ JOYSTICK_DATA_ADDRESS;
+        unsigned char ReceivedDataBuffer[64] @ HID_CUSTOM_OUT_DATA_BUFFER_ADDRESS;
+        unsigned char ToSendDataBuffer[64] @ HID_CUSTOM_IN_DATA_BUFFER_ADDRESS;
+        INPUT_CONTROLS joystick_input @ ToSendDataBuffer;
     #endif
 #else
     INPUT_CONTROLS joystick_input;
 #endif
 
 
-USB_VOLATILE USB_HANDLE lastTransmission = 0;
+volatile USB_HANDLE USBOutHandle;    
+volatile USB_HANDLE USBInHandle;
+//USB_VOLATILE USB_HANDLE lastTransmission = 0;
 SET_GET_EFFECT_STRUCTURE set_get_effect_structure;
 uint8_t CONFIGURED_EFFECT_NUMBER[12];
 bool Buttons_Pressed = 0; //our new bool to track if any button is pressed.
@@ -270,10 +274,20 @@ void APP_DeviceJoystickInitialize(void)
 {  
     //initialize the variable holding the handle for the last
     // transmission
-    lastTransmission = 0;
+    //lastTransmission = 0; ////////// I commented
 
     //enable the HID endpoint
-    USBEnableEndpoint(JOYSTICK_EP,USB_IN_ENABLED|USB_HANDSHAKE_ENABLED|USB_DISALLOW_SETUP);
+    //USBEnableEndpoint(JOYSTICK_EP,USB_IN_ENABLED|USB_HANDSHAKE_ENABLED|USB_DISALLOW_SETUP);////////// I commented
+    
+    //initialize the variable holding the handle for the last
+    // transmission
+    USBInHandle = 0;
+
+    //enable the HID endpoint
+    USBEnableEndpoint(JOYSTICK_EP, USB_IN_ENABLED|USB_OUT_ENABLED|USB_HANDSHAKE_ENABLED|USB_DISALLOW_SETUP);
+
+    //Re-arm the OUT endpoint for the next packet
+    USBOutHandle = (volatile USB_HANDLE)HIDRxPacket(JOYSTICK_EP,(uint8_t*)&ReceivedDataBuffer[0],64);
 }//end UserInit
 
 /*********************************************************************
@@ -311,8 +325,69 @@ void APP_DeviceJoystickTasks(void)
         return;
     }
 
+    if(!HIDRxHandleBusy(USBOutHandle))
+    {   
+        
+        USBSetEffect();
+        //We just received a packet of data from the USB host.
+        //Check the first uint8_t of the packet to see what command the host
+        //application software wants us to fulfill.
+        switch(ReceivedDataBuffer[0])				//Look at the data the host sent, to see what kind of application specific command it sent.
+        {
+            /*
+            case COMMAND_TOGGLE_LED:  //Toggle LEDs command
+                LED_Toggle(LED_USB_DEVICE_HID_CUSTOM);
+                break;
+            case COMMAND_GET_BUTTON_STATUS:  //Get push button state
+                //Check to make sure the endpoint/buffer is free before we modify the contents
+                if(!HIDTxHandleBusy(USBInHandle))
+                {
+                    ToSendDataBuffer[0] = 0x81;				//Echo back to the host PC the command we are fulfilling in the first uint8_t.  In this case, the Get Pushbutton State command.
+                    if(BUTTON_IsPressed(BUTTON_USB_DEVICE_HID_CUSTOM) == false)	//pushbutton not pressed, pull up resistor on circuit board is pulling the PORT pin high
+                    {
+                            ToSendDataBuffer[1] = 0x01;
+                    }
+                    else									//sw3 must be == 0, pushbutton is pressed and overpowering the pull up resistor
+                    {
+                            ToSendDataBuffer[1] = 0x00;
+                    }
+                    //Prepare the USB module to send the data packet to the host
+                    USBInHandle = HIDTxPacket(CUSTOM_DEVICE_HID_EP, (uint8_t*)&ToSendDataBuffer[0],64);
+                }
+                break;
+
+            case COMMAND_READ_POTENTIOMETER:	//Read POT command.  Uses ADC to measure an analog voltage on one of the ANxx I/O pins, and returns the result to the host
+                {
+                    uint16_t pot;
+
+                    //Check to make sure the endpoint/buffer is free before we modify the contents
+                    if(!HIDTxHandleBusy(USBInHandle))
+                    {
+                        //Use ADC to read the I/O pin voltage.  See the relevant HardwareProfile - xxxxx.h file for the I/O pin that it will measure.
+                        //Some demo boards, like the PIC18F87J50 FS USB Plug-In Module board, do not have a potentiometer (when used stand alone).
+                        //This function call will still measure the analog voltage on the I/O pin however.  To make the demo more interesting, it
+                        //is suggested that an external adjustable analog voltage should be applied to this pin.
+
+                        pot = ADC_Read10bit(ADC_CHANNEL_POTENTIOMETER);
+
+                        ToSendDataBuffer[0] = 0x37;  	//Echo back to the host the command we are fulfilling in the first uint8_t.  In this case, the Read POT (analog voltage) command.
+                        ToSendDataBuffer[1] = (uint8_t)pot; //LSB
+                        ToSendDataBuffer[2] = pot >> 8;     //MSB
+
+
+                        //Prepare the USB module to send the data packet to the host
+                        USBInHandle = HIDTxPacket(CUSTOM_DEVICE_HID_EP, (uint8_t*)&ToSendDataBuffer[0],64);
+                    }
+                }
+                break;
+             * */
+        } //Re-arm the OUT endpoint, so we can receive the next OUT data packet 
+        //that the host may try to send us.
+        USBOutHandle = HIDRxPacket(JOYSTICK_EP, (uint8_t*)&ReceivedDataBuffer[0], 64);
+    }
+    
     //If the last transmission is complete
-    if(!HIDTxHandleBusy(lastTransmission))
+    if(!HIDTxHandleBusy(USBInHandle))
     {
         if(BUTTON_IsPressed(BUTTON_X) == true)
 		{
@@ -446,7 +521,7 @@ void APP_DeviceJoystickTasks(void)
 		if(Buttons_Pressed)
 		{
             //Send the packet over USB to the host.
-            lastTransmission = HIDTxPacket(JOYSTICK_EP, (uint8_t*)&joystick_input, sizeof(joystick_input));
+            USBInHandle = HIDTxPacket(JOYSTICK_EP, (uint8_t*)&joystick_input, sizeof(joystick_input));
         }
         if(!Buttons_Pressed)
         {
@@ -471,7 +546,7 @@ void APP_DeviceJoystickTasks(void)
             
 
             //Send the 8 byte packet over USB to the host.
-            lastTransmission = HIDTxPacket(JOYSTICK_EP, (uint8_t*)&joystick_input, sizeof(joystick_input));
+            USBInHandle = HIDTxPacket(JOYSTICK_EP, (uint8_t*)&joystick_input, sizeof(joystick_input));
         }
     }
 }//end ProcessIO
@@ -505,9 +580,9 @@ void APP_DeviceJoystickTasks(void)
 
 void USBSetEffect(void)
 {
-    set_get_effect_structure.SET_REPORT_REQUEST.report_id=hid_report_out[0]; // 1: based on the pid report descriptor
-    set_get_effect_structure.SET_REPORT_REQUEST.effect_type=hid_report_out[1];// the type of effect, based on pid report descriptor
-    set_get_effect_structure.SET_REPORT_REQUEST.byte_count=hid_report_out[2]; // this device does not support custom effects
+    set_get_effect_structure.SET_REPORT_REQUEST.report_id=ReceivedDataBuffer[0]; // 1: based on the pid report descriptor
+    set_get_effect_structure.SET_REPORT_REQUEST.effect_type=ReceivedDataBuffer[1];// the type of effect, based on pid report descriptor
+    set_get_effect_structure.SET_REPORT_REQUEST.byte_count=ReceivedDataBuffer[2]; // this device does not support custom effects
 
     /*
      struct
@@ -680,4 +755,43 @@ void USBSetDataEffect(void)
 
 // here we should read the incoming data on hid_report_out, and save the values in the relative //effect that is created, i am not doing it for now, because this is just a test version of the firmware
 }
+
+void USER_SET_REPORT_HANDLER(void)
+ {
+    //I get the set report, then i get the DATA !
+    // THE DEVICE NOW NEEDS TO ALLOCATE THE EFFECT
+    // ONCE THE EFFECT IS ALLOCATED; THE HOST SENDS A GET REPORT, function above
+    /*
+    Offset Field Size Value Description
+    0 bmRequestType 1 10100001b From device to host
+    1 bRequest 1 0x01 Get_Report
+    2 wValue 2 0x0203 Report ID (2) and Report Type (feature)
+    4 wIndex 2 0x0000 Interface
+    6 wLength 2 0x0500 Number of bytes to transfer in the data phase
+    (5 bytes)
+    */
+    // DEVICE RESPONDS TO THE GET REPORT; WITH THE PID BLOCK LOAD REPORT
+
+    //USBSetEffect();
+    // I HAVE TO: 1: BE SURE I CHECK THE FEATURE, BECAUSE: REASONS
+
+    switch(SetupPkt.W_Value.byte.LB) 
+    {
+        case 0x01: // report ID: 1, SET NEW EFFECT,APPLICATION DATA, etc , and now ?
+           // NOW I CHECK THE REPORT TYPE ! INPUT? OUTPUT? FEATURE ? 
+
+            if(SetupPkt.W_Value.byte.HB==0x02) // FEATURE, the host wants to send me the data, to set the effects. aka effect start 
+            {
+                // READ THE DATA, FEEL THE DATA, SAVE THE DATA! and set the data effect, read it, and set it
+                USBEP0Receive((uint8_t*)&ReceivedDataBuffer[0], SetupPkt.wLength, USBSetDataEffect);
+            } 
+
+            if(SetupPkt.W_Value.byte.HB==0x03) 
+            {
+                // READ THE DATA, FEEL THE DATA, SAVE THE DATA! and set the effect
+                USBEP0Receive((uint8_t*)&ReceivedDataBuffer[0], SetupPkt.wLength, USBSetEffect); 
+            } 
+            break;
+    }
+ }
 #endif

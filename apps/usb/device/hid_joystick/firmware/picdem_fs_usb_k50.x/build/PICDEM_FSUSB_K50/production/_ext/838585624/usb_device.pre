@@ -7964,10 +7964,6 @@ volatile BDT_ENTRY BDT[((1 + 1) * 4)] @0x400;
 volatile CTRL_TRF_SETUP SetupPkt @(0x400+(((1 + 1) * 4)*4));
 volatile uint8_t CtrlTrfData[8] @((0x400+(((1 + 1) * 4)*4)) + 8);
 
-# 188
-volatile unsigned char hid_report_out[64];
-volatile unsigned char hid_report_in[64];
-
 # 218
 extern const USB_DEVICE_DESCRIPTOR device_dsc;
 

@@ -7915,8 +7915,8 @@ uint8_t bNumDsc;
 } USB_HID_DSC;
 
 
-extern volatile unsigned char hid_report_in[64];
-extern volatile unsigned char hid_report_out[64];
+
+
 extern volatile CTRL_TRF_SETUP SetupPkt;
 extern const uint8_t configDescriptor1[];
 extern volatile uint8_t CtrlTrfData[8];

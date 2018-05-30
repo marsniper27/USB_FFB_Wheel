@@ -7915,8 +7915,8 @@ uint8_t bNumDsc;
 } USB_HID_DSC;
 
 
-extern volatile unsigned char hid_report_in[64];
-extern volatile unsigned char hid_report_out[64];
+
+
 extern volatile CTRL_TRF_SETUP SetupPkt;
 extern const uint8_t configDescriptor1[];
 extern volatile uint8_t CtrlTrfData[8];
@@ -8217,45 +8217,68 @@ uint8_t val[1];
 }DEVICE_GAIN;
 
 # 246
-INPUT_CONTROLS joystick_input @ 0x500;
+unsigned char ReceivedDataBuffer[64] @ 0x500;
+unsigned char ToSendDataBuffer[64] @ 0x540;
+INPUT_CONTROLS joystick_input @ ToSendDataBuffer;
 
-# 253
- void* lastTransmission = 0;
+# 255
+volatile void* USBOutHandle;
+volatile void* USBInHandle;
+
 SET_GET_EFFECT_STRUCTURE set_get_effect_structure;
 uint8_t CONFIGURED_EFFECT_NUMBER[12];
 bool Buttons_Pressed = 0;
 
-# 269
+# 273
 void APP_DeviceJoystickInitialize(void)
 {
 
+# 284
+USBInHandle = 0;
 
-lastTransmission = 0;
+
+USBEnableEndpoint(1, 0x02|0x04|0x10|0x08);
 
 
-USBEnableEndpoint(1,0x02|0x10|0x08);
+USBOutHandle = (volatile void*)USBTransferOnePacket(1,0,(uint8_t*)&ReceivedDataBuffer[0],64);
 }
 
-# 293
+# 307
 void APP_DeviceJoystickTasks(void)
 {
 
-# 298
+# 312
 if( USBDeviceState < CONFIGURED_STATE )
 {
 
 return;
 }
 
-# 308
+# 322
 if( UCONbits.SUSPND == 1 )
 {
 
 return;
 }
 
+if(!((USBOutHandle != 0x0000) && ((*(volatile uint8_t*)USBOutHandle & 0x80) != 0x00)))
+{
 
-if(!((lastTransmission != 0x0000) && ((*(volatile uint8_t*)lastTransmission & 0x80) != 0x00)))
+USBSetEffect();
+
+
+
+switch(ReceivedDataBuffer[0])
+{
+
+# 384
+}
+
+USBOutHandle = USBTransferOnePacket(1,0,(uint8_t*)&ReceivedDataBuffer[0],64);
+}
+
+
+if(!((USBInHandle != 0x0000) && ((*(volatile uint8_t*)USBInHandle & 0x80) != 0x00)))
 {
 if(BUTTON_IsPressed(BUTTON_S2) == 1)
 {
@@ -8389,7 +8412,7 @@ joystick_input.members.analog_stick.Z = PEDAL_Position(PEDAL_CLUTCH);
 if(Buttons_Pressed)
 {
 
-lastTransmission = USBTransferOnePacket(1,1,(uint8_t*)&joystick_input,sizeof(joystick_input));
+USBInHandle = USBTransferOnePacket(1,1,(uint8_t*)&joystick_input,sizeof(joystick_input));
 }
 if(!Buttons_Pressed)
 {
@@ -8414,19 +8437,19 @@ joystick_input.members.analog_stick.X = WHEEL_Test(WHEEL_W1);
 
 
 
-lastTransmission = USBTransferOnePacket(1,1,(uint8_t*)&joystick_input,sizeof(joystick_input));
+USBInHandle = USBTransferOnePacket(1,1,(uint8_t*)&joystick_input,sizeof(joystick_input));
 }
 }
 }
 
-# 506
+# 581
 void USBSetEffect(void)
 {
-set_get_effect_structure.SET_REPORT_REQUEST.report_id=hid_report_out[0];
-set_get_effect_structure.SET_REPORT_REQUEST.effect_type=hid_report_out[1];
-set_get_effect_structure.SET_REPORT_REQUEST.byte_count=hid_report_out[2];
+set_get_effect_structure.SET_REPORT_REQUEST.report_id=ReceivedDataBuffer[0];
+set_get_effect_structure.SET_REPORT_REQUEST.effect_type=ReceivedDataBuffer[1];
+set_get_effect_structure.SET_REPORT_REQUEST.byte_count=ReceivedDataBuffer[2];
 
-# 524
+# 599
 switch(set_get_effect_structure.SET_REPORT_REQUEST.effect_type)
 {
 case 1:
@@ -8543,14 +8566,38 @@ break;
 void USBSendPIDBlockLoadReport(void)
 {
 
-# 661
+# 736
 { inPipes[0].pSrc.bRam = (uint8_t*)&set_get_effect_structure.PID_BLOCK_LOAD_REPORT; inPipes[0].wCount.Val = 5; inPipes[0].info.Val = 0x01 | 0x80 | 0x01; };
 }
 
-# 667
+# 742
 void USBSetDataEffect(void)
 {
 
-# 682
+# 757
+}
+
+void USER_SET_REPORT_HANDLER(void)
+{
+
+# 778
+switch(SetupPkt.W_Value.byte.LB)
+{
+case 0x01:
+
+
+if(SetupPkt.W_Value.byte.HB==0x02)
+{
+
+{outPipes[0].pDst.bRam = (uint8_t*)&ReceivedDataBuffer[0];outPipes[0].wCount.Val = SetupPkt.wLength;outPipes[0].pFunc = USBSetDataEffect;outPipes[0].info.bits.busy = 1; };
+}
+
+if(SetupPkt.W_Value.byte.HB==0x03)
+{
+
+{outPipes[0].pDst.bRam = (uint8_t*)&ReceivedDataBuffer[0];outPipes[0].wCount.Val = SetupPkt.wLength;outPipes[0].pFunc = USBSetEffect;outPipes[0].info.bits.busy = 1; };
+}
+break;
+}
 }
 

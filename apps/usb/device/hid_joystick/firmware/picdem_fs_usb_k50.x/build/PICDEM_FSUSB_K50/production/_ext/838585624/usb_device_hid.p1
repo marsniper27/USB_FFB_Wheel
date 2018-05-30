@@ -91,27 +91,6 @@ Version 3.2 HI-TECH Software Intermediate Code
 [v _hid_rpt01 `CS688 ~T0 @X0 0 e ]
 "314 ../../../../../../framework/usb/inc\usb_device_hid.h
 [v _USBSendPIDBlockLoadReport `(v ~T0 @X0 0 ef ]
-"2024 ../../../../../../framework/usb/inc\usb_device.h
-[u S40 `*uc 1 `*ui 1 ]
-[n S40 . bRam wRam ]
-"2033
-[s S42 :7 `uc 1 :1 `uc 1 ]
-[n S42 . reserved busy ]
-"2031
-[u S41 `S42 1 `uc 1 ]
-[n S41 . bits Val ]
-[v F440 `(v ~T0 @X0 0 tf ]
-"2022
-[s S39 `S40 1 `S41 1 `S33 1 `*F440 1 ]
-[n S39 . pDst info wCount pFunc ]
-"599 ../../../../../../framework/usb/inc\usb_hal_pic18.h
-[v _outPipes `S39 ~T0 @X0 -> 0 `x e ]
-"307 ../../../../../../framework/usb/inc\usb_device_hid.h
-[v _hid_report_out `Vuc ~T0 @X0 -> 0 `x e ]
-"315
-[v _USBSetDataEffect `(v ~T0 @X0 0 ef ]
-"316
-[v _USBSetEffect `(v ~T0 @X0 0 ef ]
 [; ;stdint.h: 13: typedef signed char int8_t;
 [; ;stdint.h: 20: typedef signed int int16_t;
 [; ;stdint.h: 28: typedef signed short long int int24_t;
@@ -5957,8 +5936,6 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;inc\usb_device_hid.h: 296: uint8_t bCountryCode;
 [; ;inc\usb_device_hid.h: 297: uint8_t bNumDsc;
 [; ;inc\usb_device_hid.h: 303: } USB_HID_DSC;
-[; ;inc\usb_device_hid.h: 306: extern volatile unsigned char hid_report_in[64];
-[; ;inc\usb_device_hid.h: 307: extern volatile unsigned char hid_report_out[64];
 [; ;inc\usb_device_hid.h: 308: extern volatile CTRL_TRF_SETUP SetupPkt;
 [; ;inc\usb_device_hid.h: 309: extern const uint8_t configDescriptor1[];
 [; ;inc\usb_device_hid.h: 310: extern volatile uint8_t CtrlTrfData[8];
@@ -6258,74 +6235,4 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;usb_device_hid.c: 352: }
 "352
 [e :UE 709 ]
-}
-"354
-[v _USER_SET_REPORT_HANDLER `(v ~T0 @X0 1 ef ]
-"355
-{
-[; ;usb_device_hid.c: 354: void USER_SET_REPORT_HANDLER(void)
-[; ;usb_device_hid.c: 355: {
-[e :U _USER_SET_REPORT_HANDLER ]
-[f ]
-[; ;usb_device_hid.c: 373: switch(SetupPkt.W_Value.byte.LB)
-"373
-[e $U 720  ]
-[; ;usb_device_hid.c: 374: {
-"374
-{
-[; ;usb_device_hid.c: 375: case 0x01:
-"375
-[e :U 721 ]
-[; ;usb_device_hid.c: 378: if(SetupPkt.W_Value.byte.HB==0x02)
-"378
-[e $ ! == -> . . . . _SetupPkt 1 2 2 1 `i -> 2 `i 722  ]
-[; ;usb_device_hid.c: 379: {
-"379
-{
-[; ;usb_device_hid.c: 381: {outPipes[0].pDst.bRam = (uint8_t*)&hid_report_out[0];outPipes[0].wCount.Val = SetupPkt.wLength;outPipes[0].pFunc = USBSetDataEffect;outPipes[0].info.bits.busy = 1; };
-"381
-{
-[e = . . *U + &U _outPipes * -> -> -> 0 `i `ui `ux -> -> # *U &U _outPipes `ui `ux 0 0 -> &U *U + &U _hid_report_out * -> -> -> 0 `i `ui `ux -> -> # *U &U _hid_report_out `ui `ux `*uc ]
-[e = . . *U + &U _outPipes * -> -> -> 0 `i `ui `ux -> -> # *U &U _outPipes `ui `ux 2 0 . . _SetupPkt 0 4 ]
-[e = . *U + &U _outPipes * -> -> -> 0 `i `ui `ux -> -> # *U &U _outPipes `ui `ux 3 &U _USBSetDataEffect ]
-[e = . . . *U + &U _outPipes * -> -> -> 0 `i `ui `ux -> -> # *U &U _outPipes `ui `ux 1 0 1 -> -> 1 `i `uc ]
-}
-"382
-}
-[e :U 722 ]
-[; ;usb_device_hid.c: 382: }
-[; ;usb_device_hid.c: 384: if(SetupPkt.W_Value.byte.HB==0x03)
-"384
-[e $ ! == -> . . . . _SetupPkt 1 2 2 1 `i -> 3 `i 723  ]
-[; ;usb_device_hid.c: 385: {
-"385
-{
-[; ;usb_device_hid.c: 387: {outPipes[0].pDst.bRam = (uint8_t*)&hid_report_out[0];outPipes[0].wCount.Val = SetupPkt.wLength;outPipes[0].pFunc = USBSetEffect;outPipes[0].info.bits.busy = 1; };
-"387
-{
-[e = . . *U + &U _outPipes * -> -> -> 0 `i `ui `ux -> -> # *U &U _outPipes `ui `ux 0 0 -> &U *U + &U _hid_report_out * -> -> -> 0 `i `ui `ux -> -> # *U &U _hid_report_out `ui `ux `*uc ]
-[e = . . *U + &U _outPipes * -> -> -> 0 `i `ui `ux -> -> # *U &U _outPipes `ui `ux 2 0 . . _SetupPkt 0 4 ]
-[e = . *U + &U _outPipes * -> -> -> 0 `i `ui `ux -> -> # *U &U _outPipes `ui `ux 3 &U _USBSetEffect ]
-[e = . . . *U + &U _outPipes * -> -> -> 0 `i `ui `ux -> -> # *U &U _outPipes `ui `ux 1 0 1 -> -> 1 `i `uc ]
-}
-"388
-}
-[e :U 723 ]
-[; ;usb_device_hid.c: 388: }
-[; ;usb_device_hid.c: 389: break;
-"389
-[e $U 719  ]
-"390
-}
-[; ;usb_device_hid.c: 390: }
-[e $U 719  ]
-"373
-[e :U 720 ]
-[e [\ . . . . _SetupPkt 1 2 2 0 , $ -> -> 1 `i `uc 721
- 719 ]
-"390
-[e :U 719 ]
-[; ;usb_device_hid.c: 391: }
-"391
-[e :UE 718 ]
 }

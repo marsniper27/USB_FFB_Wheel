@@ -28,7 +28,9 @@ Version 3.2 HI-TECH Software Intermediate Code
 [n S692 _SET_GET_EFFECT_STRUCTURE SET_REPORT_REQUEST PID_BLOCK_LOAD_REPORT val ]
 "351 ../../../../../../framework/usb/inc\usb_device.h
 [v _USBEnableEndpoint `(v ~T0 @X0 0 ef2`uc`uc ]
-"298 ../demo_src/app_device_joystick.c
+"444
+[v _USBTransferOnePacket `(*v ~T0 @X0 0 ef4`uc`uc`*uc`uc ]
+"312 ../demo_src/app_device_joystick.c
 [c E291 0 1 2 4 8 16 32 .. ]
 [n E291 . DETACHED_STATE ATTACHED_STATE POWERED_STATE DEFAULT_STATE ADR_PENDING_STATE ADDRESS_STATE CONFIGURED_STATE  ]
 "2046 ../../../../../../framework/usb/inc\usb_device.h
@@ -41,25 +43,23 @@ Version 3.2 HI-TECH Software Intermediate Code
 [n S62 . . ]
 "469
 [v _UCONbits `VS62 ~T0 @X0 0 e@3936 ]
-"317 ../demo_src/app_device_joystick.c
-[c E6380 0 1 2 3 4 5 6 7 8 9 10 11 12 13 .. ]
-[n E6380 . BUTTON_NONE BUTTON_S2 BUTTON_S3 BUTTON_S4 BUTTON_S5 BUTTON_S6 BUTTON_S7 BUTTON_S8 BUTTON_S9 BUTTON_S10 BUTTON_S11 BUTTON_S12 BUTTON_S13 BUTTON_S14  ]
+"316 ../../../../../../framework/usb/inc\usb_device_hid.h
+[v _USBSetEffect `(v ~T0 @X0 0 ef ]
+"392 ../demo_src/app_device_joystick.c
+[c E6378 0 1 2 3 4 5 6 7 8 9 10 11 12 13 .. ]
+[n E6378 . BUTTON_NONE BUTTON_S2 BUTTON_S3 BUTTON_S4 BUTTON_S5 BUTTON_S6 BUTTON_S7 BUTTON_S8 BUTTON_S9 BUTTON_S10 BUTTON_S11 BUTTON_S12 BUTTON_S13 BUTTON_S14  ]
 "65 ../../../../../../bsp/picdem_fs_usb_k50\buttons.h
-[v _BUTTON_IsPressed `(uc ~T0 @X0 0 ef1`E6380 ]
-"441 ../demo_src/app_device_joystick.c
-[c E6420 0 1 .. ]
-[n E6420 . WHEEL_NONE WHEEL_W1  ]
+[v _BUTTON_IsPressed `(uc ~T0 @X0 0 ef1`E6378 ]
+"516 ../demo_src/app_device_joystick.c
+[c E6418 0 1 .. ]
+[n E6418 . WHEEL_NONE WHEEL_W1  ]
 "79 ../../../../../../framework/usb/inc\wheel.h
-[v _WHEEL_Test `(uc ~T0 @X0 0 ef1`E6420 ]
-"442 ../demo_src/app_device_joystick.c
-[c E6424 0 1 2 .. ]
-[n E6424 . PEDAL_NONE PEDAL_BREAK PEDAL_CLUTCH  ]
+[v _WHEEL_Test `(uc ~T0 @X0 0 ef1`E6418 ]
+"517 ../demo_src/app_device_joystick.c
+[c E6422 0 1 2 .. ]
+[n E6422 . PEDAL_NONE PEDAL_BREAK PEDAL_CLUTCH  ]
 "80 ../../../../../../framework/usb/inc\wheel.h
-[v _PEDAL_Position `(uc ~T0 @X0 0 ef1`E6424 ]
-"444 ../../../../../../framework/usb/inc\usb_device.h
-[v _USBTransferOnePacket `(*v ~T0 @X0 0 ef4`uc`uc`*uc`uc ]
-"307 ../../../../../../framework/usb/inc\usb_device_hid.h
-[v _hid_report_out `Vuc ~T0 @X0 -> 0 `x e ]
+[v _PEDAL_Position `(uc ~T0 @X0 0 ef1`E6422 ]
 "1993 ../../../../../../framework/usb/inc\usb_device.h
 [u S36 `*uc 1 `*Cuc 1 `*ui 1 `*Cui 1 ]
 [n S36 . bRam bRom wRam wRom ]
@@ -80,6 +80,80 @@ Version 3.2 HI-TECH Software Intermediate Code
 [n S35 . pSrc info wCount ]
 "2019
 [v _inPipes `S35 ~T0 @X0 -> 0 `x e ]
+"270 ../../../../../../framework/usb/inc\usb_ch9.h
+[s S10 `uc 1 `uc 1 `ui 1 `ui 1 `ui 1 ]
+[n S10 . bmRequestType bRequest wValue wIndex wLength ]
+"286
+[s S13 `uc 1 `uc 1 ]
+[n S13 . LB HB ]
+"282
+[u S12 `ui 1 `uc -> 2 `i `S13 1 ]
+[n S12 . Val v byte ]
+"297
+[s S15 `uc 1 `uc 1 ]
+[n S15 . LB HB ]
+"293
+[u S14 `ui 1 `uc -> 2 `i `S15 1 ]
+[n S14 . Val v byte ]
+"308
+[s S17 `uc 1 `uc 1 ]
+[n S17 . LB HB ]
+"304
+[u S16 `ui 1 `uc -> 2 `i `S17 1 ]
+[n S16 . Val v byte ]
+"278
+[s S11 :8 `uc 1 :8 `uc 1 `S12 1 `S14 1 `S16 1 ]
+[n S11 . . . W_Value W_Index W_Length ]
+"315
+[s S18 :5 `uc 1 :2 `uc 1 :1 `uc 1 :8 `uc 1 `uc 1 :8 `uc 1 :8 `uc 1 :8 `uc 1 :8 `uc 1 :8 `uc 1 ]
+[n S18 . Recipient RequestType DataDir . bFeature . . . . . ]
+"333
+[s S21 :5 `uc 1 :2 `uc 1 :1 `uc 1 ]
+[n S21 . recipient type direction ]
+"330
+[u S20 `uc 1 `S21 1 ]
+[n S20 . bmRequestType . ]
+"328
+[s S19 `S20 1 ]
+[n S19 . requestInfo ]
+"341
+[s S22 :8 `uc 1 :8 `uc 1 `uc 1 `uc 1 `ui 1 :8 `uc 1 :8 `uc 1 ]
+[n S22 . . . bDscIndex bDescriptorType wLangID . . ]
+"351
+[s S23 :8 `uc 1 :8 `uc 1 `uc 1 `uc 1 :8 `uc 1 :8 `uc 1 :8 `uc 1 :8 `uc 1 ]
+[n S23 . . . bDevADR bDevADRH . . . . ]
+"362
+[s S24 :8 `uc 1 :8 `uc 1 `uc 1 `uc 1 :8 `uc 1 :8 `uc 1 :8 `uc 1 :8 `uc 1 ]
+[n S24 . . . bConfigurationValue bCfgRSD . . . . ]
+"373
+[s S25 :8 `uc 1 :8 `uc 1 `uc 1 `uc 1 `uc 1 `uc 1 :8 `uc 1 :8 `uc 1 ]
+[n S25 . . . bAltID bAltID_H bIntfID bIntfID_H . . ]
+"384
+[s S26 :8 `uc 1 :8 `uc 1 :8 `uc 1 :8 `uc 1 `uc 1 `uc 1 :8 `uc 1 :8 `uc 1 ]
+[n S26 . . . . . bEPID bEPID_H . . ]
+"395
+[s S27 :8 `uc 1 :8 `uc 1 :8 `uc 1 :8 `uc 1 :4 `uc 1 :3 `uc 1 :1 `uc 1 :8 `uc 1 :8 `uc 1 :8 `uc 1 ]
+[n S27 . . . . . EPNum . EPDir . . . ]
+"267
+[u S9 `S10 1 `S11 1 `S18 1 `S19 1 `S22 1 `S23 1 `S24 1 `S25 1 `S26 1 `S27 1 ]
+[n S9 . . . . . . . . . . . ]
+"308 ../../../../../../framework/usb/inc\usb_device_hid.h
+[v _SetupPkt `VS9 ~T0 @X0 0 e ]
+"2024 ../../../../../../framework/usb/inc\usb_device.h
+[u S40 `*uc 1 `*ui 1 ]
+[n S40 . bRam wRam ]
+"2033
+[s S42 :7 `uc 1 :1 `uc 1 ]
+[n S42 . reserved busy ]
+"2031
+[u S41 `S42 1 `uc 1 ]
+[n S41 . bits Val ]
+[v F440 `(v ~T0 @X0 0 tf ]
+"2022
+[s S39 `S40 1 `S41 1 `S33 1 `*F440 1 ]
+[n S39 . pDst info wCount pFunc ]
+"599 ../../../../../../framework/usb/inc\usb_hal_pic18.h
+[v _outPipes `S39 ~T0 @X0 -> 0 `x e ]
 [; ;stdint.h: 13: typedef signed char int8_t;
 [; ;stdint.h: 20: typedef signed int int16_t;
 [; ;stdint.h: 28: typedef signed short long int int24_t;
@@ -5925,8 +5999,6 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;inc\usb_device_hid.h: 296: uint8_t bCountryCode;
 [; ;inc\usb_device_hid.h: 297: uint8_t bNumDsc;
 [; ;inc\usb_device_hid.h: 303: } USB_HID_DSC;
-[; ;inc\usb_device_hid.h: 306: extern volatile unsigned char hid_report_in[64];
-[; ;inc\usb_device_hid.h: 307: extern volatile unsigned char hid_report_out[64];
 [; ;inc\usb_device_hid.h: 308: extern volatile CTRL_TRF_SETUP SetupPkt;
 [; ;inc\usb_device_hid.h: 309: extern const uint8_t configDescriptor1[];
 [; ;inc\usb_device_hid.h: 310: extern volatile uint8_t CtrlTrfData[8];
@@ -6169,859 +6241,969 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;app_device_joystick.c: 230: uint8_t val[1];
 [; ;app_device_joystick.c: 231: }DEVICE_GAIN;
 "246 ../demo_src/app_device_joystick.c
-[v _joystick_input `S686 ~T0 @X0 1 e@1280 ]
-[; ;app_device_joystick.c: 246: INPUT_CONTROLS joystick_input @ 0x500;
-"253
-[v _lastTransmission `*v ~T0 @X0 1 e ]
-[i _lastTransmission
--> -> 0 `i `*v
-]
-[; ;app_device_joystick.c: 253: void* lastTransmission = 0;
-"254
-[v _set_get_effect_structure `S692 ~T0 @X0 1 e ]
-[; ;app_device_joystick.c: 254: SET_GET_EFFECT_STRUCTURE set_get_effect_structure;
+[v _ReceivedDataBuffer `uc ~T0 @X0 -> 64 `i e@1280 ]
+[; ;app_device_joystick.c: 246: unsigned char ReceivedDataBuffer[64] @ 0x500;
+"247
+[v _ToSendDataBuffer `uc ~T0 @X0 -> 64 `i e@1344 ]
+[; ;app_device_joystick.c: 247: unsigned char ToSendDataBuffer[64] @ 0x540;
+"248
+[v _joystick_input `S686 ~T0 @X0 1 e@1344 ]
+[; ;app_device_joystick.c: 248: INPUT_CONTROLS joystick_input @ ToSendDataBuffer;
 "255
-[v _CONFIGURED_EFFECT_NUMBER `uc ~T0 @X0 -> 12 `i e ]
-[; ;app_device_joystick.c: 255: uint8_t CONFIGURED_EFFECT_NUMBER[12];
+[v _USBOutHandle `*Vv ~T0 @X0 1 e ]
+[; ;app_device_joystick.c: 255: volatile void* USBOutHandle;
 "256
+[v _USBInHandle `*Vv ~T0 @X0 1 e ]
+[; ;app_device_joystick.c: 256: volatile void* USBInHandle;
+"258
+[v _set_get_effect_structure `S692 ~T0 @X0 1 e ]
+[; ;app_device_joystick.c: 258: SET_GET_EFFECT_STRUCTURE set_get_effect_structure;
+"259
+[v _CONFIGURED_EFFECT_NUMBER `uc ~T0 @X0 -> 12 `i e ]
+[; ;app_device_joystick.c: 259: uint8_t CONFIGURED_EFFECT_NUMBER[12];
+"260
 [v _Buttons_Pressed `uc ~T0 @X0 1 e ]
 [i _Buttons_Pressed
 -> -> 0 `i `uc
 ]
-[; ;app_device_joystick.c: 256: bool Buttons_Pressed = 0;
-"269
+[; ;app_device_joystick.c: 260: bool Buttons_Pressed = 0;
+"273
 [v _APP_DeviceJoystickInitialize `(v ~T0 @X0 1 ef ]
-"270
+"274
 {
-[; ;app_device_joystick.c: 269: void APP_DeviceJoystickInitialize(void)
-[; ;app_device_joystick.c: 270: {
+[; ;app_device_joystick.c: 273: void APP_DeviceJoystickInitialize(void)
+[; ;app_device_joystick.c: 274: {
 [e :U _APP_DeviceJoystickInitialize ]
 [f ]
-[; ;app_device_joystick.c: 273: lastTransmission = 0;
-"273
-[e = _lastTransmission -> -> 0 `i `*v ]
-[; ;app_device_joystick.c: 276: USBEnableEndpoint(1,0x02|0x10|0x08);
-"276
-[e ( _USBEnableEndpoint (2 , -> -> 1 `i `uc -> | | -> 2 `i -> 16 `i -> 8 `i `uc ]
-[; ;app_device_joystick.c: 277: }
-"277
+[; ;app_device_joystick.c: 284: USBInHandle = 0;
+"284
+[e = _USBInHandle -> -> 0 `i `*Vv ]
+[; ;app_device_joystick.c: 287: USBEnableEndpoint(1, 0x02|0x04|0x10|0x08);
+"287
+[e ( _USBEnableEndpoint (2 , -> -> 1 `i `uc -> | | | -> 2 `i -> 4 `i -> 16 `i -> 8 `i `uc ]
+[; ;app_device_joystick.c: 290: USBOutHandle = (volatile void*)USBTransferOnePacket(1,0,(uint8_t*)&ReceivedDataBuffer[0],64);
+"290
+[e = _USBOutHandle -> ( _USBTransferOnePacket (4 , , , -> -> 1 `i `uc -> -> 0 `i `uc &U *U + &U _ReceivedDataBuffer * -> -> -> 0 `i `ui `ux -> -> # *U &U _ReceivedDataBuffer `ui `ux -> -> 64 `i `uc `*Vv ]
+[; ;app_device_joystick.c: 291: }
+"291
 [e :UE 713 ]
 }
-"293
+"307
 [v _APP_DeviceJoystickTasks `(v ~T0 @X0 1 ef ]
-"294
+"308
 {
-[; ;app_device_joystick.c: 293: void APP_DeviceJoystickTasks(void)
-[; ;app_device_joystick.c: 294: {
+[; ;app_device_joystick.c: 307: void APP_DeviceJoystickTasks(void)
+[; ;app_device_joystick.c: 308: {
 [e :U _APP_DeviceJoystickTasks ]
 [f ]
-[; ;app_device_joystick.c: 298: if( USBDeviceState < CONFIGURED_STATE )
-"298
+[; ;app_device_joystick.c: 312: if( USBDeviceState < CONFIGURED_STATE )
+"312
 [e $ ! < -> _USBDeviceState `i -> . `E291 6 `i 715  ]
-[; ;app_device_joystick.c: 299: {
-"299
+[; ;app_device_joystick.c: 313: {
+"313
 {
-[; ;app_device_joystick.c: 301: return;
-"301
+[; ;app_device_joystick.c: 315: return;
+"315
 [e $UE 714  ]
-"302
+"316
 }
 [e :U 715 ]
-[; ;app_device_joystick.c: 302: }
-[; ;app_device_joystick.c: 308: if( UCONbits.SUSPND == 1 )
-"308
-[e $ ! == -> . . _UCONbits 0 1 `i -> 1 `i 716  ]
-[; ;app_device_joystick.c: 309: {
-"309
-{
-[; ;app_device_joystick.c: 311: return;
-"311
-[e $UE 714  ]
-"312
-}
-[e :U 716 ]
-[; ;app_device_joystick.c: 312: }
-[; ;app_device_joystick.c: 315: if(!((lastTransmission != 0x0000) && ((*(volatile uint8_t*)lastTransmission & 0x80) != 0x00)))
-"315
-[e $ ! ! && != _lastTransmission -> -> 0 `i `*v != & -> *U -> _lastTransmission `*Vuc `i -> 128 `i -> 0 `i 717  ]
-[; ;app_device_joystick.c: 316: {
-"316
-{
-[; ;app_device_joystick.c: 317: if(BUTTON_IsPressed(BUTTON_S2) == 1)
-"317
-[e $ ! == -> ( _BUTTON_IsPressed (1 . `E6380 1 `i -> 1 `i 718  ]
-[; ;app_device_joystick.c: 318: {
-"318
-{
-[; ;app_device_joystick.c: 319: joystick_input.members.buttons.x = 1;
-"319
-[e = . . . _joystick_input 0 1 1 -> -> 1 `i `uc ]
-[; ;app_device_joystick.c: 320: Buttons_Pressed = 1;
-"320
-[e = _Buttons_Pressed -> -> 1 `i `uc ]
-"321
-}
-[; ;app_device_joystick.c: 321: }
-[e $U 719  ]
+[; ;app_device_joystick.c: 316: }
+[; ;app_device_joystick.c: 322: if( UCONbits.SUSPND == 1 )
 "322
-[e :U 718 ]
-[; ;app_device_joystick.c: 322: else
+[e $ ! == -> . . _UCONbits 0 1 `i -> 1 `i 716  ]
 [; ;app_device_joystick.c: 323: {
 "323
 {
-[; ;app_device_joystick.c: 324: joystick_input.members.buttons.x = 0;
-"324
-[e = . . . _joystick_input 0 1 1 -> -> 0 `i `uc ]
+[; ;app_device_joystick.c: 325: return;
 "325
-}
-[e :U 719 ]
-[; ;app_device_joystick.c: 325: }
-[; ;app_device_joystick.c: 326: if(BUTTON_IsPressed(BUTTON_S3) == 1)
+[e $UE 714  ]
 "326
-[e $ ! == -> ( _BUTTON_IsPressed (1 . `E6380 2 `i -> 1 `i 720  ]
-[; ;app_device_joystick.c: 327: {
-"327
-{
-[; ;app_device_joystick.c: 328: joystick_input.members.buttons.square = 1;
+}
+[e :U 716 ]
+[; ;app_device_joystick.c: 326: }
+[; ;app_device_joystick.c: 328: if(!((USBOutHandle != 0x0000) && ((*(volatile uint8_t*)USBOutHandle & 0x80) != 0x00)))
 "328
-[e = . . . _joystick_input 0 1 0 -> -> 1 `i `uc ]
-[; ;app_device_joystick.c: 329: Buttons_Pressed = 1;
+[e $ ! ! && != _USBOutHandle -> -> 0 `i `*Vv != & -> *U -> _USBOutHandle `*Vuc `i -> 128 `i -> 0 `i 717  ]
+[; ;app_device_joystick.c: 329: {
 "329
-[e = _Buttons_Pressed -> -> 1 `i `uc ]
-"330
-}
-[; ;app_device_joystick.c: 330: }
-[e $U 721  ]
-"331
-[e :U 720 ]
-[; ;app_device_joystick.c: 331: else
-[; ;app_device_joystick.c: 332: {
-"332
 {
-[; ;app_device_joystick.c: 333: joystick_input.members.buttons.square = 0;
-"333
-[e = . . . _joystick_input 0 1 0 -> -> 0 `i `uc ]
-"334
-}
-[e :U 721 ]
-[; ;app_device_joystick.c: 334: }
-[; ;app_device_joystick.c: 335: if(BUTTON_IsPressed(BUTTON_S4) == 1)
+[; ;app_device_joystick.c: 331: USBSetEffect();
+"331
+[e ( _USBSetEffect ..  ]
+[; ;app_device_joystick.c: 335: switch(ReceivedDataBuffer[0])
 "335
-[e $ ! == -> ( _BUTTON_IsPressed (1 . `E6380 3 `i -> 1 `i 722  ]
+[e $U 719  ]
 [; ;app_device_joystick.c: 336: {
 "336
 {
-[; ;app_device_joystick.c: 337: joystick_input.members.buttons.o = 1;
-"337
-[e = . . . _joystick_input 0 1 2 -> -> 1 `i `uc ]
-[; ;app_device_joystick.c: 338: Buttons_Pressed = 1;
-"338
-[e = _Buttons_Pressed -> -> 1 `i `uc ]
-"339
-}
-[; ;app_device_joystick.c: 339: }
-[e $U 723  ]
-"340
-[e :U 722 ]
-[; ;app_device_joystick.c: 340: else
-[; ;app_device_joystick.c: 341: {
-"341
-{
-[; ;app_device_joystick.c: 342: joystick_input.members.buttons.o = 0;
-"342
-[e = . . . _joystick_input 0 1 2 -> -> 0 `i `uc ]
-"343
-}
-[e :U 723 ]
-[; ;app_device_joystick.c: 343: }
-[; ;app_device_joystick.c: 344: if(BUTTON_IsPressed(BUTTON_S5) == 1)
-"344
-[e $ ! == -> ( _BUTTON_IsPressed (1 . `E6380 4 `i -> 1 `i 724  ]
-[; ;app_device_joystick.c: 345: {
-"345
-{
-[; ;app_device_joystick.c: 346: joystick_input.members.buttons.triangle = 1;
-"346
-[e = . . . _joystick_input 0 1 3 -> -> 1 `i `uc ]
-[; ;app_device_joystick.c: 347: Buttons_Pressed = 1;
-"347
-[e = _Buttons_Pressed -> -> 1 `i `uc ]
-"348
-}
-[; ;app_device_joystick.c: 348: }
-[e $U 725  ]
-"349
-[e :U 724 ]
-[; ;app_device_joystick.c: 349: else
-[; ;app_device_joystick.c: 350: {
-"350
-{
-[; ;app_device_joystick.c: 351: joystick_input.members.buttons.triangle = 0;
-"351
-[e = . . . _joystick_input 0 1 3 -> -> 0 `i `uc ]
-"352
-}
-[e :U 725 ]
-[; ;app_device_joystick.c: 352: }
-[; ;app_device_joystick.c: 353: if(BUTTON_IsPressed(BUTTON_S6) == 1)
-"353
-[e $ ! == -> ( _BUTTON_IsPressed (1 . `E6380 5 `i -> 1 `i 726  ]
-[; ;app_device_joystick.c: 354: {
-"354
-{
-[; ;app_device_joystick.c: 355: joystick_input.members.buttons.L1 = 1;
-"355
-[e = . . . _joystick_input 0 1 4 -> -> 1 `i `uc ]
-[; ;app_device_joystick.c: 356: Buttons_Pressed = 1;
-"356
-[e = _Buttons_Pressed -> -> 1 `i `uc ]
-"357
-}
-[; ;app_device_joystick.c: 357: }
-[e $U 727  ]
-"358
-[e :U 726 ]
-[; ;app_device_joystick.c: 358: else
-[; ;app_device_joystick.c: 359: {
-"359
-{
-[; ;app_device_joystick.c: 360: joystick_input.members.buttons.L1 = 0;
-"360
-[e = . . . _joystick_input 0 1 4 -> -> 0 `i `uc ]
-"361
-}
-[e :U 727 ]
-[; ;app_device_joystick.c: 361: }
-[; ;app_device_joystick.c: 362: if(BUTTON_IsPressed(BUTTON_S7) == 1)
-"362
-[e $ ! == -> ( _BUTTON_IsPressed (1 . `E6380 6 `i -> 1 `i 728  ]
-[; ;app_device_joystick.c: 363: {
-"363
-{
-[; ;app_device_joystick.c: 364: joystick_input.members.buttons.R1 = 1;
-"364
-[e = . . . _joystick_input 0 1 5 -> -> 1 `i `uc ]
-[; ;app_device_joystick.c: 365: Buttons_Pressed = 1;
-"365
-[e = _Buttons_Pressed -> -> 1 `i `uc ]
-"366
-}
-[; ;app_device_joystick.c: 366: }
-[e $U 729  ]
-"367
-[e :U 728 ]
-[; ;app_device_joystick.c: 367: else
-[; ;app_device_joystick.c: 368: {
-"368
-{
-[; ;app_device_joystick.c: 369: joystick_input.members.buttons.R1 = 0;
-"369
-[e = . . . _joystick_input 0 1 5 -> -> 0 `i `uc ]
-"370
-}
-[e :U 729 ]
-[; ;app_device_joystick.c: 370: }
-[; ;app_device_joystick.c: 371: if(BUTTON_IsPressed(BUTTON_S8) == 1)
-"371
-[e $ ! == -> ( _BUTTON_IsPressed (1 . `E6380 7 `i -> 1 `i 730  ]
-[; ;app_device_joystick.c: 372: {
-"372
-{
-[; ;app_device_joystick.c: 373: joystick_input.members.buttons.L2 = 1;
-"373
-[e = . . . _joystick_input 0 1 6 -> -> 1 `i `uc ]
-[; ;app_device_joystick.c: 374: Buttons_Pressed = 1;
-"374
-[e = _Buttons_Pressed -> -> 1 `i `uc ]
-"375
-}
-[; ;app_device_joystick.c: 375: }
-[e $U 731  ]
-"376
-[e :U 730 ]
-[; ;app_device_joystick.c: 376: else
-[; ;app_device_joystick.c: 377: {
-"377
-{
-[; ;app_device_joystick.c: 378: joystick_input.members.buttons.L2 = 0;
-"378
-[e = . . . _joystick_input 0 1 6 -> -> 0 `i `uc ]
-"379
-}
-[e :U 731 ]
-[; ;app_device_joystick.c: 379: }
-[; ;app_device_joystick.c: 380: if(BUTTON_IsPressed(BUTTON_S9) == 1)
-"380
-[e $ ! == -> ( _BUTTON_IsPressed (1 . `E6380 8 `i -> 1 `i 732  ]
-[; ;app_device_joystick.c: 381: {
-"381
-{
-[; ;app_device_joystick.c: 382: joystick_input.members.buttons.R2 = 1;
-"382
-[e = . . . _joystick_input 0 1 7 -> -> 1 `i `uc ]
-[; ;app_device_joystick.c: 383: Buttons_Pressed = 1;
-"383
-[e = _Buttons_Pressed -> -> 1 `i `uc ]
 "384
 }
 [; ;app_device_joystick.c: 384: }
-[e $U 733  ]
-"385
-[e :U 732 ]
-[; ;app_device_joystick.c: 385: else
-[; ;app_device_joystick.c: 386: {
+[e $U 718  ]
+"335
+[e :U 719 ]
+[e [\ *U + &U _ReceivedDataBuffer * -> -> -> 0 `i `ui `ux -> -> # *U &U _ReceivedDataBuffer `ui `ux 718 ]
+"384
+[e :U 718 ]
+[; ;app_device_joystick.c: 386: USBOutHandle = USBTransferOnePacket(1,0,(uint8_t*)&ReceivedDataBuffer[0],64);
 "386
-{
-[; ;app_device_joystick.c: 387: joystick_input.members.buttons.R2 = 0;
+[e = _USBOutHandle -> ( _USBTransferOnePacket (4 , , , -> -> 1 `i `uc -> -> 0 `i `uc &U *U + &U _ReceivedDataBuffer * -> -> -> 0 `i `ui `ux -> -> # *U &U _ReceivedDataBuffer `ui `ux -> -> 64 `i `uc `*Vv ]
 "387
-[e = . . . _joystick_input 0 1 7 -> -> 0 `i `uc ]
-"388
 }
-[e :U 733 ]
-[; ;app_device_joystick.c: 388: }
-[; ;app_device_joystick.c: 389: if(BUTTON_IsPressed(BUTTON_S10) == 1)
-"389
-[e $ ! == -> ( _BUTTON_IsPressed (1 . `E6380 9 `i -> 1 `i 734  ]
-[; ;app_device_joystick.c: 390: {
+[e :U 717 ]
+[; ;app_device_joystick.c: 387: }
+[; ;app_device_joystick.c: 390: if(!((USBInHandle != 0x0000) && ((*(volatile uint8_t*)USBInHandle & 0x80) != 0x00)))
 "390
-{
-[; ;app_device_joystick.c: 391: joystick_input.members.buttons.select = 1;
+[e $ ! ! && != _USBInHandle -> -> 0 `i `*Vv != & -> *U -> _USBInHandle `*Vuc `i -> 128 `i -> 0 `i 720  ]
+[; ;app_device_joystick.c: 391: {
 "391
-[e = . . . _joystick_input 0 1 8 -> -> 1 `i `uc ]
-[; ;app_device_joystick.c: 392: Buttons_Pressed = 1;
+{
+[; ;app_device_joystick.c: 392: if(BUTTON_IsPressed(BUTTON_S2) == 1)
 "392
-[e = _Buttons_Pressed -> -> 1 `i `uc ]
+[e $ ! == -> ( _BUTTON_IsPressed (1 . `E6378 1 `i -> 1 `i 721  ]
+[; ;app_device_joystick.c: 393: {
 "393
-}
-[; ;app_device_joystick.c: 393: }
-[e $U 735  ]
+{
+[; ;app_device_joystick.c: 394: joystick_input.members.buttons.x = 1;
 "394
-[e :U 734 ]
-[; ;app_device_joystick.c: 394: else
-[; ;app_device_joystick.c: 395: {
+[e = . . . _joystick_input 0 1 1 -> -> 1 `i `uc ]
+[; ;app_device_joystick.c: 395: Buttons_Pressed = 1;
 "395
-{
-[; ;app_device_joystick.c: 396: joystick_input.members.buttons.select = 0;
+[e = _Buttons_Pressed -> -> 1 `i `uc ]
 "396
-[e = . . . _joystick_input 0 1 8 -> -> 0 `i `uc ]
+}
+[; ;app_device_joystick.c: 396: }
+[e $U 722  ]
 "397
-}
-[e :U 735 ]
-[; ;app_device_joystick.c: 397: }
-[; ;app_device_joystick.c: 398: if(BUTTON_IsPressed(BUTTON_S11) == 1)
+[e :U 721 ]
+[; ;app_device_joystick.c: 397: else
+[; ;app_device_joystick.c: 398: {
 "398
-[e $ ! == -> ( _BUTTON_IsPressed (1 . `E6380 10 `i -> 1 `i 736  ]
-[; ;app_device_joystick.c: 399: {
+{
+[; ;app_device_joystick.c: 399: joystick_input.members.buttons.x = 0;
 "399
-{
-[; ;app_device_joystick.c: 400: joystick_input.members.buttons.start = 1;
+[e = . . . _joystick_input 0 1 1 -> -> 0 `i `uc ]
 "400
-[e = . . . _joystick_input 0 1 9 -> -> 1 `i `uc ]
-[; ;app_device_joystick.c: 401: Buttons_Pressed = 1;
+}
+[e :U 722 ]
+[; ;app_device_joystick.c: 400: }
+[; ;app_device_joystick.c: 401: if(BUTTON_IsPressed(BUTTON_S3) == 1)
 "401
-[e = _Buttons_Pressed -> -> 1 `i `uc ]
+[e $ ! == -> ( _BUTTON_IsPressed (1 . `E6378 2 `i -> 1 `i 723  ]
+[; ;app_device_joystick.c: 402: {
 "402
-}
-[; ;app_device_joystick.c: 402: }
-[e $U 737  ]
+{
+[; ;app_device_joystick.c: 403: joystick_input.members.buttons.square = 1;
 "403
-[e :U 736 ]
-[; ;app_device_joystick.c: 403: else
-[; ;app_device_joystick.c: 404: {
+[e = . . . _joystick_input 0 1 0 -> -> 1 `i `uc ]
+[; ;app_device_joystick.c: 404: Buttons_Pressed = 1;
 "404
-{
-[; ;app_device_joystick.c: 405: joystick_input.members.buttons.start = 0;
+[e = _Buttons_Pressed -> -> 1 `i `uc ]
 "405
-[e = . . . _joystick_input 0 1 9 -> -> 0 `i `uc ]
+}
+[; ;app_device_joystick.c: 405: }
+[e $U 724  ]
 "406
-}
-[e :U 737 ]
-[; ;app_device_joystick.c: 406: }
-[; ;app_device_joystick.c: 407: if(BUTTON_IsPressed(BUTTON_S12) == 1)
+[e :U 723 ]
+[; ;app_device_joystick.c: 406: else
+[; ;app_device_joystick.c: 407: {
 "407
-[e $ ! == -> ( _BUTTON_IsPressed (1 . `E6380 11 `i -> 1 `i 738  ]
-[; ;app_device_joystick.c: 408: {
+{
+[; ;app_device_joystick.c: 408: joystick_input.members.buttons.square = 0;
 "408
-{
-[; ;app_device_joystick.c: 409: joystick_input.members.buttons.left_stick = 1;
+[e = . . . _joystick_input 0 1 0 -> -> 0 `i `uc ]
 "409
-[e = . . . _joystick_input 0 1 10 -> -> 1 `i `uc ]
-[; ;app_device_joystick.c: 410: Buttons_Pressed = 1;
+}
+[e :U 724 ]
+[; ;app_device_joystick.c: 409: }
+[; ;app_device_joystick.c: 410: if(BUTTON_IsPressed(BUTTON_S4) == 1)
 "410
-[e = _Buttons_Pressed -> -> 1 `i `uc ]
+[e $ ! == -> ( _BUTTON_IsPressed (1 . `E6378 3 `i -> 1 `i 725  ]
+[; ;app_device_joystick.c: 411: {
 "411
-}
-[; ;app_device_joystick.c: 411: }
-[e $U 739  ]
+{
+[; ;app_device_joystick.c: 412: joystick_input.members.buttons.o = 1;
 "412
-[e :U 738 ]
-[; ;app_device_joystick.c: 412: else
-[; ;app_device_joystick.c: 413: {
+[e = . . . _joystick_input 0 1 2 -> -> 1 `i `uc ]
+[; ;app_device_joystick.c: 413: Buttons_Pressed = 1;
 "413
-{
-[; ;app_device_joystick.c: 414: joystick_input.members.buttons.left_stick = 0;
+[e = _Buttons_Pressed -> -> 1 `i `uc ]
 "414
-[e = . . . _joystick_input 0 1 10 -> -> 0 `i `uc ]
+}
+[; ;app_device_joystick.c: 414: }
+[e $U 726  ]
 "415
-}
-[e :U 739 ]
-[; ;app_device_joystick.c: 415: }
-[; ;app_device_joystick.c: 416: if(BUTTON_IsPressed(BUTTON_S13) == 1)
+[e :U 725 ]
+[; ;app_device_joystick.c: 415: else
+[; ;app_device_joystick.c: 416: {
 "416
-[e $ ! == -> ( _BUTTON_IsPressed (1 . `E6380 12 `i -> 1 `i 740  ]
-[; ;app_device_joystick.c: 417: {
+{
+[; ;app_device_joystick.c: 417: joystick_input.members.buttons.o = 0;
 "417
-{
-[; ;app_device_joystick.c: 418: joystick_input.members.buttons.right_stick = 1;
+[e = . . . _joystick_input 0 1 2 -> -> 0 `i `uc ]
 "418
-[e = . . . _joystick_input 0 1 11 -> -> 1 `i `uc ]
-[; ;app_device_joystick.c: 419: Buttons_Pressed = 1;
+}
+[e :U 726 ]
+[; ;app_device_joystick.c: 418: }
+[; ;app_device_joystick.c: 419: if(BUTTON_IsPressed(BUTTON_S5) == 1)
 "419
-[e = _Buttons_Pressed -> -> 1 `i `uc ]
+[e $ ! == -> ( _BUTTON_IsPressed (1 . `E6378 4 `i -> 1 `i 727  ]
+[; ;app_device_joystick.c: 420: {
 "420
-}
-[; ;app_device_joystick.c: 420: }
-[e $U 741  ]
+{
+[; ;app_device_joystick.c: 421: joystick_input.members.buttons.triangle = 1;
 "421
-[e :U 740 ]
-[; ;app_device_joystick.c: 421: else
-[; ;app_device_joystick.c: 422: {
+[e = . . . _joystick_input 0 1 3 -> -> 1 `i `uc ]
+[; ;app_device_joystick.c: 422: Buttons_Pressed = 1;
 "422
-{
-[; ;app_device_joystick.c: 423: joystick_input.members.buttons.right_stick = 0;
-"423
-[e = . . . _joystick_input 0 1 11 -> -> 0 `i `uc ]
-"424
-}
-[e :U 741 ]
-[; ;app_device_joystick.c: 424: }
-[; ;app_device_joystick.c: 425: if(BUTTON_IsPressed(BUTTON_S14) == 1)
-"425
-[e $ ! == -> ( _BUTTON_IsPressed (1 . `E6380 13 `i -> 1 `i 742  ]
-[; ;app_device_joystick.c: 426: {
-"426
-{
-[; ;app_device_joystick.c: 427: joystick_input.members.buttons.home = 1;
-"427
-[e = . . . _joystick_input 0 1 12 -> -> 1 `i `uc ]
-[; ;app_device_joystick.c: 428: Buttons_Pressed = 1;
-"428
 [e = _Buttons_Pressed -> -> 1 `i `uc ]
-"429
+"423
 }
-[; ;app_device_joystick.c: 429: }
-[e $U 743  ]
-"430
-[e :U 742 ]
-[; ;app_device_joystick.c: 430: else
-[; ;app_device_joystick.c: 431: {
-"431
+[; ;app_device_joystick.c: 423: }
+[e $U 728  ]
+"424
+[e :U 727 ]
+[; ;app_device_joystick.c: 424: else
+[; ;app_device_joystick.c: 425: {
+"425
 {
-[; ;app_device_joystick.c: 432: joystick_input.members.buttons.home = 0;
-"432
-[e = . . . _joystick_input 0 1 12 -> -> 0 `i `uc ]
-"433
+[; ;app_device_joystick.c: 426: joystick_input.members.buttons.triangle = 0;
+"426
+[e = . . . _joystick_input 0 1 3 -> -> 0 `i `uc ]
+"427
 }
-[e :U 743 ]
-[; ;app_device_joystick.c: 433: }
-[; ;app_device_joystick.c: 436: joystick_input.members.hat_switch.hat_switch = 0x2;
+[e :U 728 ]
+[; ;app_device_joystick.c: 427: }
+[; ;app_device_joystick.c: 428: if(BUTTON_IsPressed(BUTTON_S6) == 1)
+"428
+[e $ ! == -> ( _BUTTON_IsPressed (1 . `E6378 5 `i -> 1 `i 729  ]
+[; ;app_device_joystick.c: 429: {
+"429
+{
+[; ;app_device_joystick.c: 430: joystick_input.members.buttons.L1 = 1;
+"430
+[e = . . . _joystick_input 0 1 4 -> -> 1 `i `uc ]
+[; ;app_device_joystick.c: 431: Buttons_Pressed = 1;
+"431
+[e = _Buttons_Pressed -> -> 1 `i `uc ]
+"432
+}
+[; ;app_device_joystick.c: 432: }
+[e $U 730  ]
+"433
+[e :U 729 ]
+[; ;app_device_joystick.c: 433: else
+[; ;app_device_joystick.c: 434: {
+"434
+{
+[; ;app_device_joystick.c: 435: joystick_input.members.buttons.L1 = 0;
+"435
+[e = . . . _joystick_input 0 1 4 -> -> 0 `i `uc ]
 "436
-[e = . . . _joystick_input 0 2 0 -> -> 2 `i `uc ]
-[; ;app_device_joystick.c: 441: joystick_input.members.analog_stick.X = WHEEL_Test(WHEEL_W1);
+}
+[e :U 730 ]
+[; ;app_device_joystick.c: 436: }
+[; ;app_device_joystick.c: 437: if(BUTTON_IsPressed(BUTTON_S7) == 1)
+"437
+[e $ ! == -> ( _BUTTON_IsPressed (1 . `E6378 6 `i -> 1 `i 731  ]
+[; ;app_device_joystick.c: 438: {
+"438
+{
+[; ;app_device_joystick.c: 439: joystick_input.members.buttons.R1 = 1;
+"439
+[e = . . . _joystick_input 0 1 5 -> -> 1 `i `uc ]
+[; ;app_device_joystick.c: 440: Buttons_Pressed = 1;
+"440
+[e = _Buttons_Pressed -> -> 1 `i `uc ]
 "441
-[e = . . . _joystick_input 0 3 0 -> ( _WHEEL_Test (1 . `E6420 1 `ui ]
-[; ;app_device_joystick.c: 442: joystick_input.members.analog_stick.Y = PEDAL_Position(PEDAL_BREAK);
+}
+[; ;app_device_joystick.c: 441: }
+[e $U 732  ]
 "442
-[e = . . . _joystick_input 0 3 1 -> ( _PEDAL_Position (1 . `E6424 1 `ui ]
-[; ;app_device_joystick.c: 443: joystick_input.members.analog_stick.Z = PEDAL_Position(PEDAL_CLUTCH);
+[e :U 731 ]
+[; ;app_device_joystick.c: 442: else
+[; ;app_device_joystick.c: 443: {
 "443
-[e = . . . _joystick_input 0 3 2 -> ( _PEDAL_Position (1 . `E6424 2 `ui ]
-[; ;app_device_joystick.c: 446: if(Buttons_Pressed)
+{
+[; ;app_device_joystick.c: 444: joystick_input.members.buttons.R1 = 0;
+"444
+[e = . . . _joystick_input 0 1 5 -> -> 0 `i `uc ]
+"445
+}
+[e :U 732 ]
+[; ;app_device_joystick.c: 445: }
+[; ;app_device_joystick.c: 446: if(BUTTON_IsPressed(BUTTON_S8) == 1)
 "446
-[e $ ! != -> _Buttons_Pressed `i -> -> -> 0 `i `uc `i 744  ]
+[e $ ! == -> ( _BUTTON_IsPressed (1 . `E6378 7 `i -> 1 `i 733  ]
 [; ;app_device_joystick.c: 447: {
 "447
 {
-[; ;app_device_joystick.c: 449: lastTransmission = USBTransferOnePacket(1,1,(uint8_t*)&joystick_input,sizeof(joystick_input));
+[; ;app_device_joystick.c: 448: joystick_input.members.buttons.L2 = 1;
+"448
+[e = . . . _joystick_input 0 1 6 -> -> 1 `i `uc ]
+[; ;app_device_joystick.c: 449: Buttons_Pressed = 1;
 "449
-[e = _lastTransmission ( _USBTransferOnePacket (4 , , , -> -> 1 `i `uc -> -> 1 `i `uc -> &U _joystick_input `*uc -> -> # _joystick_input `ui `uc ]
+[e = _Buttons_Pressed -> -> 1 `i `uc ]
 "450
 }
-[e :U 744 ]
 [; ;app_device_joystick.c: 450: }
-[; ;app_device_joystick.c: 451: if(!Buttons_Pressed)
+[e $U 734  ]
 "451
-[e $ ! ! != -> _Buttons_Pressed `i -> -> -> 0 `i `uc `i 745  ]
+[e :U 733 ]
+[; ;app_device_joystick.c: 451: else
 [; ;app_device_joystick.c: 452: {
 "452
 {
-[; ;app_device_joystick.c: 456: joystick_input.val[0] = 0x00;
+[; ;app_device_joystick.c: 453: joystick_input.members.buttons.L2 = 0;
+"453
+[e = . . . _joystick_input 0 1 6 -> -> 0 `i `uc ]
+"454
+}
+[e :U 734 ]
+[; ;app_device_joystick.c: 454: }
+[; ;app_device_joystick.c: 455: if(BUTTON_IsPressed(BUTTON_S9) == 1)
+"455
+[e $ ! == -> ( _BUTTON_IsPressed (1 . `E6378 8 `i -> 1 `i 735  ]
+[; ;app_device_joystick.c: 456: {
 "456
-[e = *U + &U . _joystick_input 1 * -> -> -> 0 `i `ui `ux -> -> # *U &U . _joystick_input 1 `ui `ux -> -> 0 `i `uc ]
-[; ;app_device_joystick.c: 457: joystick_input.val[1] = 0x00;
+{
+[; ;app_device_joystick.c: 457: joystick_input.members.buttons.R2 = 1;
 "457
-[e = *U + &U . _joystick_input 1 * -> -> -> 1 `i `ui `ux -> -> # *U &U . _joystick_input 1 `ui `ux -> -> 0 `i `uc ]
-[; ;app_device_joystick.c: 460: joystick_input.val[2] = 0x08;
+[e = . . . _joystick_input 0 1 7 -> -> 1 `i `uc ]
+[; ;app_device_joystick.c: 458: Buttons_Pressed = 1;
+"458
+[e = _Buttons_Pressed -> -> 1 `i `uc ]
+"459
+}
+[; ;app_device_joystick.c: 459: }
+[e $U 736  ]
 "460
-[e = *U + &U . _joystick_input 1 * -> -> -> 2 `i `ui `ux -> -> # *U &U . _joystick_input 1 `ui `ux -> -> 8 `i `uc ]
-[; ;app_device_joystick.c: 463: joystick_input.val[3] = 0x80;
+[e :U 735 ]
+[; ;app_device_joystick.c: 460: else
+[; ;app_device_joystick.c: 461: {
+"461
+{
+[; ;app_device_joystick.c: 462: joystick_input.members.buttons.R2 = 0;
+"462
+[e = . . . _joystick_input 0 1 7 -> -> 0 `i `uc ]
 "463
-[e = *U + &U . _joystick_input 1 * -> -> -> 3 `i `ui `ux -> -> # *U &U . _joystick_input 1 `ui `ux -> -> 128 `i `uc ]
-[; ;app_device_joystick.c: 464: joystick_input.val[4] = 0x80;
+}
+[e :U 736 ]
+[; ;app_device_joystick.c: 463: }
+[; ;app_device_joystick.c: 464: if(BUTTON_IsPressed(BUTTON_S10) == 1)
 "464
-[e = *U + &U . _joystick_input 1 * -> -> -> 4 `i `ui `ux -> -> # *U &U . _joystick_input 1 `ui `ux -> -> 128 `i `uc ]
-[; ;app_device_joystick.c: 465: joystick_input.val[5] = 0x80;
+[e $ ! == -> ( _BUTTON_IsPressed (1 . `E6378 9 `i -> 1 `i 737  ]
+[; ;app_device_joystick.c: 465: {
 "465
-[e = *U + &U . _joystick_input 1 * -> -> -> 5 `i `ui `ux -> -> # *U &U . _joystick_input 1 `ui `ux -> -> 128 `i `uc ]
-[; ;app_device_joystick.c: 466: joystick_input.val[6] = 0x80;
+{
+[; ;app_device_joystick.c: 466: joystick_input.members.buttons.select = 1;
 "466
-[e = *U + &U . _joystick_input 1 * -> -> -> 6 `i `ui `ux -> -> # *U &U . _joystick_input 1 `ui `ux -> -> 128 `i `uc ]
-[; ;app_device_joystick.c: 470: joystick_input.members.analog_stick.X = WHEEL_Test(WHEEL_W1);
+[e = . . . _joystick_input 0 1 8 -> -> 1 `i `uc ]
+[; ;app_device_joystick.c: 467: Buttons_Pressed = 1;
+"467
+[e = _Buttons_Pressed -> -> 1 `i `uc ]
+"468
+}
+[; ;app_device_joystick.c: 468: }
+[e $U 738  ]
+"469
+[e :U 737 ]
+[; ;app_device_joystick.c: 469: else
+[; ;app_device_joystick.c: 470: {
 "470
-[e = . . . _joystick_input 0 3 0 -> ( _WHEEL_Test (1 . `E6420 1 `ui ]
-[; ;app_device_joystick.c: 474: lastTransmission = USBTransferOnePacket(1,1,(uint8_t*)&joystick_input,sizeof(joystick_input));
+{
+[; ;app_device_joystick.c: 471: joystick_input.members.buttons.select = 0;
+"471
+[e = . . . _joystick_input 0 1 8 -> -> 0 `i `uc ]
+"472
+}
+[e :U 738 ]
+[; ;app_device_joystick.c: 472: }
+[; ;app_device_joystick.c: 473: if(BUTTON_IsPressed(BUTTON_S11) == 1)
+"473
+[e $ ! == -> ( _BUTTON_IsPressed (1 . `E6378 10 `i -> 1 `i 739  ]
+[; ;app_device_joystick.c: 474: {
 "474
-[e = _lastTransmission ( _USBTransferOnePacket (4 , , , -> -> 1 `i `uc -> -> 1 `i `uc -> &U _joystick_input `*uc -> -> # _joystick_input `ui `uc ]
+{
+[; ;app_device_joystick.c: 475: joystick_input.members.buttons.start = 1;
 "475
-}
-[e :U 745 ]
+[e = . . . _joystick_input 0 1 9 -> -> 1 `i `uc ]
+[; ;app_device_joystick.c: 476: Buttons_Pressed = 1;
 "476
-}
-[e :U 717 ]
-[; ;app_device_joystick.c: 475: }
-[; ;app_device_joystick.c: 476: }
-[; ;app_device_joystick.c: 477: }
+[e = _Buttons_Pressed -> -> 1 `i `uc ]
 "477
+}
+[; ;app_device_joystick.c: 477: }
+[e $U 740  ]
+"478
+[e :U 739 ]
+[; ;app_device_joystick.c: 478: else
+[; ;app_device_joystick.c: 479: {
+"479
+{
+[; ;app_device_joystick.c: 480: joystick_input.members.buttons.start = 0;
+"480
+[e = . . . _joystick_input 0 1 9 -> -> 0 `i `uc ]
+"481
+}
+[e :U 740 ]
+[; ;app_device_joystick.c: 481: }
+[; ;app_device_joystick.c: 482: if(BUTTON_IsPressed(BUTTON_S12) == 1)
+"482
+[e $ ! == -> ( _BUTTON_IsPressed (1 . `E6378 11 `i -> 1 `i 741  ]
+[; ;app_device_joystick.c: 483: {
+"483
+{
+[; ;app_device_joystick.c: 484: joystick_input.members.buttons.left_stick = 1;
+"484
+[e = . . . _joystick_input 0 1 10 -> -> 1 `i `uc ]
+[; ;app_device_joystick.c: 485: Buttons_Pressed = 1;
+"485
+[e = _Buttons_Pressed -> -> 1 `i `uc ]
+"486
+}
+[; ;app_device_joystick.c: 486: }
+[e $U 742  ]
+"487
+[e :U 741 ]
+[; ;app_device_joystick.c: 487: else
+[; ;app_device_joystick.c: 488: {
+"488
+{
+[; ;app_device_joystick.c: 489: joystick_input.members.buttons.left_stick = 0;
+"489
+[e = . . . _joystick_input 0 1 10 -> -> 0 `i `uc ]
+"490
+}
+[e :U 742 ]
+[; ;app_device_joystick.c: 490: }
+[; ;app_device_joystick.c: 491: if(BUTTON_IsPressed(BUTTON_S13) == 1)
+"491
+[e $ ! == -> ( _BUTTON_IsPressed (1 . `E6378 12 `i -> 1 `i 743  ]
+[; ;app_device_joystick.c: 492: {
+"492
+{
+[; ;app_device_joystick.c: 493: joystick_input.members.buttons.right_stick = 1;
+"493
+[e = . . . _joystick_input 0 1 11 -> -> 1 `i `uc ]
+[; ;app_device_joystick.c: 494: Buttons_Pressed = 1;
+"494
+[e = _Buttons_Pressed -> -> 1 `i `uc ]
+"495
+}
+[; ;app_device_joystick.c: 495: }
+[e $U 744  ]
+"496
+[e :U 743 ]
+[; ;app_device_joystick.c: 496: else
+[; ;app_device_joystick.c: 497: {
+"497
+{
+[; ;app_device_joystick.c: 498: joystick_input.members.buttons.right_stick = 0;
+"498
+[e = . . . _joystick_input 0 1 11 -> -> 0 `i `uc ]
+"499
+}
+[e :U 744 ]
+[; ;app_device_joystick.c: 499: }
+[; ;app_device_joystick.c: 500: if(BUTTON_IsPressed(BUTTON_S14) == 1)
+"500
+[e $ ! == -> ( _BUTTON_IsPressed (1 . `E6378 13 `i -> 1 `i 745  ]
+[; ;app_device_joystick.c: 501: {
+"501
+{
+[; ;app_device_joystick.c: 502: joystick_input.members.buttons.home = 1;
+"502
+[e = . . . _joystick_input 0 1 12 -> -> 1 `i `uc ]
+[; ;app_device_joystick.c: 503: Buttons_Pressed = 1;
+"503
+[e = _Buttons_Pressed -> -> 1 `i `uc ]
+"504
+}
+[; ;app_device_joystick.c: 504: }
+[e $U 746  ]
+"505
+[e :U 745 ]
+[; ;app_device_joystick.c: 505: else
+[; ;app_device_joystick.c: 506: {
+"506
+{
+[; ;app_device_joystick.c: 507: joystick_input.members.buttons.home = 0;
+"507
+[e = . . . _joystick_input 0 1 12 -> -> 0 `i `uc ]
+"508
+}
+[e :U 746 ]
+[; ;app_device_joystick.c: 508: }
+[; ;app_device_joystick.c: 511: joystick_input.members.hat_switch.hat_switch = 0x2;
+"511
+[e = . . . _joystick_input 0 2 0 -> -> 2 `i `uc ]
+[; ;app_device_joystick.c: 516: joystick_input.members.analog_stick.X = WHEEL_Test(WHEEL_W1);
+"516
+[e = . . . _joystick_input 0 3 0 -> ( _WHEEL_Test (1 . `E6418 1 `ui ]
+[; ;app_device_joystick.c: 517: joystick_input.members.analog_stick.Y = PEDAL_Position(PEDAL_BREAK);
+"517
+[e = . . . _joystick_input 0 3 1 -> ( _PEDAL_Position (1 . `E6422 1 `ui ]
+[; ;app_device_joystick.c: 518: joystick_input.members.analog_stick.Z = PEDAL_Position(PEDAL_CLUTCH);
+"518
+[e = . . . _joystick_input 0 3 2 -> ( _PEDAL_Position (1 . `E6422 2 `ui ]
+[; ;app_device_joystick.c: 521: if(Buttons_Pressed)
+"521
+[e $ ! != -> _Buttons_Pressed `i -> -> -> 0 `i `uc `i 747  ]
+[; ;app_device_joystick.c: 522: {
+"522
+{
+[; ;app_device_joystick.c: 524: USBInHandle = USBTransferOnePacket(1,1,(uint8_t*)&joystick_input,sizeof(joystick_input));
+"524
+[e = _USBInHandle -> ( _USBTransferOnePacket (4 , , , -> -> 1 `i `uc -> -> 1 `i `uc -> &U _joystick_input `*uc -> -> # _joystick_input `ui `uc `*Vv ]
+"525
+}
+[e :U 747 ]
+[; ;app_device_joystick.c: 525: }
+[; ;app_device_joystick.c: 526: if(!Buttons_Pressed)
+"526
+[e $ ! ! != -> _Buttons_Pressed `i -> -> -> 0 `i `uc `i 748  ]
+[; ;app_device_joystick.c: 527: {
+"527
+{
+[; ;app_device_joystick.c: 531: joystick_input.val[0] = 0x00;
+"531
+[e = *U + &U . _joystick_input 1 * -> -> -> 0 `i `ui `ux -> -> # *U &U . _joystick_input 1 `ui `ux -> -> 0 `i `uc ]
+[; ;app_device_joystick.c: 532: joystick_input.val[1] = 0x00;
+"532
+[e = *U + &U . _joystick_input 1 * -> -> -> 1 `i `ui `ux -> -> # *U &U . _joystick_input 1 `ui `ux -> -> 0 `i `uc ]
+[; ;app_device_joystick.c: 535: joystick_input.val[2] = 0x08;
+"535
+[e = *U + &U . _joystick_input 1 * -> -> -> 2 `i `ui `ux -> -> # *U &U . _joystick_input 1 `ui `ux -> -> 8 `i `uc ]
+[; ;app_device_joystick.c: 538: joystick_input.val[3] = 0x80;
+"538
+[e = *U + &U . _joystick_input 1 * -> -> -> 3 `i `ui `ux -> -> # *U &U . _joystick_input 1 `ui `ux -> -> 128 `i `uc ]
+[; ;app_device_joystick.c: 539: joystick_input.val[4] = 0x80;
+"539
+[e = *U + &U . _joystick_input 1 * -> -> -> 4 `i `ui `ux -> -> # *U &U . _joystick_input 1 `ui `ux -> -> 128 `i `uc ]
+[; ;app_device_joystick.c: 540: joystick_input.val[5] = 0x80;
+"540
+[e = *U + &U . _joystick_input 1 * -> -> -> 5 `i `ui `ux -> -> # *U &U . _joystick_input 1 `ui `ux -> -> 128 `i `uc ]
+[; ;app_device_joystick.c: 541: joystick_input.val[6] = 0x80;
+"541
+[e = *U + &U . _joystick_input 1 * -> -> -> 6 `i `ui `ux -> -> # *U &U . _joystick_input 1 `ui `ux -> -> 128 `i `uc ]
+[; ;app_device_joystick.c: 545: joystick_input.members.analog_stick.X = WHEEL_Test(WHEEL_W1);
+"545
+[e = . . . _joystick_input 0 3 0 -> ( _WHEEL_Test (1 . `E6418 1 `ui ]
+[; ;app_device_joystick.c: 549: USBInHandle = USBTransferOnePacket(1,1,(uint8_t*)&joystick_input,sizeof(joystick_input));
+"549
+[e = _USBInHandle -> ( _USBTransferOnePacket (4 , , , -> -> 1 `i `uc -> -> 1 `i `uc -> &U _joystick_input `*uc -> -> # _joystick_input `ui `uc `*Vv ]
+"550
+}
+[e :U 748 ]
+"551
+}
+[e :U 720 ]
+[; ;app_device_joystick.c: 550: }
+[; ;app_device_joystick.c: 551: }
+[; ;app_device_joystick.c: 552: }
+"552
 [e :UE 714 ]
 }
-"506
+"581
 [v _USBSetEffect `(v ~T0 @X0 1 ef ]
-"507
+"582
 {
-[; ;app_device_joystick.c: 506: void USBSetEffect(void)
-[; ;app_device_joystick.c: 507: {
+[; ;app_device_joystick.c: 581: void USBSetEffect(void)
+[; ;app_device_joystick.c: 582: {
 [e :U _USBSetEffect ]
 [f ]
-[; ;app_device_joystick.c: 508: set_get_effect_structure.SET_REPORT_REQUEST.report_id=hid_report_out[0];
-"508
-[e = . . _set_get_effect_structure 0 0 *U + &U _hid_report_out * -> -> -> 0 `i `ui `ux -> -> # *U &U _hid_report_out `ui `ux ]
-[; ;app_device_joystick.c: 509: set_get_effect_structure.SET_REPORT_REQUEST.effect_type=hid_report_out[1];
-"509
-[e = . . _set_get_effect_structure 0 1 *U + &U _hid_report_out * -> -> -> 1 `i `ui `ux -> -> # *U &U _hid_report_out `ui `ux ]
-[; ;app_device_joystick.c: 510: set_get_effect_structure.SET_REPORT_REQUEST.byte_count=hid_report_out[2];
-"510
-[e = . . _set_get_effect_structure 0 2 *U + &U _hid_report_out * -> -> -> 2 `i `ui `ux -> -> # *U &U _hid_report_out `ui `ux ]
-[; ;app_device_joystick.c: 524: switch(set_get_effect_structure.SET_REPORT_REQUEST.effect_type)
-"524
-[e $U 748  ]
-[; ;app_device_joystick.c: 525: {
-"525
-{
-[; ;app_device_joystick.c: 526: case 1:
-"526
-[e :U 749 ]
-[; ;app_device_joystick.c: 527: set_get_effect_structure.PID_BLOCK_LOAD_REPORT.report_id=2;
-"527
-[e = . . _set_get_effect_structure 1 0 -> -> 2 `i `uc ]
-[; ;app_device_joystick.c: 528: set_get_effect_structure.PID_BLOCK_LOAD_REPORT.effect_block_index=1;
-"528
-[e = . . _set_get_effect_structure 1 1 -> -> 1 `i `uc ]
-[; ;app_device_joystick.c: 529: set_get_effect_structure.PID_BLOCK_LOAD_REPORT.block_load_status=1;
-"529
-[e = . . _set_get_effect_structure 1 2 -> -> 1 `i `uc ]
-[; ;app_device_joystick.c: 530: set_get_effect_structure.PID_BLOCK_LOAD_REPORT.ram_pool_available=0xFFFF;
-"530
-[e = . . _set_get_effect_structure 1 3 -> -> 65535 `ui `i ]
-[; ;app_device_joystick.c: 532: CONFIGURED_EFFECT_NUMBER[0]=1;
-"532
-[e = *U + &U _CONFIGURED_EFFECT_NUMBER * -> -> -> 0 `i `ui `ux -> -> # *U &U _CONFIGURED_EFFECT_NUMBER `ui `ux -> -> 1 `i `uc ]
-[; ;app_device_joystick.c: 535: break;
-"535
-[e $U 747  ]
-[; ;app_device_joystick.c: 536: case 2:
-"536
-[e :U 750 ]
-[; ;app_device_joystick.c: 537: set_get_effect_structure.PID_BLOCK_LOAD_REPORT.report_id=2;
-"537
-[e = . . _set_get_effect_structure 1 0 -> -> 2 `i `uc ]
-[; ;app_device_joystick.c: 538: set_get_effect_structure.PID_BLOCK_LOAD_REPORT.effect_block_index=2;
-"538
-[e = . . _set_get_effect_structure 1 1 -> -> 2 `i `uc ]
-[; ;app_device_joystick.c: 539: set_get_effect_structure.PID_BLOCK_LOAD_REPORT.block_load_status=1;
-"539
-[e = . . _set_get_effect_structure 1 2 -> -> 1 `i `uc ]
-[; ;app_device_joystick.c: 540: set_get_effect_structure.PID_BLOCK_LOAD_REPORT.ram_pool_available=0xFFFF;
-"540
-[e = . . _set_get_effect_structure 1 3 -> -> 65535 `ui `i ]
-[; ;app_device_joystick.c: 542: CONFIGURED_EFFECT_NUMBER[1]=1;
-"542
-[e = *U + &U _CONFIGURED_EFFECT_NUMBER * -> -> -> 1 `i `ui `ux -> -> # *U &U _CONFIGURED_EFFECT_NUMBER `ui `ux -> -> 1 `i `uc ]
-[; ;app_device_joystick.c: 544: break;
-"544
-[e $U 747  ]
-[; ;app_device_joystick.c: 545: case 3:
-"545
-[e :U 751 ]
-[; ;app_device_joystick.c: 546: set_get_effect_structure.PID_BLOCK_LOAD_REPORT.report_id=2;
-"546
-[e = . . _set_get_effect_structure 1 0 -> -> 2 `i `uc ]
-[; ;app_device_joystick.c: 547: set_get_effect_structure.PID_BLOCK_LOAD_REPORT.effect_block_index=3;
-"547
-[e = . . _set_get_effect_structure 1 1 -> -> 3 `i `uc ]
-[; ;app_device_joystick.c: 548: set_get_effect_structure.PID_BLOCK_LOAD_REPORT.block_load_status=1;
-"548
-[e = . . _set_get_effect_structure 1 2 -> -> 1 `i `uc ]
-[; ;app_device_joystick.c: 549: set_get_effect_structure.PID_BLOCK_LOAD_REPORT.ram_pool_available=0xFFFF;
-"549
-[e = . . _set_get_effect_structure 1 3 -> -> 65535 `ui `i ]
-[; ;app_device_joystick.c: 551: CONFIGURED_EFFECT_NUMBER[2]=1;
-"551
-[e = *U + &U _CONFIGURED_EFFECT_NUMBER * -> -> -> 2 `i `ui `ux -> -> # *U &U _CONFIGURED_EFFECT_NUMBER `ui `ux -> -> 1 `i `uc ]
-[; ;app_device_joystick.c: 553: break;
-"553
-[e $U 747  ]
-[; ;app_device_joystick.c: 554: case 4:
-"554
-[e :U 752 ]
-[; ;app_device_joystick.c: 555: set_get_effect_structure.PID_BLOCK_LOAD_REPORT.report_id=2;
-"555
-[e = . . _set_get_effect_structure 1 0 -> -> 2 `i `uc ]
-[; ;app_device_joystick.c: 556: set_get_effect_structure.PID_BLOCK_LOAD_REPORT.effect_block_index=4;
-"556
-[e = . . _set_get_effect_structure 1 1 -> -> 4 `i `uc ]
-[; ;app_device_joystick.c: 557: set_get_effect_structure.PID_BLOCK_LOAD_REPORT.block_load_status=1;
-"557
-[e = . . _set_get_effect_structure 1 2 -> -> 1 `i `uc ]
-[; ;app_device_joystick.c: 558: set_get_effect_structure.PID_BLOCK_LOAD_REPORT.ram_pool_available=0xFFFF;
-"558
-[e = . . _set_get_effect_structure 1 3 -> -> 65535 `ui `i ]
-[; ;app_device_joystick.c: 560: CONFIGURED_EFFECT_NUMBER[3]=1;
-"560
-[e = *U + &U _CONFIGURED_EFFECT_NUMBER * -> -> -> 3 `i `ui `ux -> -> # *U &U _CONFIGURED_EFFECT_NUMBER `ui `ux -> -> 1 `i `uc ]
-[; ;app_device_joystick.c: 562: break;
-"562
-[e $U 747  ]
-[; ;app_device_joystick.c: 563: case 5:
-"563
-[e :U 753 ]
-[; ;app_device_joystick.c: 564: set_get_effect_structure.PID_BLOCK_LOAD_REPORT.report_id=2;
-"564
-[e = . . _set_get_effect_structure 1 0 -> -> 2 `i `uc ]
-[; ;app_device_joystick.c: 565: set_get_effect_structure.PID_BLOCK_LOAD_REPORT.effect_block_index=5;
-"565
-[e = . . _set_get_effect_structure 1 1 -> -> 5 `i `uc ]
-[; ;app_device_joystick.c: 566: set_get_effect_structure.PID_BLOCK_LOAD_REPORT.block_load_status=1;
-"566
-[e = . . _set_get_effect_structure 1 2 -> -> 1 `i `uc ]
-[; ;app_device_joystick.c: 567: set_get_effect_structure.PID_BLOCK_LOAD_REPORT.ram_pool_available=0xFFFF;
-"567
-[e = . . _set_get_effect_structure 1 3 -> -> 65535 `ui `i ]
-[; ;app_device_joystick.c: 569: CONFIGURED_EFFECT_NUMBER[4]=1;
-"569
-[e = *U + &U _CONFIGURED_EFFECT_NUMBER * -> -> -> 4 `i `ui `ux -> -> # *U &U _CONFIGURED_EFFECT_NUMBER `ui `ux -> -> 1 `i `uc ]
-[; ;app_device_joystick.c: 571: break;
-"571
-[e $U 747  ]
-[; ;app_device_joystick.c: 572: case 6:
-"572
-[e :U 754 ]
-[; ;app_device_joystick.c: 573: set_get_effect_structure.PID_BLOCK_LOAD_REPORT.report_id=2;
-"573
-[e = . . _set_get_effect_structure 1 0 -> -> 2 `i `uc ]
-[; ;app_device_joystick.c: 574: set_get_effect_structure.PID_BLOCK_LOAD_REPORT.effect_block_index=6;
-"574
-[e = . . _set_get_effect_structure 1 1 -> -> 6 `i `uc ]
-[; ;app_device_joystick.c: 575: set_get_effect_structure.PID_BLOCK_LOAD_REPORT.block_load_status=1;
-"575
-[e = . . _set_get_effect_structure 1 2 -> -> 1 `i `uc ]
-[; ;app_device_joystick.c: 576: set_get_effect_structure.PID_BLOCK_LOAD_REPORT.ram_pool_available=0xFFFF;
-"576
-[e = . . _set_get_effect_structure 1 3 -> -> 65535 `ui `i ]
-[; ;app_device_joystick.c: 578: CONFIGURED_EFFECT_NUMBER[5]=1;
-"578
-[e = *U + &U _CONFIGURED_EFFECT_NUMBER * -> -> -> 5 `i `ui `ux -> -> # *U &U _CONFIGURED_EFFECT_NUMBER `ui `ux -> -> 1 `i `uc ]
-[; ;app_device_joystick.c: 580: break;
-"580
-[e $U 747  ]
-[; ;app_device_joystick.c: 581: case 7:
-"581
-[e :U 755 ]
-[; ;app_device_joystick.c: 582: set_get_effect_structure.PID_BLOCK_LOAD_REPORT.report_id=2;
-"582
-[e = . . _set_get_effect_structure 1 0 -> -> 2 `i `uc ]
-[; ;app_device_joystick.c: 583: set_get_effect_structure.PID_BLOCK_LOAD_REPORT.effect_block_index=7;
+[; ;app_device_joystick.c: 583: set_get_effect_structure.SET_REPORT_REQUEST.report_id=ReceivedDataBuffer[0];
 "583
-[e = . . _set_get_effect_structure 1 1 -> -> 7 `i `uc ]
-[; ;app_device_joystick.c: 584: set_get_effect_structure.PID_BLOCK_LOAD_REPORT.block_load_status=1;
+[e = . . _set_get_effect_structure 0 0 *U + &U _ReceivedDataBuffer * -> -> -> 0 `i `ui `ux -> -> # *U &U _ReceivedDataBuffer `ui `ux ]
+[; ;app_device_joystick.c: 584: set_get_effect_structure.SET_REPORT_REQUEST.effect_type=ReceivedDataBuffer[1];
 "584
-[e = . . _set_get_effect_structure 1 2 -> -> 1 `i `uc ]
-[; ;app_device_joystick.c: 585: set_get_effect_structure.PID_BLOCK_LOAD_REPORT.ram_pool_available=0xFFFF;
+[e = . . _set_get_effect_structure 0 1 *U + &U _ReceivedDataBuffer * -> -> -> 1 `i `ui `ux -> -> # *U &U _ReceivedDataBuffer `ui `ux ]
+[; ;app_device_joystick.c: 585: set_get_effect_structure.SET_REPORT_REQUEST.byte_count=ReceivedDataBuffer[2];
 "585
-[e = . . _set_get_effect_structure 1 3 -> -> 65535 `ui `i ]
-[; ;app_device_joystick.c: 587: CONFIGURED_EFFECT_NUMBER[6]=1;
-"587
-[e = *U + &U _CONFIGURED_EFFECT_NUMBER * -> -> -> 6 `i `ui `ux -> -> # *U &U _CONFIGURED_EFFECT_NUMBER `ui `ux -> -> 1 `i `uc ]
-[; ;app_device_joystick.c: 589: break;
-"589
-[e $U 747  ]
-[; ;app_device_joystick.c: 590: case 8:
-"590
-[e :U 756 ]
-[; ;app_device_joystick.c: 591: set_get_effect_structure.PID_BLOCK_LOAD_REPORT.report_id=2;
-"591
-[e = . . _set_get_effect_structure 1 0 -> -> 2 `i `uc ]
-[; ;app_device_joystick.c: 592: set_get_effect_structure.PID_BLOCK_LOAD_REPORT.effect_block_index=8;
-"592
-[e = . . _set_get_effect_structure 1 1 -> -> 8 `i `uc ]
-[; ;app_device_joystick.c: 593: set_get_effect_structure.PID_BLOCK_LOAD_REPORT.block_load_status=1;
-"593
-[e = . . _set_get_effect_structure 1 2 -> -> 1 `i `uc ]
-[; ;app_device_joystick.c: 594: set_get_effect_structure.PID_BLOCK_LOAD_REPORT.ram_pool_available=0xFFFF;
-"594
-[e = . . _set_get_effect_structure 1 3 -> -> 65535 `ui `i ]
-[; ;app_device_joystick.c: 596: CONFIGURED_EFFECT_NUMBER[7]=1;
-"596
-[e = *U + &U _CONFIGURED_EFFECT_NUMBER * -> -> -> 7 `i `ui `ux -> -> # *U &U _CONFIGURED_EFFECT_NUMBER `ui `ux -> -> 1 `i `uc ]
-[; ;app_device_joystick.c: 598: break;
-"598
-[e $U 747  ]
-[; ;app_device_joystick.c: 599: case 9:
+[e = . . _set_get_effect_structure 0 2 *U + &U _ReceivedDataBuffer * -> -> -> 2 `i `ui `ux -> -> # *U &U _ReceivedDataBuffer `ui `ux ]
+[; ;app_device_joystick.c: 599: switch(set_get_effect_structure.SET_REPORT_REQUEST.effect_type)
 "599
-[e :U 757 ]
-[; ;app_device_joystick.c: 600: set_get_effect_structure.PID_BLOCK_LOAD_REPORT.report_id=2;
+[e $U 751  ]
+[; ;app_device_joystick.c: 600: {
 "600
-[e = . . _set_get_effect_structure 1 0 -> -> 2 `i `uc ]
-[; ;app_device_joystick.c: 601: set_get_effect_structure.PID_BLOCK_LOAD_REPORT.effect_block_index=9;
-"601
-[e = . . _set_get_effect_structure 1 1 -> -> 9 `i `uc ]
-[; ;app_device_joystick.c: 602: set_get_effect_structure.PID_BLOCK_LOAD_REPORT.block_load_status=1;
-"602
-[e = . . _set_get_effect_structure 1 2 -> -> 1 `i `uc ]
-[; ;app_device_joystick.c: 603: set_get_effect_structure.PID_BLOCK_LOAD_REPORT.ram_pool_available=0xFFFF;
-"603
-[e = . . _set_get_effect_structure 1 3 -> -> 65535 `ui `i ]
-[; ;app_device_joystick.c: 605: CONFIGURED_EFFECT_NUMBER[8]=1;
-"605
-[e = *U + &U _CONFIGURED_EFFECT_NUMBER * -> -> -> 8 `i `ui `ux -> -> # *U &U _CONFIGURED_EFFECT_NUMBER `ui `ux -> -> 1 `i `uc ]
-[; ;app_device_joystick.c: 607: break;
-"607
-[e $U 747  ]
-[; ;app_device_joystick.c: 608: case 10:
-"608
-[e :U 758 ]
-[; ;app_device_joystick.c: 609: set_get_effect_structure.PID_BLOCK_LOAD_REPORT.report_id=2;
-"609
-[e = . . _set_get_effect_structure 1 0 -> -> 2 `i `uc ]
-[; ;app_device_joystick.c: 610: set_get_effect_structure.PID_BLOCK_LOAD_REPORT.effect_block_index=10;
-"610
-[e = . . _set_get_effect_structure 1 1 -> -> 10 `i `uc ]
-[; ;app_device_joystick.c: 611: set_get_effect_structure.PID_BLOCK_LOAD_REPORT.block_load_status=1;
-"611
-[e = . . _set_get_effect_structure 1 2 -> -> 1 `i `uc ]
-[; ;app_device_joystick.c: 612: set_get_effect_structure.PID_BLOCK_LOAD_REPORT.ram_pool_available=0xFFFF;
-"612
-[e = . . _set_get_effect_structure 1 3 -> -> 65535 `ui `i ]
-[; ;app_device_joystick.c: 614: CONFIGURED_EFFECT_NUMBER[9]=1;
-"614
-[e = *U + &U _CONFIGURED_EFFECT_NUMBER * -> -> -> 9 `i `ui `ux -> -> # *U &U _CONFIGURED_EFFECT_NUMBER `ui `ux -> -> 1 `i `uc ]
-[; ;app_device_joystick.c: 616: break;
-"616
-[e $U 747  ]
-[; ;app_device_joystick.c: 617: case 11:
-"617
-[e :U 759 ]
-[; ;app_device_joystick.c: 618: set_get_effect_structure.PID_BLOCK_LOAD_REPORT.report_id=2;
-"618
-[e = . . _set_get_effect_structure 1 0 -> -> 2 `i `uc ]
-[; ;app_device_joystick.c: 619: set_get_effect_structure.PID_BLOCK_LOAD_REPORT.effect_block_index=11;
-"619
-[e = . . _set_get_effect_structure 1 1 -> -> 11 `i `uc ]
-[; ;app_device_joystick.c: 620: set_get_effect_structure.PID_BLOCK_LOAD_REPORT.block_load_status=1;
-"620
-[e = . . _set_get_effect_structure 1 2 -> -> 1 `i `uc ]
-[; ;app_device_joystick.c: 621: set_get_effect_structure.PID_BLOCK_LOAD_REPORT.ram_pool_available=0xFFFF;
-"621
-[e = . . _set_get_effect_structure 1 3 -> -> 65535 `ui `i ]
-[; ;app_device_joystick.c: 623: CONFIGURED_EFFECT_NUMBER[10]=1;
-"623
-[e = *U + &U _CONFIGURED_EFFECT_NUMBER * -> -> -> 10 `i `ui `ux -> -> # *U &U _CONFIGURED_EFFECT_NUMBER `ui `ux -> -> 1 `i `uc ]
-[; ;app_device_joystick.c: 625: break;
-"625
-[e $U 747  ]
-[; ;app_device_joystick.c: 626: case 12:
-"626
-[e :U 760 ]
-[; ;app_device_joystick.c: 627: set_get_effect_structure.PID_BLOCK_LOAD_REPORT.report_id=2;
-"627
-[e = . . _set_get_effect_structure 1 0 -> -> 2 `i `uc ]
-[; ;app_device_joystick.c: 628: set_get_effect_structure.PID_BLOCK_LOAD_REPORT.effect_block_index=0;
-"628
-[e = . . _set_get_effect_structure 1 1 -> -> 0 `i `uc ]
-[; ;app_device_joystick.c: 629: set_get_effect_structure.PID_BLOCK_LOAD_REPORT.block_load_status=3;
-"629
-[e = . . _set_get_effect_structure 1 2 -> -> 3 `i `uc ]
-[; ;app_device_joystick.c: 630: set_get_effect_structure.PID_BLOCK_LOAD_REPORT.ram_pool_available=0x0000;
-"630
-[e = . . _set_get_effect_structure 1 3 -> 0 `i ]
-[; ;app_device_joystick.c: 632: CONFIGURED_EFFECT_NUMBER[11]=0;
-"632
-[e = *U + &U _CONFIGURED_EFFECT_NUMBER * -> -> -> 11 `i `ui `ux -> -> # *U &U _CONFIGURED_EFFECT_NUMBER `ui `ux -> -> 0 `i `uc ]
-[; ;app_device_joystick.c: 634: break;
-"634
-[e $U 747  ]
-"635
-}
-[; ;app_device_joystick.c: 635: }
-[e $U 747  ]
-"524
-[e :U 748 ]
-[e [\ . . _set_get_effect_structure 0 1 , $ -> -> 1 `i `uc 749
- , $ -> -> 2 `i `uc 750
- , $ -> -> 3 `i `uc 751
- , $ -> -> 4 `i `uc 752
- , $ -> -> 5 `i `uc 753
- , $ -> -> 6 `i `uc 754
- , $ -> -> 7 `i `uc 755
- , $ -> -> 8 `i `uc 756
- , $ -> -> 9 `i `uc 757
- , $ -> -> 10 `i `uc 758
- , $ -> -> 11 `i `uc 759
- , $ -> -> 12 `i `uc 760
- 747 ]
-"635
-[e :U 747 ]
-[; ;app_device_joystick.c: 636: }
-"636
-[e :UE 746 ]
-}
-"637
-[v _USBSendPIDBlockLoadReport `(v ~T0 @X0 1 ef ]
-"638
 {
-[; ;app_device_joystick.c: 637: void USBSendPIDBlockLoadReport(void)
-[; ;app_device_joystick.c: 638: {
+[; ;app_device_joystick.c: 601: case 1:
+"601
+[e :U 752 ]
+[; ;app_device_joystick.c: 602: set_get_effect_structure.PID_BLOCK_LOAD_REPORT.report_id=2;
+"602
+[e = . . _set_get_effect_structure 1 0 -> -> 2 `i `uc ]
+[; ;app_device_joystick.c: 603: set_get_effect_structure.PID_BLOCK_LOAD_REPORT.effect_block_index=1;
+"603
+[e = . . _set_get_effect_structure 1 1 -> -> 1 `i `uc ]
+[; ;app_device_joystick.c: 604: set_get_effect_structure.PID_BLOCK_LOAD_REPORT.block_load_status=1;
+"604
+[e = . . _set_get_effect_structure 1 2 -> -> 1 `i `uc ]
+[; ;app_device_joystick.c: 605: set_get_effect_structure.PID_BLOCK_LOAD_REPORT.ram_pool_available=0xFFFF;
+"605
+[e = . . _set_get_effect_structure 1 3 -> -> 65535 `ui `i ]
+[; ;app_device_joystick.c: 607: CONFIGURED_EFFECT_NUMBER[0]=1;
+"607
+[e = *U + &U _CONFIGURED_EFFECT_NUMBER * -> -> -> 0 `i `ui `ux -> -> # *U &U _CONFIGURED_EFFECT_NUMBER `ui `ux -> -> 1 `i `uc ]
+[; ;app_device_joystick.c: 610: break;
+"610
+[e $U 750  ]
+[; ;app_device_joystick.c: 611: case 2:
+"611
+[e :U 753 ]
+[; ;app_device_joystick.c: 612: set_get_effect_structure.PID_BLOCK_LOAD_REPORT.report_id=2;
+"612
+[e = . . _set_get_effect_structure 1 0 -> -> 2 `i `uc ]
+[; ;app_device_joystick.c: 613: set_get_effect_structure.PID_BLOCK_LOAD_REPORT.effect_block_index=2;
+"613
+[e = . . _set_get_effect_structure 1 1 -> -> 2 `i `uc ]
+[; ;app_device_joystick.c: 614: set_get_effect_structure.PID_BLOCK_LOAD_REPORT.block_load_status=1;
+"614
+[e = . . _set_get_effect_structure 1 2 -> -> 1 `i `uc ]
+[; ;app_device_joystick.c: 615: set_get_effect_structure.PID_BLOCK_LOAD_REPORT.ram_pool_available=0xFFFF;
+"615
+[e = . . _set_get_effect_structure 1 3 -> -> 65535 `ui `i ]
+[; ;app_device_joystick.c: 617: CONFIGURED_EFFECT_NUMBER[1]=1;
+"617
+[e = *U + &U _CONFIGURED_EFFECT_NUMBER * -> -> -> 1 `i `ui `ux -> -> # *U &U _CONFIGURED_EFFECT_NUMBER `ui `ux -> -> 1 `i `uc ]
+[; ;app_device_joystick.c: 619: break;
+"619
+[e $U 750  ]
+[; ;app_device_joystick.c: 620: case 3:
+"620
+[e :U 754 ]
+[; ;app_device_joystick.c: 621: set_get_effect_structure.PID_BLOCK_LOAD_REPORT.report_id=2;
+"621
+[e = . . _set_get_effect_structure 1 0 -> -> 2 `i `uc ]
+[; ;app_device_joystick.c: 622: set_get_effect_structure.PID_BLOCK_LOAD_REPORT.effect_block_index=3;
+"622
+[e = . . _set_get_effect_structure 1 1 -> -> 3 `i `uc ]
+[; ;app_device_joystick.c: 623: set_get_effect_structure.PID_BLOCK_LOAD_REPORT.block_load_status=1;
+"623
+[e = . . _set_get_effect_structure 1 2 -> -> 1 `i `uc ]
+[; ;app_device_joystick.c: 624: set_get_effect_structure.PID_BLOCK_LOAD_REPORT.ram_pool_available=0xFFFF;
+"624
+[e = . . _set_get_effect_structure 1 3 -> -> 65535 `ui `i ]
+[; ;app_device_joystick.c: 626: CONFIGURED_EFFECT_NUMBER[2]=1;
+"626
+[e = *U + &U _CONFIGURED_EFFECT_NUMBER * -> -> -> 2 `i `ui `ux -> -> # *U &U _CONFIGURED_EFFECT_NUMBER `ui `ux -> -> 1 `i `uc ]
+[; ;app_device_joystick.c: 628: break;
+"628
+[e $U 750  ]
+[; ;app_device_joystick.c: 629: case 4:
+"629
+[e :U 755 ]
+[; ;app_device_joystick.c: 630: set_get_effect_structure.PID_BLOCK_LOAD_REPORT.report_id=2;
+"630
+[e = . . _set_get_effect_structure 1 0 -> -> 2 `i `uc ]
+[; ;app_device_joystick.c: 631: set_get_effect_structure.PID_BLOCK_LOAD_REPORT.effect_block_index=4;
+"631
+[e = . . _set_get_effect_structure 1 1 -> -> 4 `i `uc ]
+[; ;app_device_joystick.c: 632: set_get_effect_structure.PID_BLOCK_LOAD_REPORT.block_load_status=1;
+"632
+[e = . . _set_get_effect_structure 1 2 -> -> 1 `i `uc ]
+[; ;app_device_joystick.c: 633: set_get_effect_structure.PID_BLOCK_LOAD_REPORT.ram_pool_available=0xFFFF;
+"633
+[e = . . _set_get_effect_structure 1 3 -> -> 65535 `ui `i ]
+[; ;app_device_joystick.c: 635: CONFIGURED_EFFECT_NUMBER[3]=1;
+"635
+[e = *U + &U _CONFIGURED_EFFECT_NUMBER * -> -> -> 3 `i `ui `ux -> -> # *U &U _CONFIGURED_EFFECT_NUMBER `ui `ux -> -> 1 `i `uc ]
+[; ;app_device_joystick.c: 637: break;
+"637
+[e $U 750  ]
+[; ;app_device_joystick.c: 638: case 5:
+"638
+[e :U 756 ]
+[; ;app_device_joystick.c: 639: set_get_effect_structure.PID_BLOCK_LOAD_REPORT.report_id=2;
+"639
+[e = . . _set_get_effect_structure 1 0 -> -> 2 `i `uc ]
+[; ;app_device_joystick.c: 640: set_get_effect_structure.PID_BLOCK_LOAD_REPORT.effect_block_index=5;
+"640
+[e = . . _set_get_effect_structure 1 1 -> -> 5 `i `uc ]
+[; ;app_device_joystick.c: 641: set_get_effect_structure.PID_BLOCK_LOAD_REPORT.block_load_status=1;
+"641
+[e = . . _set_get_effect_structure 1 2 -> -> 1 `i `uc ]
+[; ;app_device_joystick.c: 642: set_get_effect_structure.PID_BLOCK_LOAD_REPORT.ram_pool_available=0xFFFF;
+"642
+[e = . . _set_get_effect_structure 1 3 -> -> 65535 `ui `i ]
+[; ;app_device_joystick.c: 644: CONFIGURED_EFFECT_NUMBER[4]=1;
+"644
+[e = *U + &U _CONFIGURED_EFFECT_NUMBER * -> -> -> 4 `i `ui `ux -> -> # *U &U _CONFIGURED_EFFECT_NUMBER `ui `ux -> -> 1 `i `uc ]
+[; ;app_device_joystick.c: 646: break;
+"646
+[e $U 750  ]
+[; ;app_device_joystick.c: 647: case 6:
+"647
+[e :U 757 ]
+[; ;app_device_joystick.c: 648: set_get_effect_structure.PID_BLOCK_LOAD_REPORT.report_id=2;
+"648
+[e = . . _set_get_effect_structure 1 0 -> -> 2 `i `uc ]
+[; ;app_device_joystick.c: 649: set_get_effect_structure.PID_BLOCK_LOAD_REPORT.effect_block_index=6;
+"649
+[e = . . _set_get_effect_structure 1 1 -> -> 6 `i `uc ]
+[; ;app_device_joystick.c: 650: set_get_effect_structure.PID_BLOCK_LOAD_REPORT.block_load_status=1;
+"650
+[e = . . _set_get_effect_structure 1 2 -> -> 1 `i `uc ]
+[; ;app_device_joystick.c: 651: set_get_effect_structure.PID_BLOCK_LOAD_REPORT.ram_pool_available=0xFFFF;
+"651
+[e = . . _set_get_effect_structure 1 3 -> -> 65535 `ui `i ]
+[; ;app_device_joystick.c: 653: CONFIGURED_EFFECT_NUMBER[5]=1;
+"653
+[e = *U + &U _CONFIGURED_EFFECT_NUMBER * -> -> -> 5 `i `ui `ux -> -> # *U &U _CONFIGURED_EFFECT_NUMBER `ui `ux -> -> 1 `i `uc ]
+[; ;app_device_joystick.c: 655: break;
+"655
+[e $U 750  ]
+[; ;app_device_joystick.c: 656: case 7:
+"656
+[e :U 758 ]
+[; ;app_device_joystick.c: 657: set_get_effect_structure.PID_BLOCK_LOAD_REPORT.report_id=2;
+"657
+[e = . . _set_get_effect_structure 1 0 -> -> 2 `i `uc ]
+[; ;app_device_joystick.c: 658: set_get_effect_structure.PID_BLOCK_LOAD_REPORT.effect_block_index=7;
+"658
+[e = . . _set_get_effect_structure 1 1 -> -> 7 `i `uc ]
+[; ;app_device_joystick.c: 659: set_get_effect_structure.PID_BLOCK_LOAD_REPORT.block_load_status=1;
+"659
+[e = . . _set_get_effect_structure 1 2 -> -> 1 `i `uc ]
+[; ;app_device_joystick.c: 660: set_get_effect_structure.PID_BLOCK_LOAD_REPORT.ram_pool_available=0xFFFF;
+"660
+[e = . . _set_get_effect_structure 1 3 -> -> 65535 `ui `i ]
+[; ;app_device_joystick.c: 662: CONFIGURED_EFFECT_NUMBER[6]=1;
+"662
+[e = *U + &U _CONFIGURED_EFFECT_NUMBER * -> -> -> 6 `i `ui `ux -> -> # *U &U _CONFIGURED_EFFECT_NUMBER `ui `ux -> -> 1 `i `uc ]
+[; ;app_device_joystick.c: 664: break;
+"664
+[e $U 750  ]
+[; ;app_device_joystick.c: 665: case 8:
+"665
+[e :U 759 ]
+[; ;app_device_joystick.c: 666: set_get_effect_structure.PID_BLOCK_LOAD_REPORT.report_id=2;
+"666
+[e = . . _set_get_effect_structure 1 0 -> -> 2 `i `uc ]
+[; ;app_device_joystick.c: 667: set_get_effect_structure.PID_BLOCK_LOAD_REPORT.effect_block_index=8;
+"667
+[e = . . _set_get_effect_structure 1 1 -> -> 8 `i `uc ]
+[; ;app_device_joystick.c: 668: set_get_effect_structure.PID_BLOCK_LOAD_REPORT.block_load_status=1;
+"668
+[e = . . _set_get_effect_structure 1 2 -> -> 1 `i `uc ]
+[; ;app_device_joystick.c: 669: set_get_effect_structure.PID_BLOCK_LOAD_REPORT.ram_pool_available=0xFFFF;
+"669
+[e = . . _set_get_effect_structure 1 3 -> -> 65535 `ui `i ]
+[; ;app_device_joystick.c: 671: CONFIGURED_EFFECT_NUMBER[7]=1;
+"671
+[e = *U + &U _CONFIGURED_EFFECT_NUMBER * -> -> -> 7 `i `ui `ux -> -> # *U &U _CONFIGURED_EFFECT_NUMBER `ui `ux -> -> 1 `i `uc ]
+[; ;app_device_joystick.c: 673: break;
+"673
+[e $U 750  ]
+[; ;app_device_joystick.c: 674: case 9:
+"674
+[e :U 760 ]
+[; ;app_device_joystick.c: 675: set_get_effect_structure.PID_BLOCK_LOAD_REPORT.report_id=2;
+"675
+[e = . . _set_get_effect_structure 1 0 -> -> 2 `i `uc ]
+[; ;app_device_joystick.c: 676: set_get_effect_structure.PID_BLOCK_LOAD_REPORT.effect_block_index=9;
+"676
+[e = . . _set_get_effect_structure 1 1 -> -> 9 `i `uc ]
+[; ;app_device_joystick.c: 677: set_get_effect_structure.PID_BLOCK_LOAD_REPORT.block_load_status=1;
+"677
+[e = . . _set_get_effect_structure 1 2 -> -> 1 `i `uc ]
+[; ;app_device_joystick.c: 678: set_get_effect_structure.PID_BLOCK_LOAD_REPORT.ram_pool_available=0xFFFF;
+"678
+[e = . . _set_get_effect_structure 1 3 -> -> 65535 `ui `i ]
+[; ;app_device_joystick.c: 680: CONFIGURED_EFFECT_NUMBER[8]=1;
+"680
+[e = *U + &U _CONFIGURED_EFFECT_NUMBER * -> -> -> 8 `i `ui `ux -> -> # *U &U _CONFIGURED_EFFECT_NUMBER `ui `ux -> -> 1 `i `uc ]
+[; ;app_device_joystick.c: 682: break;
+"682
+[e $U 750  ]
+[; ;app_device_joystick.c: 683: case 10:
+"683
+[e :U 761 ]
+[; ;app_device_joystick.c: 684: set_get_effect_structure.PID_BLOCK_LOAD_REPORT.report_id=2;
+"684
+[e = . . _set_get_effect_structure 1 0 -> -> 2 `i `uc ]
+[; ;app_device_joystick.c: 685: set_get_effect_structure.PID_BLOCK_LOAD_REPORT.effect_block_index=10;
+"685
+[e = . . _set_get_effect_structure 1 1 -> -> 10 `i `uc ]
+[; ;app_device_joystick.c: 686: set_get_effect_structure.PID_BLOCK_LOAD_REPORT.block_load_status=1;
+"686
+[e = . . _set_get_effect_structure 1 2 -> -> 1 `i `uc ]
+[; ;app_device_joystick.c: 687: set_get_effect_structure.PID_BLOCK_LOAD_REPORT.ram_pool_available=0xFFFF;
+"687
+[e = . . _set_get_effect_structure 1 3 -> -> 65535 `ui `i ]
+[; ;app_device_joystick.c: 689: CONFIGURED_EFFECT_NUMBER[9]=1;
+"689
+[e = *U + &U _CONFIGURED_EFFECT_NUMBER * -> -> -> 9 `i `ui `ux -> -> # *U &U _CONFIGURED_EFFECT_NUMBER `ui `ux -> -> 1 `i `uc ]
+[; ;app_device_joystick.c: 691: break;
+"691
+[e $U 750  ]
+[; ;app_device_joystick.c: 692: case 11:
+"692
+[e :U 762 ]
+[; ;app_device_joystick.c: 693: set_get_effect_structure.PID_BLOCK_LOAD_REPORT.report_id=2;
+"693
+[e = . . _set_get_effect_structure 1 0 -> -> 2 `i `uc ]
+[; ;app_device_joystick.c: 694: set_get_effect_structure.PID_BLOCK_LOAD_REPORT.effect_block_index=11;
+"694
+[e = . . _set_get_effect_structure 1 1 -> -> 11 `i `uc ]
+[; ;app_device_joystick.c: 695: set_get_effect_structure.PID_BLOCK_LOAD_REPORT.block_load_status=1;
+"695
+[e = . . _set_get_effect_structure 1 2 -> -> 1 `i `uc ]
+[; ;app_device_joystick.c: 696: set_get_effect_structure.PID_BLOCK_LOAD_REPORT.ram_pool_available=0xFFFF;
+"696
+[e = . . _set_get_effect_structure 1 3 -> -> 65535 `ui `i ]
+[; ;app_device_joystick.c: 698: CONFIGURED_EFFECT_NUMBER[10]=1;
+"698
+[e = *U + &U _CONFIGURED_EFFECT_NUMBER * -> -> -> 10 `i `ui `ux -> -> # *U &U _CONFIGURED_EFFECT_NUMBER `ui `ux -> -> 1 `i `uc ]
+[; ;app_device_joystick.c: 700: break;
+"700
+[e $U 750  ]
+[; ;app_device_joystick.c: 701: case 12:
+"701
+[e :U 763 ]
+[; ;app_device_joystick.c: 702: set_get_effect_structure.PID_BLOCK_LOAD_REPORT.report_id=2;
+"702
+[e = . . _set_get_effect_structure 1 0 -> -> 2 `i `uc ]
+[; ;app_device_joystick.c: 703: set_get_effect_structure.PID_BLOCK_LOAD_REPORT.effect_block_index=0;
+"703
+[e = . . _set_get_effect_structure 1 1 -> -> 0 `i `uc ]
+[; ;app_device_joystick.c: 704: set_get_effect_structure.PID_BLOCK_LOAD_REPORT.block_load_status=3;
+"704
+[e = . . _set_get_effect_structure 1 2 -> -> 3 `i `uc ]
+[; ;app_device_joystick.c: 705: set_get_effect_structure.PID_BLOCK_LOAD_REPORT.ram_pool_available=0x0000;
+"705
+[e = . . _set_get_effect_structure 1 3 -> 0 `i ]
+[; ;app_device_joystick.c: 707: CONFIGURED_EFFECT_NUMBER[11]=0;
+"707
+[e = *U + &U _CONFIGURED_EFFECT_NUMBER * -> -> -> 11 `i `ui `ux -> -> # *U &U _CONFIGURED_EFFECT_NUMBER `ui `ux -> -> 0 `i `uc ]
+[; ;app_device_joystick.c: 709: break;
+"709
+[e $U 750  ]
+"710
+}
+[; ;app_device_joystick.c: 710: }
+[e $U 750  ]
+"599
+[e :U 751 ]
+[e [\ . . _set_get_effect_structure 0 1 , $ -> -> 1 `i `uc 752
+ , $ -> -> 2 `i `uc 753
+ , $ -> -> 3 `i `uc 754
+ , $ -> -> 4 `i `uc 755
+ , $ -> -> 5 `i `uc 756
+ , $ -> -> 6 `i `uc 757
+ , $ -> -> 7 `i `uc 758
+ , $ -> -> 8 `i `uc 759
+ , $ -> -> 9 `i `uc 760
+ , $ -> -> 10 `i `uc 761
+ , $ -> -> 11 `i `uc 762
+ , $ -> -> 12 `i `uc 763
+ 750 ]
+"710
+[e :U 750 ]
+[; ;app_device_joystick.c: 711: }
+"711
+[e :UE 749 ]
+}
+"712
+[v _USBSendPIDBlockLoadReport `(v ~T0 @X0 1 ef ]
+"713
+{
+[; ;app_device_joystick.c: 712: void USBSendPIDBlockLoadReport(void)
+[; ;app_device_joystick.c: 713: {
 [e :U _USBSendPIDBlockLoadReport ]
 [f ]
-[; ;app_device_joystick.c: 661: { inPipes[0].pSrc.bRam = (uint8_t*)&set_get_effect_structure.PID_BLOCK_LOAD_REPORT; inPipes[0].wCount.Val = 5; inPipes[0].info.Val = 0x01 | 0x80 | 0x01; };
-"661
+[; ;app_device_joystick.c: 736: { inPipes[0].pSrc.bRam = (uint8_t*)&set_get_effect_structure.PID_BLOCK_LOAD_REPORT; inPipes[0].wCount.Val = 5; inPipes[0].info.Val = 0x01 | 0x80 | 0x01; };
+"736
 {
 [e = . . *U + &U _inPipes * -> -> -> 0 `i `ui `ux -> -> # *U &U _inPipes `ui `ux 0 0 -> &U . _set_get_effect_structure 1 `*uc ]
 [e = . . *U + &U _inPipes * -> -> -> 0 `i `ui `ux -> -> # *U &U _inPipes `ui `ux 2 0 -> -> 5 `i `ui ]
 [e = . . *U + &U _inPipes * -> -> -> 0 `i `ui `ux -> -> # *U &U _inPipes `ui `ux 1 1 -> | | -> 1 `i -> 128 `i -> 1 `i `uc ]
 }
-[; ;app_device_joystick.c: 662: }
-"662
-[e :UE 761 ]
+[; ;app_device_joystick.c: 737: }
+"737
+[e :UE 764 ]
 }
-"667
+"742
 [v _USBSetDataEffect `(v ~T0 @X0 1 ef ]
-"668
+"743
 {
-[; ;app_device_joystick.c: 667: void USBSetDataEffect(void)
-[; ;app_device_joystick.c: 668: {
+[; ;app_device_joystick.c: 742: void USBSetDataEffect(void)
+[; ;app_device_joystick.c: 743: {
 [e :U _USBSetDataEffect ]
 [f ]
-[; ;app_device_joystick.c: 682: }
-"682
-[e :UE 762 ]
+[; ;app_device_joystick.c: 757: }
+"757
+[e :UE 765 ]
+}
+"759
+[v _USER_SET_REPORT_HANDLER `(v ~T0 @X0 1 ef ]
+"760
+{
+[; ;app_device_joystick.c: 759: void USER_SET_REPORT_HANDLER(void)
+[; ;app_device_joystick.c: 760: {
+[e :U _USER_SET_REPORT_HANDLER ]
+[f ]
+[; ;app_device_joystick.c: 778: switch(SetupPkt.W_Value.byte.LB)
+"778
+[e $U 768  ]
+[; ;app_device_joystick.c: 779: {
+"779
+{
+[; ;app_device_joystick.c: 780: case 0x01:
+"780
+[e :U 769 ]
+[; ;app_device_joystick.c: 783: if(SetupPkt.W_Value.byte.HB==0x02)
+"783
+[e $ ! == -> . . . . _SetupPkt 1 2 2 1 `i -> 2 `i 770  ]
+[; ;app_device_joystick.c: 784: {
+"784
+{
+[; ;app_device_joystick.c: 786: {outPipes[0].pDst.bRam = (uint8_t*)&ReceivedDataBuffer[0];outPipes[0].wCount.Val = SetupPkt.wLength;outPipes[0].pFunc = USBSetDataEffect;outPipes[0].info.bits.busy = 1; };
+"786
+{
+[e = . . *U + &U _outPipes * -> -> -> 0 `i `ui `ux -> -> # *U &U _outPipes `ui `ux 0 0 &U *U + &U _ReceivedDataBuffer * -> -> -> 0 `i `ui `ux -> -> # *U &U _ReceivedDataBuffer `ui `ux ]
+[e = . . *U + &U _outPipes * -> -> -> 0 `i `ui `ux -> -> # *U &U _outPipes `ui `ux 2 0 . . _SetupPkt 0 4 ]
+[e = . *U + &U _outPipes * -> -> -> 0 `i `ui `ux -> -> # *U &U _outPipes `ui `ux 3 &U _USBSetDataEffect ]
+[e = . . . *U + &U _outPipes * -> -> -> 0 `i `ui `ux -> -> # *U &U _outPipes `ui `ux 1 0 1 -> -> 1 `i `uc ]
+}
+"787
+}
+[e :U 770 ]
+[; ;app_device_joystick.c: 787: }
+[; ;app_device_joystick.c: 789: if(SetupPkt.W_Value.byte.HB==0x03)
+"789
+[e $ ! == -> . . . . _SetupPkt 1 2 2 1 `i -> 3 `i 771  ]
+[; ;app_device_joystick.c: 790: {
+"790
+{
+[; ;app_device_joystick.c: 792: {outPipes[0].pDst.bRam = (uint8_t*)&ReceivedDataBuffer[0];outPipes[0].wCount.Val = SetupPkt.wLength;outPipes[0].pFunc = USBSetEffect;outPipes[0].info.bits.busy = 1; };
+"792
+{
+[e = . . *U + &U _outPipes * -> -> -> 0 `i `ui `ux -> -> # *U &U _outPipes `ui `ux 0 0 &U *U + &U _ReceivedDataBuffer * -> -> -> 0 `i `ui `ux -> -> # *U &U _ReceivedDataBuffer `ui `ux ]
+[e = . . *U + &U _outPipes * -> -> -> 0 `i `ui `ux -> -> # *U &U _outPipes `ui `ux 2 0 . . _SetupPkt 0 4 ]
+[e = . *U + &U _outPipes * -> -> -> 0 `i `ui `ux -> -> # *U &U _outPipes `ui `ux 3 &U _USBSetEffect ]
+[e = . . . *U + &U _outPipes * -> -> -> 0 `i `ui `ux -> -> # *U &U _outPipes `ui `ux 1 0 1 -> -> 1 `i `uc ]
+}
+"793
+}
+[e :U 771 ]
+[; ;app_device_joystick.c: 793: }
+[; ;app_device_joystick.c: 794: break;
+"794
+[e $U 767  ]
+"795
+}
+[; ;app_device_joystick.c: 795: }
+[e $U 767  ]
+"778
+[e :U 768 ]
+[e [\ . . . . _SetupPkt 1 2 2 0 , $ -> -> 1 `i `uc 769
+ 767 ]
+"795
+[e :U 767 ]
+[; ;app_device_joystick.c: 796: }
+"796
+[e :UE 766 ]
 }
