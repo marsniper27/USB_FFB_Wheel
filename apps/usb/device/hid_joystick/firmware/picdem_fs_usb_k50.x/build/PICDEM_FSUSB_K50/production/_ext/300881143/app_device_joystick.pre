@@ -8267,8 +8267,8 @@ if(!((USBOutHandle != 0x0000) && ((*(volatile uint8_t*)USBOutHandle & 0x80) != 0
 {
 
 USBSetEffect();
+USBSendPIDBlockLoadReport();
 
-USBInHandle = USBTransferOnePacket(1,1,(uint8_t*)&ToSendDataBuffer[0],64);
 
 
 

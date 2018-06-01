@@ -629,7 +629,7 @@ PEDAL_CLUTCH 3
 [s S2011 . 1270 `[1270]uc 1 report 1270 0 ]
 "249
 [v _hid_rpt01 hid_rpt01 `CS2011  1 e 1270 0 ]
-[s S2946 . 1 `uc 1 ANSA0 1 0 :1:0 
+[s S2947 . 1 `uc 1 ANSA0 1 0 :1:0 
 `uc 1 ANSA1 1 0 :1:1 
 `uc 1 ANSA2 1 0 :1:2 
 `uc 1 ANSA3 1 0 :1:3 
@@ -637,8 +637,8 @@ PEDAL_CLUTCH 3
 `uc 1 ANSA5 1 0 :1:5 
 ]
 "245 C:\Program Files (x86)\Microchip\xc8\v1.45\include\pic18f45k50.h
-[u S2953 . 1 `S2946 1 . 1 0 ]
-[v _ANSELAbits ANSELAbits `VES2953  1 e 1 @3931 ]
+[u S2954 . 1 `S2947 1 . 1 0 ]
+[v _ANSELAbits ANSELAbits `VES2954  1 e 1 @3931 ]
 [s S168 . 1 `uc 1 ANSB0 1 0 :1:0 
 `uc 1 ANSB1 1 0 :1:1 
 `uc 1 ANSB2 1 0 :1:2 
@@ -735,7 +735,7 @@ PEDAL_CLUTCH 3
 [v _UEP0bits UEP0bits `VES874  1 e 1 @3946 ]
 "1154
 [v _UEP1 UEP1 `VEuc  1 e 1 @3947 ]
-[s S2915 . 1 `uc 1 RA0 1 0 :1:0 
+[s S2916 . 1 `uc 1 RA0 1 0 :1:0 
 `uc 1 RA1 1 0 :1:1 
 `uc 1 RA2 1 0 :1:2 
 `uc 1 RA3 1 0 :1:3 
@@ -745,7 +745,7 @@ PEDAL_CLUTCH 3
 `uc 1 RA7 1 0 :1:7 
 ]
 "2941
-[s S3008 . 1 `uc 1 AN0 1 0 :1:0 
+[s S3009 . 1 `uc 1 AN0 1 0 :1:0 
 `uc 1 AN1 1 0 :1:1 
 `uc 1 AN2 1 0 :1:2 
 `uc 1 AN3 1 0 :1:3 
@@ -753,21 +753,21 @@ PEDAL_CLUTCH 3
 `uc 1 AN4 1 0 :1:5 
 `uc 1 OSC2 1 0 :1:6 
 ]
-[s S3016 . 1 `uc 1 . 1 0 :2:0 
+[s S3017 . 1 `uc 1 . 1 0 :2:0 
 `uc 1 VREFM 1 0 :1:2 
 `uc 1 VREFP 1 0 :1:3 
 `uc 1 . 1 0 :1:4 
 `uc 1 LVDIN 1 0 :1:5 
 ]
-[s S3022 . 1 `uc 1 . 1 0 :5:0 
+[s S3023 . 1 `uc 1 . 1 0 :5:0 
 `uc 1 HLVDIN 1 0 :1:5 
 ]
-[s S3025 . 1 `uc 1 ULPWUIN 1 0 :1:0 
+[s S3026 . 1 `uc 1 ULPWUIN 1 0 :1:0 
 `uc 1 . 1 0 :6:1 
 `uc 1 RJPU 1 0 :1:7 
 ]
-[u S3029 . 1 `S2915 1 . 1 0 `S3008 1 . 1 0 `S3016 1 . 1 0 `S3022 1 . 1 0 `S3025 1 . 1 0 ]
-[v _PORTAbits PORTAbits `VES3029  1 e 1 @3968 ]
+[u S3030 . 1 `S2916 1 . 1 0 `S3009 1 . 1 0 `S3017 1 . 1 0 `S3023 1 . 1 0 `S3026 1 . 1 0 ]
+[v _PORTAbits PORTAbits `VES3030  1 e 1 @3968 ]
 [s S36 . 1 `uc 1 RB0 1 0 :1:0 
 `uc 1 RB1 1 0 :1:1 
 `uc 1 RB2 1 0 :1:2 
@@ -836,7 +836,7 @@ PEDAL_CLUTCH 3
 ]
 [u S320 . 1 `S302 1 . 1 0 `S311 1 . 1 0 ]
 [v _LATDbits LATDbits `VES320  1 e 1 @3980 ]
-[s S2906 . 1 `uc 1 TRISA0 1 0 :1:0 
+[s S2907 . 1 `uc 1 TRISA0 1 0 :1:0 
 `uc 1 TRISA1 1 0 :1:1 
 `uc 1 TRISA2 1 0 :1:2 
 `uc 1 TRISA3 1 0 :1:3 
@@ -846,8 +846,8 @@ PEDAL_CLUTCH 3
 `uc 1 TRISA7 1 0 :1:7 
 ]
 "4656
-[u S2924 . 1 `S2906 1 . 1 0 `S2915 1 . 1 0 ]
-[v _TRISAbits TRISAbits `VES2924  1 e 1 @3986 ]
+[u S2925 . 1 `S2907 1 . 1 0 `S2916 1 . 1 0 ]
+[v _TRISAbits TRISAbits `VES2925  1 e 1 @3986 ]
 [s S128 . 1 `uc 1 TRISB0 1 0 :1:0 
 `uc 1 TRISB1 1 0 :1:1 
 `uc 1 TRISB2 1 0 :1:2 
@@ -903,50 +903,50 @@ PEDAL_CLUTCH 3
 [v _PIR3bits PIR3bits `VES706  1 e 1 @4004 ]
 "8208
 [v _ACTCON ACTCON `VEuc  1 e 1 @4021 ]
-[s S2963 . 1 `uc 1 NVCFG 1 0 :2:0 
+[s S2964 . 1 `uc 1 NVCFG 1 0 :2:0 
 `uc 1 PVCFG 1 0 :2:2 
 `uc 1 . 1 0 :3:4 
 `uc 1 TRIGSEL 1 0 :1:7 
 ]
 "9728
-[s S2968 . 1 `uc 1 NVCFG0 1 0 :1:0 
+[s S2969 . 1 `uc 1 NVCFG0 1 0 :1:0 
 `uc 1 NVCFG1 1 0 :1:1 
 `uc 1 PVCFG0 1 0 :1:2 
 `uc 1 PVCFG1 1 0 :1:3 
 ]
-[s S2973 . 1 `uc 1 . 1 0 :3:0 
+[s S2974 . 1 `uc 1 . 1 0 :3:0 
 `uc 1 CHSN3 1 0 :1:3 
 ]
-[u S2976 . 1 `S2963 1 . 1 0 `S2968 1 . 1 0 `S2973 1 . 1 0 ]
-[v _ADCON1bits ADCON1bits `VES2976  1 e 1 @4033 ]
-[s S2837 . 1 `uc 1 . 1 0 :1:0 
+[u S2977 . 1 `S2964 1 . 1 0 `S2969 1 . 1 0 `S2974 1 . 1 0 ]
+[v _ADCON1bits ADCON1bits `VES2977  1 e 1 @4033 ]
+[s S2838 . 1 `uc 1 . 1 0 :1:0 
 `uc 1 GO_NOT_DONE 1 0 :1:1 
 ]
 "9813
-[s S2840 . 1 `uc 1 ADON 1 0 :1:0 
+[s S2841 . 1 `uc 1 ADON 1 0 :1:0 
 `uc 1 GO_nDONE 1 0 :1:1 
 `uc 1 CHS 1 0 :5:2 
 ]
-[s S2844 . 1 `uc 1 . 1 0 :1:0 
+[s S2845 . 1 `uc 1 . 1 0 :1:0 
 `uc 1 DONE 1 0 :1:1 
 ]
-[s S2847 . 1 `uc 1 . 1 0 :1:0 
+[s S2848 . 1 `uc 1 . 1 0 :1:0 
 `uc 1 GO 1 0 :1:1 
 ]
-[s S2850 . 1 `uc 1 . 1 0 :1:0 
+[s S2851 . 1 `uc 1 . 1 0 :1:0 
 `uc 1 NOT_DONE 1 0 :1:1 
 ]
-[s S2853 . 1 `uc 1 . 1 0 :1:0 
+[s S2854 . 1 `uc 1 . 1 0 :1:0 
 `uc 1 nDONE 1 0 :1:1 
 ]
-[s S2856 . 1 `uc 1 . 1 0 :1:0 
+[s S2857 . 1 `uc 1 . 1 0 :1:0 
 `uc 1 GODONE 1 0 :1:1 
 ]
-[s S2859 . 1 `uc 1 . 1 0 :1:0 
+[s S2860 . 1 `uc 1 . 1 0 :1:0 
 `uc 1 GO_DONE 1 0 :1:1 
 ]
-[u S2862 . 1 `S2837 1 . 1 0 `S2840 1 . 1 0 `S2844 1 . 1 0 `S2847 1 . 1 0 `S2850 1 . 1 0 `S2853 1 . 1 0 `S2856 1 . 1 0 `S2859 1 . 1 0 ]
-[v _ADCON0bits ADCON0bits `VES2862  1 e 1 @4034 ]
+[u S2863 . 1 `S2838 1 . 1 0 `S2841 1 . 1 0 `S2845 1 . 1 0 `S2848 1 . 1 0 `S2851 1 . 1 0 `S2854 1 . 1 0 `S2857 1 . 1 0 `S2860 1 . 1 0 ]
+[v _ADCON0bits ADCON0bits `VES2863  1 e 1 @4034 ]
 "9868
 [v _ADRESL ADRESL `VEuc  1 e 1 @4035 ]
 "12292
@@ -1165,11 +1165,6 @@ PEDAL_CLUTCH 3
 [v _USER_GET_REPORT_HANDLER USER_GET_REPORT_HANDLER `(v  1 e 1 0 ]
 {
 "349
-} 0
-"702 C:\Users\kyle.marshall\MPLABXProjects\USB_FFB_Wheel.X\apps\usb\device\hid_joystick\firmware/demo_src/app_device_joystick.c
-[v _USBSendPIDBlockLoadReport USBSendPIDBlockLoadReport `(v  1 e 1 0 ]
-{
-"727
 } 0
 "79 C:\Users\kyle.marshall\MPLABXProjects\USB_FFB_Wheel.X\apps\usb\device\hid_joystick\firmware\picdem_fs_usb_k50.x\system.c
 [v _SYSTEM_Initialize SYSTEM_Initialize `(v  1 e 1 0 ]
@@ -1392,6 +1387,11 @@ PEDAL_CLUTCH 3
 "1007
 [v USBTransferOnePacket@ep ep `uc  1 a 1 0 ]
 "1054
+} 0
+"702 C:\Users\kyle.marshall\MPLABXProjects\USB_FFB_Wheel.X\apps\usb\device\hid_joystick\firmware/demo_src/app_device_joystick.c
+[v _USBSendPIDBlockLoadReport USBSendPIDBlockLoadReport `(v  1 e 1 0 ]
+{
+"727
 } 0
 "232 C:/Users/kyle.marshall/MPLABXProjects/USB_FFB_Wheel.X/framework/usb/inc/wheel.c
 [v _PEDAL_Position PEDAL_Position `(uc  1 e 1 0 ]

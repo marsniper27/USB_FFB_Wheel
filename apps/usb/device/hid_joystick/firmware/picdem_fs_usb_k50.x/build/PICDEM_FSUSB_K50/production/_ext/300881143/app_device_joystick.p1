@@ -45,6 +45,8 @@ Version 3.2 HI-TECH Software Intermediate Code
 [v _UCONbits `VS62 ~T0 @X0 0 e@3936 ]
 "315 ../../../../../../framework/usb/inc\usb_device_hid.h
 [v _USBSetEffect `(v ~T0 @X0 0 ef ]
+"313
+[v _USBSendPIDBlockLoadReport `(v ~T0 @X0 0 ef ]
 "394 ../demo_src/app_device_joystick.c
 [c E6374 0 1 2 3 4 5 6 7 8 9 10 11 12 13 .. ]
 [n E6374 . BUTTON_NONE BUTTON_S2 BUTTON_S3 BUTTON_S4 BUTTON_S5 BUTTON_S6 BUTTON_S7 BUTTON_S8 BUTTON_S9 BUTTON_S10 BUTTON_S11 BUTTON_S12 BUTTON_S13 BUTTON_S14  ]
@@ -6337,9 +6339,9 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;app_device_joystick.c: 331: USBSetEffect();
 "331
 [e ( _USBSetEffect ..  ]
-[; ;app_device_joystick.c: 333: USBInHandle = USBTransferOnePacket(1,1,(uint8_t*)&ToSendDataBuffer[0],64);
-"333
-[e = _USBInHandle -> ( _USBTransferOnePacket (4 , , , -> -> 1 `i `uc -> -> 1 `i `uc &U *U + &U _ToSendDataBuffer * -> -> -> 0 `i `ui `ux -> -> # *U &U _ToSendDataBuffer `ui `ux -> -> 64 `i `uc `*Vv ]
+[; ;app_device_joystick.c: 332: USBSendPIDBlockLoadReport();
+"332
+[e ( _USBSendPIDBlockLoadReport ..  ]
 [; ;app_device_joystick.c: 337: switch(ReceivedDataBuffer[0])
 "337
 [e $U 719  ]

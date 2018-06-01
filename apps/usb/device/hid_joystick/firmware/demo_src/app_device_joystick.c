@@ -329,8 +329,8 @@ void APP_DeviceJoystickTasks(void)
     {   
         
         USBSetEffect();
-        
-        USBInHandle = HIDTxPacket(JOYSTICK_EP, (uint8_t*)&ToSendDataBuffer[0],64);//send our response
+        USBSendPIDBlockLoadReport();
+        //USBInHandle = HIDTxPacket(JOYSTICK_EP, (uint8_t*)&ToSendDataBuffer[0],64);//send our response
         //We just received a packet of data from the USB host.
         //Check the first uint8_t of the packet to see what command the host
         //application software wants us to fulfill.
