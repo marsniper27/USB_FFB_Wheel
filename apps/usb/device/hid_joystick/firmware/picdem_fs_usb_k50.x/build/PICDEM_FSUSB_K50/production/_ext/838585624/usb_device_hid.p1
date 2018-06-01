@@ -86,7 +86,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [s S685 `uc 1 `uc 1 `ui 1 `uc 1 `uc 1 ]
 [n S685 _USB_HID_DSC bLength bDescriptorType bcdHID bCountryCode bNumDsc ]
 "82 ../../../../../../framework/usb/src/usb_device_hid.c
-[s S688 `uc -> 1286 `i ]
+[s S688 `uc -> 1270 `i ]
 [n S688 . report ]
 [v _hid_rpt01 `CS688 ~T0 @X0 0 e ]
 "90
@@ -5965,7 +5965,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 "80
 [v _active_protocol `uc ~T0 @X0 1 s ]
 [; ;usb_device_hid.c: 80: static uint8_t active_protocol;
-[; ;usb_device_hid.c: 82: extern const struct{uint8_t report[1286];}hid_rpt01;
+[; ;usb_device_hid.c: 82: extern const struct{uint8_t report[1270];}hid_rpt01;
 [; ;usb_device_hid.c: 90: void USER_GET_REPORT_HANDLER(void);
 [; ;usb_device_hid.c: 94: extern void USER_SET_REPORT_HANDLER(void);
 "153
@@ -6030,11 +6030,11 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;usb_device_hid.c: 178: {
 "178
 {
-[; ;usb_device_hid.c: 179: { inPipes[0].pSrc.bRom = (const uint8_t*)&hid_rpt01; inPipes[0].wCount.Val = 1286; inPipes[0].info.Val = 0x40 | 0x80 | 0x00; };
+[; ;usb_device_hid.c: 179: { inPipes[0].pSrc.bRom = (const uint8_t*)&hid_rpt01; inPipes[0].wCount.Val = 1270; inPipes[0].info.Val = 0x40 | 0x80 | 0x00; };
 "179
 {
 [e = . . *U + &U _inPipes * -> -> -> 0 `i `ui `ux -> -> # *U &U _inPipes `ui `ux 0 1 -> &U _hid_rpt01 `*Cuc ]
-[e = . . *U + &U _inPipes * -> -> -> 0 `i `ui `ux -> -> # *U &U _inPipes `ui `ux 2 0 -> -> 1286 `i `ui ]
+[e = . . *U + &U _inPipes * -> -> -> 0 `i `ui `ux -> -> # *U &U _inPipes `ui `ux 2 0 -> -> 1270 `i `ui ]
 [e = . . *U + &U _inPipes * -> -> -> 0 `i `ui `ux -> -> # *U &U _inPipes `ui `ux 1 1 -> | | -> 64 `i -> 128 `i -> 0 `i `uc ]
 }
 "183

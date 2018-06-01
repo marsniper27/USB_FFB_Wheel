@@ -125,7 +125,7 @@ EVENT_USER_BASE 10000
 EVENT_BUS_ERROR 32767
 ]
 "73
-[e E6411 . `uc
+[e E6415 . `uc
 SYSTEM_STATE_USB_START 0
 SYSTEM_STATE_USB_SUSPEND 1
 SYSTEM_STATE_USB_RESUME 2
@@ -157,7 +157,7 @@ ADDRESS_STATE 16
 CONFIGURED_STATE 32
 ]
 "33 C:\Users\kyle.marshall\MPLABXProjects\USB_FFB_Wheel.X\apps\usb\device\hid_joystick\firmware/demo_src/main.c
-[e E6411 . `uc
+[e E6415 . `uc
 SYSTEM_STATE_USB_START 0
 SYSTEM_STATE_USB_SUSPEND 1
 SYSTEM_STATE_USB_RESUME 2
@@ -173,7 +173,7 @@ ADDRESS_STATE 16
 CONFIGURED_STATE 32
 ]
 "80 C:\Users\kyle.marshall\MPLABXProjects\USB_FFB_Wheel.X\apps\usb\device\hid_joystick\firmware\picdem_fs_usb_k50.x\system.c
-[e E6411 . `uc
+[e E6415 . `uc
 SYSTEM_STATE_USB_START 0
 SYSTEM_STATE_USB_SUSPEND 1
 SYSTEM_STATE_USB_RESUME 2
@@ -204,9 +204,16 @@ BUTTON_S13 12
 BUTTON_S14 13
 ]
 "98
-[e E6392 . `uc
+[e E6393 . `uc
 WHEEL_NONE 0
 WHEEL_W1 1
+]
+"99
+[e E6397 . `uc
+PEDAL_NONE 0
+PEDAL_GAS 1
+PEDAL_BREAK 2
+PEDAL_CLUTCH 3
 ]
 "312 C:\Users\kyle.marshall\MPLABXProjects\USB_FFB_Wheel.X\apps\usb\device\hid_joystick\firmware/demo_src/app_device_joystick.c
 [e E291 . `uc
@@ -236,26 +243,28 @@ BUTTON_S13 12
 BUTTON_S14 13
 ]
 "518
-[e E6414 . `uc
+[e E6415 . `uc
 WHEEL_NONE 0
 WHEEL_W1 1
 ]
 "519
-[e E6418 . `uc
+[e E6419 . `uc
 PEDAL_NONE 0
-PEDAL_BREAK 1
-PEDAL_CLUTCH 2
+PEDAL_GAS 1
+PEDAL_BREAK 2
+PEDAL_CLUTCH 3
 ]
-"54 C:/Users/kyle.marshall/MPLABXProjects/USB_FFB_Wheel.X/framework/usb/inc/wheel.c
-[e E5758 . `uc
+"62 C:/Users/kyle.marshall/MPLABXProjects/USB_FFB_Wheel.X/framework/usb/inc/wheel.c
+[e E5759 . `uc
 WHEEL_NONE 0
 WHEEL_W1 1
 ]
-"180
-[e E5762 . `uc
+"131
+[e E5763 . `uc
 PEDAL_NONE 0
-PEDAL_BREAK 1
-PEDAL_CLUTCH 2
+PEDAL_GAS 1
+PEDAL_BREAK 2
+PEDAL_CLUTCH 3
 ]
 "94 C:\Users\kyle.marshall\MPLABXProjects\USB_FFB_Wheel.X/bsp/picdem_fs_usb_k50/buttons.c
 [v _BUTTON_IsPressed BUTTON_IsPressed `(uc  1 e 1 0 ]
@@ -335,11 +344,13 @@ PEDAL_CLUTCH 2
 [v _main main `(v  1 e 1 0 ]
 "50 C:\Users\kyle.marshall\MPLABXProjects\USB_FFB_Wheel.X\apps\usb\device\hid_joystick\firmware/demo_src/usb_events.c
 [v _USER_USB_CALLBACK_EVENT_HANDLER USER_USB_CALLBACK_EVENT_HANDLER `(uc  1 e 1 0 ]
-"93 C:/Users/kyle.marshall/MPLABXProjects/USB_FFB_Wheel.X/framework/usb/inc/wheel.c
+"101 C:/Users/kyle.marshall/MPLABXProjects/USB_FFB_Wheel.X/framework/usb/inc/wheel.c
 [v _WHEEL_Enable WHEEL_Enable `(v  1 e 1 0 ]
-"138
+"130
+[v _PEDAL_Enable PEDAL_Enable `(v  1 e 1 0 ]
+"191
 [v _WHEEL_Test WHEEL_Test `(uc  1 e 1 0 ]
-"179
+"232
 [v _PEDAL_Position PEDAL_Position `(uc  1 e 1 0 ]
 "62 C:\Program Files (x86)\Microchip\xc8\v1.45\sources\common\float.c
 [v ___ftpack __ftpack `(f  1 e 3 0 ]
@@ -367,13 +378,15 @@ PEDAL_CLUTCH 2
 [v ___lmul __lmul `(ul  1 e 4 0 ]
 "79 C:\Users\kyle.marshall\MPLABXProjects\USB_FFB_Wheel.X\apps\usb\device\hid_joystick\firmware\picdem_fs_usb_k50.x\system.c
 [v _SYSTEM_Initialize SYSTEM_Initialize `(v  1 e 1 0 ]
-"112
+"113
 [v _SYS_InterruptHigh SYS_InterruptHigh `II(v  1 e 1 0 ]
-"19 C:\Users\kyle.marshall\MPLABXProjects\USB_FFB_Wheel.X/framework/usb/inc\wheel.h
+"20 C:\Users\kyle.marshall\MPLABXProjects\USB_FFB_Wheel.X/framework/usb/inc\wheel.h
 [v _WHEEL_Type WHEEL_Type `uc  1 e 1 0 ]
-"21
-[v _BREAK_Type BREAK_Type `uc  1 e 1 0 ]
 "23
+[v _GAS_Type GAS_Type `uc  1 e 1 0 ]
+"24
+[v _BREAK_Type BREAK_Type `uc  1 e 1 0 ]
+"25
 [v _CLUTCH_Type CLUTCH_Type `uc  1 e 1 0 ]
 "141 C:\Users\kyle.marshall\MPLABXProjects\USB_FFB_Wheel.X/framework/usb/src/usb_device.c
 [v _USBDeviceState USBDeviceState `E6102  1 e 1 0 ]
@@ -558,9 +571,9 @@ PEDAL_CLUTCH 2
 [v _ReceivedDataBuffer ReceivedDataBuffer `[64]uc  1 e 64 @1280 ]
 "247
 [v _ToSendDataBuffer ToSendDataBuffer `[64]uc  1 e 64 @1344 ]
-[s S2457 . 1 `uc 1 RID 1 0 ]
+[s S2471 . 1 `uc 1 RID 1 0 ]
 "248
-[s S2459 . 2 `uc 1 square 1 0 :1:0 
+[s S2473 . 2 `uc 1 square 1 0 :1:0 
 `uc 1 x 1 0 :1:1 
 `uc 1 o 1 0 :1:2 
 `uc 1 triangle 1 0 :1:3 
@@ -575,22 +588,22 @@ PEDAL_CLUTCH 2
 `uc 1 home 1 1 :1:4 
 `uc 1 . 1 1 :3:5 
 ]
-[s S2474 . 1 `uc 1 hat_switch 1 0 :4:0 
+[s S2488 . 1 `uc 1 hat_switch 1 0 :4:0 
 `uc 1 . 1 0 :4:4 
 ]
-[s S2477 . 8 `ui 1 X 2 0 `ui 1 Y 2 2 `ui 1 Z 2 4 `ui 1 Rz 2 6 ]
-[s S2482 . 12 `S2457 1 REPORT_ID 1 0 `S2459 1 buttons 2 1 `S2474 1 hat_switch 1 3 `S2477 1 analog_stick 8 4 ]
-[u S2487 _INTPUT_CONTROLS_TYPEDEF 12 `S2482 1 members 12 0 `[12]uc 1 val 12 0 ]
-[v _joystick_input joystick_input `S2487  1 e 12 @1344 ]
+[s S2491 . 8 `ui 1 X 2 0 `ui 1 Y 2 2 `ui 1 Z 2 4 `ui 1 Rz 2 6 ]
+[s S2496 . 12 `S2471 1 REPORT_ID 1 0 `S2473 1 buttons 2 1 `S2488 1 hat_switch 1 3 `S2491 1 analog_stick 8 4 ]
+[u S2501 _INTPUT_CONTROLS_TYPEDEF 12 `S2496 1 members 12 0 `[12]uc 1 val 12 0 ]
+[v _joystick_input joystick_input `S2501  1 e 12 @1344 ]
 "255
 [v _USBOutHandle USBOutHandle `*.39VEv  1 e 2 0 ]
 "256
 [v _USBInHandle USBInHandle `*.39VEv  1 e 2 0 ]
-[s S2490 . 3 `uc 1 report_id 1 0 `uc 1 effect_type 1 1 `uc 1 byte_count 1 2 ]
+[s S2504 . 3 `uc 1 report_id 1 0 `uc 1 effect_type 1 1 `uc 1 byte_count 1 2 ]
 "258
-[s S2494 . 5 `uc 1 report_id 1 0 `uc 1 effect_block_index 1 1 `uc 1 block_load_status 1 2 `i 1 ram_pool_available 2 3 ]
-[u S2499 _SET_GET_EFFECT_STRUCTURE 8 `S2490 1 SET_REPORT_REQUEST 3 0 `S2494 1 PID_BLOCK_LOAD_REPORT 5 0 `[8]uc 1 val 8 0 ]
-[v _set_get_effect_structure set_get_effect_structure `S2499  1 e 8 0 ]
+[s S2508 . 5 `uc 1 report_id 1 0 `uc 1 effect_block_index 1 1 `uc 1 block_load_status 1 2 `i 1 ram_pool_available 2 3 ]
+[u S2513 _SET_GET_EFFECT_STRUCTURE 8 `S2504 1 SET_REPORT_REQUEST 3 0 `S2508 1 PID_BLOCK_LOAD_REPORT 5 0 `[8]uc 1 val 8 0 ]
+[v _set_get_effect_structure set_get_effect_structure `S2513  1 e 8 0 ]
 "259
 [v _CONFIGURED_EFFECT_NUMBER CONFIGURED_EFFECT_NUMBER `[12]uc  1 e 12 0 ]
 "260
@@ -613,10 +626,10 @@ PEDAL_CLUTCH 2
 [v _USB_CD_Ptr USB_CD_Ptr `C[1]*.25Cuc  1 e 2 0 ]
 "242
 [v _USB_SD_Ptr USB_SD_Ptr `C[3]*.25Cuc  1 e 6 0 ]
-[s S2011 . 1286 `[1286]uc 1 report 1286 0 ]
+[s S2011 . 1270 `[1270]uc 1 report 1270 0 ]
 "249
-[v _hid_rpt01 hid_rpt01 `CS2011  1 e 1286 0 ]
-[s S2930 . 1 `uc 1 ANSA0 1 0 :1:0 
+[v _hid_rpt01 hid_rpt01 `CS2011  1 e 1270 0 ]
+[s S2946 . 1 `uc 1 ANSA0 1 0 :1:0 
 `uc 1 ANSA1 1 0 :1:1 
 `uc 1 ANSA2 1 0 :1:2 
 `uc 1 ANSA3 1 0 :1:3 
@@ -624,8 +637,8 @@ PEDAL_CLUTCH 2
 `uc 1 ANSA5 1 0 :1:5 
 ]
 "245 C:\Program Files (x86)\Microchip\xc8\v1.45\include\pic18f45k50.h
-[u S2937 . 1 `S2930 1 . 1 0 ]
-[v _ANSELAbits ANSELAbits `VES2937  1 e 1 @3931 ]
+[u S2953 . 1 `S2946 1 . 1 0 ]
+[v _ANSELAbits ANSELAbits `VES2953  1 e 1 @3931 ]
 [s S168 . 1 `uc 1 ANSB0 1 0 :1:0 
 `uc 1 ANSB1 1 0 :1:1 
 `uc 1 ANSB2 1 0 :1:2 
@@ -722,7 +735,7 @@ PEDAL_CLUTCH 2
 [v _UEP0bits UEP0bits `VES874  1 e 1 @3946 ]
 "1154
 [v _UEP1 UEP1 `VEuc  1 e 1 @3947 ]
-[s S2899 . 1 `uc 1 RA0 1 0 :1:0 
+[s S2915 . 1 `uc 1 RA0 1 0 :1:0 
 `uc 1 RA1 1 0 :1:1 
 `uc 1 RA2 1 0 :1:2 
 `uc 1 RA3 1 0 :1:3 
@@ -732,7 +745,7 @@ PEDAL_CLUTCH 2
 `uc 1 RA7 1 0 :1:7 
 ]
 "2941
-[s S2987 . 1 `uc 1 AN0 1 0 :1:0 
+[s S3008 . 1 `uc 1 AN0 1 0 :1:0 
 `uc 1 AN1 1 0 :1:1 
 `uc 1 AN2 1 0 :1:2 
 `uc 1 AN3 1 0 :1:3 
@@ -740,21 +753,21 @@ PEDAL_CLUTCH 2
 `uc 1 AN4 1 0 :1:5 
 `uc 1 OSC2 1 0 :1:6 
 ]
-[s S2995 . 1 `uc 1 . 1 0 :2:0 
+[s S3016 . 1 `uc 1 . 1 0 :2:0 
 `uc 1 VREFM 1 0 :1:2 
 `uc 1 VREFP 1 0 :1:3 
 `uc 1 . 1 0 :1:4 
 `uc 1 LVDIN 1 0 :1:5 
 ]
-[s S3001 . 1 `uc 1 . 1 0 :5:0 
+[s S3022 . 1 `uc 1 . 1 0 :5:0 
 `uc 1 HLVDIN 1 0 :1:5 
 ]
-[s S3004 . 1 `uc 1 ULPWUIN 1 0 :1:0 
+[s S3025 . 1 `uc 1 ULPWUIN 1 0 :1:0 
 `uc 1 . 1 0 :6:1 
 `uc 1 RJPU 1 0 :1:7 
 ]
-[u S3008 . 1 `S2899 1 . 1 0 `S2987 1 . 1 0 `S2995 1 . 1 0 `S3001 1 . 1 0 `S3004 1 . 1 0 ]
-[v _PORTAbits PORTAbits `VES3008  1 e 1 @3968 ]
+[u S3029 . 1 `S2915 1 . 1 0 `S3008 1 . 1 0 `S3016 1 . 1 0 `S3022 1 . 1 0 `S3025 1 . 1 0 ]
+[v _PORTAbits PORTAbits `VES3029  1 e 1 @3968 ]
 [s S36 . 1 `uc 1 RB0 1 0 :1:0 
 `uc 1 RB1 1 0 :1:1 
 `uc 1 RB2 1 0 :1:2 
@@ -823,7 +836,7 @@ PEDAL_CLUTCH 2
 ]
 [u S320 . 1 `S302 1 . 1 0 `S311 1 . 1 0 ]
 [v _LATDbits LATDbits `VES320  1 e 1 @3980 ]
-[s S2890 . 1 `uc 1 TRISA0 1 0 :1:0 
+[s S2906 . 1 `uc 1 TRISA0 1 0 :1:0 
 `uc 1 TRISA1 1 0 :1:1 
 `uc 1 TRISA2 1 0 :1:2 
 `uc 1 TRISA3 1 0 :1:3 
@@ -833,8 +846,8 @@ PEDAL_CLUTCH 2
 `uc 1 TRISA7 1 0 :1:7 
 ]
 "4656
-[u S2908 . 1 `S2890 1 . 1 0 `S2899 1 . 1 0 ]
-[v _TRISAbits TRISAbits `VES2908  1 e 1 @3986 ]
+[u S2924 . 1 `S2906 1 . 1 0 `S2915 1 . 1 0 ]
+[v _TRISAbits TRISAbits `VES2924  1 e 1 @3986 ]
 [s S128 . 1 `uc 1 TRISB0 1 0 :1:0 
 `uc 1 TRISB1 1 0 :1:1 
 `uc 1 TRISB2 1 0 :1:2 
@@ -890,55 +903,55 @@ PEDAL_CLUTCH 2
 [v _PIR3bits PIR3bits `VES706  1 e 1 @4004 ]
 "8208
 [v _ACTCON ACTCON `VEuc  1 e 1 @4021 ]
-[s S2947 . 1 `uc 1 NVCFG 1 0 :2:0 
+[s S2963 . 1 `uc 1 NVCFG 1 0 :2:0 
 `uc 1 PVCFG 1 0 :2:2 
 `uc 1 . 1 0 :3:4 
 `uc 1 TRIGSEL 1 0 :1:7 
 ]
 "9728
-[s S2952 . 1 `uc 1 NVCFG0 1 0 :1:0 
+[s S2968 . 1 `uc 1 NVCFG0 1 0 :1:0 
 `uc 1 NVCFG1 1 0 :1:1 
 `uc 1 PVCFG0 1 0 :1:2 
 `uc 1 PVCFG1 1 0 :1:3 
 ]
-[s S2957 . 1 `uc 1 . 1 0 :3:0 
+[s S2973 . 1 `uc 1 . 1 0 :3:0 
 `uc 1 CHSN3 1 0 :1:3 
 ]
-[u S2960 . 1 `S2947 1 . 1 0 `S2952 1 . 1 0 `S2957 1 . 1 0 ]
-[v _ADCON1bits ADCON1bits `VES2960  1 e 1 @4033 ]
-[s S2821 . 1 `uc 1 . 1 0 :1:0 
+[u S2976 . 1 `S2963 1 . 1 0 `S2968 1 . 1 0 `S2973 1 . 1 0 ]
+[v _ADCON1bits ADCON1bits `VES2976  1 e 1 @4033 ]
+[s S2837 . 1 `uc 1 . 1 0 :1:0 
 `uc 1 GO_NOT_DONE 1 0 :1:1 
 ]
 "9813
-[s S2824 . 1 `uc 1 ADON 1 0 :1:0 
+[s S2840 . 1 `uc 1 ADON 1 0 :1:0 
 `uc 1 GO_nDONE 1 0 :1:1 
 `uc 1 CHS 1 0 :5:2 
 ]
-[s S2828 . 1 `uc 1 . 1 0 :1:0 
+[s S2844 . 1 `uc 1 . 1 0 :1:0 
 `uc 1 DONE 1 0 :1:1 
 ]
-[s S2831 . 1 `uc 1 . 1 0 :1:0 
+[s S2847 . 1 `uc 1 . 1 0 :1:0 
 `uc 1 GO 1 0 :1:1 
 ]
-[s S2834 . 1 `uc 1 . 1 0 :1:0 
+[s S2850 . 1 `uc 1 . 1 0 :1:0 
 `uc 1 NOT_DONE 1 0 :1:1 
 ]
-[s S2837 . 1 `uc 1 . 1 0 :1:0 
+[s S2853 . 1 `uc 1 . 1 0 :1:0 
 `uc 1 nDONE 1 0 :1:1 
 ]
-[s S2840 . 1 `uc 1 . 1 0 :1:0 
+[s S2856 . 1 `uc 1 . 1 0 :1:0 
 `uc 1 GODONE 1 0 :1:1 
 ]
-[s S2843 . 1 `uc 1 . 1 0 :1:0 
+[s S2859 . 1 `uc 1 . 1 0 :1:0 
 `uc 1 GO_DONE 1 0 :1:1 
 ]
-[u S2846 . 1 `S2821 1 . 1 0 `S2824 1 . 1 0 `S2828 1 . 1 0 `S2831 1 . 1 0 `S2834 1 . 1 0 `S2837 1 . 1 0 `S2840 1 . 1 0 `S2843 1 . 1 0 ]
-[v _ADCON0bits ADCON0bits `VES2846  1 e 1 @4034 ]
+[u S2862 . 1 `S2837 1 . 1 0 `S2840 1 . 1 0 `S2844 1 . 1 0 `S2847 1 . 1 0 `S2850 1 . 1 0 `S2853 1 . 1 0 `S2856 1 . 1 0 `S2859 1 . 1 0 ]
+[v _ADCON0bits ADCON0bits `VES2862  1 e 1 @4034 ]
 "9868
 [v _ADRESL ADRESL `VEuc  1 e 1 @4035 ]
 "12292
 [v _OSCCON2 OSCCON2 `VEuc  1 e 1 @4050 ]
-[s S2383 . 1 `uc 1 LFIOFS 1 0 :1:0 
+[s S2386 . 1 `uc 1 LFIOFS 1 0 :1:0 
 `uc 1 HFIOFR 1 0 :1:1 
 `uc 1 PRISD 1 0 :1:2 
 `uc 1 SOSCGO 1 0 :1:3 
@@ -948,8 +961,8 @@ PEDAL_CLUTCH 2
 `uc 1 PLLRDY 1 0 :1:7 
 ]
 "12309
-[u S2392 . 1 `S2383 1 . 1 0 ]
-[v _OSCCON2bits OSCCON2bits `VES2392  1 e 1 @4050 ]
+[u S2395 . 1 `S2386 1 . 1 0 ]
+[v _OSCCON2bits OSCCON2bits `VES2395  1 e 1 @4050 ]
 "12354
 [v _OSCCON OSCCON `VEuc  1 e 1 @4051 ]
 "14499
@@ -1161,18 +1174,26 @@ PEDAL_CLUTCH 2
 "79 C:\Users\kyle.marshall\MPLABXProjects\USB_FFB_Wheel.X\apps\usb\device\hid_joystick\firmware\picdem_fs_usb_k50.x\system.c
 [v _SYSTEM_Initialize SYSTEM_Initialize `(v  1 e 1 0 ]
 {
-[v SYSTEM_Initialize@state state `E6411  1 a 1 wreg ]
-[v SYSTEM_Initialize@state state `E6411  1 a 1 wreg ]
-[v SYSTEM_Initialize@state state `E6411  1 a 1 19 ]
-"107
+[v SYSTEM_Initialize@state state `E6415  1 a 1 wreg ]
+[v SYSTEM_Initialize@state state `E6415  1 a 1 wreg ]
+[v SYSTEM_Initialize@state state `E6415  1 a 1 19 ]
+"108
 } 0
-"93 C:/Users/kyle.marshall/MPLABXProjects/USB_FFB_Wheel.X/framework/usb/inc/wheel.c
+"101 C:/Users/kyle.marshall/MPLABXProjects/USB_FFB_Wheel.X/framework/usb/inc/wheel.c
 [v _WHEEL_Enable WHEEL_Enable `(v  1 e 1 0 ]
 {
-[v WHEEL_Enable@wheel wheel `E5758  1 a 1 wreg ]
-[v WHEEL_Enable@wheel wheel `E5758  1 a 1 wreg ]
-[v WHEEL_Enable@wheel wheel `E5758  1 a 1 18 ]
-"120
+[v WHEEL_Enable@wheel wheel `E5759  1 a 1 wreg ]
+[v WHEEL_Enable@wheel wheel `E5759  1 a 1 wreg ]
+[v WHEEL_Enable@wheel wheel `E5759  1 a 1 18 ]
+"128
+} 0
+"130
+[v _PEDAL_Enable PEDAL_Enable `(v  1 e 1 0 ]
+{
+[v PEDAL_Enable@pedal pedal `E5763  1 a 1 wreg ]
+[v PEDAL_Enable@pedal pedal `E5763  1 a 1 wreg ]
+[v PEDAL_Enable@pedal pedal `E5763  1 a 1 18 ]
+"173
 } 0
 "228 C:\Users\kyle.marshall\MPLABXProjects\USB_FFB_Wheel.X/bsp/picdem_fs_usb_k50/leds.c
 [v _LED_Enable LED_Enable `(v  1 e 1 0 ]
@@ -1318,18 +1339,18 @@ PEDAL_CLUTCH 2
 {
 "554
 } 0
-"138 C:/Users/kyle.marshall/MPLABXProjects/USB_FFB_Wheel.X/framework/usb/inc/wheel.c
+"191 C:/Users/kyle.marshall/MPLABXProjects/USB_FFB_Wheel.X/framework/usb/inc/wheel.c
 [v _WHEEL_Test WHEEL_Test `(uc  1 e 1 0 ]
 {
-[v WHEEL_Test@wheel wheel `E5758  1 a 1 wreg ]
-[v WHEEL_Test@wheel wheel `E5758  1 a 1 wreg ]
-"140
+[v WHEEL_Test@wheel wheel `E5759  1 a 1 wreg ]
+[v WHEEL_Test@wheel wheel `E5759  1 a 1 wreg ]
+"193
 [v WHEEL_Test@count count `ui  1 s 2 count ]
-"141
+"194
 [v WHEEL_Test@direction direction `uc  1 s 1 direction ]
-"138
-[v WHEEL_Test@wheel wheel `E5758  1 a 1 18 ]
-"176
+"191
+[v WHEEL_Test@wheel wheel `E5759  1 a 1 18 ]
+"229
 } 0
 "1002 C:\Users\kyle.marshall\MPLABXProjects\USB_FFB_Wheel.X/framework/usb/src/usb_device.c
 [v _USBTransferOnePacket USBTransferOnePacket `(*.39v  1 e 2 0 ]
@@ -1372,13 +1393,13 @@ PEDAL_CLUTCH 2
 [v USBTransferOnePacket@ep ep `uc  1 a 1 0 ]
 "1054
 } 0
-"179 C:/Users/kyle.marshall/MPLABXProjects/USB_FFB_Wheel.X/framework/usb/inc/wheel.c
+"232 C:/Users/kyle.marshall/MPLABXProjects/USB_FFB_Wheel.X/framework/usb/inc/wheel.c
 [v _PEDAL_Position PEDAL_Position `(uc  1 e 1 0 ]
 {
-[v PEDAL_Position@pedal pedal `E5762  1 a 1 wreg ]
-[v PEDAL_Position@pedal pedal `E5762  1 a 1 wreg ]
-[v PEDAL_Position@pedal pedal `E5762  1 a 1 19 ]
-"216
+[v PEDAL_Position@pedal pedal `E5763  1 a 1 wreg ]
+[v PEDAL_Position@pedal pedal `E5763  1 a 1 wreg ]
+[v PEDAL_Position@pedal pedal `E5763  1 a 1 19 ]
+"269
 } 0
 "94 C:\Users\kyle.marshall\MPLABXProjects\USB_FFB_Wheel.X/bsp/picdem_fs_usb_k50/buttons.c
 [v _BUTTON_IsPressed BUTTON_IsPressed `(uc  1 e 1 0 ]
@@ -1388,8 +1409,8 @@ PEDAL_CLUTCH 2
 [v BUTTON_IsPressed@button button `E5727  1 a 1 18 ]
 "142
 } 0
-"112 C:\Users\kyle.marshall\MPLABXProjects\USB_FFB_Wheel.X\apps\usb\device\hid_joystick\firmware\picdem_fs_usb_k50.x\system.c
+"113 C:\Users\kyle.marshall\MPLABXProjects\USB_FFB_Wheel.X\apps\usb\device\hid_joystick\firmware\picdem_fs_usb_k50.x\system.c
 [v _SYS_InterruptHigh SYS_InterruptHigh `II(v  1 e 1 0 ]
 {
-"117
+"118
 } 0

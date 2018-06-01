@@ -7944,11 +7944,12 @@ bool USBHALSetEpConfiguration ( uint8_t ep_num, uint16_t max_pkt_size, uint16_t 
 # 603
 bool USBHALInitialize ( unsigned long flags );
 
-# 19 "../../../../../../framework/usb/inc\wheel.h"
+# 20 "../../../../../../framework/usb/inc\wheel.h"
 bool WHEEL_Type = 0;
 
-bool BREAK_Type = 0;
 
+bool GAS_Type = 0;
+bool BREAK_Type = 0;
 bool CLUTCH_Type = 0;
 
 
@@ -7962,20 +7963,21 @@ WHEEL_W1
 typedef enum
 {
 PEDAL_NONE,
+PEDAL_GAS,
 PEDAL_BREAK,
 PEDAL_CLUTCH
 
 } PEDAL;
 
-# 57
+# 60
 uint8_t WHEEL_Position(WHEEL wheel);
 
-# 75
+# 78
 void WHEEL_Enable(WHEEL wheel);
-
 void WHEEL_Home(WHEEL wheel);
-
 uint8_t WHEEL_Test(WHEEL wheel);
+
+void PEDAL_Enable(PEDAL pedal);
 uint8_t PEDAL_Position(PEDAL pedal);
 
 # 38 ".\system.h"

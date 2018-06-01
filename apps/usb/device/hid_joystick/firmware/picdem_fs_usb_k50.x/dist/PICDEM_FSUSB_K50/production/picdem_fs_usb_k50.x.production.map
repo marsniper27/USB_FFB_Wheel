@@ -5,9 +5,9 @@ Linker command line:
 --edf=C:\Program Files (x86)\Microchip\xc8\v1.45\dat\en_msgs.txt -cs \
   -h+dist/PICDEM_FSUSB_K50/production\picdem_fs_usb_k50.x.production.sym \
   --cmf=dist/PICDEM_FSUSB_K50/production\picdem_fs_usb_k50.x.production.cmf \
-  -z -Q18F45K50 -oC:\Users\KYLE~1.MAR\AppData\Local\Temp\s49ao.2 \
+  -z -Q18F45K50 -oC:\Users\KYLE~1.MAR\AppData\Local\Temp\s4k0k.2 \
   -Mdist/PICDEM_FSUSB_K50/production/picdem_fs_usb_k50.x.production.map -E1 \
-  -ver=XC8 -ASTACK=09Ah-03ffh -pstack=STACK -ACODE=00h-07FFFh \
+  -ver=XC8 -ASTACK=09Bh-03ffh -pstack=STACK -ACODE=00h-07FFFh \
   -ACONST=00h-07FFFh -ASMALLCONST=0800h-08FFhx120 \
   -AMEDIUMCONST=0800h-07FFFh -ACOMRAM=01h-05Fh -AABS1=00h-07FFh \
   -ABIGRAM=01h-07FFh -ARAM=060h-0FFh,0100h-01FFhx7 -ABANK0=060h-0FFh \
@@ -23,7 +23,7 @@ Linker command line:
   -pfarbss=FARRAM,fardata=FARRAM,nvFARRAM=FARRAM \
   -pintsave_regs=BIGRAM,bigbss=BIGRAM,bigdata=BIGRAM -pbss=RAM \
   -pidata=CODE,irdata=CODE,ibigdata=CODE,ifardata=CODE -prparam=COMRAM \
-  C:\Users\KYLE~1.MAR\AppData\Local\Temp\s49ao.obj \
+  C:\Users\KYLE~1.MAR\AppData\Local\Temp\s4k0k.obj \
   dist/PICDEM_FSUSB_K50/production\picdem_fs_usb_k50.x.production.obj 
 
 Object code version is 3.11
@@ -36,7 +36,7 @@ Call graph: (short form)
 
 
                 Name                               Link     Load   Length Selector   Space Scale
-C:\Users\KYLE~1.MAR\AppData\Local\Temp\s49ao.obj
+C:\Users\KYLE~1.MAR\AppData\Local\Temp\s4k0k.obj
                 init                                 9E       9E        4        4       0
                 reset_vec                             0        0        4        0       0
                 idloc                            200000   200000        8   200000       0
@@ -44,59 +44,60 @@ C:\Users\KYLE~1.MAR\AppData\Local\Temp\s49ao.obj
 dist/PICDEM_FSUSB_K50/production\picdem_fs_usb_k50.x.production.obj
                 intcode                               8        8       96        4       0
                 temp                                 4D       4D        1        1       1
-                mediumconst                        7A60     7A60      5A0     3D30       0
-                text44                              CF8      CF8       FE        4       0
-                text43                             189C     189C       70        4       0
-                text42                              BF0      BF0      108        4       0
-                text41                             1968     1968       58        4       0
-                text40                              32A      32A      27A        4       0
-                text39                             1264     1264       CC        4       0
-                text38                             1D9A     1D9A        2        4       0
-                text37                              5A4      5A4      16A        4       0
-                text36                              FCA      FCA       E2        4       0
-                text35                             1330     1330       C2        4       0
-                text34                              9A6      9A6      130        4       0
-                text33                             190C     190C       5C        4       0
-                text32                             1678     1678       94        4       0
-                text31                             1AEE     1AEE       44        4       0
-                text30                             1C8A     1C8A       34        4       0
-                text29                             1C20     1C20       36        4       0
-                text28                             1BEA     1BEA       36        4       0
-                text27                             181C     181C       80        4       0
-                text26                             13F2     13F2       BC        4       0
-                text25                             1AA8     1AA8       46        4       0
-                text24                             1A16     1A16       4C        4       0
-                text23                             1B74     1B74       3E        4       0
-                text22                             1D84     1D84       16        4       0
-                text21                             1D18     1D18       2C        4       0
-                text20                             19C0     19C0       56        4       0
+                mediumconst                        7A70     7A70      590     3D38       0
+                text45                              CF8      CF8       FE        4       0
+                text44                             1912     1912       70        4       0
+                text43                              BF0      BF0      108        4       0
+                text42                             19DE     19DE       58        4       0
+                text41                              32A      32A      27A        4       0
+                text40                             1264     1264       CC        4       0
+                text39                             1E18     1E18        2        4       0
+                text38                              5A4      5A4      16A        4       0
+                text37                              FCA      FCA       E2        4       0
+                text36                             1330     1330       C2        4       0
+                text35                              9A6      9A6      130        4       0
+                text34                             1982     1982       5C        4       0
+                text33                             1678     1678       94        4       0
+                text32                             1BA8     1BA8       44        4       0
+                text31                             1D08     1D08       34        4       0
+                text30                             1CD2     1CD2       36        4       0
+                text29                             1C9C     1C9C       36        4       0
+                text28                             181C     181C       80        4       0
+                text27                             13F2     13F2       BC        4       0
+                text26                             1B1E     1B1E       46        4       0
+                text25                             189C     189C       76        4       0
+                text24                             1A8C     1A8C       4C        4       0
+                text23                             1B64     1B64       44        4       0
+                text22                             1E02     1E02       16        4       0
+                text21                             1D96     1D96       2C        4       0
+                text20                             1A36     1A36       56        4       0
                 text19                              EE6      EE6       E4        4       0
                 text18                             179C     179C       80        4       0
                 text17                               A2       A2      288        4       0
                 text16                              AD6      AD6      11A        4       0
                 text15                             14AE     14AE       9C        4       0
-                text14                             1CEC     1CEC       2C        4       0
+                text14                             1D6A     1D6A       2C        4       0
                 text13                             10AC     10AC       DE        4       0
                 text12                             118A     118A       DA        4       0
                 text11                             15E2     15E2       96        4       0
                 text10                              DF6      DF6       F0        4       0
                 text9                              170C     170C       90        4       0
-                text8                              1A62     1A62       46        4       0
+                text8                              1AD8     1AD8       46        4       0
                 text7                              154A     154A       98        4       0
                 text6                               86C      86C      13A        4       0
-                text5                              1D64     1D64       20        4       0
-                text4                              1B32     1B32       42        4       0
-                text3                              1CBE     1CBE       2E        4       0
-                text2                              1C56     1C56       34        4       0
+                text5                              1DE2     1DE2       20        4       0
+                text4                              1BEC     1BEC       42        4       0
+                text3                              1D3C     1D3C       2E        4       0
+                text2                              1C66     1C66       36        4       0
                 text1                               70E      70E      15E        4       0
-                text0                              1D44     1D44       20        4       0
+                text0                              1DC2     1DC2       20        4       0
                 cstackCOMRAM                         30       30       1C        1       1
-                cstackBANK0                          88       88       12       60       1
-                bssBANK0                             60       60       28       60       1
+                cstackBANK0                          89       89       12       60       1
+                bssBANK0                             60       60       29       60       1
                 dataCOMRAM                           4C       4C        1        1       1
                 bssCOMRAM                             1        1       2F        1       1
-                cinit                              1BB2     1BB2       38        4       0
-                idataCOMRAM                        1D9C     1D9C        1        4       0
+                cinit                              1C2E     1C2E       38        4       0
+                idataCOMRAM                        1E1A     1E1A        1        4       0
 
 TOTAL           Name                               Link     Load   Length     Space
         CLASS   STACK          
@@ -105,60 +106,61 @@ TOTAL           Name                               Link     Load   Length     Sp
                 intcode                               8        8       96         0
                 init                                 9E       9E        4         0
                 reset_vec                             0        0        4         0
-                text44                              CF8      CF8       FE         0
-                text43                             189C     189C       70         0
-                text42                              BF0      BF0      108         0
-                text41                             1968     1968       58         0
-                text40                              32A      32A      27A         0
-                text39                             1264     1264       CC         0
-                text38                             1D9A     1D9A        2         0
-                text37                              5A4      5A4      16A         0
-                text36                              FCA      FCA       E2         0
-                text35                             1330     1330       C2         0
-                text34                              9A6      9A6      130         0
-                text33                             190C     190C       5C         0
-                text32                             1678     1678       94         0
-                text31                             1AEE     1AEE       44         0
-                text30                             1C8A     1C8A       34         0
-                text29                             1C20     1C20       36         0
-                text28                             1BEA     1BEA       36         0
-                text27                             181C     181C       80         0
-                text26                             13F2     13F2       BC         0
-                text25                             1AA8     1AA8       46         0
-                text24                             1A16     1A16       4C         0
-                text23                             1B74     1B74       3E         0
-                text22                             1D84     1D84       16         0
-                text21                             1D18     1D18       2C         0
-                text20                             19C0     19C0       56         0
+                text45                              CF8      CF8       FE         0
+                text44                             1912     1912       70         0
+                text43                              BF0      BF0      108         0
+                text42                             19DE     19DE       58         0
+                text41                              32A      32A      27A         0
+                text40                             1264     1264       CC         0
+                text39                             1E18     1E18        2         0
+                text38                              5A4      5A4      16A         0
+                text37                              FCA      FCA       E2         0
+                text36                             1330     1330       C2         0
+                text35                              9A6      9A6      130         0
+                text34                             1982     1982       5C         0
+                text33                             1678     1678       94         0
+                text32                             1BA8     1BA8       44         0
+                text31                             1D08     1D08       34         0
+                text30                             1CD2     1CD2       36         0
+                text29                             1C9C     1C9C       36         0
+                text28                             181C     181C       80         0
+                text27                             13F2     13F2       BC         0
+                text26                             1B1E     1B1E       46         0
+                text25                             189C     189C       76         0
+                text24                             1A8C     1A8C       4C         0
+                text23                             1B64     1B64       44         0
+                text22                             1E02     1E02       16         0
+                text21                             1D96     1D96       2C         0
+                text20                             1A36     1A36       56         0
                 text19                              EE6      EE6       E4         0
                 text18                             179C     179C       80         0
                 text17                               A2       A2      288         0
                 text16                              AD6      AD6      11A         0
                 text15                             14AE     14AE       9C         0
-                text14                             1CEC     1CEC       2C         0
+                text14                             1D6A     1D6A       2C         0
                 text13                             10AC     10AC       DE         0
                 text12                             118A     118A       DA         0
                 text11                             15E2     15E2       96         0
                 text10                              DF6      DF6       F0         0
                 text9                              170C     170C       90         0
-                text8                              1A62     1A62       46         0
+                text8                              1AD8     1AD8       46         0
                 text7                              154A     154A       98         0
                 text6                               86C      86C      13A         0
-                text5                              1D64     1D64       20         0
-                text4                              1B32     1B32       42         0
-                text3                              1CBE     1CBE       2E         0
-                text2                              1C56     1C56       34         0
+                text5                              1DE2     1DE2       20         0
+                text4                              1BEC     1BEC       42         0
+                text3                              1D3C     1D3C       2E         0
+                text2                              1C66     1C66       36         0
                 text1                               70E      70E      15E         0
-                text0                              1D44     1D44       20         0
-                cinit                              1BB2     1BB2       38         0
-                idataCOMRAM                        1D9C     1D9C        1         0
+                text0                              1DC2     1DC2       20         0
+                cinit                              1C2E     1C2E       38         0
+                idataCOMRAM                        1E1A     1E1A        1         0
 
         CLASS   CONST          
 
         CLASS   SMALLCONST     
 
         CLASS   MEDIUMCONST    
-                mediumconst                        7A60     7A60      5A0         0
+                mediumconst                        7A70     7A70      590         0
 
         CLASS   COMRAM         
                 temp                                 4D       4D        1         1
@@ -175,8 +177,8 @@ TOTAL           Name                               Link     Load   Length     Sp
         CLASS   RAM            
 
         CLASS   BANK0          
-                cstackBANK0                          88       88       12         1
-                bssBANK0                             60       60       28         1
+                cstackBANK0                          89       89       12         1
+                bssBANK0                             60       60       29         1
 
         CLASS   BANK1          
 
@@ -210,9 +212,9 @@ SEGMENTS        Name                           Load    Length   Top    Selector 
 
                 reset_vec                      000000  000004  000004         0       0  CODE    
                 bssCOMRAM                      000001  00004D  00004E         1       1  COMRAM  
-                intcode                        000008  001D95  001D9D         4       0  CODE    
-                bssBANK0                       000060  00003A  00009A        60       1  BANK0   
-                mediumconst                    007A60  0005A0  008000      3D30       0  MEDIUMCO
+                intcode                        000008  001E13  001E1B         4       0  CODE    
+                bssBANK0                       000060  00003B  00009B        60       1  BANK0   
+                mediumconst                    007A70  000590  008000      3D38       0  MEDIUMCO
                 idloc                          200000  000008  200008    200000       0  IDLOC   
                 config                         300000  00000E  30000E    300000       0  CONFIG  
 
@@ -220,7 +222,7 @@ SEGMENTS        Name                           Load    Length   Top    Selector 
 UNUSED ADDRESS RANGES
 
         Name                Unused          Largest block    Delta
-        BANK0            00009A-0000FF               66
+        BANK0            00009B-0000FF               65
         BANK1            000100-0001FF              100
         BANK2            000200-0002FF              100
         BANK3            000300-0003FF              100
@@ -229,22 +231,22 @@ UNUSED ADDRESS RANGES
         BANK6            000600-0006FF              100
         BANK7            000700-0007FF              100
         BIGRAM           00004E-00005F               12
-                         00009A-0003FF              366
+                         00009B-0003FF              365
                          000430-0004FF               D0
                          000580-0007FF              280
         CODE             000004-000007                4
-                         001D9D-007A5F             5CC3
+                         001E1B-007A6F             5C55
         COMRAM           00004E-00005F               12
         CONST            000004-000007                4
-                         001D9D-007A5F             5CC3
+                         001E1B-007A6F             5C55
         EEDATA           F00000-F000FF              100
-        MEDIUMCONST      001D9D-007A5F             5CC3
-        RAM              00009A-0003FF              100
+        MEDIUMCONST      001E1B-007A6F             5C55
+        RAM              00009B-0003FF              100
                          000430-0004FF               D0
                          000580-0007FF              100
         SFR              000F53-000FFF                D
-        SMALLCONST       001D9D-007A5F              100
-        STACK            00009A-0003FF              366
+        SMALLCONST       001E1B-007A6F              100
+        STACK            00009B-0003FF              365
 
                                   Symbol Table
 
@@ -255,6 +257,7 @@ BUTTON_IsPressed@button                   cstackCOMRAM 000042
 LED_Enable@led                            cstackCOMRAM 000042
 LED_Off@led                               cstackCOMRAM 000042
 LED_On@led                                cstackCOMRAM 000042
+PEDAL_Enable@pedal                        cstackCOMRAM 000042
 PEDAL_Position@pedal                      cstackCOMRAM 000043
 SYSTEM_Initialize@state                   cstackCOMRAM 000043
 USBConfigureEndpoint@EPNum                cstackCOMRAM 000047
@@ -265,23 +268,23 @@ USBCtrlTrfRxService@byteToRead            cstackCOMRAM 000043
 USBCtrlTrfRxService@i                     cstackCOMRAM 000042
 USBCtrlTrfTxService@byteToSend            cstackCOMRAM 000042
 USBDeviceInit@i                           cstackCOMRAM 00004A
-USBDeviceTasks@i                          cstackBANK0  000099
-USBEnableEndpoint@ep                      cstackBANK0  00008A
+USBDeviceTasks@i                          cstackBANK0  00009A
+USBEnableEndpoint@ep                      cstackBANK0  00008B
 USBEnableEndpoint@options                 cstackCOMRAM 00004A
-USBEnableEndpoint@p                       cstackBANK0  000088
-USBStdFeatureReqHandler@current_ep_data   cstackBANK0  000095
-USBStdFeatureReqHandler@p                 cstackBANK0  000096
-USBStdFeatureReqHandler@pUEP              cstackBANK0  000093
+USBEnableEndpoint@p                       cstackBANK0  000089
+USBStdFeatureReqHandler@current_ep_data   cstackBANK0  000096
+USBStdFeatureReqHandler@p                 cstackBANK0  000097
+USBStdFeatureReqHandler@pUEP              cstackBANK0  000094
 USBStdGetStatusHandler@p                  cstackCOMRAM 000043
 USBStdSetCfgHandler@i                     cstackCOMRAM 00004B
 USBTransferOnePacket@data                 cstackCOMRAM 000043
 USBTransferOnePacket@dir                  cstackCOMRAM 000042
-USBTransferOnePacket@ep                   cstackBANK0  000088
-USBTransferOnePacket@handle               cstackBANK0  000089
+USBTransferOnePacket@ep                   cstackBANK0  000089
+USBTransferOnePacket@handle               cstackBANK0  00008A
 USBTransferOnePacket@len                  cstackCOMRAM 000045
-USER_USB_CALLBACK_EVENT_HANDLER@event     cstackBANK0  00008B
-USER_USB_CALLBACK_EVENT_HANDLER@pdata     cstackBANK0  00008D
-USER_USB_CALLBACK_EVENT_HANDLER@size      cstackBANK0  00008F
+USER_USB_CALLBACK_EVENT_HANDLER@event     cstackBANK0  00008C
+USER_USB_CALLBACK_EVENT_HANDLER@pdata     cstackBANK0  00008E
+USER_USB_CALLBACK_EVENT_HANDLER@size      cstackBANK0  000090
 WHEEL_Enable@wheel                        cstackCOMRAM 000042
 WHEEL_Test@count                          bssCOMRAM    000013
 WHEEL_Test@direction                      dataCOMRAM   00004C
@@ -293,28 +296,30 @@ _ADRESL                                   (abs)        000FC3
 _ANSELAbits                               (abs)        000F5B
 _ANSELBbits                               (abs)        000F5C
 _ANSELDbits                               (abs)        000F5E
-_APP_DeviceJoystickInitialize             text30       001C8A
-_APP_DeviceJoystickTasks                  text40       00032A
-_APP_LEDUpdateUSBStatus                   text27       00181C
+_APP_DeviceJoystickInitialize             text31       001D08
+_APP_DeviceJoystickTasks                  text41       00032A
+_APP_LEDUpdateUSBStatus                   text28       00181C
 _BDT                                      (abs)        000400
 _BREAK_Type                               bssCOMRAM    00001D
-_BUTTON_Enable                            text26       0013F2
-_BUTTON_IsPressed                         text44       000CF8
+_BUTTON_Enable                            text27       0013F2
+_BUTTON_IsPressed                         text45       000CF8
 _BothEP0OutUOWNsSet                       bssCOMRAM    000026
 _Buttons_Pressed                          bssCOMRAM    00001B
 _CLUTCH_Type                              bssCOMRAM    00001C
 _CONFIGURED_EFFECT_NUMBER                 bssBANK0     000060
 _CtrlTrfData                              (abs)        000428
+_GAS_Type                                 bssCOMRAM    00001E
 _GO_nDONE                                 (abs)        007E11
 _LATDbits                                 (abs)        000F8C
-_LED_Enable                               text25       001AA8
-_LED_Off                                  text29       001C20
-_LED_On                                   text28       001BEA
+_LED_Enable                               text26       001B1E
+_LED_Off                                  text30       001CD2
+_LED_On                                   text29       001C9C
 _OSCCON                                   (abs)        000FD3
 _OSCCON2                                  (abs)        000FD2
 _OSCCON2bits                              (abs)        000FD2
 _OSCTUNE                                  (abs)        000F9B
-_PEDAL_Position                           text43       00189C
+_PEDAL_Enable                             text25       00189C
+_PEDAL_Position                           text44       001912
 _PIE3bits                                 (abs)        000FA3
 _PIR3bits                                 (abs)        000FA4
 _PORTAbits                                (abs)        000F80
@@ -322,7 +327,7 @@ _PORTBbits                                (abs)        000F81
 _PORTDbits                                (abs)        000F83
 _ReceivedDataBuffer                       (abs)        000500
 _RemoteWakeup                             bssCOMRAM    000029
-_SYSTEM_Initialize                        text23       001B74
+_SYSTEM_Initialize                        text23       001B64
 _SYS_InterruptHigh                        intcode      000008
 _SetupPkt                                 (abs)        000420
 _TRISAbits                                (abs)        000F92
@@ -348,30 +353,30 @@ _USBAlternateInterface                    bssCOMRAM    00002E
 _USBBusIsSuspended                        bssCOMRAM    000028
 _USBCheckHIDRequest                       text19       000EE6
 _USBCheckStdRequest                       text12       00118A
-_USBConfigureEndpoint                     text32       001678
+_USBConfigureEndpoint                     text33       001678
 _USBCtrlEPAllowDataStage                  text11       0015E2
-_USBCtrlEPAllowStatusStage                text35       001330
+_USBCtrlEPAllowStatusStage                text36       001330
 _USBCtrlEPService                         text7        00154A
 _USBCtrlEPServiceComplete                 text10       000DF6
-_USBCtrlTrfInHandler                      text36       000FCA
-_USBCtrlTrfOutHandler                     text33       00190C
-_USBCtrlTrfRxService                      text34       0009A6
+_USBCtrlTrfInHandler                      text37       000FCA
+_USBCtrlTrfOutHandler                     text34       001982
+_USBCtrlTrfRxService                      text35       0009A6
 _USBCtrlTrfSetupHandler                   text9        00170C
-_USBCtrlTrfTxService                      text39       001264
+_USBCtrlTrfTxService                      text40       001264
 _USBDeferINDataStagePackets               bssCOMRAM    000021
 _USBDeferOUTDataStagePackets              bssCOMRAM    000020
 _USBDeferStatusStagePacket                bssCOMRAM    000024
 _USBDeviceInit                            text6        00086C
 _USBDeviceState                           bssCOMRAM    00002C
 _USBDeviceTasks                           text1        00070E
-_USBEnableEndpoint                        text31       001AEE
+_USBEnableEndpoint                        text32       001BA8
 _USBInHandle                              bssBANK0     000074
-_USBIncrement1msInternalTimers            text5        001D64
+_USBIncrement1msInternalTimers            text5        001DE2
 _USBOutHandle                             bssBANK0     000076
-_USBSendPIDBlockLoadReport                text22       001D84
-_USBSetDataEffect                         text38       001D9A
-_USBSetEffect                             text37       0005A4
-_USBStallHandler                          text4        001B32
+_USBSendPIDBlockLoadReport                text22       001E02
+_USBSetDataEffect                         text39       001E18
+_USBSetEffect                             text38       0005A4
+_USBStallHandler                          text4        001BEC
 _USBStatusStageEnabledFlag1               bssCOMRAM    000023
 _USBStatusStageEnabledFlag2               bssCOMRAM    000022
 _USBStatusStageTimeoutCounter             bssCOMRAM    000025
@@ -379,20 +384,20 @@ _USBStdFeatureReqHandler                  text17       0000A2
 _USBStdGetDscHandler                      text16       000AD6
 _USBStdGetStatusHandler                   text15       0014AE
 _USBStdSetCfgHandler                      text13       0010AC
-_USBSuspend                               text3        001CBE
-_USBTicksSinceSuspendEnd                  bssCOMRAM    00001F
-_USBTransferOnePacket                     text42       000BF0
-_USBWakeFromSuspend                       text2        001C56
-_USB_CD_Ptr                               mediumconst  007A67
-_USB_SD_Ptr                               mediumconst  007A61
-_USER_GET_REPORT_HANDLER                  text21       001D18
-_USER_SET_REPORT_HANDLER                  text20       0019C0
+_USBSuspend                               text3        001D3C
+_USBTicksSinceSuspendEnd                  bssBANK0     00007E
+_USBTransferOnePacket                     text43       000BF0
+_USBWakeFromSuspend                       text2        001C66
+_USB_CD_Ptr                               mediumconst  007A77
+_USB_SD_Ptr                               mediumconst  007A71
+_USER_GET_REPORT_HANDLER                  text21       001D96
+_USER_SET_REPORT_HANDLER                  text20       001A36
 _USER_USB_CALLBACK_EVENT_HANDLER          text18       00179C
 _USTAT                                    (abs)        000F61
 _USTATcopy                                bssCOMRAM    00002D
-_WHEEL_Enable                             text24       001A16
-_WHEEL_Test                               text41       001968
-_WHEEL_Type                               bssCOMRAM    00001E
+_WHEEL_Enable                             text24       001A8C
+_WHEEL_Test                               text42       0019DE
+_WHEEL_Type                               bssCOMRAM    00001F
 __CFG_BOREN$SBORDIS                       (abs)        000000
 __CFG_BORV$190                            (abs)        000000
 __CFG_CCP2MX$RC1                          (abs)        000000
@@ -491,7 +496,7 @@ __Hrparam                                 rparam       000000
 __Hsfr                                    sfr          000000
 __Hsmallconst                             smallconst   000000
 __Hspace_0                                (abs)        30000E
-__Hspace_1                                (abs)        00009A
+__Hspace_1                                (abs)        00009B
 __Hspace_2                                (abs)        000000
 __Hstack                                  stack        000000
 __Hstruct                                 struct       000000
@@ -537,6 +542,7 @@ __Htext41                                 text41       000000
 __Htext42                                 text42       000000
 __Htext43                                 text43       000000
 __Htext44                                 text44       000000
+__Htext45                                 text45       000000
 __Htext5                                  text5        000000
 __Htext6                                  text6        000000
 __Htext7                                  text7        000000
@@ -583,7 +589,7 @@ __Lintentry                               intentry     000000
 __Lintret                                 intret       000000
 __Lintsave_regs                           intsave_regs 000000
 __Lirdata                                 irdata       000000
-__Lmediumconst                            mediumconst  007A60
+__Lmediumconst                            mediumconst  007A70
 __LnvFARRAM                               nvFARRAM     000000
 __Lnvbit                                  nvbit        000000
 __Lnvrram                                 nvrram       000000
@@ -645,13 +651,14 @@ __Ltext41                                 text41       000000
 __Ltext42                                 text42       000000
 __Ltext43                                 text43       000000
 __Ltext44                                 text44       000000
+__Ltext45                                 text45       000000
 __Ltext5                                  text5        000000
 __Ltext6                                  text6        000000
 __Ltext7                                  text7        000000
 __Ltext8                                  text8        000000
 __Ltext9                                  text9        000000
 __S0                                      (abs)        30000E
-__S1                                      (abs)        00009A
+__S1                                      (abs)        00009B
 __S2                                      (abs)        000000
 ___inthi_sp                               stack        000000
 ___intlo_sp                               stack        000000
@@ -660,116 +667,118 @@ ___rparam_used                            (abs)        000001
 ___sp                                     stack        000000
 __accesstop                               (abs)        000060
 __activetblptr                            (abs)        000002
-__end_of_APP_DeviceJoystickInitialize     text30       001CBE
-__end_of_APP_DeviceJoystickTasks          text40       0005A4
-__end_of_APP_LEDUpdateUSBStatus           text27       00189C
-__end_of_BUTTON_Enable                    text26       0014AE
-__end_of_BUTTON_IsPressed                 text44       000DF6
-__end_of_LED_Enable                       text25       001AEE
-__end_of_LED_Off                          text29       001C56
-__end_of_LED_On                           text28       001C20
-__end_of_PEDAL_Position                   text43       00190C
-__end_of_SYSTEM_Initialize                text23       001BB2
+__end_of_APP_DeviceJoystickInitialize     text31       001D3C
+__end_of_APP_DeviceJoystickTasks          text41       0005A4
+__end_of_APP_LEDUpdateUSBStatus           text28       00189C
+__end_of_BUTTON_Enable                    text27       0014AE
+__end_of_BUTTON_IsPressed                 text45       000DF6
+__end_of_LED_Enable                       text26       001B64
+__end_of_LED_Off                          text30       001D08
+__end_of_LED_On                           text29       001CD2
+__end_of_PEDAL_Enable                     text25       001912
+__end_of_PEDAL_Position                   text44       001982
+__end_of_SYSTEM_Initialize                text23       001BA8
 __end_of_SYS_InterruptHigh                intcode      00009E
 __end_of_USBCheckHIDRequest               text19       000FCA
 __end_of_USBCheckStdRequest               text12       001264
-__end_of_USBConfigureEndpoint             text32       00170C
+__end_of_USBConfigureEndpoint             text33       00170C
 __end_of_USBCtrlEPAllowDataStage          text11       001678
-__end_of_USBCtrlEPAllowStatusStage        text35       0013F2
+__end_of_USBCtrlEPAllowStatusStage        text36       0013F2
 __end_of_USBCtrlEPService                 text7        0015E2
 __end_of_USBCtrlEPServiceComplete         text10       000EE6
-__end_of_USBCtrlTrfInHandler              text36       0010AC
-__end_of_USBCtrlTrfOutHandler             text33       001968
-__end_of_USBCtrlTrfRxService              text34       000AD6
+__end_of_USBCtrlTrfInHandler              text37       0010AC
+__end_of_USBCtrlTrfOutHandler             text34       0019DE
+__end_of_USBCtrlTrfRxService              text35       000AD6
 __end_of_USBCtrlTrfSetupHandler           text9        00179C
-__end_of_USBCtrlTrfTxService              text39       001330
+__end_of_USBCtrlTrfTxService              text40       001330
 __end_of_USBDeviceInit                    text6        0009A6
 __end_of_USBDeviceTasks                   text1        00086C
-__end_of_USBEnableEndpoint                text31       001B32
-__end_of_USBIncrement1msInternalTimers    text5        001D84
-__end_of_USBSendPIDBlockLoadReport        text22       001D9A
-__end_of_USBSetDataEffect                 text38       001D9C
-__end_of_USBSetEffect                     text37       00070E
-__end_of_USBStallHandler                  text4        001B74
+__end_of_USBEnableEndpoint                text32       001BEC
+__end_of_USBIncrement1msInternalTimers    text5        001E02
+__end_of_USBSendPIDBlockLoadReport        text22       001E18
+__end_of_USBSetDataEffect                 text39       001E1A
+__end_of_USBSetEffect                     text38       00070E
+__end_of_USBStallHandler                  text4        001C2E
 __end_of_USBStdFeatureReqHandler          text17       00032A
 __end_of_USBStdGetDscHandler              text16       000BF0
 __end_of_USBStdGetStatusHandler           text15       00154A
 __end_of_USBStdSetCfgHandler              text13       00118A
-__end_of_USBSuspend                       text3        001CEC
-__end_of_USBTransferOnePacket             text42       000CF8
-__end_of_USBWakeFromSuspend               text2        001C8A
-__end_of_USB_CD_Ptr                       mediumconst  007A69
-__end_of_USB_SD_Ptr                       mediumconst  007A67
-__end_of_USER_GET_REPORT_HANDLER          text21       001D44
-__end_of_USER_SET_REPORT_HANDLER          text20       001A16
+__end_of_USBSuspend                       text3        001D6A
+__end_of_USBTransferOnePacket             text43       000CF8
+__end_of_USBWakeFromSuspend               text2        001C9C
+__end_of_USB_CD_Ptr                       mediumconst  007A79
+__end_of_USB_SD_Ptr                       mediumconst  007A77
+__end_of_USER_GET_REPORT_HANDLER          text21       001DC2
+__end_of_USER_SET_REPORT_HANDLER          text20       001A8C
 __end_of_USER_USB_CALLBACK_EVENT_HANDLER  text18       00181C
-__end_of_WHEEL_Enable                     text24       001A62
-__end_of_WHEEL_Test                       text41       0019C0
-__end_of__initialization                  cinit        001BDC
+__end_of_WHEEL_Enable                     text24       001AD8
+__end_of_WHEEL_Test                       text42       001A36
+__end_of__initialization                  cinit        001C58
 __end_of_configDescriptor1                mediumconst  007FCC
 __end_of_device_dsc                       mediumconst  007FFA
 __end_of_hid_rpt01                        mediumconst  007F6F
-__end_of_main                             text0        001D64
-__end_of_memcpy                           text8        001AA8
-__end_of_memset                           text14       001D18
+__end_of_main                             text0        001DE2
+__end_of_memcpy                           text8        001B1E
+__end_of_memset                           text14       001D96
 __end_of_sd000                            mediumconst  007FFE
 __end_of_sd001                            mediumconst  007FA3
 __end_of_sd002                            mediumconst  007FE8
-__initialization                          cinit        001BB2
-__mediumconst                             mediumconst  007A60
+__initialization                          cinit        001C2E
+__mediumconst                             mediumconst  007A70
 __pbssBANK0                               bssBANK0     000060
 __pbssCOMRAM                              bssCOMRAM    000001
-__pcinit                                  cinit        001BB2
-__pcstackBANK0                            cstackBANK0  000088
+__pcinit                                  cinit        001C2E
+__pcstackBANK0                            cstackBANK0  000089
 __pcstackCOMRAM                           cstackCOMRAM 000030
 __pdataCOMRAM                             dataCOMRAM   00004C
-__pidataCOMRAM                            idataCOMRAM  001D9C
+__pidataCOMRAM                            idataCOMRAM  001E1A
 __pintcode                                intcode      000008
-__pmediumconst                            mediumconst  007A60
-__ptext0                                  text0        001D44
+__pmediumconst                            mediumconst  007A70
+__ptext0                                  text0        001DC2
 __ptext1                                  text1        00070E
 __ptext10                                 text10       000DF6
 __ptext11                                 text11       0015E2
 __ptext12                                 text12       00118A
 __ptext13                                 text13       0010AC
-__ptext14                                 text14       001CEC
+__ptext14                                 text14       001D6A
 __ptext15                                 text15       0014AE
 __ptext16                                 text16       000AD6
 __ptext17                                 text17       0000A2
 __ptext18                                 text18       00179C
 __ptext19                                 text19       000EE6
-__ptext2                                  text2        001C56
-__ptext20                                 text20       0019C0
-__ptext21                                 text21       001D18
-__ptext22                                 text22       001D84
-__ptext23                                 text23       001B74
-__ptext24                                 text24       001A16
-__ptext25                                 text25       001AA8
-__ptext26                                 text26       0013F2
-__ptext27                                 text27       00181C
-__ptext28                                 text28       001BEA
-__ptext29                                 text29       001C20
-__ptext3                                  text3        001CBE
-__ptext30                                 text30       001C8A
-__ptext31                                 text31       001AEE
-__ptext32                                 text32       001678
-__ptext33                                 text33       00190C
-__ptext34                                 text34       0009A6
-__ptext35                                 text35       001330
-__ptext36                                 text36       000FCA
-__ptext37                                 text37       0005A4
-__ptext38                                 text38       001D9A
-__ptext39                                 text39       001264
-__ptext4                                  text4        001B32
-__ptext40                                 text40       00032A
-__ptext41                                 text41       001968
-__ptext42                                 text42       000BF0
-__ptext43                                 text43       00189C
-__ptext44                                 text44       000CF8
-__ptext5                                  text5        001D64
+__ptext2                                  text2        001C66
+__ptext20                                 text20       001A36
+__ptext21                                 text21       001D96
+__ptext22                                 text22       001E02
+__ptext23                                 text23       001B64
+__ptext24                                 text24       001A8C
+__ptext25                                 text25       00189C
+__ptext26                                 text26       001B1E
+__ptext27                                 text27       0013F2
+__ptext28                                 text28       00181C
+__ptext29                                 text29       001C9C
+__ptext3                                  text3        001D3C
+__ptext30                                 text30       001CD2
+__ptext31                                 text31       001D08
+__ptext32                                 text32       001BA8
+__ptext33                                 text33       001678
+__ptext34                                 text34       001982
+__ptext35                                 text35       0009A6
+__ptext36                                 text36       001330
+__ptext37                                 text37       000FCA
+__ptext38                                 text38       0005A4
+__ptext39                                 text39       001E18
+__ptext4                                  text4        001BEC
+__ptext40                                 text40       001264
+__ptext41                                 text41       00032A
+__ptext42                                 text42       0019DE
+__ptext43                                 text43       000BF0
+__ptext44                                 text44       001912
+__ptext45                                 text45       000CF8
+__ptext5                                  text5        001DE2
 __ptext6                                  text6        00086C
 __ptext7                                  text7        00154A
-__ptext8                                  text8        001A62
+__ptext8                                  text8        001AD8
 __ptext9                                  text9        00170C
 __ramtop                                  ramtop       000800
 __size_of_APP_DeviceJoystickInitialize    (abs)        000000
@@ -780,6 +789,7 @@ __size_of_BUTTON_IsPressed                (abs)        000000
 __size_of_LED_Enable                      (abs)        000000
 __size_of_LED_Off                         (abs)        000000
 __size_of_LED_On                          (abs)        000000
+__size_of_PEDAL_Enable                    (abs)        000000
 __size_of_PEDAL_Position                  (abs)        000000
 __size_of_SYSTEM_Initialize               (abs)        000000
 __size_of_SYS_InterruptHigh               (abs)        000000
@@ -819,20 +829,20 @@ __size_of_main                            (abs)        000000
 __size_of_memcpy                          (abs)        000000
 __size_of_memset                          (abs)        000000
 __smallconst                              smallconst   000000
-_active_protocol                          bssBANK0     000086
+_active_protocol                          bssBANK0     000087
 _configDescriptor1                        mediumconst  007FA3
 _controlTransferState                     bssCOMRAM    00002A
 _device_dsc                               mediumconst  007FE8
 _endpoint_number                          bssCOMRAM    000027
 _ep_data_in                               bssBANK0     00007A
 _ep_data_out                              bssBANK0     000078
-_hid_rpt01                                mediumconst  007A69
-_idle_rate                                bssBANK0     000087
+_hid_rpt01                                mediumconst  007A79
+_idle_rate                                bssBANK0     000088
 _inPipes                                  bssCOMRAM    000009
 _joystick_input                           (abs)        000540
-_main                                     text0        001D44
-_memcpy                                   text8        001A62
-_memset                                   text14       001CEC
+_main                                     text0        001DC2
+_memcpy                                   text8        001AD8
+_memset                                   text14       001D6A
 _outPipes                                 bssCOMRAM    000001
 _pBDTEntryEP0OutCurrent                   bssCOMRAM    000019
 _pBDTEntryEP0OutNext                      bssCOMRAM    000017
@@ -842,29 +852,29 @@ _pDst                                     bssBANK0     00007C
 _sd000                                    mediumconst  007FFA
 _sd001                                    mediumconst  007F6F
 _sd002                                    mediumconst  007FCC
-_set_get_effect_structure                 bssBANK0     00007E
+_set_get_effect_structure                 bssBANK0     00007F
 _shortPacketStatus                        bssCOMRAM    00002B
 btemp                                     temp         00004D
-end_of_initialization                     cinit        001BDC
+end_of_initialization                     cinit        001C58
 int$flags                                 temp         00004D
 intlevel0                                 text         000000
 intlevel1                                 text         000000
 intlevel2                                 text         000000
 intlevel3                                 text         000000
-memcpy@d                                  cstackBANK0  000089
+memcpy@d                                  cstackBANK0  00008A
 memcpy@d1                                 cstackCOMRAM 000042
 memcpy@n                                  cstackCOMRAM 000046
-memcpy@s                                  cstackBANK0  00008B
+memcpy@s                                  cstackBANK0  00008C
 memcpy@s1                                 cstackCOMRAM 000044
-memcpy@tmp                                cstackBANK0  000088
+memcpy@tmp                                cstackBANK0  000089
 memset@c                                  cstackCOMRAM 000044
 memset@n                                  cstackCOMRAM 000046
 memset@p                                  cstackCOMRAM 000048
 memset@p1                                 cstackCOMRAM 000042
 stackhi                                   (abs)        0003FF
-stacklo                                   (abs)        00009A
+stacklo                                   (abs)        00009B
 start                                     init         00009E
-start_initialization                      cinit        001BB2
+start_initialization                      cinit        001C2E
 wtemp6                                    temp         00004E
 
 
@@ -1617,9 +1627,9 @@ Total ram usage:        0 bytes
  Defined at:
 		line 79 in file "system.c"
  Parameters:    Size  Location     Type
-  state           1    wreg     enum E6411
+  state           1    wreg     enum E6415
  Auto vars:     Size  Location     Type
-  state           1   19[COMRAM] enum E6411
+  state           1   19[COMRAM] enum E6415
  Return value:  Size  Location     Type
                   1    wreg      void 
  Registers used:
@@ -1639,6 +1649,7 @@ Total ram usage:        1 bytes
  This function calls:
 		_BUTTON_Enable
 		_LED_Enable
+		_PEDAL_Enable
 		_WHEEL_Enable
  This function is called by:
 		_USER_USB_CALLBACK_EVENT_HANDLER
@@ -1648,11 +1659,41 @@ Total ram usage:        1 bytes
 
  *************** function _WHEEL_Enable *****************
  Defined at:
-		line 93 in file "C:/Users/kyle.marshall/MPLABXProjects/USB_FFB_Wheel.X/framework/usb/inc/wheel.c"
+		line 101 in file "C:/Users/kyle.marshall/MPLABXProjects/USB_FFB_Wheel.X/framework/usb/inc/wheel.c"
  Parameters:    Size  Location     Type
-  wheel           1    wreg     enum E5758
+  wheel           1    wreg     enum E5759
  Auto vars:     Size  Location     Type
-  wheel           1   18[COMRAM] enum E5758
+  wheel           1   18[COMRAM] enum E5759
+ Return value:  Size  Location     Type
+                  1    wreg      void 
+ Registers used:
+		wreg, status,2, status,0
+ Tracked objects:
+		On entry : 
+		On exit  : 
+		Unchanged: 
+ Data sizes:     COMRAM   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5   BANK6   BANK7
+      Params:         0       0       0       0       0       0       0       0       0
+      Locals:         1       0       0       0       0       0       0       0       0
+      Temps:          0       0       0       0       0       0       0       0       0
+      Totals:         1       0       0       0       0       0       0       0       0
+Total ram usage:        1 bytes
+ Hardware stack levels used:    1
+ Hardware stack levels required when called:    1
+ This function calls:
+		Nothing
+ This function is called by:
+		_SYSTEM_Initialize
+ This function uses a non-reentrant model
+
+
+ *************** function _PEDAL_Enable *****************
+ Defined at:
+		line 130 in file "C:/Users/kyle.marshall/MPLABXProjects/USB_FFB_Wheel.X/framework/usb/inc/wheel.c"
+ Parameters:    Size  Location     Type
+  pedal           1    wreg     enum E5763
+ Auto vars:     Size  Location     Type
+  pedal           1   18[COMRAM] enum E5763
  Return value:  Size  Location     Type
                   1    wreg      void 
  Registers used:
@@ -2183,11 +2224,11 @@ Total ram usage:        1 bytes
 
  *************** function _WHEEL_Test *****************
  Defined at:
-		line 138 in file "C:/Users/kyle.marshall/MPLABXProjects/USB_FFB_Wheel.X/framework/usb/inc/wheel.c"
+		line 191 in file "C:/Users/kyle.marshall/MPLABXProjects/USB_FFB_Wheel.X/framework/usb/inc/wheel.c"
  Parameters:    Size  Location     Type
-  wheel           1    wreg     enum E5758
+  wheel           1    wreg     enum E5759
  Auto vars:     Size  Location     Type
-  wheel           1   18[COMRAM] enum E5758
+  wheel           1   18[COMRAM] enum E5759
  Return value:  Size  Location     Type
                   1    wreg      unsigned char 
  Registers used:
@@ -2250,11 +2291,11 @@ Total ram usage:       11 bytes
 
  *************** function _PEDAL_Position *****************
  Defined at:
-		line 179 in file "C:/Users/kyle.marshall/MPLABXProjects/USB_FFB_Wheel.X/framework/usb/inc/wheel.c"
+		line 232 in file "C:/Users/kyle.marshall/MPLABXProjects/USB_FFB_Wheel.X/framework/usb/inc/wheel.c"
  Parameters:    Size  Location     Type
-  pedal           1    wreg     enum E5762
+  pedal           1    wreg     enum E5763
  Auto vars:     Size  Location     Type
-  pedal           1   19[COMRAM] enum E5762
+  pedal           1   19[COMRAM] enum E5763
  Return value:  Size  Location     Type
                   1    wreg      unsigned char 
  Registers used:
@@ -2310,7 +2351,7 @@ Total ram usage:        1 bytes
 
  *************** function _SYS_InterruptHigh *****************
  Defined at:
-		line 112 in file "system.c"
+		line 113 in file "system.c"
  Parameters:    Size  Location     Type
 		None
  Auto vars:     Size  Location     Type
@@ -2353,17 +2394,17 @@ Module		Function		Class		Link	Load	Size
 ../../../../../../bsp/picdem_fs_usb_k50/buttons.c estimated size: 444
 
 ../demo_src/app_device_joystick.c
-		_APP_DeviceJoystickInitialize		CODE           	1C8A	0000	53
+		_APP_DeviceJoystickInitialize		CODE           	1D08	0000	53
 		_USBSetEffect  		CODE           	05A4	0000	363
-		_USBSendPIDBlockLoadReport		CODE           	1D84	0000	23
-		_USER_SET_REPORT_HANDLER		CODE           	19C0	0000	87
+		_USBSendPIDBlockLoadReport		CODE           	1E02	0000	23
+		_USER_SET_REPORT_HANDLER		CODE           	1A36	0000	87
 		_APP_DeviceJoystickTasks		CODE           	032A	0000	635
-		_USBSetDataEffect		CODE           	1D9A	0000	3
+		_USBSetDataEffect		CODE           	1E18	0000	3
 
 ../demo_src/app_device_joystick.c estimated size: 1164
 
 C:\Program Files (x86)\Microchip\xc8\v1.45\sources\common\memcpy.c
-		_memcpy        		CODE           	1A62	0000	71
+		_memcpy        		CODE           	1AD8	0000	71
 
 C:\Program Files (x86)\Microchip\xc8\v1.45\sources\common\memcpy.c estimated size: 71
 
@@ -2375,63 +2416,64 @@ C:\Program Files (x86)\Microchip\xc8\v1.45\sources\common\memcpy.c estimated siz
 		_USBStdFeatureReqHandler		CODE           	00A2	0000	649
 		_USBCtrlEPAllowStatusStage		CODE           	1330	0000	195
 		_USBCtrlTrfSetupHandler		CODE           	170C	0000	145
-		_USBCtrlTrfOutHandler		CODE           	190C	0000	93
+		_USBCtrlTrfOutHandler		CODE           	1982	0000	93
 		_USBCtrlEPServiceComplete		CODE           	0DF6	0000	241
-		_USBSuspend    		CODE           	1CBE	0000	47
+		_USBSuspend    		CODE           	1D3C	0000	47
 		_USBStdSetCfgHandler		CODE           	10AC	0000	223
 		_USBStdGetStatusHandler		CODE           	14AE	0000	157
-		_USBWakeFromSuspend		CODE           	1C56	0000	53
+		_USBWakeFromSuspend		CODE           	1C66	0000	55
 		_USBCtrlTrfRxService		CODE           	09A6	0000	305
 		_USBCtrlTrfTxService		CODE           	1264	0000	205
-		_USBEnableEndpoint		CODE           	1AEE	0000	69
+		_USBEnableEndpoint		CODE           	1BA8	0000	69
 		_USBConfigureEndpoint		CODE           	1678	0000	149
 		_USBDeviceInit 		CODE           	086C	0000	315
-		_USBIncrement1msInternalTimers		CODE           	1D64	0000	33
+		_USBIncrement1msInternalTimers		CODE           	1DE2	0000	33
 		_USBCtrlEPService		CODE           	154A	0000	153
-		_USBStallHandler		CODE           	1B32	0000	67
+		_USBStallHandler		CODE           	1BEC	0000	67
 		_USBDeviceTasks		CODE           	070E	0000	351
 		_USBCheckStdRequest		CODE           	118A	0000	219
 
-../../../../../../framework/usb/src/usb_device.c estimated size: 4595
+../../../../../../framework/usb/src/usb_device.c estimated size: 4597
 
 ../../../../../../framework/usb/src/usb_device_hid.c
-		_USER_GET_REPORT_HANDLER		CODE           	1D18	0000	45
+		_USER_GET_REPORT_HANDLER		CODE           	1D96	0000	45
 		_USBCheckHIDRequest		CODE           	0EE6	0000	229
 
 ../../../../../../framework/usb/src/usb_device_hid.c estimated size: 274
 
 shared
 		_configDescriptor1		MEDIUMCONST    	7FA3	0000	42
-		_USB_CD_Ptr    		MEDIUMCONST    	7A67	0000	3
+		_USB_CD_Ptr    		MEDIUMCONST    	7A77	0000	3
 		_sd001         		MEDIUMCONST    	7F6F	0000	53
 		_sd002         		MEDIUMCONST    	7FCC	0000	29
-		__initialization		CODE           	1BB2	0000	43
+		__initialization		CODE           	1C2E	0000	43
 		_device_dsc    		MEDIUMCONST    	7FE8	0000	19
-		_USB_SD_Ptr    		MEDIUMCONST    	7A61	0000	7
-		_hid_rpt01     		MEDIUMCONST    	7A69	0000	1287
+		_USB_SD_Ptr    		MEDIUMCONST    	7A71	0000	7
+		_hid_rpt01     		MEDIUMCONST    	7A79	0000	1271
 		_sd000         		MEDIUMCONST    	7FFA	0000	5
 
-shared estimated size: 1488
+shared estimated size: 1472
 
 C:/Users/kyle.marshall/MPLABXProjects/USB_FFB_Wheel.X/framework/usb/inc/wheel.c
-		_PEDAL_Position		CODE           	189C	0000	113
-		_WHEEL_Test    		CODE           	1968	0000	89
-		_WHEEL_Enable  		CODE           	1A16	0000	77
+		_PEDAL_Position		CODE           	1912	0000	113
+		_WHEEL_Test    		CODE           	19DE	0000	89
+		_PEDAL_Enable  		CODE           	189C	0000	119
+		_WHEEL_Enable  		CODE           	1A8C	0000	77
 
-C:/Users/kyle.marshall/MPLABXProjects/USB_FFB_Wheel.X/framework/usb/inc/wheel.c estimated size: 279
+C:/Users/kyle.marshall/MPLABXProjects/USB_FFB_Wheel.X/framework/usb/inc/wheel.c estimated size: 398
 
 ../../../../../../bsp/picdem_fs_usb_k50/leds.c
-		_LED_Off       		CODE           	1C20	0000	55
-		_LED_On        		CODE           	1BEA	0000	55
-		_LED_Enable    		CODE           	1AA8	0000	71
+		_LED_Off       		CODE           	1CD2	0000	55
+		_LED_On        		CODE           	1C9C	0000	55
+		_LED_Enable    		CODE           	1B1E	0000	71
 
 ../../../../../../bsp/picdem_fs_usb_k50/leds.c estimated size: 181
 
 system.c
 		_SYS_InterruptHigh		CODE           	0008	0000	151
-		_SYSTEM_Initialize		CODE           	1B74	0000	63
+		_SYSTEM_Initialize		CODE           	1B64	0000	69
 
-system.c estimated size: 214
+system.c estimated size: 220
 
 ../demo_src/app_led_usb_status.c
 		_APP_LEDUpdateUSBStatus		CODE           	181C	0000	129
@@ -2439,12 +2481,12 @@ system.c estimated size: 214
 ../demo_src/app_led_usb_status.c estimated size: 129
 
 ../demo_src/main.c
-		_main          		CODE           	1D44	0000	33
+		_main          		CODE           	1DC2	0000	33
 
 ../demo_src/main.c estimated size: 33
 
 C:\Program Files (x86)\Microchip\xc8\v1.45\sources\common\memset.c
-		_memset        		CODE           	1CEC	0000	45
+		_memset        		CODE           	1D6A	0000	45
 
 C:\Program Files (x86)\Microchip\xc8\v1.45\sources\common\memset.c estimated size: 45
 

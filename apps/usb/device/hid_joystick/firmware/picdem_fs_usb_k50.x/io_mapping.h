@@ -35,6 +35,8 @@ please contact mla_licensing@microchip.com
 #define BUTTON_HOME                             BUTTON_S14
 #define LED_USB_DEVICE_STATE                    LED_D1
 #define WHEEL                                   WHEEL_W1
+#define PEDAL_GAS                               PEDAL_GAS
+#define BREAK_GAS                               BREAK_GAS
 
 #define self_power                              1
 

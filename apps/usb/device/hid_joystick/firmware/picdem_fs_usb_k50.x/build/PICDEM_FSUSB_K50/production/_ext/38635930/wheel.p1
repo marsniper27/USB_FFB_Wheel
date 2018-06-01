@@ -1,7 +1,7 @@
 Version 3.2 HI-TECH Software Intermediate Code
-"54 C:/Users/kyle.marshall/MPLABXProjects/USB_FFB_Wheel.X/framework/usb/inc/wheel.c
-[c E5758 0 1 .. ]
-[n E5758 . WHEEL_NONE WHEEL_W1  ]
+"62 C:/Users/kyle.marshall/MPLABXProjects/USB_FFB_Wheel.X/framework/usb/inc/wheel.c
+[c E5759 0 1 .. ]
+[n E5759 . WHEEL_NONE WHEEL_W1  ]
 "9779 C:\Program Files (x86)\Microchip\xc8\v1.45\include\pic18f45k50.h
 [s S430 :1 `uc 1 :1 `uc 1 ]
 [n S430 . . GO_NOT_DONE ]
@@ -74,7 +74,10 @@ Version 3.2 HI-TECH Software Intermediate Code
 [n S425 . . . . ]
 "9728
 [v _ADCON1bits `VS425 ~T0 @X0 0 e@4033 ]
-"2905
+"131 C:/Users/kyle.marshall/MPLABXProjects/USB_FFB_Wheel.X/framework/usb/inc/wheel.c
+[c E5763 0 1 2 3 .. ]
+[n E5763 . PEDAL_NONE PEDAL_GAS PEDAL_BREAK PEDAL_CLUTCH  ]
+"2905 C:\Program Files (x86)\Microchip\xc8\v1.45\include\pic18f45k50.h
 [s S124 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
 [n S124 . RA0 RA1 RA2 RA3 RA4 RA5 RA6 RA7 ]
 "2915
@@ -94,9 +97,6 @@ Version 3.2 HI-TECH Software Intermediate Code
 [n S123 . . . . . . ]
 "2941
 [v _PORTAbits `VS123 ~T0 @X0 0 e@3968 ]
-"180 C:/Users/kyle.marshall/MPLABXProjects/USB_FFB_Wheel.X/framework/usb/inc/wheel.c
-[c E5762 0 1 2 .. ]
-[n E5762 . PEDAL_NONE PEDAL_BREAK PEDAL_CLUTCH  ]
 [; ;htc.h: 26: extern const char __xc8_OPTIM_SPEED;
 [; ;htc.h: 28: extern double __fpnormalize(double);
 [; ;xc8debug.h: 14: extern void __builtin_software_breakpoint(void);
@@ -5403,553 +5403,710 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;stdint.h: 205: typedef uint32_t uintmax_t;
 [; ;stdint.h: 210: typedef int16_t intptr_t;
 [; ;stdint.h: 215: typedef uint16_t uintptr_t;
-"19 ../../../../../../framework/usb/inc\wheel.h
+"20 ../../../../../../framework/usb/inc\wheel.h
 [v _WHEEL_Type `uc ~T0 @X0 1 e ]
 [i _WHEEL_Type
 -> -> 0 `i `uc
 ]
-[; ;inc\wheel.h: 19: bool WHEEL_Type = 0;
-"21
+[; ;inc\wheel.h: 20: bool WHEEL_Type = 0;
+"23
+[v _GAS_Type `uc ~T0 @X0 1 e ]
+[i _GAS_Type
+-> -> 0 `i `uc
+]
+[; ;inc\wheel.h: 23: bool GAS_Type = 0;
+"24
 [v _BREAK_Type `uc ~T0 @X0 1 e ]
 [i _BREAK_Type
 -> -> 0 `i `uc
 ]
-[; ;inc\wheel.h: 21: bool BREAK_Type = 0;
-"23
+[; ;inc\wheel.h: 24: bool BREAK_Type = 0;
+"25
 [v _CLUTCH_Type `uc ~T0 @X0 1 e ]
 [i _CLUTCH_Type
 -> -> 0 `i `uc
 ]
-[; ;inc\wheel.h: 23: bool CLUTCH_Type = 0;
-[; ;inc\wheel.h: 26: typedef enum
-[; ;inc\wheel.h: 27: {
-[; ;inc\wheel.h: 28: WHEEL_NONE,
-[; ;inc\wheel.h: 29: WHEEL_W1
-[; ;inc\wheel.h: 31: } WHEEL;
-[; ;inc\wheel.h: 33: typedef enum
-[; ;inc\wheel.h: 34: {
-[; ;inc\wheel.h: 35: PEDAL_NONE,
-[; ;inc\wheel.h: 36: PEDAL_BREAK,
-[; ;inc\wheel.h: 37: PEDAL_CLUTCH
-[; ;inc\wheel.h: 39: } PEDAL;
-[; ;inc\wheel.h: 57: uint8_t WHEEL_Position(WHEEL wheel);
-[; ;inc\wheel.h: 75: void WHEEL_Enable(WHEEL wheel);
-[; ;inc\wheel.h: 77: void WHEEL_Home(WHEEL wheel);
-[; ;inc\wheel.h: 79: uint8_t WHEEL_Test(WHEEL wheel);
-[; ;inc\wheel.h: 80: uint8_t PEDAL_Position(PEDAL pedal);
-"53 C:/Users/kyle.marshall/MPLABXProjects/USB_FFB_Wheel.X/framework/usb/inc/wheel.c
-[v _WHEEL_Position `(uc ~T0 @X0 1 ef1`E5758 ]
-"54
-{
-[; ;wheel.c: 53: uint8_t WHEEL_Position(WHEEL wheel)
-[; ;wheel.c: 54: {
-[e :U _WHEEL_Position ]
-"53
-[v _wheel `E5758 ~T0 @X0 1 r1 ]
-"54
-[f ]
-[; ;wheel.c: 55: switch(wheel)
-"55
-[e $U 633  ]
-[; ;wheel.c: 56: {
-"56
-{
-[; ;wheel.c: 57: case WHEEL_W1:
-"57
-[e :U 634 ]
-[; ;wheel.c: 58: if (WHEEL_Type == 0)
-"58
-[e $ ! == -> _WHEEL_Type `i -> 0 `i 635  ]
-[; ;wheel.c: 59: {
-"59
-{
-[; ;wheel.c: 60: ADCON0bits.CHS = 0b0000;
-"60
-[e = . . _ADCON0bits 1 2 -> -> 0 `i `uc ]
-[; ;wheel.c: 61: _delay((unsigned long)((2)*(20000000/4000.0)));
-"61
-[e ( __delay (1 -> * -> -> 2 `i `d / -> -> 20000000 `l `d .4000.0 `ul ]
-[; ;wheel.c: 62: GO_nDONE = 1;
+[; ;inc\wheel.h: 25: bool CLUTCH_Type = 0;
+[; ;inc\wheel.h: 28: typedef enum
+[; ;inc\wheel.h: 29: {
+[; ;inc\wheel.h: 30: WHEEL_NONE,
+[; ;inc\wheel.h: 31: WHEEL_W1
+[; ;inc\wheel.h: 33: } WHEEL;
+[; ;inc\wheel.h: 35: typedef enum
+[; ;inc\wheel.h: 36: {
+[; ;inc\wheel.h: 37: PEDAL_NONE,
+[; ;inc\wheel.h: 38: PEDAL_GAS,
+[; ;inc\wheel.h: 39: PEDAL_BREAK,
+[; ;inc\wheel.h: 40: PEDAL_CLUTCH
+[; ;inc\wheel.h: 42: } PEDAL;
+[; ;inc\wheel.h: 60: uint8_t WHEEL_Position(WHEEL wheel);
+[; ;inc\wheel.h: 78: void WHEEL_Enable(WHEEL wheel);
+[; ;inc\wheel.h: 79: void WHEEL_Home(WHEEL wheel);
+[; ;inc\wheel.h: 80: uint8_t WHEEL_Test(WHEEL wheel);
+[; ;inc\wheel.h: 82: void PEDAL_Enable(PEDAL pedal);
+[; ;inc\wheel.h: 83: uint8_t PEDAL_Position(PEDAL pedal);
+"61 C:/Users/kyle.marshall/MPLABXProjects/USB_FFB_Wheel.X/framework/usb/inc/wheel.c
+[v _WHEEL_Position `(uc ~T0 @X0 1 ef1`E5759 ]
 "62
-[e = _GO_nDONE -> -> 1 `i `b ]
-[; ;wheel.c: 63: while(GO_nDONE);
+{
+[; ;wheel.c: 61: uint8_t WHEEL_Position(WHEEL wheel)
+[; ;wheel.c: 62: {
+[e :U _WHEEL_Position ]
+"61
+[v _wheel `E5759 ~T0 @X0 1 r1 ]
+"62
+[f ]
+[; ;wheel.c: 63: switch(wheel)
 "63
+[e $U 633  ]
+[; ;wheel.c: 64: {
+"64
+{
+[; ;wheel.c: 65: case WHEEL_W1:
+"65
+[e :U 634 ]
+[; ;wheel.c: 66: if (WHEEL_Type == 0)
+"66
+[e $ ! == -> _WHEEL_Type `i -> 0 `i 635  ]
+[; ;wheel.c: 67: {
+"67
+{
+[; ;wheel.c: 68: ADCON0bits.CHS = 0b0000;
+"68
+[e = . . _ADCON0bits 1 2 -> -> 0 `i `uc ]
+[; ;wheel.c: 69: _delay((unsigned long)((2)*(20000000/4000.0)));
+"69
+[e ( __delay (1 -> * -> -> 2 `i `d / -> -> 20000000 `l `d .4000.0 `ul ]
+[; ;wheel.c: 70: GO_nDONE = 1;
+"70
+[e = _GO_nDONE -> -> 1 `i `b ]
+[; ;wheel.c: 71: while(GO_nDONE);
+"71
 [e $U 636  ]
 [e :U 637 ]
 [e :U 636 ]
 [e $ _GO_nDONE 637  ]
 [e :U 638 ]
-[; ;wheel.c: 64: return ((ADRESH<<8)+ADRESL);
-"64
+[; ;wheel.c: 72: return ((ADRESH<<8)+ADRESL);
+"72
 [e ) -> + << -> _ADRESH `i -> 8 `i -> _ADRESL `i `uc ]
 [e $UE 631  ]
-"65
+"73
 }
-[; ;wheel.c: 65: }
+[; ;wheel.c: 73: }
 [e $U 639  ]
-"66
+"74
 [e :U 635 ]
-[; ;wheel.c: 66: else if (WHEEL_Type == 1)
+[; ;wheel.c: 74: else if (WHEEL_Type == 1)
 [e $ ! == -> _WHEEL_Type `i -> 1 `i 640  ]
-[; ;wheel.c: 67: {
-"67
+[; ;wheel.c: 75: {
+"75
 {
-"69
+"77
 }
 [e :U 640 ]
-"70
+"78
 [e :U 639 ]
-[; ;wheel.c: 69: }
-[; ;wheel.c: 70: case WHEEL_NONE:
+[; ;wheel.c: 77: }
+[; ;wheel.c: 78: case WHEEL_NONE:
 [e :U 641 ]
-[; ;wheel.c: 71: return 128;
-"71
+[; ;wheel.c: 79: return 128;
+"79
 [e ) -> -> 128 `i `uc ]
 [e $UE 631  ]
-"72
+"80
 }
-[; ;wheel.c: 72: }
+[; ;wheel.c: 80: }
 [e $U 632  ]
-"55
+"63
 [e :U 633 ]
-[e [\ _wheel , $ . `E5758 1 634
- , $ . `E5758 0 641
+[e [\ _wheel , $ . `E5759 1 634
+ , $ . `E5759 0 641
  632 ]
-"72
+"80
 [e :U 632 ]
-[; ;wheel.c: 74: return 128;
-"74
+[; ;wheel.c: 82: return 128;
+"82
 [e ) -> -> 128 `i `uc ]
 [e $UE 631  ]
-[; ;wheel.c: 75: }
-"75
+[; ;wheel.c: 83: }
+"83
 [e :UE 631 ]
 }
-"93
-[v _WHEEL_Enable `(v ~T0 @X0 1 ef1`E5758 ]
-"94
-{
-[; ;wheel.c: 93: void WHEEL_Enable(WHEEL wheel)
-[; ;wheel.c: 94: {
-[e :U _WHEEL_Enable ]
-"93
-[v _wheel `E5758 ~T0 @X0 1 r1 ]
-"94
-[f ]
-[; ;wheel.c: 95: switch(wheel)
-"95
-[e $U 644  ]
-[; ;wheel.c: 96: {
-"96
-{
-[; ;wheel.c: 97: case WHEEL_W1:
-"97
-[e :U 645 ]
-[; ;wheel.c: 98: TRISAbits.TRISA0 = 1;
-"98
-[e = . . _TRISAbits 0 0 -> -> 1 `i `uc ]
-[; ;wheel.c: 99: if (WHEEL_Type == 0)
-"99
-[e $ ! == -> _WHEEL_Type `i -> 0 `i 646  ]
-[; ;wheel.c: 100: {
-"100
-{
-[; ;wheel.c: 101: ANSELAbits.ANSA0 = 0;
 "101
-[e = . . _ANSELAbits 0 0 -> -> 0 `i `uc ]
-[; ;wheel.c: 102: ADCON1bits.CHSN3 = 0b1;
+[v _WHEEL_Enable `(v ~T0 @X0 1 ef1`E5759 ]
 "102
-[e = . . _ADCON1bits 2 1 -> -> 1 `i `uc ]
-[; ;wheel.c: 103: ADCON1bits.NVCFG = 0;
-"103
-[e = . . _ADCON1bits 0 0 -> -> 0 `i `uc ]
-[; ;wheel.c: 104: ADCON1bits.PVCFG = 0;
-"104
-[e = . . _ADCON1bits 0 1 -> -> 0 `i `uc ]
-[; ;wheel.c: 105: ADCON0bits.CHS = 0b0000;
-"105
-[e = . . _ADCON0bits 1 2 -> -> 0 `i `uc ]
-[; ;wheel.c: 106: ADCON0bits.ADON = 1;
-"106
-[e = . . _ADCON0bits 1 0 -> -> 1 `i `uc ]
-"107
-}
-[; ;wheel.c: 107: }
-[e $U 647  ]
-"108
-[e :U 646 ]
-[; ;wheel.c: 108: else if(WHEEL_Type == 1)
-[e $ ! == -> _WHEEL_Type `i -> 1 `i 648  ]
-[; ;wheel.c: 109: {
-"109
 {
-[; ;wheel.c: 110: TRISAbits.TRISA1 = 1;
+[; ;wheel.c: 101: void WHEEL_Enable(WHEEL wheel)
+[; ;wheel.c: 102: {
+[e :U _WHEEL_Enable ]
+"101
+[v _wheel `E5759 ~T0 @X0 1 r1 ]
+"102
+[f ]
+[; ;wheel.c: 103: switch(wheel)
+"103
+[e $U 644  ]
+[; ;wheel.c: 104: {
+"104
+{
+[; ;wheel.c: 105: case WHEEL_W1:
+"105
+[e :U 645 ]
+[; ;wheel.c: 106: TRISAbits.TRISA0 = 1;
+"106
+[e = . . _TRISAbits 0 0 -> -> 1 `i `uc ]
+[; ;wheel.c: 107: if (WHEEL_Type == 0)
+"107
+[e $ ! == -> _WHEEL_Type `i -> 0 `i 646  ]
+[; ;wheel.c: 108: {
+"108
+{
+[; ;wheel.c: 109: ANSELAbits.ANSA0 = 0;
+"109
+[e = . . _ANSELAbits 0 0 -> -> 0 `i `uc ]
+[; ;wheel.c: 110: ADCON1bits.CHSN3 = 0b1;
 "110
-[e = . . _TRISAbits 0 1 -> -> 1 `i `uc ]
-[; ;wheel.c: 111: TRISAbits.TRISA2 = 1;
+[e = . . _ADCON1bits 2 1 -> -> 1 `i `uc ]
+[; ;wheel.c: 111: ADCON1bits.NVCFG = 0;
 "111
-[e = . . _TRISAbits 0 2 -> -> 1 `i `uc ]
-[; ;wheel.c: 113: ANSELAbits.ANSA0 = 1;
+[e = . . _ADCON1bits 0 0 -> -> 0 `i `uc ]
+[; ;wheel.c: 112: ADCON1bits.PVCFG = 0;
+"112
+[e = . . _ADCON1bits 0 1 -> -> 0 `i `uc ]
+[; ;wheel.c: 113: ADCON0bits.CHS = 0b0000;
 "113
-[e = . . _ANSELAbits 0 0 -> -> 1 `i `uc ]
-[; ;wheel.c: 114: ANSELAbits.ANSA1 = 1;
+[e = . . _ADCON0bits 1 2 -> -> 0 `i `uc ]
+[; ;wheel.c: 114: ADCON0bits.ADON = 1;
 "114
-[e = . . _ANSELAbits 0 1 -> -> 1 `i `uc ]
-[; ;wheel.c: 115: ANSELAbits.ANSA2 = 1;
+[e = . . _ADCON0bits 1 0 -> -> 1 `i `uc ]
 "115
-[e = . . _ANSELAbits 0 2 -> -> 1 `i `uc ]
+}
+[; ;wheel.c: 115: }
+[e $U 647  ]
 "116
+[e :U 646 ]
+[; ;wheel.c: 116: else if(WHEEL_Type == 1)
+[e $ ! == -> _WHEEL_Type `i -> 1 `i 648  ]
+[; ;wheel.c: 117: {
+"117
+{
+[; ;wheel.c: 118: TRISAbits.TRISA1 = 1;
+"118
+[e = . . _TRISAbits 0 1 -> -> 1 `i `uc ]
+[; ;wheel.c: 119: TRISAbits.TRISA2 = 1;
+"119
+[e = . . _TRISAbits 0 2 -> -> 1 `i `uc ]
+[; ;wheel.c: 121: ANSELAbits.ANSA0 = 1;
+"121
+[e = . . _ANSELAbits 0 0 -> -> 1 `i `uc ]
+[; ;wheel.c: 122: ANSELAbits.ANSA1 = 1;
+"122
+[e = . . _ANSELAbits 0 1 -> -> 1 `i `uc ]
+[; ;wheel.c: 123: ANSELAbits.ANSA2 = 1;
+"123
+[e = . . _ANSELAbits 0 2 -> -> 1 `i `uc ]
+"124
 }
 [e :U 648 ]
-"117
+"125
 [e :U 647 ]
-[; ;wheel.c: 116: }
-[; ;wheel.c: 117: case WHEEL_NONE:
+[; ;wheel.c: 124: }
+[; ;wheel.c: 125: case WHEEL_NONE:
 [e :U 649 ]
-[; ;wheel.c: 118: break;
-"118
+[; ;wheel.c: 126: break;
+"126
 [e $U 643  ]
-"119
+"127
 }
-[; ;wheel.c: 119: }
+[; ;wheel.c: 127: }
 [e $U 643  ]
-"95
+"103
 [e :U 644 ]
-[e [\ _wheel , $ . `E5758 1 645
- , $ . `E5758 0 649
+[e [\ _wheel , $ . `E5759 1 645
+ , $ . `E5759 0 649
  643 ]
-"119
+"127
 [e :U 643 ]
-[; ;wheel.c: 120: }
-"120
+[; ;wheel.c: 128: }
+"128
 [e :UE 642 ]
 }
-"122
-[v _WHEEL_Home `(v ~T0 @X0 1 ef1`E5758 ]
-"123
-{
-[; ;wheel.c: 122: void WHEEL_Home(WHEEL wheel)
-[; ;wheel.c: 123: {
-[e :U _WHEEL_Home ]
-"122
-[v _wheel `E5758 ~T0 @X0 1 r1 ]
-"123
-[f ]
-[; ;wheel.c: 124: switch(wheel)
-"124
-[e $U 652  ]
-[; ;wheel.c: 125: {
-"125
-{
-[; ;wheel.c: 126: case WHEEL_W1:
-"126
-[e :U 653 ]
-[; ;wheel.c: 127: while(PORTAbits.RA2 != 0)
-"127
-[e $U 654  ]
-[e :U 655 ]
-[; ;wheel.c: 128: {
-"128
-{
-[; ;wheel.c: 130: PORTAbits.RA2=0;
 "130
-[e = . . _PORTAbits 0 2 -> -> 0 `i `uc ]
+[v _PEDAL_Enable `(v ~T0 @X0 1 ef1`E5763 ]
 "131
-}
-[e :U 654 ]
-"127
-[e $ != -> . . _PORTAbits 0 2 `i -> 0 `i 655  ]
-[e :U 656 ]
-[; ;wheel.c: 131: }
-[; ;wheel.c: 132: break;
-"132
-[e $U 651  ]
-[; ;wheel.c: 133: case WHEEL_NONE:
-"133
-[e :U 657 ]
-[; ;wheel.c: 134: break;
-"134
-[e $U 651  ]
-"135
-}
-[; ;wheel.c: 135: }
-[e $U 651  ]
-"124
-[e :U 652 ]
-[e [\ _wheel , $ . `E5758 1 653
- , $ . `E5758 0 657
- 651 ]
-"135
-[e :U 651 ]
-[; ;wheel.c: 136: }
-"136
-[e :UE 650 ]
-}
-"138
-[v _WHEEL_Test `(uc ~T0 @X0 1 ef1`E5758 ]
-"139
 {
-[; ;wheel.c: 138: uint8_t WHEEL_Test(WHEEL wheel)
-[; ;wheel.c: 139: {
-[e :U _WHEEL_Test ]
-"138
-[v _wheel `E5758 ~T0 @X0 1 r1 ]
-"139
+[; ;wheel.c: 130: void PEDAL_Enable(PEDAL pedal)
+[; ;wheel.c: 131: {
+[e :U _PEDAL_Enable ]
+"130
+[v _pedal `E5763 ~T0 @X0 1 r1 ]
+"131
 [f ]
+[; ;wheel.c: 132: switch(pedal)
+"132
+[e $U 652  ]
+[; ;wheel.c: 133: {
+"133
+{
+[; ;wheel.c: 134: case PEDAL_GAS:
+"134
+[e :U 653 ]
+[; ;wheel.c: 135: TRISAbits.TRISA3 = 1;
+"135
+[e = . . _TRISAbits 0 3 -> -> 1 `i `uc ]
+[; ;wheel.c: 136: if (GAS_Type == 0)
+"136
+[e $ ! == -> _GAS_Type `i -> 0 `i 654  ]
+[; ;wheel.c: 137: {
+"137
+{
+[; ;wheel.c: 138: ANSELAbits.ANSA3 = 0;
+"138
+[e = . . _ANSELAbits 0 3 -> -> 0 `i `uc ]
+[; ;wheel.c: 139: ADCON1bits.CHSN3 = 0b1;
+"139
+[e = . . _ADCON1bits 2 1 -> -> 1 `i `uc ]
+[; ;wheel.c: 140: ADCON1bits.NVCFG = 0;
 "140
-[v F5782 `ui ~T0 @X0 1 s count ]
-[i F5782
--> -> 0 `i `ui
-]
+[e = . . _ADCON1bits 0 0 -> -> 0 `i `uc ]
+[; ;wheel.c: 141: ADCON1bits.PVCFG = 0;
 "141
-[v F5783 `uc ~T0 @X0 1 s direction ]
-[i F5783
--> -> 1 `i `uc
-]
-[; ;wheel.c: 140: static uint16_t count = 0;
-[; ;wheel.c: 141: static bool direction = 1;
-[; ;wheel.c: 143: switch(wheel)
+[e = . . _ADCON1bits 0 1 -> -> 0 `i `uc ]
+[; ;wheel.c: 142: ADCON0bits.CHS = 0b0000;
+"142
+[e = . . _ADCON0bits 1 2 -> -> 0 `i `uc ]
+[; ;wheel.c: 143: ADCON0bits.ADON = 1;
 "143
-[e $U 660  ]
-[; ;wheel.c: 144: {
+[e = . . _ADCON0bits 1 0 -> -> 1 `i `uc ]
 "144
-{
-[; ;wheel.c: 145: case WHEEL_W1:
+}
+[; ;wheel.c: 144: }
+[e $U 655  ]
 "145
-[e :U 661 ]
-[; ;wheel.c: 146: if(direction)
+[e :U 654 ]
+[; ;wheel.c: 145: else if(GAS_Type == 1)
+[e $ ! == -> _GAS_Type `i -> 1 `i 656  ]
+[; ;wheel.c: 146: {
 "146
-[e $ ! != -> F5783 `i -> -> -> 0 `i `uc `i 662  ]
-[; ;wheel.c: 147: {
-"147
 {
-[; ;wheel.c: 148: if(count < 255)
 "148
-[e $ ! < F5782 -> -> 255 `i `ui 663  ]
-[; ;wheel.c: 149: {
+}
+[e :U 656 ]
 "149
-{
-[; ;wheel.c: 150: count++;
+[e :U 655 ]
+[; ;wheel.c: 148: }
+[; ;wheel.c: 149: break;
+[e $U 651  ]
+[; ;wheel.c: 150: case PEDAL_BREAK:
 "150
-[e ++ F5782 -> -> 1 `i `ui ]
+[e :U 657 ]
+[; ;wheel.c: 151: TRISAbits.TRISA4 = 1;
+"151
+[e = . . _TRISAbits 0 4 -> -> 1 `i `uc ]
+[; ;wheel.c: 152: if (BREAK_Type == 0)
 "152
-}
-[e :U 663 ]
-[; ;wheel.c: 152: }
-[; ;wheel.c: 153: if(count == 255)
+[e $ ! == -> _BREAK_Type `i -> 0 `i 658  ]
+[; ;wheel.c: 153: {
 "153
-[e $ ! == F5782 -> -> 255 `i `ui 664  ]
-[; ;wheel.c: 154: {
+{
+[; ;wheel.c: 154: ANSELAbits.ANSA5 = 0;
 "154
-{
-[; ;wheel.c: 155: direction = 0;
+[e = . . _ANSELAbits 0 5 -> -> 0 `i `uc ]
+[; ;wheel.c: 155: ADCON1bits.CHSN3 = 0b1;
 "155
-[e = F5783 -> -> 0 `i `uc ]
+[e = . . _ADCON1bits 2 1 -> -> 1 `i `uc ]
+[; ;wheel.c: 156: ADCON1bits.NVCFG = 0;
 "156
-}
-[e :U 664 ]
+[e = . . _ADCON1bits 0 0 -> -> 0 `i `uc ]
+[; ;wheel.c: 157: ADCON1bits.PVCFG = 0;
 "157
-}
-[; ;wheel.c: 156: }
-[; ;wheel.c: 157: }
-[e $U 665  ]
+[e = . . _ADCON1bits 0 1 -> -> 0 `i `uc ]
+[; ;wheel.c: 158: ADCON0bits.CHS = 0b0000;
 "158
-[e :U 662 ]
-[; ;wheel.c: 158: else if(!direction)
-[e $ ! ! != -> F5783 `i -> -> -> 0 `i `uc `i 666  ]
-[; ;wheel.c: 159: {
+[e = . . _ADCON0bits 1 2 -> -> 0 `i `uc ]
+[; ;wheel.c: 159: ADCON0bits.ADON = 1;
 "159
-{
-[; ;wheel.c: 160: if(count > 0)
+[e = . . _ADCON0bits 1 0 -> -> 1 `i `uc ]
 "160
-[e $ ! > F5782 -> -> 0 `i `ui 667  ]
-[; ;wheel.c: 161: {
+}
+[; ;wheel.c: 160: }
+[e $U 659  ]
 "161
-{
-[; ;wheel.c: 162: count--;
+[e :U 658 ]
+[; ;wheel.c: 161: else if(GAS_Type == 1)
+[e $ ! == -> _GAS_Type `i -> 1 `i 660  ]
+[; ;wheel.c: 162: {
 "162
-[e -- F5782 -> -> 1 `i `ui ]
-"164
-}
-[e :U 667 ]
-[; ;wheel.c: 164: }
-[; ;wheel.c: 165: if(count == 0)
-"165
-[e $ ! == F5782 -> -> 0 `i `ui 668  ]
-[; ;wheel.c: 166: {
-"166
 {
-[; ;wheel.c: 167: direction = 1;
+[; ;wheel.c: 163: TRISAbits.TRISA1 = 1;
+"163
+[e = . . _TRISAbits 0 1 -> -> 1 `i `uc ]
+[; ;wheel.c: 164: TRISAbits.TRISA2 = 1;
+"164
+[e = . . _TRISAbits 0 2 -> -> 1 `i `uc ]
+[; ;wheel.c: 166: ANSELAbits.ANSA0 = 1;
+"166
+[e = . . _ANSELAbits 0 0 -> -> 1 `i `uc ]
+[; ;wheel.c: 167: ANSELAbits.ANSA1 = 1;
 "167
-[e = F5783 -> -> 1 `i `uc ]
+[e = . . _ANSELAbits 0 1 -> -> 1 `i `uc ]
+[; ;wheel.c: 168: ANSELAbits.ANSA2 = 1;
 "168
-}
-[e :U 668 ]
+[e = . . _ANSELAbits 0 2 -> -> 1 `i `uc ]
 "169
 }
-[e :U 666 ]
-"170
-[e :U 665 ]
-[; ;wheel.c: 168: }
-[; ;wheel.c: 169: }
-[; ;wheel.c: 170: break;
-[e $U 659  ]
-[; ;wheel.c: 172: case WHEEL_NONE:
-"172
-[e :U 669 ]
-[; ;wheel.c: 173: break;
-"173
-[e $U 659  ]
-"174
-}
-[; ;wheel.c: 174: }
-[e $U 659  ]
-"143
 [e :U 660 ]
-[e [\ _wheel , $ . `E5758 1 661
- , $ . `E5758 0 669
- 659 ]
-"174
+"170
 [e :U 659 ]
-[; ;wheel.c: 175: return count;
+[; ;wheel.c: 169: }
+[; ;wheel.c: 170: case PEDAL_NONE:
+[e :U 661 ]
+[; ;wheel.c: 171: break;
+"171
+[e $U 651  ]
+"172
+}
+[; ;wheel.c: 172: }
+[e $U 651  ]
+"132
+[e :U 652 ]
+[e [\ _pedal , $ . `E5763 1 653
+ , $ . `E5763 2 657
+ , $ . `E5763 0 661
+ 651 ]
+"172
+[e :U 651 ]
+[; ;wheel.c: 173: }
+"173
+[e :UE 650 ]
+}
 "175
-[e ) -> F5782 `uc ]
-[e $UE 658  ]
-[; ;wheel.c: 176: }
+[v _WHEEL_Home `(v ~T0 @X0 1 ef1`E5759 ]
 "176
-[e :UE 658 ]
-}
-"179
-[v _PEDAL_Position `(uc ~T0 @X0 1 ef1`E5762 ]
-"180
 {
-[; ;wheel.c: 179: uint8_t PEDAL_Position(PEDAL pedal)
-[; ;wheel.c: 180: {
-[e :U _PEDAL_Position ]
-"179
-[v _pedal `E5762 ~T0 @X0 1 r1 ]
-"180
+[; ;wheel.c: 175: void WHEEL_Home(WHEEL wheel)
+[; ;wheel.c: 176: {
+[e :U _WHEEL_Home ]
+"175
+[v _wheel `E5759 ~T0 @X0 1 r1 ]
+"176
 [f ]
-[; ;wheel.c: 181: switch(pedal)
+[; ;wheel.c: 177: switch(wheel)
+"177
+[e $U 664  ]
+[; ;wheel.c: 178: {
+"178
+{
+[; ;wheel.c: 179: case WHEEL_W1:
+"179
+[e :U 665 ]
+[; ;wheel.c: 180: while(PORTAbits.RA2 != 0)
+"180
+[e $U 666  ]
+[e :U 667 ]
+[; ;wheel.c: 181: {
 "181
-[e $U 672  ]
-[; ;wheel.c: 182: {
-"182
 {
-[; ;wheel.c: 183: case PEDAL_BREAK:
+[; ;wheel.c: 183: PORTAbits.RA2=0;
 "183
-[e :U 673 ]
-[; ;wheel.c: 184: if (BREAK_Type == 0)
+[e = . . _PORTAbits 0 2 -> -> 0 `i `uc ]
 "184
-[e $ ! == -> _BREAK_Type `i -> 0 `i 674  ]
-[; ;wheel.c: 185: {
+}
+[e :U 666 ]
+"180
+[e $ != -> . . _PORTAbits 0 2 `i -> 0 `i 667  ]
+[e :U 668 ]
+[; ;wheel.c: 184: }
+[; ;wheel.c: 185: break;
 "185
-{
-[; ;wheel.c: 186: ADCON0bits.CHS = 0011;
+[e $U 663  ]
+[; ;wheel.c: 186: case WHEEL_NONE:
 "186
-[e = . . _ADCON0bits 1 2 -> -> 9 `i `uc ]
-[; ;wheel.c: 187: _delay((unsigned long)((2)*(20000000/4000.0)));
+[e :U 669 ]
+[; ;wheel.c: 187: break;
 "187
-[e ( __delay (1 -> * -> -> 2 `i `d / -> -> 20000000 `l `d .4000.0 `ul ]
-[; ;wheel.c: 188: GO_nDONE = 1;
+[e $U 663  ]
 "188
-[e = _GO_nDONE -> -> 1 `i `b ]
-[; ;wheel.c: 189: while(GO_nDONE);
+}
+[; ;wheel.c: 188: }
+[e $U 663  ]
+"177
+[e :U 664 ]
+[e [\ _wheel , $ . `E5759 1 665
+ , $ . `E5759 0 669
+ 663 ]
+"188
+[e :U 663 ]
+[; ;wheel.c: 189: }
 "189
-[e $U 675  ]
-[e :U 676 ]
-[e :U 675 ]
-[e $ _GO_nDONE 676  ]
-[e :U 677 ]
-[; ;wheel.c: 190: return ((ADRESH<<8)+ADRESL);
-"190
-[e ) -> + << -> _ADRESH `i -> 8 `i -> _ADRESL `i `uc ]
-[e $UE 670  ]
+[e :UE 662 ]
+}
 "191
-}
-[; ;wheel.c: 191: }
-[e $U 678  ]
+[v _WHEEL_Test `(uc ~T0 @X0 1 ef1`E5759 ]
 "192
-[e :U 674 ]
-[; ;wheel.c: 192: else if (BREAK_Type == 1)
-[e $ ! == -> _BREAK_Type `i -> 1 `i 679  ]
-[; ;wheel.c: 193: {
+{
+[; ;wheel.c: 191: uint8_t WHEEL_Test(WHEEL wheel)
+[; ;wheel.c: 192: {
+[e :U _WHEEL_Test ]
+"191
+[v _wheel `E5759 ~T0 @X0 1 r1 ]
+"192
+[f ]
 "193
-{
-"195
-}
-[e :U 679 ]
+[v F5787 `ui ~T0 @X0 1 s count ]
+[i F5787
+-> -> 0 `i `ui
+]
+"194
+[v F5788 `uc ~T0 @X0 1 s direction ]
+[i F5788
+-> -> 1 `i `uc
+]
+[; ;wheel.c: 193: static uint16_t count = 0;
+[; ;wheel.c: 194: static bool direction = 1;
+[; ;wheel.c: 196: switch(wheel)
+"196
+[e $U 672  ]
+[; ;wheel.c: 197: {
 "197
-[e :U 678 ]
-[; ;wheel.c: 195: }
-[; ;wheel.c: 197: case PEDAL_CLUTCH:
-[e :U 680 ]
-[; ;wheel.c: 198: if (CLUTCH_Type == 0)
-"198
-[e $ ! == -> _CLUTCH_Type `i -> 0 `i 681  ]
-[; ;wheel.c: 199: {
-"199
 {
-[; ;wheel.c: 200: ADCON0bits.CHS = 0b0100;
+[; ;wheel.c: 198: case WHEEL_W1:
+"198
+[e :U 673 ]
+[; ;wheel.c: 199: if(direction)
+"199
+[e $ ! != -> F5788 `i -> -> -> 0 `i `uc `i 674  ]
+[; ;wheel.c: 200: {
 "200
-[e = . . _ADCON0bits 1 2 -> -> 4 `i `uc ]
-[; ;wheel.c: 201: _delay((unsigned long)((2)*(20000000/4000.0)));
+{
+[; ;wheel.c: 201: if(count < 255)
 "201
-[e ( __delay (1 -> * -> -> 2 `i `d / -> -> 20000000 `l `d .4000.0 `ul ]
-[; ;wheel.c: 202: GO_nDONE = 1;
+[e $ ! < F5787 -> -> 255 `i `ui 675  ]
+[; ;wheel.c: 202: {
 "202
-[e = _GO_nDONE -> -> 1 `i `b ]
-[; ;wheel.c: 203: while(GO_nDONE);
+{
+[; ;wheel.c: 203: count++;
 "203
-[e $U 682  ]
-[e :U 683 ]
-[e :U 682 ]
-[e $ _GO_nDONE 683  ]
-[e :U 684 ]
-[; ;wheel.c: 204: return ((ADRESH<<8)+ADRESL);
-"204
-[e ) -> + << -> _ADRESH `i -> 8 `i -> _ADRESL `i `uc ]
-[e $UE 670  ]
+[e ++ F5787 -> -> 1 `i `ui ]
 "205
 }
+[e :U 675 ]
 [; ;wheel.c: 205: }
-[e $U 685  ]
+[; ;wheel.c: 206: if(count == 255)
 "206
-[e :U 681 ]
-[; ;wheel.c: 206: else if (CLUTCH_Type == 1)
-[e $ ! == -> _CLUTCH_Type `i -> 1 `i 686  ]
+[e $ ! == F5787 -> -> 255 `i `ui 676  ]
 [; ;wheel.c: 207: {
 "207
 {
+[; ;wheel.c: 208: direction = 0;
+"208
+[e = F5788 -> -> 0 `i `uc ]
 "209
 }
-[e :U 686 ]
-"211
-[e :U 685 ]
-[; ;wheel.c: 209: }
-[; ;wheel.c: 211: case WHEEL_NONE:
-[e :U 687 ]
-[; ;wheel.c: 212: return 128;
-"212
-[e ) -> -> 128 `i `uc ]
-[e $UE 670  ]
-"213
+[e :U 676 ]
+"210
 }
-[; ;wheel.c: 213: }
-[e $U 671  ]
-"181
-[e :U 672 ]
-[e [\ _pedal , $ . `E5762 1 673
- , $ . `E5762 2 680
- , $ . `E5758 0 687
- 671 ]
+[; ;wheel.c: 209: }
+[; ;wheel.c: 210: }
+[e $U 677  ]
+"211
+[e :U 674 ]
+[; ;wheel.c: 211: else if(!direction)
+[e $ ! ! != -> F5788 `i -> -> -> 0 `i `uc `i 678  ]
+[; ;wheel.c: 212: {
+"212
+{
+[; ;wheel.c: 213: if(count > 0)
 "213
-[e :U 671 ]
-[; ;wheel.c: 215: return 128;
+[e $ ! > F5787 -> -> 0 `i `ui 679  ]
+[; ;wheel.c: 214: {
+"214
+{
+[; ;wheel.c: 215: count--;
 "215
-[e ) -> -> 128 `i `uc ]
+[e -- F5787 -> -> 1 `i `ui ]
+"217
+}
+[e :U 679 ]
+[; ;wheel.c: 217: }
+[; ;wheel.c: 218: if(count == 0)
+"218
+[e $ ! == F5787 -> -> 0 `i `ui 680  ]
+[; ;wheel.c: 219: {
+"219
+{
+[; ;wheel.c: 220: direction = 1;
+"220
+[e = F5788 -> -> 1 `i `uc ]
+"221
+}
+[e :U 680 ]
+"222
+}
+[e :U 678 ]
+"223
+[e :U 677 ]
+[; ;wheel.c: 221: }
+[; ;wheel.c: 222: }
+[; ;wheel.c: 223: break;
+[e $U 671  ]
+[; ;wheel.c: 225: case WHEEL_NONE:
+"225
+[e :U 681 ]
+[; ;wheel.c: 226: break;
+"226
+[e $U 671  ]
+"227
+}
+[; ;wheel.c: 227: }
+[e $U 671  ]
+"196
+[e :U 672 ]
+[e [\ _wheel , $ . `E5759 1 673
+ , $ . `E5759 0 681
+ 671 ]
+"227
+[e :U 671 ]
+[; ;wheel.c: 228: return count;
+"228
+[e ) -> F5787 `uc ]
 [e $UE 670  ]
-[; ;wheel.c: 216: }
-"216
+[; ;wheel.c: 229: }
+"229
 [e :UE 670 ]
+}
+"232
+[v _PEDAL_Position `(uc ~T0 @X0 1 ef1`E5763 ]
+"233
+{
+[; ;wheel.c: 232: uint8_t PEDAL_Position(PEDAL pedal)
+[; ;wheel.c: 233: {
+[e :U _PEDAL_Position ]
+"232
+[v _pedal `E5763 ~T0 @X0 1 r1 ]
+"233
+[f ]
+[; ;wheel.c: 234: switch(pedal)
+"234
+[e $U 684  ]
+[; ;wheel.c: 235: {
+"235
+{
+[; ;wheel.c: 236: case PEDAL_BREAK:
+"236
+[e :U 685 ]
+[; ;wheel.c: 237: if (BREAK_Type == 0)
+"237
+[e $ ! == -> _BREAK_Type `i -> 0 `i 686  ]
+[; ;wheel.c: 238: {
+"238
+{
+[; ;wheel.c: 239: ADCON0bits.CHS = 0011;
+"239
+[e = . . _ADCON0bits 1 2 -> -> 9 `i `uc ]
+[; ;wheel.c: 240: _delay((unsigned long)((2)*(20000000/4000.0)));
+"240
+[e ( __delay (1 -> * -> -> 2 `i `d / -> -> 20000000 `l `d .4000.0 `ul ]
+[; ;wheel.c: 241: GO_nDONE = 1;
+"241
+[e = _GO_nDONE -> -> 1 `i `b ]
+[; ;wheel.c: 242: while(GO_nDONE);
+"242
+[e $U 687  ]
+[e :U 688 ]
+[e :U 687 ]
+[e $ _GO_nDONE 688  ]
+[e :U 689 ]
+[; ;wheel.c: 243: return ((ADRESH<<8)+ADRESL);
+"243
+[e ) -> + << -> _ADRESH `i -> 8 `i -> _ADRESL `i `uc ]
+[e $UE 682  ]
+"244
+}
+[; ;wheel.c: 244: }
+[e $U 690  ]
+"245
+[e :U 686 ]
+[; ;wheel.c: 245: else if (BREAK_Type == 1)
+[e $ ! == -> _BREAK_Type `i -> 1 `i 691  ]
+[; ;wheel.c: 246: {
+"246
+{
+"248
+}
+[e :U 691 ]
+"250
+[e :U 690 ]
+[; ;wheel.c: 248: }
+[; ;wheel.c: 250: case PEDAL_CLUTCH:
+[e :U 692 ]
+[; ;wheel.c: 251: if (CLUTCH_Type == 0)
+"251
+[e $ ! == -> _CLUTCH_Type `i -> 0 `i 693  ]
+[; ;wheel.c: 252: {
+"252
+{
+[; ;wheel.c: 253: ADCON0bits.CHS = 0b0100;
+"253
+[e = . . _ADCON0bits 1 2 -> -> 4 `i `uc ]
+[; ;wheel.c: 254: _delay((unsigned long)((2)*(20000000/4000.0)));
+"254
+[e ( __delay (1 -> * -> -> 2 `i `d / -> -> 20000000 `l `d .4000.0 `ul ]
+[; ;wheel.c: 255: GO_nDONE = 1;
+"255
+[e = _GO_nDONE -> -> 1 `i `b ]
+[; ;wheel.c: 256: while(GO_nDONE);
+"256
+[e $U 694  ]
+[e :U 695 ]
+[e :U 694 ]
+[e $ _GO_nDONE 695  ]
+[e :U 696 ]
+[; ;wheel.c: 257: return ((ADRESH<<8)+ADRESL);
+"257
+[e ) -> + << -> _ADRESH `i -> 8 `i -> _ADRESL `i `uc ]
+[e $UE 682  ]
+"258
+}
+[; ;wheel.c: 258: }
+[e $U 697  ]
+"259
+[e :U 693 ]
+[; ;wheel.c: 259: else if (CLUTCH_Type == 1)
+[e $ ! == -> _CLUTCH_Type `i -> 1 `i 698  ]
+[; ;wheel.c: 260: {
+"260
+{
+"262
+}
+[e :U 698 ]
+"264
+[e :U 697 ]
+[; ;wheel.c: 262: }
+[; ;wheel.c: 264: case PEDAL_NONE:
+[e :U 699 ]
+[; ;wheel.c: 265: return 128;
+"265
+[e ) -> -> 128 `i `uc ]
+[e $UE 682  ]
+"266
+}
+[; ;wheel.c: 266: }
+[e $U 683  ]
+"234
+[e :U 684 ]
+[e [\ _pedal , $ . `E5763 2 685
+ , $ . `E5763 3 692
+ , $ . `E5763 0 699
+ 683 ]
+"266
+[e :U 683 ]
+[; ;wheel.c: 268: return 128;
+"268
+[e ) -> -> 128 `i `uc ]
+[e $UE 682  ]
+[; ;wheel.c: 269: }
+"269
+[e :UE 682 ]
 }

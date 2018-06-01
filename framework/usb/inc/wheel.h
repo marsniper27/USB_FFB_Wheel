@@ -14,12 +14,14 @@
 
 
 #define POT                 0
-#define ENCODER             1 //use for load cell for pedal as well
+#define ENCODER             1 
+#define LOADCELL            1
 
 bool WHEEL_Type = POT; //set according to wheel type
 
-bool BREAK_Type = POT; //set according to wheel type
 
+bool GAS_Type = POT; //set according to wheel type
+bool BREAK_Type = POT; //set according to wheel type
 bool CLUTCH_Type = POT; //set according to wheel type
 
 /*** Wheel Definitions *********************************************/
@@ -33,6 +35,7 @@ typedef enum
 typedef enum
 {
     PEDAL_NONE,
+    PEDAL_GAS,
     PEDAL_BREAK,
     PEDAL_CLUTCH
             
@@ -73,10 +76,10 @@ uint8_t WHEEL_Position(WHEEL wheel);
 *
 ********************************************************************/
 void WHEEL_Enable(WHEEL wheel);         // Enables the Wheel.
-
 void WHEEL_Home(WHEEL wheel);           // Returns the wheel to the home position.
-
 uint8_t WHEEL_Test(WHEEL wheel);        // Cycles through the full strange of the axis
+
+void PEDAL_Enable(PEDAL pedal);         // Enables the Wheel.
 uint8_t PEDAL_Position(PEDAL pedal);    // Returns the position of the provided pedal.
 
 #endif	/* WHEEL_H */

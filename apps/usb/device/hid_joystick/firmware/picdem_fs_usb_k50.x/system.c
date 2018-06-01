@@ -96,6 +96,7 @@ void SYSTEM_Initialize( SYSTEM_STATE state )
             
             BUTTON_Enable(BUTTON_X);
             WHEEL_Enable(WHEEL_W1);
+            PEDAL_Enable(PEDAL_GAS);
             break;
 			
         case SYSTEM_STATE_USB_SUSPEND: 

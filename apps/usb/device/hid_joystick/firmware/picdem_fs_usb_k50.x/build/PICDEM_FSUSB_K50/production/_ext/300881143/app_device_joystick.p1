@@ -51,15 +51,15 @@ Version 3.2 HI-TECH Software Intermediate Code
 "65 ../../../../../../bsp/picdem_fs_usb_k50\buttons.h
 [v _BUTTON_IsPressed `(uc ~T0 @X0 0 ef1`E6374 ]
 "518 ../demo_src/app_device_joystick.c
-[c E6414 0 1 .. ]
-[n E6414 . WHEEL_NONE WHEEL_W1  ]
-"79 ../../../../../../framework/usb/inc\wheel.h
-[v _WHEEL_Test `(uc ~T0 @X0 0 ef1`E6414 ]
-"519 ../demo_src/app_device_joystick.c
-[c E6418 0 1 2 .. ]
-[n E6418 . PEDAL_NONE PEDAL_BREAK PEDAL_CLUTCH  ]
+[c E6415 0 1 .. ]
+[n E6415 . WHEEL_NONE WHEEL_W1  ]
 "80 ../../../../../../framework/usb/inc\wheel.h
-[v _PEDAL_Position `(uc ~T0 @X0 0 ef1`E6418 ]
+[v _WHEEL_Test `(uc ~T0 @X0 0 ef1`E6415 ]
+"519 ../demo_src/app_device_joystick.c
+[c E6419 0 1 2 3 .. ]
+[n E6419 . PEDAL_NONE PEDAL_GAS PEDAL_BREAK PEDAL_CLUTCH  ]
+"83 ../../../../../../framework/usb/inc\wheel.h
+[v _PEDAL_Position `(uc ~T0 @X0 0 ef1`E6419 ]
 "1993 ../../../../../../framework/usb/inc\usb_device.h
 [u S36 `*uc 1 `*Cuc 1 `*ui 1 `*Cui 1 ]
 [n S36 . bRam bRom wRam wRom ]
@@ -6037,40 +6037,48 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;picdem_fs_usb_k50\leds.h: 94: void LED_Toggle(LED led);
 [; ;picdem_fs_usb_k50\leds.h: 112: bool LED_Get(LED led);
 [; ;picdem_fs_usb_k50\leds.h: 129: void LED_Enable(LED led);
-"19 ../../../../../../framework/usb/inc\wheel.h
+"20 ../../../../../../framework/usb/inc\wheel.h
 [v _WHEEL_Type `uc ~T0 @X0 1 e ]
 [i _WHEEL_Type
 -> -> 0 `i `uc
 ]
-[; ;inc\wheel.h: 19: bool WHEEL_Type = 0;
-"21
+[; ;inc\wheel.h: 20: bool WHEEL_Type = 0;
+"23
+[v _GAS_Type `uc ~T0 @X0 1 e ]
+[i _GAS_Type
+-> -> 0 `i `uc
+]
+[; ;inc\wheel.h: 23: bool GAS_Type = 0;
+"24
 [v _BREAK_Type `uc ~T0 @X0 1 e ]
 [i _BREAK_Type
 -> -> 0 `i `uc
 ]
-[; ;inc\wheel.h: 21: bool BREAK_Type = 0;
-"23
+[; ;inc\wheel.h: 24: bool BREAK_Type = 0;
+"25
 [v _CLUTCH_Type `uc ~T0 @X0 1 e ]
 [i _CLUTCH_Type
 -> -> 0 `i `uc
 ]
-[; ;inc\wheel.h: 23: bool CLUTCH_Type = 0;
-[; ;inc\wheel.h: 26: typedef enum
-[; ;inc\wheel.h: 27: {
-[; ;inc\wheel.h: 28: WHEEL_NONE,
-[; ;inc\wheel.h: 29: WHEEL_W1
-[; ;inc\wheel.h: 31: } WHEEL;
-[; ;inc\wheel.h: 33: typedef enum
-[; ;inc\wheel.h: 34: {
-[; ;inc\wheel.h: 35: PEDAL_NONE,
-[; ;inc\wheel.h: 36: PEDAL_BREAK,
-[; ;inc\wheel.h: 37: PEDAL_CLUTCH
-[; ;inc\wheel.h: 39: } PEDAL;
-[; ;inc\wheel.h: 57: uint8_t WHEEL_Position(WHEEL wheel);
-[; ;inc\wheel.h: 75: void WHEEL_Enable(WHEEL wheel);
-[; ;inc\wheel.h: 77: void WHEEL_Home(WHEEL wheel);
-[; ;inc\wheel.h: 79: uint8_t WHEEL_Test(WHEEL wheel);
-[; ;inc\wheel.h: 80: uint8_t PEDAL_Position(PEDAL pedal);
+[; ;inc\wheel.h: 25: bool CLUTCH_Type = 0;
+[; ;inc\wheel.h: 28: typedef enum
+[; ;inc\wheel.h: 29: {
+[; ;inc\wheel.h: 30: WHEEL_NONE,
+[; ;inc\wheel.h: 31: WHEEL_W1
+[; ;inc\wheel.h: 33: } WHEEL;
+[; ;inc\wheel.h: 35: typedef enum
+[; ;inc\wheel.h: 36: {
+[; ;inc\wheel.h: 37: PEDAL_NONE,
+[; ;inc\wheel.h: 38: PEDAL_GAS,
+[; ;inc\wheel.h: 39: PEDAL_BREAK,
+[; ;inc\wheel.h: 40: PEDAL_CLUTCH
+[; ;inc\wheel.h: 42: } PEDAL;
+[; ;inc\wheel.h: 60: uint8_t WHEEL_Position(WHEEL wheel);
+[; ;inc\wheel.h: 78: void WHEEL_Enable(WHEEL wheel);
+[; ;inc\wheel.h: 79: void WHEEL_Home(WHEEL wheel);
+[; ;inc\wheel.h: 80: uint8_t WHEEL_Test(WHEEL wheel);
+[; ;inc\wheel.h: 82: void PEDAL_Enable(PEDAL pedal);
+[; ;inc\wheel.h: 83: uint8_t PEDAL_Position(PEDAL pedal);
 [; ;system.h: 38: typedef enum
 [; ;system.h: 39: {
 [; ;system.h: 40: SYSTEM_STATE_USB_START,
@@ -6742,13 +6750,13 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e = . . . _joystick_input 0 2 0 -> -> 2 `i `uc ]
 [; ;app_device_joystick.c: 518: joystick_input.members.analog_stick.X = WHEEL_Test(WHEEL_W1);
 "518
-[e = . . . _joystick_input 0 3 0 -> ( _WHEEL_Test (1 . `E6414 1 `ui ]
+[e = . . . _joystick_input 0 3 0 -> ( _WHEEL_Test (1 . `E6415 1 `ui ]
 [; ;app_device_joystick.c: 519: joystick_input.members.analog_stick.Y = PEDAL_Position(PEDAL_BREAK);
 "519
-[e = . . . _joystick_input 0 3 1 -> ( _PEDAL_Position (1 . `E6418 1 `ui ]
+[e = . . . _joystick_input 0 3 1 -> ( _PEDAL_Position (1 . `E6419 2 `ui ]
 [; ;app_device_joystick.c: 520: joystick_input.members.analog_stick.Z = PEDAL_Position(PEDAL_CLUTCH);
 "520
-[e = . . . _joystick_input 0 3 2 -> ( _PEDAL_Position (1 . `E6418 2 `ui ]
+[e = . . . _joystick_input 0 3 2 -> ( _PEDAL_Position (1 . `E6419 3 `ui ]
 [; ;app_device_joystick.c: 523: if(Buttons_Pressed)
 "523
 [e $ ! != -> _Buttons_Pressed `i -> -> -> 0 `i `uc `i 747  ]
@@ -6791,7 +6799,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e = *U + &U . _joystick_input 1 * -> -> -> 6 `i `ui `ux -> -> # *U &U . _joystick_input 1 `ui `ux -> -> 128 `i `uc ]
 [; ;app_device_joystick.c: 547: joystick_input.members.analog_stick.X = WHEEL_Test(WHEEL_W1);
 "547
-[e = . . . _joystick_input 0 3 0 -> ( _WHEEL_Test (1 . `E6414 1 `ui ]
+[e = . . . _joystick_input 0 3 0 -> ( _WHEEL_Test (1 . `E6415 1 `ui ]
 [; ;app_device_joystick.c: 551: USBInHandle = USBTransferOnePacket(1,1,(uint8_t*)&joystick_input,sizeof(joystick_input));
 "551
 [e = _USBInHandle -> ( _USBTransferOnePacket (4 , , , -> -> 1 `i `uc -> -> 1 `i `uc -> &U _joystick_input `*uc -> -> # _joystick_input `ui `uc `*Vv ]
