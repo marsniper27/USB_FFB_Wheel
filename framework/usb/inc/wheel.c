@@ -58,18 +58,31 @@
 * Output: TRUE if pressed; FALSE if not pressed.
 *
 ********************************************************************/
-uint8_t WHEEL_Position(WHEEL wheel)
+uint16_t WHEEL_Position(WHEEL wheel)
 {    
     switch(wheel)
     {
         case WHEEL_W1:
             if (WHEEL_Type == POT)
             {
-                ADCON0bits.CHS = 0b0000;        //Set chanel
-                __delay_ms(2);                  //Acquisition time to charge hold capacitor
-                GO_nDONE = 1;                   //Initializes A/D conversion
-                while(GO_nDONE);                //Waiting for conversion to complete
-                return ((ADRESH<<8)+ADRESL);    //Return result
+               uint16_t digital;
+               
+                ADRESH=0;		/* Flush ADC output Register */
+                ADRESL=0;   
+
+                /* Channel 0 is selected i.e.(CHS3CHS2CHS1CHS0=0000) & ADC is disabled */
+                ADCON0 =(ADCON0 & 0b11000011)|((0<<2) & 0b00111100); 
+
+                ADCON0 |= ((1<<ADON)|(1<<GO));	/*Enable ADC and start conversion*/
+
+                /* Wait for End of conversion i.e. Go/done'=0 conversion completed */
+                while(ADCON0bits.GO_nDONE==1);
+
+                //((ADRESH)<<8)|(ADRESL)
+                digital = (ADRESH*256) | (ADRESL);	/*Combine 8-bit LSB and 2-bit MSB*/
+                //digital = digital*4;  //unfortunately we currently are using only 8bits for a position so we must divide or ADC value to fit within out limit.
+                return(digital);
+
             }
             else if (WHEEL_Type == ENCODER)
             {
@@ -106,12 +119,18 @@ void WHEEL_Enable(WHEEL wheel)
             WA_TRIS = PIN_INPUT;
             if (WHEEL_Type == POT)
             {
-                WA_ANSEL = PIN_ANALOG;
+                 WA_ANSEL = PIN_ANALOG;
+                /*
                 ADCON1bits.CHSN3 = 0b1;
                 ADCON1bits.NVCFG = 0;
                 ADCON1bits.PVCFG = 0;
                 ADCON0bits.CHS = 0b0000;                        
                 ADCON0bits.ADON = 1;
+                 */
+                ADCON1 = 0x0E;	/* Ref vtg is VDD and Configure pin as analog pin */
+                ADCON2 = 0x92;	/* Right Justified, 4Tad and Fosc/32. */
+                ADRESH=0;		/* Flush ADC output Register */
+                ADRESL=0;   
             }
             else if(WHEEL_Type == ENCODER)
             {
@@ -136,11 +155,7 @@ void PEDAL_Enable(PEDAL pedal)
             if (GAS_Type == POT)
             {
                 GAS_ANSEL = PIN_ANALOG;
-                ADCON1bits.CHSN3 = 0b1;
-                ADCON1bits.NVCFG = 0;
-                ADCON1bits.PVCFG = 0;
-                ADCON0bits.CHS = 0b0000;                        
-                ADCON0bits.ADON = 1;
+               
             }
             else if(GAS_Type == LOADCELL)
             {
@@ -152,13 +167,8 @@ void PEDAL_Enable(PEDAL pedal)
             if (BREAK_Type == POT)
             {
                 BREAK_ANSEL = PIN_ANALOG;
-                ADCON1bits.CHSN3 = 0b1;
-                ADCON1bits.NVCFG = 0;
-                ADCON1bits.PVCFG = 0;
-                ADCON0bits.CHS = 0b0000;                        
-                ADCON0bits.ADON = 1;
             }
-            else if(GAS_Type == LOADCELL)
+            else if(BREAK_Type == LOADCELL)
             {
                 WB_TRIS = PIN_INPUT;
                 WZ_TRIS = PIN_INPUT;
@@ -188,7 +198,7 @@ void WHEEL_Home(WHEEL wheel)
     }
 }
 
-uint8_t WHEEL_Test(WHEEL wheel)
+uint16_t WHEEL_Test(WHEEL wheel)
 {
     static uint16_t count = 0;
     static bool direction = 1;
@@ -229,25 +239,76 @@ uint8_t WHEEL_Test(WHEEL wheel)
 }
 
 
-uint8_t PEDAL_Position(PEDAL pedal)
+uint16_t PEDAL_Position(PEDAL pedal)
 {
     switch(pedal)
     {
-        case PEDAL_BREAK:
-            if (BREAK_Type == POT)
+        case PEDAL_GAS:
+            if (GAS_Type == POT)
             {
-                ADCON0bits.CHS = 0011;       //Setting channel selection bits
+                /*ADCON0bits.CHS = 0011;       //Setting channel selection bits
                 __delay_ms(2);               //Acquisition time to charge hold capacitor
                 GO_nDONE = 1;                //Initializes A/D conversion
                 while(GO_nDONE);             //Waiting for conversion to complete
                 return ((ADRESH<<8)+ADRESL); //Return result
+                 */
+               //uint16_t digital;
+                
+                ADRESH=0;		/* Flush ADC output Register */
+                ADRESL=0;   
+
+                /* Channel 3 is selected i.e.(CHS3CHS2CHS1CHS0=0000) & ADC is disabled */
+                //ADCON0 =(ADCON0 & 0b11001111)|((0<<2) & 0b00111100); 
+                
+                ADCON0bits.CHS = 0b0011;
+                ADCON0bits.GO - 0;
+
+                ADCON0 |= ((1<<ADON)|(1<<GO));	/*Enable ADC and start conversion*/
+
+                /* Wait for End of conversion i.e. Go/done'=0 conversion completed */
+                while(ADCON0bits.GO_nDONE==1);
+                
+                return((ADRESH*256) | (ADRESL));
             }
-            else if (BREAK_Type == LOADCELL)
+            else if (GAS_Type == ENCODER)
             {
                 
             }
+            break;
+        case PEDAL_BREAK:
+            if (BREAK_Type == POT)
+            {
+                /*ADCON0bits.CHS = 0011;       //Setting channel selection bits
+                __delay_ms(2);               //Acquisition time to charge hold capacitor
+                GO_nDONE = 1;                //Initializes A/D conversion
+                while(GO_nDONE);             //Waiting for conversion to complete
+                return ((ADRESH<<8)+ADRESL); //Return result
+                 */
+               //uint16_t digital;
+                
+                ADRESH=0;		/* Flush ADC output Register */
+                ADRESL=0;   
+
+                /* Channel 3 is selected i.e.(CHS3CHS2CHS1CHS0=0000) & ADC is disabled */
+                //ADCON0 =(ADCON0 & 0b11001111)|((0<<2) & 0b00111100); 
+                
+                ADCON0bits.CHS = 0b0100;
+                ADCON0bits.GO - 0;
+
+                ADCON0 |= ((1<<ADON)|(1<<GO));	/*Enable ADC and start conversion*/
+
+                /* Wait for End of conversion i.e. Go/done'=0 conversion completed */
+                while(ADCON0bits.GO_nDONE==1);
+                
+                return((ADRESH*256) | (ADRESL));
+            }
+            else if (BREAK_Type == ENCODER)
+            {
+                
+            }
+            break;
             
-        case PEDAL_CLUTCH:
+        /*case PEDAL_CLUTCH:
             if (CLUTCH_Type == POT)
             {
                 ADCON0bits.CHS = 0b0100;       //Setting channel selection bits
@@ -256,11 +317,13 @@ uint8_t PEDAL_Position(PEDAL pedal)
                 while(GO_nDONE);             //Waiting for conversion to complete
                 return ((ADRESH<<8)+ADRESL); //Return result
             }
-            else if (CLUTCH_Type == LOADCELL)
+            else if (CLUTCH_Type == ENCODER)
             {
                 
             }
-            
+            break;
+        
+         */
         case PEDAL_NONE:
             return 128;
     }

@@ -170,7 +170,7 @@ const uint8_t configDescriptor1[]={
     /* Configuration Descriptor */
     0x09,//sizeof(USB_CFG_DSC),    // Size of this descriptor in bytes
     USB_DESCRIPTOR_CONFIGURATION,                // CONFIGURATION descriptor type
-    DESC_CONFIG_WORD(0x0022),                   // Total length of data for this cfg
+    DESC_CONFIG_WORD(0x0029),                   // Total length of data for this cfg
     1,                      // Number of interfaces in this cfg
     1,                      // Index value of this configuration
     0,                      // Configuration string index

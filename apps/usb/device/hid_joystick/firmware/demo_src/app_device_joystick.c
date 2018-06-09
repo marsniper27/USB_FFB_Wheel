@@ -256,8 +256,8 @@ volatile USB_HANDLE USBOutHandle;
 volatile USB_HANDLE USBInHandle;
 //USB_VOLATILE USB_HANDLE lastTransmission = 0;
 SET_GET_EFFECT_STRUCTURE set_get_effect_structure;
-uint8_t CONFIGURED_EFFECT_NUMBER[12];
-bool Buttons_Pressed = 0; //our new bool to track if any button is pressed.
+uint8_t CONFIGURED_EFFECT_NUMBER[12]; //array to track which effects have been configured.
+static uint8_t MODE = 0; // Mode switch to change between standard and test mode.
 /*********************************************************************
 * Function: void APP_DeviceJoystickInitialize(void);
 *
@@ -327,63 +327,18 @@ void APP_DeviceJoystickTasks(void)
 
     if(!HIDRxHandleBusy(USBOutHandle))
     {   
-        
-        USBSetEffect();
-        USBSendPIDBlockLoadReport();
-        //USBInHandle = HIDTxPacket(JOYSTICK_EP, (uint8_t*)&ToSendDataBuffer[0],64);//send our response
-        //We just received a packet of data from the USB host.
-        //Check the first uint8_t of the packet to see what command the host
-        //application software wants us to fulfill.
         switch(ReceivedDataBuffer[0])				//Look at the data the host sent, to see what kind of application specific command it sent.
         {
-            /*
-            case COMMAND_TOGGLE_LED:  //Toggle LEDs command
-                LED_Toggle(LED_USB_DEVICE_HID_CUSTOM);
+            case 0x01:
+                USBSetEffect();
                 break;
-            case COMMAND_GET_BUTTON_STATUS:  //Get push button state
-                //Check to make sure the endpoint/buffer is free before we modify the contents
-                if(!HIDTxHandleBusy(USBInHandle))
-                {
-                    ToSendDataBuffer[0] = 0x81;				//Echo back to the host PC the command we are fulfilling in the first uint8_t.  In this case, the Get Pushbutton State command.
-                    if(BUTTON_IsPressed(BUTTON_USB_DEVICE_HID_CUSTOM) == false)	//pushbutton not pressed, pull up resistor on circuit board is pulling the PORT pin high
-                    {
-                            ToSendDataBuffer[1] = 0x01;
-                    }
-                    else									//sw3 must be == 0, pushbutton is pressed and overpowering the pull up resistor
-                    {
-                            ToSendDataBuffer[1] = 0x00;
-                    }
-                    //Prepare the USB module to send the data packet to the host
-                    USBInHandle = HIDTxPacket(CUSTOM_DEVICE_HID_EP, (uint8_t*)&ToSendDataBuffer[0],64);
-                }
+                
+            case 0x02:
+                USBSendPIDBlockLoadReport();
                 break;
-
-            case COMMAND_READ_POTENTIOMETER:	//Read POT command.  Uses ADC to measure an analog voltage on one of the ANxx I/O pins, and returns the result to the host
-                {
-                    uint16_t pot;
-
-                    //Check to make sure the endpoint/buffer is free before we modify the contents
-                    if(!HIDTxHandleBusy(USBInHandle))
-                    {
-                        //Use ADC to read the I/O pin voltage.  See the relevant HardwareProfile - xxxxx.h file for the I/O pin that it will measure.
-                        //Some demo boards, like the PIC18F87J50 FS USB Plug-In Module board, do not have a potentiometer (when used stand alone).
-                        //This function call will still measure the analog voltage on the I/O pin however.  To make the demo more interesting, it
-                        //is suggested that an external adjustable analog voltage should be applied to this pin.
-
-                        pot = ADC_Read10bit(ADC_CHANNEL_POTENTIOMETER);
-
-                        ToSendDataBuffer[0] = 0x37;  	//Echo back to the host the command we are fulfilling in the first uint8_t.  In this case, the Read POT (analog voltage) command.
-                        ToSendDataBuffer[1] = (uint8_t)pot; //LSB
-                        ToSendDataBuffer[2] = pot >> 8;     //MSB
-
-
-                        //Prepare the USB module to send the data packet to the host
-                        USBInHandle = HIDTxPacket(CUSTOM_DEVICE_HID_EP, (uint8_t*)&ToSendDataBuffer[0],64);
-                    }
-                }
-                break;
-             * */
-        } //Re-arm the OUT endpoint, so we can receive the next OUT data packet 
+        }
+        
+        //Re-arm the OUT endpoint, so we can receive the next OUT data packet 
         //that the host may try to send us.
         USBOutHandle = HIDRxPacket(JOYSTICK_EP, (uint8_t*)&ReceivedDataBuffer[0], 64);
     }
@@ -391,166 +346,145 @@ void APP_DeviceJoystickTasks(void)
     //If the last transmission is complete
     if(!HIDTxHandleBusy(USBInHandle))
     {
-        if(BUTTON_IsPressed(BUTTON_X) == true)
-		{
-			joystick_input.members.buttons.x = 1;
-			Buttons_Pressed = 1;
-		}
-		else
-		{
-			joystick_input.members.buttons.x = 0;
-		}
-		if(BUTTON_IsPressed(BUTTON_SQUARE) == true)
-		{
-			joystick_input.members.buttons.square = 1;
-			Buttons_Pressed = 1;
-		}
-		else
-		{
-			joystick_input.members.buttons.square = 0;
-		}
-		if(BUTTON_IsPressed(BUTTON_O) == true)
-		{
-			joystick_input.members.buttons.o = 1;
-			Buttons_Pressed = 1;
-		}
-		else
-		{
-			joystick_input.members.buttons.o = 0;
-		}
-		if(BUTTON_IsPressed(BUTTON_TRIANGLE) == true)
-		{
-			joystick_input.members.buttons.triangle = 1;
-			Buttons_Pressed = 1;
-		}
-		else
-		{
-			joystick_input.members.buttons.triangle = 0;
-		}
-		if(BUTTON_IsPressed(BUTTON_L1) == true)
-		{
-			joystick_input.members.buttons.L1 = 1;
-			Buttons_Pressed = 1;
-		}
-		else
-		{
-			joystick_input.members.buttons.L1 = 0;
-		}
-		if(BUTTON_IsPressed(BUTTON_R1) == true)
-		{
-			joystick_input.members.buttons.R1 = 1;
-			Buttons_Pressed = 1;
-		}
-		else
-		{
-			joystick_input.members.buttons.R1 = 0;
-		}
-		if(BUTTON_IsPressed(BUTTON_L2) == true)
-		{
-			joystick_input.members.buttons.L2 = 1;
-			Buttons_Pressed = 1;
-		}
-		else
-		{
-			joystick_input.members.buttons.L2 = 0;
-		}
-		if(BUTTON_IsPressed(BUTTON_R2) == true)
-		{
-			joystick_input.members.buttons.R2 = 1;
-			Buttons_Pressed = 1;
-		}
-		else
-		{
-			joystick_input.members.buttons.R2 = 0;
-		}
-		if(BUTTON_IsPressed(BUTTON_SELECT) == true)
-		{
-			joystick_input.members.buttons.select = 1;
-			Buttons_Pressed = 1;
-		}
-		else
-		{
-			joystick_input.members.buttons.select = 0;
-		}
-		if(BUTTON_IsPressed(BUTTON_START) == true)
-		{
-			joystick_input.members.buttons.start = 1;
-			Buttons_Pressed = 1;
-		}
-		else
-		{
-			joystick_input.members.buttons.start = 0;
-		}
-		if(BUTTON_IsPressed(BUTTON_LEFT_STICK) == true)
-		{
-			joystick_input.members.buttons.left_stick = 1;
-			Buttons_Pressed = 1;
-		}
-		else
-		{
-			joystick_input.members.buttons.left_stick = 0;
-		}
-		if(BUTTON_IsPressed(BUTTON_RIGHT_STICK) == true)
-		{
-			joystick_input.members.buttons.right_stick = 1;
-			Buttons_Pressed = 1;
-		}
-		else
-		{
-			joystick_input.members.buttons.right_stick = 0;
-		}
-		if(BUTTON_IsPressed(BUTTON_HOME) == true)
-		{
-			joystick_input.members.buttons.home = 1;
-			Buttons_Pressed = 1;
-		}
-		else
-		{
-			joystick_input.members.buttons.home = 0;
-		}
-
-            //Move the hat switch to the "east" position
-            joystick_input.members.hat_switch.hat_switch = HAT_SWITCH_EAST;
-
-            //Move the X and Y coordinates to the their extreme values (0x80 is
-            //  in the middle - no value).
-            //joystick_input.members.analog_stick.X = WHEEL_Position(WHEEL_W1);
-            joystick_input.members.analog_stick.X = WHEEL_Test(WHEEL_W1);
-            joystick_input.members.analog_stick.Y = PEDAL_Position(PEDAL_BREAK);
-            joystick_input.members.analog_stick.Z = PEDAL_Position(PEDAL_CLUTCH);
-            
-        //if any button was pressed we will send a message with the currently pressed buttons.
-		if(Buttons_Pressed)
-		{
-            //Send the packet over USB to the host.
-            USBInHandle = HIDTxPacket(JOYSTICK_EP, (uint8_t*)&joystick_input, sizeof(joystick_input));
-        }
-        if(!Buttons_Pressed)
+        joystick_input.members.REPORT_ID.RID = 1;
+       switch(MODE)
         {
-            //Reset values of the controller to default state
+            case 0:
+                if(BUTTON_IsPressed(BUTTON_X) == true)
+                {
+                    joystick_input.members.buttons.x = 1;
+                }
+                else
+                {
+                    joystick_input.members.buttons.x = 0;
+                }
+                if(BUTTON_IsPressed(BUTTON_SQUARE) == true)
+                {
+                    joystick_input.members.buttons.square = 1;
+                    //MODE = 1; //enter test mode
+                }
+                else
+                {
+                    joystick_input.members.buttons.square = 0;
+                }
+                if(BUTTON_IsPressed(BUTTON_O) == true)
+                {
+                    joystick_input.members.buttons.o = 1;
+                }
+                else
+                {
+                    joystick_input.members.buttons.o = 0;
+                }
+                if(BUTTON_IsPressed(BUTTON_TRIANGLE) == true)
+                {
+                    joystick_input.members.buttons.triangle = 1;
+                }
+                else
+                {
+                    joystick_input.members.buttons.triangle = 0;
+                }
+                if(BUTTON_IsPressed(BUTTON_L1) == true)
+                {
+                    joystick_input.members.buttons.L1 = 1;
+                }
+                else
+                {
+                    joystick_input.members.buttons.L1 = 0;
+                }
+                if(BUTTON_IsPressed(BUTTON_R1) == true)
+                {
+                    joystick_input.members.buttons.R1 = 1;
+                }
+                else
+                {
+                    joystick_input.members.buttons.R1 = 0;
+                }
+                if(BUTTON_IsPressed(BUTTON_L2) == true)
+                {
+                    joystick_input.members.buttons.L2 = 1;
+                }
+                else
+                {
+                    joystick_input.members.buttons.L2 = 0;
+                }
+                if(BUTTON_IsPressed(BUTTON_R2) == true)
+                {
+                    joystick_input.members.buttons.R2 = 1;
+                }
+                else
+                {
+                    joystick_input.members.buttons.R2 = 0;
+                }
+                if(BUTTON_IsPressed(BUTTON_SELECT) == true)
+                {
+                    joystick_input.members.buttons.select = 1;
+                }
+                else
+                {
+                    joystick_input.members.buttons.select = 0;
+                }
+                if(BUTTON_IsPressed(BUTTON_START) == true)
+                {
+                    joystick_input.members.buttons.start = 1;
+                }
+                else
+                {
+                    joystick_input.members.buttons.start = 0;
+                }
+                if(BUTTON_IsPressed(BUTTON_LEFT_STICK) == true)
+                {
+                    joystick_input.members.buttons.left_stick = 1;
+                }
+                else
+                {
+                    joystick_input.members.buttons.left_stick = 0;
+                }
+                if(BUTTON_IsPressed(BUTTON_RIGHT_STICK) == true)
+                {
+                    joystick_input.members.buttons.right_stick = 1;
+                }
+                else
+                {
+                    joystick_input.members.buttons.right_stick = 0;
+                }
+                if(BUTTON_IsPressed(BUTTON_HOME) == true)
+                {
+                    joystick_input.members.buttons.home = 1;
+                }
+                else
+                { 
+                    joystick_input.members.buttons.home = 0;
+                }
 
-            //Buttons
-            joystick_input.val[0] = 0x00;
-            joystick_input.val[1] = 0x00;
+                //Move the hat switch to the "east" position
+                joystick_input.members.hat_switch.hat_switch = HAT_SWITCH_NULL;
 
-            //Hat switch
-            joystick_input.val[2] = 0x08;
-
-            //Analog sticks
-            joystick_input.val[3] = 0x80;
-            joystick_input.val[4] = 0x80;
-            joystick_input.val[5] = 0x80;
-            joystick_input.val[6] = 0x80;
+                joystick_input.members.analog_stick.X = WHEEL_Position(WHEEL_W1);
+                joystick_input.members.analog_stick.Z = PEDAL_Position(PEDAL_GAS);
+                joystick_input.members.analog_stick.Y = 0;
+                joystick_input.members.analog_stick.Rz = PEDAL_Position(PEDAL_BREAK);
+                break;
             
-            //Add current wheel position as we all ways want this reported.
-            //joystick_input.members.analog_stick.X = WHEEL_Position(WHEEL_W1);
-            joystick_input.members.analog_stick.X = WHEEL_Test(WHEEL_W1);
+            case 1:
+                //clear button states
+                joystick_input.val[0] = 0x00;
+                joystick_input.val[1] = 0x00;
+
+                //check if button 2 is pressed
+                if(BUTTON_IsPressed(BUTTON_SQUARE) == true)
+                {
+                    joystick_input.members.buttons.square = 1;
+                    MODE = 0;//return to normal mode
+                }
+                joystick_input.members.analog_stick.X = WHEEL_Test(WHEEL_W1);
+                break;
+        }
             
 
             //Send the 8 byte packet over USB to the host.
             USBInHandle = HIDTxPacket(JOYSTICK_EP, (uint8_t*)&joystick_input, sizeof(joystick_input));
-        }
     }
+    
 }//end ProcessIO
 
 /*******************************************************************

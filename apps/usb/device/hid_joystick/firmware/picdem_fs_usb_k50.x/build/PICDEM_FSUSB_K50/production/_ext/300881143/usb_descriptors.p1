@@ -5927,8 +5927,8 @@ Version 3.2 HI-TECH Software Intermediate Code
 "172
 -> -> 2 `i `uc
 "173
--> & -> 34 `i -> 255 `i `uc
--> & >> -> 34 `i -> 8 `i -> 255 `i `uc
+-> & -> 41 `i -> 255 `i `uc
+-> & >> -> 41 `i -> 8 `i -> 255 `i `uc
 "174
 -> -> 1 `i `uc
 "175
@@ -6004,7 +6004,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;usb_descriptors.c: 169: const uint8_t configDescriptor1[]={
 [; ;usb_descriptors.c: 171: 0x09,
 [; ;usb_descriptors.c: 172: 0x02,
-[; ;usb_descriptors.c: 173: (0x0022&0xFF),((0x0022>>8)&0xFF),
+[; ;usb_descriptors.c: 173: (0x0029&0xFF),((0x0029>>8)&0xFF),
 [; ;usb_descriptors.c: 174: 1,
 [; ;usb_descriptors.c: 175: 1,
 [; ;usb_descriptors.c: 176: 0,

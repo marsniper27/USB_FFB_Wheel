@@ -1,52 +1,92 @@
 Version 3.2 HI-TECH Software Intermediate Code
-"459 C:\Program Files (x86)\Microchip\xc8\v1.45\include\pic18f45k50.h
-[s S21 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S21 . . SUSPND RESUME USBEN PKTDIS SE0 PPBRST ]
-"458
-[u S20 `S21 1 ]
-[n S20 . . ]
-"469
-[v _UCONbits `VS20 ~T0 @X0 0 e@3936 ]
-"56 ../demo_src/app_led_usb_status.c
-[c E5775 0 1 2 3 4 .. ]
-[n E5775 . LED_NONE LED_D1 LED_D2 LED_D3 LED_D4  ]
-"76 ../../../../../../bsp/picdem_fs_usb_k50\leds.h
-[v _LED_Off `(v ~T0 @X0 0 ef1`E5775 ]
-"58
-[v _LED_On `(v ~T0 @X0 0 ef1`E5775 ]
-"60 ../demo_src/app_led_usb_status.c
-[c E6053 0 1 2 4 8 16 32 .. ]
-[n E6053 . DETACHED_STATE ATTACHED_STATE POWERED_STATE DEFAULT_STATE ADR_PENDING_STATE ADDRESS_STATE CONFIGURED_STATE  ]
-"2046 ../../../../../../framework/usb/inc\usb_device.h
-[v _USBDeviceState `E6053 ~T0 @X0 0 e ]
-[; ;stdint.h: 13: typedef signed char int8_t;
-[; ;stdint.h: 20: typedef signed int int16_t;
-[; ;stdint.h: 28: typedef signed short long int int24_t;
-[; ;stdint.h: 36: typedef signed long int int32_t;
-[; ;stdint.h: 43: typedef unsigned char uint8_t;
-[; ;stdint.h: 49: typedef unsigned int uint16_t;
-[; ;stdint.h: 56: typedef unsigned short long int uint24_t;
-[; ;stdint.h: 63: typedef unsigned long int uint32_t;
-[; ;stdint.h: 71: typedef signed char int_least8_t;
-[; ;stdint.h: 78: typedef signed int int_least16_t;
-[; ;stdint.h: 90: typedef signed short long int int_least24_t;
-[; ;stdint.h: 98: typedef signed long int int_least32_t;
-[; ;stdint.h: 105: typedef unsigned char uint_least8_t;
-[; ;stdint.h: 111: typedef unsigned int uint_least16_t;
-[; ;stdint.h: 121: typedef unsigned short long int uint_least24_t;
-[; ;stdint.h: 128: typedef unsigned long int uint_least32_t;
-[; ;stdint.h: 137: typedef signed char int_fast8_t;
-[; ;stdint.h: 144: typedef signed int int_fast16_t;
-[; ;stdint.h: 156: typedef signed short long int int_fast24_t;
-[; ;stdint.h: 164: typedef signed long int int_fast32_t;
-[; ;stdint.h: 171: typedef unsigned char uint_fast8_t;
-[; ;stdint.h: 177: typedef unsigned int uint_fast16_t;
-[; ;stdint.h: 187: typedef unsigned short long int uint_fast24_t;
-[; ;stdint.h: 194: typedef unsigned long int uint_fast32_t;
-[; ;stdint.h: 200: typedef int32_t intmax_t;
-[; ;stdint.h: 205: typedef uint32_t uintmax_t;
-[; ;stdint.h: 210: typedef int16_t intptr_t;
-[; ;stdint.h: 215: typedef uint16_t uintptr_t;
+"62 ../../../../../../framework/usb/inc/wheel.c
+[c E5759 0 1 .. ]
+[n E5759 . WHEEL_NONE WHEEL_W1  ]
+"9875 C:\Program Files (x86)\Microchip\xc8\v1.45\include\pic18f45k50.h
+[v _ADRESH `Vuc ~T0 @X0 0 e@4036 ]
+"9868
+[v _ADRESL `Vuc ~T0 @X0 0 e@4035 ]
+"9773
+[v _ADCON0 `Vuc ~T0 @X0 0 e@4034 ]
+"13769
+[v _ADON `Vb ~T0 @X0 0 e@32272 ]
+"14491
+[v _GO `Vb ~T0 @X0 0 e@32273 ]
+"9779
+[s S430 :1 `uc 1 :1 `uc 1 ]
+[n S430 . . GO_NOT_DONE ]
+"9783
+[s S431 :1 `uc 1 :1 `uc 1 :5 `uc 1 ]
+[n S431 . ADON GO_nDONE CHS ]
+"9788
+[s S432 :1 `uc 1 :1 `uc 1 ]
+[n S432 . . DONE ]
+"9792
+[s S433 :1 `uc 1 :1 `uc 1 ]
+[n S433 . . GO ]
+"9796
+[s S434 :1 `uc 1 :1 `uc 1 ]
+[n S434 . . NOT_DONE ]
+"9800
+[s S435 :1 `uc 1 :1 `uc 1 ]
+[n S435 . . nDONE ]
+"9804
+[s S436 :1 `uc 1 :1 `uc 1 ]
+[n S436 . . GODONE ]
+"9808
+[s S437 :1 `uc 1 :1 `uc 1 ]
+[n S437 . . GO_DONE ]
+"9778
+[u S429 `S430 1 `S431 1 `S432 1 `S433 1 `S434 1 `S435 1 `S436 1 `S437 1 ]
+[n S429 . . . . . . . . . ]
+"9813
+[v _ADCON0bits `VS429 ~T0 @X0 0 e@4034 ]
+"4635
+[s S190 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S190 . TRISA0 TRISA1 TRISA2 TRISA3 TRISA4 TRISA5 TRISA6 TRISA7 ]
+"4645
+[s S191 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S191 . RA0 RA1 RA2 RA3 RA4 RA5 RA6 RA7 ]
+"4634
+[u S189 `S190 1 `S191 1 ]
+[n S189 . . . ]
+"4656
+[v _TRISAbits `VS189 ~T0 @X0 0 e@3986 ]
+"236
+[s S11 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S11 . ANSA0 ANSA1 ANSA2 ANSA3 . ANSA5 ]
+"235
+[u S10 `S11 1 ]
+[n S10 . . ]
+"245
+[v _ANSELAbits `VS10 ~T0 @X0 0 e@3931 ]
+"9705
+[v _ADCON1 `Vuc ~T0 @X0 0 e@4033 ]
+"9634
+[v _ADCON2 `Vuc ~T0 @X0 0 e@4032 ]
+"150 ../../../../../../framework/usb/inc/wheel.c
+[c E5763 0 1 2 3 .. ]
+[n E5763 . PEDAL_NONE PEDAL_GAS PEDAL_BREAK PEDAL_CLUTCH  ]
+"2905 C:\Program Files (x86)\Microchip\xc8\v1.45\include\pic18f45k50.h
+[s S124 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S124 . RA0 RA1 RA2 RA3 RA4 RA5 RA6 RA7 ]
+"2915
+[s S125 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S125 . AN0 AN1 AN2 AN3 T0CKI AN4 OSC2 ]
+"2924
+[s S126 :2 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S126 . . VREFM VREFP . LVDIN ]
+"2931
+[s S127 :5 `uc 1 :1 `uc 1 ]
+[n S127 . . HLVDIN ]
+"2935
+[s S128 :1 `uc 1 :6 `uc 1 :1 `uc 1 ]
+[n S128 . ULPWUIN . RJPU ]
+"2904
+[u S123 `S124 1 `S125 1 `S126 1 `S127 1 `S128 1 ]
+[n S123 . . . . . . ]
+"2941
+[v _PORTAbits `VS123 ~T0 @X0 0 e@3968 ]
 [; ;htc.h: 26: extern const char __xc8_OPTIM_SPEED;
 [; ;htc.h: 28: extern double __fpnormalize(double);
 [; ;xc8debug.h: 14: extern void __builtin_software_breakpoint(void);
@@ -5325,563 +5365,34 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;pic18.h: 166: extern __nonreentrant void _delaywdt(unsigned long);
 [; ;pic18.h: 168: extern __nonreentrant void _delay3(unsigned char);
 [; ;stdbool.h: 12: typedef unsigned char bool;
-[; ;picdem_fs_usb_k50\buttons.h: 29: typedef enum
-[; ;picdem_fs_usb_k50\buttons.h: 30: {
-[; ;picdem_fs_usb_k50\buttons.h: 31: BUTTON_NONE,
-[; ;picdem_fs_usb_k50\buttons.h: 32: BUTTON_S2,
-[; ;picdem_fs_usb_k50\buttons.h: 33: BUTTON_S3,
-[; ;picdem_fs_usb_k50\buttons.h: 34: BUTTON_S4,
-[; ;picdem_fs_usb_k50\buttons.h: 35: BUTTON_S5,
-[; ;picdem_fs_usb_k50\buttons.h: 36: BUTTON_S6,
-[; ;picdem_fs_usb_k50\buttons.h: 37: BUTTON_S7,
-[; ;picdem_fs_usb_k50\buttons.h: 38: BUTTON_S8,
-[; ;picdem_fs_usb_k50\buttons.h: 39: BUTTON_S9,
-[; ;picdem_fs_usb_k50\buttons.h: 40: BUTTON_S10,
-[; ;picdem_fs_usb_k50\buttons.h: 41: BUTTON_S11,
-[; ;picdem_fs_usb_k50\buttons.h: 42: BUTTON_S12,
-[; ;picdem_fs_usb_k50\buttons.h: 43: BUTTON_S13,
-[; ;picdem_fs_usb_k50\buttons.h: 44: BUTTON_S14
-[; ;picdem_fs_usb_k50\buttons.h: 46: } BUTTON;
-[; ;picdem_fs_usb_k50\buttons.h: 65: bool BUTTON_IsPressed(BUTTON button);
-[; ;picdem_fs_usb_k50\buttons.h: 83: void BUTTON_Enable(BUTTON button);
-[; ;picdem_fs_usb_k50\leds.h: 29: typedef enum
-[; ;picdem_fs_usb_k50\leds.h: 30: {
-[; ;picdem_fs_usb_k50\leds.h: 31: LED_NONE,
-[; ;picdem_fs_usb_k50\leds.h: 32: LED_D1,
-[; ;picdem_fs_usb_k50\leds.h: 33: LED_D2,
-[; ;picdem_fs_usb_k50\leds.h: 34: LED_D3,
-[; ;picdem_fs_usb_k50\leds.h: 35: LED_D4,
-[; ;picdem_fs_usb_k50\leds.h: 38: } LED;
-[; ;picdem_fs_usb_k50\leds.h: 58: void LED_On(LED led);
-[; ;picdem_fs_usb_k50\leds.h: 76: void LED_Off(LED led);
-[; ;picdem_fs_usb_k50\leds.h: 94: void LED_Toggle(LED led);
-[; ;picdem_fs_usb_k50\leds.h: 112: bool LED_Get(LED led);
-[; ;picdem_fs_usb_k50\leds.h: 129: void LED_Enable(LED led);
-[; ;inc\usb_ch9.h: 69: typedef struct  _USB_DEVICE_DESCRIPTOR
-[; ;inc\usb_ch9.h: 70: {
-[; ;inc\usb_ch9.h: 71: uint8_t bLength;
-[; ;inc\usb_ch9.h: 72: uint8_t bDescriptorType;
-[; ;inc\usb_ch9.h: 73: uint16_t bcdUSB;
-[; ;inc\usb_ch9.h: 74: uint8_t bDeviceClass;
-[; ;inc\usb_ch9.h: 75: uint8_t bDeviceSubClass;
-[; ;inc\usb_ch9.h: 76: uint8_t bDeviceProtocol;
-[; ;inc\usb_ch9.h: 77: uint8_t bMaxPacketSize0;
-[; ;inc\usb_ch9.h: 78: uint16_t idVendor;
-[; ;inc\usb_ch9.h: 79: uint16_t idProduct;
-[; ;inc\usb_ch9.h: 80: uint16_t bcdDevice;
-[; ;inc\usb_ch9.h: 81: uint8_t iManufacturer;
-[; ;inc\usb_ch9.h: 82: uint8_t iProduct;
-[; ;inc\usb_ch9.h: 83: uint8_t iSerialNumber;
-[; ;inc\usb_ch9.h: 84: uint8_t bNumConfigurations;
-[; ;inc\usb_ch9.h: 85: } USB_DEVICE_DESCRIPTOR;
-[; ;inc\usb_ch9.h: 93: typedef struct  _USB_CONFIGURATION_DESCRIPTOR
-[; ;inc\usb_ch9.h: 94: {
-[; ;inc\usb_ch9.h: 95: uint8_t bLength;
-[; ;inc\usb_ch9.h: 96: uint8_t bDescriptorType;
-[; ;inc\usb_ch9.h: 97: uint16_t wTotalLength;
-[; ;inc\usb_ch9.h: 98: uint8_t bNumInterfaces;
-[; ;inc\usb_ch9.h: 99: uint8_t bConfigurationValue;
-[; ;inc\usb_ch9.h: 100: uint8_t iConfiguration;
-[; ;inc\usb_ch9.h: 101: uint8_t bmAttributes;
-[; ;inc\usb_ch9.h: 102: uint8_t bMaxPower;
-[; ;inc\usb_ch9.h: 103: } USB_CONFIGURATION_DESCRIPTOR;
-[; ;inc\usb_ch9.h: 116: typedef struct  _USB_INTERFACE_DESCRIPTOR
-[; ;inc\usb_ch9.h: 117: {
-[; ;inc\usb_ch9.h: 118: uint8_t bLength;
-[; ;inc\usb_ch9.h: 119: uint8_t bDescriptorType;
-[; ;inc\usb_ch9.h: 120: uint8_t bInterfaceNumber;
-[; ;inc\usb_ch9.h: 121: uint8_t bAlternateSetting;
-[; ;inc\usb_ch9.h: 122: uint8_t bNumEndpoints;
-[; ;inc\usb_ch9.h: 123: uint8_t bInterfaceClass;
-[; ;inc\usb_ch9.h: 124: uint8_t bInterfaceSubClass;
-[; ;inc\usb_ch9.h: 125: uint8_t bInterfaceProtocol;
-[; ;inc\usb_ch9.h: 126: uint8_t iInterface;
-[; ;inc\usb_ch9.h: 127: } USB_INTERFACE_DESCRIPTOR;
-[; ;inc\usb_ch9.h: 135: typedef struct  _USB_ENDPOINT_DESCRIPTOR
-[; ;inc\usb_ch9.h: 136: {
-[; ;inc\usb_ch9.h: 137: uint8_t bLength;
-[; ;inc\usb_ch9.h: 138: uint8_t bDescriptorType;
-[; ;inc\usb_ch9.h: 139: uint8_t bEndpointAddress;
-[; ;inc\usb_ch9.h: 140: uint8_t bmAttributes;
-[; ;inc\usb_ch9.h: 141: uint16_t wMaxPacketSize;
-[; ;inc\usb_ch9.h: 142: uint8_t bInterval;
-[; ;inc\usb_ch9.h: 143: } USB_ENDPOINT_DESCRIPTOR;
-[; ;inc\usb_ch9.h: 185: typedef struct
-[; ;inc\usb_ch9.h: 186: {
-[; ;inc\usb_ch9.h: 187: uint8_t index;
-[; ;inc\usb_ch9.h: 188: uint8_t type;
-[; ;inc\usb_ch9.h: 189: uint16_t language_id;
-[; ;inc\usb_ch9.h: 191: } DESCRIPTOR_ID;
-[; ;inc\usb_ch9.h: 200: typedef struct  _USB_OTG_DESCRIPTOR
-[; ;inc\usb_ch9.h: 201: {
-[; ;inc\usb_ch9.h: 202: uint8_t bLength;
-[; ;inc\usb_ch9.h: 203: uint8_t bDescriptorType;
-[; ;inc\usb_ch9.h: 204: uint8_t bmAttributes;
-[; ;inc\usb_ch9.h: 205: } USB_OTG_DESCRIPTOR;
-[; ;inc\usb_ch9.h: 224: typedef struct  _USB_STRING_DSC
-[; ;inc\usb_ch9.h: 225: {
-[; ;inc\usb_ch9.h: 226: uint8_t bLength;
-[; ;inc\usb_ch9.h: 227: uint8_t bDescriptorType;
-[; ;inc\usb_ch9.h: 229: } USB_STRING_DESCRIPTOR;
-[; ;inc\usb_ch9.h: 243: typedef struct  _USB_DEVICE_QUALIFIER_DESCRIPTOR
-[; ;inc\usb_ch9.h: 244: {
-[; ;inc\usb_ch9.h: 245: uint8_t bLength;
-[; ;inc\usb_ch9.h: 246: uint8_t bType;
-[; ;inc\usb_ch9.h: 247: uint16_t bcdUSB;
-[; ;inc\usb_ch9.h: 248: uint8_t bDeviceClass;
-[; ;inc\usb_ch9.h: 249: uint8_t bDeviceSubClass;
-[; ;inc\usb_ch9.h: 250: uint8_t bDeviceProtocol;
-[; ;inc\usb_ch9.h: 251: uint8_t bMaxPacketSize0;
-[; ;inc\usb_ch9.h: 252: uint8_t bNumConfigurations;
-[; ;inc\usb_ch9.h: 253: uint8_t bReserved;
-[; ;inc\usb_ch9.h: 255: } USB_DEVICE_QUALIFIER_DESCRIPTOR;
-[; ;inc\usb_ch9.h: 266: typedef union 
-[; ;inc\usb_ch9.h: 267: {
-[; ;inc\usb_ch9.h: 269: struct 
-[; ;inc\usb_ch9.h: 270: {
-[; ;inc\usb_ch9.h: 271: uint8_t bmRequestType;
-[; ;inc\usb_ch9.h: 272: uint8_t bRequest;
-[; ;inc\usb_ch9.h: 273: uint16_t wValue;
-[; ;inc\usb_ch9.h: 274: uint16_t wIndex;
-[; ;inc\usb_ch9.h: 275: uint16_t wLength;
-[; ;inc\usb_ch9.h: 276: };
-[; ;inc\usb_ch9.h: 277: struct 
-[; ;inc\usb_ch9.h: 278: {
-[; ;inc\usb_ch9.h: 279: unsigned :8;
-[; ;inc\usb_ch9.h: 280: unsigned :8;
-[; ;inc\usb_ch9.h: 281: union
-[; ;inc\usb_ch9.h: 282: {
-[; ;inc\usb_ch9.h: 283: uint16_t Val;
-[; ;inc\usb_ch9.h: 284: uint8_t v[2];
-[; ;inc\usb_ch9.h: 285: struct
-[; ;inc\usb_ch9.h: 286: {
-[; ;inc\usb_ch9.h: 287: uint8_t LB;
-[; ;inc\usb_ch9.h: 288: uint8_t HB;
-[; ;inc\usb_ch9.h: 289: } byte;
-[; ;inc\usb_ch9.h: 290: } W_Value;
-[; ;inc\usb_ch9.h: 292: union
-[; ;inc\usb_ch9.h: 293: {
-[; ;inc\usb_ch9.h: 294: uint16_t Val;
-[; ;inc\usb_ch9.h: 295: uint8_t v[2];
-[; ;inc\usb_ch9.h: 296: struct
-[; ;inc\usb_ch9.h: 297: {
-[; ;inc\usb_ch9.h: 298: uint8_t LB;
-[; ;inc\usb_ch9.h: 299: uint8_t HB;
-[; ;inc\usb_ch9.h: 300: } byte;
-[; ;inc\usb_ch9.h: 301: } W_Index;
-[; ;inc\usb_ch9.h: 303: union
-[; ;inc\usb_ch9.h: 304: {
-[; ;inc\usb_ch9.h: 305: uint16_t Val;
-[; ;inc\usb_ch9.h: 306: uint8_t v[2];
-[; ;inc\usb_ch9.h: 307: struct
-[; ;inc\usb_ch9.h: 308: {
-[; ;inc\usb_ch9.h: 309: uint8_t LB;
-[; ;inc\usb_ch9.h: 310: uint8_t HB;
-[; ;inc\usb_ch9.h: 311: } byte;
-[; ;inc\usb_ch9.h: 312: } W_Length;
-[; ;inc\usb_ch9.h: 313: };
-[; ;inc\usb_ch9.h: 314: struct 
-[; ;inc\usb_ch9.h: 315: {
-[; ;inc\usb_ch9.h: 316: unsigned Recipient:5;
-[; ;inc\usb_ch9.h: 317: unsigned RequestType:2;
-[; ;inc\usb_ch9.h: 318: unsigned DataDir:1;
-[; ;inc\usb_ch9.h: 319: unsigned :8;
-[; ;inc\usb_ch9.h: 320: uint8_t bFeature;
-[; ;inc\usb_ch9.h: 321: unsigned :8;
-[; ;inc\usb_ch9.h: 322: unsigned :8;
-[; ;inc\usb_ch9.h: 323: unsigned :8;
-[; ;inc\usb_ch9.h: 324: unsigned :8;
-[; ;inc\usb_ch9.h: 325: unsigned :8;
-[; ;inc\usb_ch9.h: 326: };
-[; ;inc\usb_ch9.h: 327: struct 
-[; ;inc\usb_ch9.h: 328: {
-[; ;inc\usb_ch9.h: 329: union
-[; ;inc\usb_ch9.h: 330: {
-[; ;inc\usb_ch9.h: 331: uint8_t bmRequestType;
-[; ;inc\usb_ch9.h: 332: struct
-[; ;inc\usb_ch9.h: 333: {
-[; ;inc\usb_ch9.h: 334: uint8_t recipient: 5;
-[; ;inc\usb_ch9.h: 335: uint8_t type: 2;
-[; ;inc\usb_ch9.h: 336: uint8_t direction: 1;
-[; ;inc\usb_ch9.h: 337: };
-[; ;inc\usb_ch9.h: 338: }requestInfo;
-[; ;inc\usb_ch9.h: 339: };
-[; ;inc\usb_ch9.h: 340: struct 
-[; ;inc\usb_ch9.h: 341: {
-[; ;inc\usb_ch9.h: 342: unsigned :8;
-[; ;inc\usb_ch9.h: 343: unsigned :8;
-[; ;inc\usb_ch9.h: 344: uint8_t bDscIndex;
-[; ;inc\usb_ch9.h: 345: uint8_t bDescriptorType;
-[; ;inc\usb_ch9.h: 346: uint16_t wLangID;
-[; ;inc\usb_ch9.h: 347: unsigned :8;
-[; ;inc\usb_ch9.h: 348: unsigned :8;
-[; ;inc\usb_ch9.h: 349: };
-[; ;inc\usb_ch9.h: 350: struct 
-[; ;inc\usb_ch9.h: 351: {
-[; ;inc\usb_ch9.h: 352: unsigned :8;
-[; ;inc\usb_ch9.h: 353: unsigned :8;
-[; ;inc\usb_ch9.h: 354: uint8_t bDevADR;
-[; ;inc\usb_ch9.h: 355: uint8_t bDevADRH;
-[; ;inc\usb_ch9.h: 356: unsigned :8;
-[; ;inc\usb_ch9.h: 357: unsigned :8;
-[; ;inc\usb_ch9.h: 358: unsigned :8;
-[; ;inc\usb_ch9.h: 359: unsigned :8;
-[; ;inc\usb_ch9.h: 360: };
-[; ;inc\usb_ch9.h: 361: struct 
-[; ;inc\usb_ch9.h: 362: {
-[; ;inc\usb_ch9.h: 363: unsigned :8;
-[; ;inc\usb_ch9.h: 364: unsigned :8;
-[; ;inc\usb_ch9.h: 365: uint8_t bConfigurationValue;
-[; ;inc\usb_ch9.h: 366: uint8_t bCfgRSD;
-[; ;inc\usb_ch9.h: 367: unsigned :8;
-[; ;inc\usb_ch9.h: 368: unsigned :8;
-[; ;inc\usb_ch9.h: 369: unsigned :8;
-[; ;inc\usb_ch9.h: 370: unsigned :8;
-[; ;inc\usb_ch9.h: 371: };
-[; ;inc\usb_ch9.h: 372: struct 
-[; ;inc\usb_ch9.h: 373: {
-[; ;inc\usb_ch9.h: 374: unsigned :8;
-[; ;inc\usb_ch9.h: 375: unsigned :8;
-[; ;inc\usb_ch9.h: 376: uint8_t bAltID;
-[; ;inc\usb_ch9.h: 377: uint8_t bAltID_H;
-[; ;inc\usb_ch9.h: 378: uint8_t bIntfID;
-[; ;inc\usb_ch9.h: 379: uint8_t bIntfID_H;
-[; ;inc\usb_ch9.h: 380: unsigned :8;
-[; ;inc\usb_ch9.h: 381: unsigned :8;
-[; ;inc\usb_ch9.h: 382: };
-[; ;inc\usb_ch9.h: 383: struct 
-[; ;inc\usb_ch9.h: 384: {
-[; ;inc\usb_ch9.h: 385: unsigned :8;
-[; ;inc\usb_ch9.h: 386: unsigned :8;
-[; ;inc\usb_ch9.h: 387: unsigned :8;
-[; ;inc\usb_ch9.h: 388: unsigned :8;
-[; ;inc\usb_ch9.h: 389: uint8_t bEPID;
-[; ;inc\usb_ch9.h: 390: uint8_t bEPID_H;
-[; ;inc\usb_ch9.h: 391: unsigned :8;
-[; ;inc\usb_ch9.h: 392: unsigned :8;
-[; ;inc\usb_ch9.h: 393: };
-[; ;inc\usb_ch9.h: 394: struct 
-[; ;inc\usb_ch9.h: 395: {
-[; ;inc\usb_ch9.h: 396: unsigned :8;
-[; ;inc\usb_ch9.h: 397: unsigned :8;
-[; ;inc\usb_ch9.h: 398: unsigned :8;
-[; ;inc\usb_ch9.h: 399: unsigned :8;
-[; ;inc\usb_ch9.h: 400: unsigned EPNum:4;
-[; ;inc\usb_ch9.h: 401: unsigned :3;
-[; ;inc\usb_ch9.h: 402: unsigned EPDir:1;
-[; ;inc\usb_ch9.h: 403: unsigned :8;
-[; ;inc\usb_ch9.h: 404: unsigned :8;
-[; ;inc\usb_ch9.h: 405: unsigned :8;
-[; ;inc\usb_ch9.h: 406: };
-[; ;inc\usb_ch9.h: 410: } CTRL_TRF_SETUP, SETUP_PKT, *PSETUP_PKT;
-[; ;inc\usb_common.h: 132: typedef union
-[; ;inc\usb_common.h: 133: {
-[; ;inc\usb_common.h: 134: uint8_t bitmap;
-[; ;inc\usb_common.h: 135: struct
-[; ;inc\usb_common.h: 136: {
-[; ;inc\usb_common.h: 137: uint8_t ep_num: 4;
-[; ;inc\usb_common.h: 138: uint8_t zero_pkt: 1;
-[; ;inc\usb_common.h: 139: uint8_t dts: 1;
-[; ;inc\usb_common.h: 140: uint8_t force_dts: 1;
-[; ;inc\usb_common.h: 141: uint8_t direction: 1;
-[; ;inc\usb_common.h: 142: }field;
-[; ;inc\usb_common.h: 144: } TRANSFER_FLAGS;
-[; ;inc\usb_common.h: 206: typedef enum
-[; ;inc\usb_common.h: 207: {
-[; ;inc\usb_common.h: 209: EVENT_NONE = 0,
-[; ;inc\usb_common.h: 211: EVENT_DEVICE_STACK_BASE = 1,
-[; ;inc\usb_common.h: 213: EVENT_HOST_STACK_BASE = 100,
-[; ;inc\usb_common.h: 216: EVENT_HUB_ATTACH,
-[; ;inc\usb_common.h: 219: EVENT_STALL,
-[; ;inc\usb_common.h: 222: EVENT_VBUS_SES_REQUEST,
-[; ;inc\usb_common.h: 227: EVENT_VBUS_OVERCURRENT,
-[; ;inc\usb_common.h: 233: EVENT_VBUS_REQUEST_POWER,
-[; ;inc\usb_common.h: 238: EVENT_VBUS_RELEASE_POWER,
-[; ;inc\usb_common.h: 247: EVENT_VBUS_POWER_AVAILABLE,
-[; ;inc\usb_common.h: 251: EVENT_UNSUPPORTED_DEVICE,
-[; ;inc\usb_common.h: 255: EVENT_CANNOT_ENUMERATE,
-[; ;inc\usb_common.h: 259: EVENT_CLIENT_INIT_ERROR,
-[; ;inc\usb_common.h: 265: EVENT_OUT_OF_MEMORY,
-[; ;inc\usb_common.h: 268: EVENT_UNSPECIFIED_ERROR,
-[; ;inc\usb_common.h: 272: EVENT_DETACH,
-[; ;inc\usb_common.h: 277: EVENT_TRANSFER,
-[; ;inc\usb_common.h: 281: EVENT_SOF,
-[; ;inc\usb_common.h: 284: EVENT_RESUME,
-[; ;inc\usb_common.h: 288: EVENT_SUSPEND,
-[; ;inc\usb_common.h: 292: EVENT_RESET,
-[; ;inc\usb_common.h: 298: EVENT_DATA_ISOC_READ,
-[; ;inc\usb_common.h: 304: EVENT_DATA_ISOC_WRITE,
-[; ;inc\usb_common.h: 314: EVENT_OVERRIDE_CLIENT_DRIVER_SELECTION,
-[; ;inc\usb_common.h: 322: EVENT_1MS,
-[; ;inc\usb_common.h: 328: EVENT_ALT_INTERFACE,
-[; ;inc\usb_common.h: 335: EVENT_HOLD_BEFORE_CONFIGURATION,
-[; ;inc\usb_common.h: 338: EVENT_GENERIC_BASE = 400,
-[; ;inc\usb_common.h: 340: EVENT_MSD_BASE = 500,
-[; ;inc\usb_common.h: 342: EVENT_HID_BASE = 600,
-[; ;inc\usb_common.h: 344: EVENT_PRINTER_BASE = 700,
-[; ;inc\usb_common.h: 346: EVENT_CDC_BASE = 800,
-[; ;inc\usb_common.h: 348: EVENT_CHARGER_BASE = 900,
-[; ;inc\usb_common.h: 350: EVENT_AUDIO_BASE = 1000,
-[; ;inc\usb_common.h: 352: EVENT_USER_BASE = 10000,
-[; ;inc\usb_common.h: 357: EVENT_BUS_ERROR = 32767
-[; ;inc\usb_common.h: 359: } USB_EVENT;
-[; ;inc\usb_common.h: 371: typedef struct _transfer_event_data
-[; ;inc\usb_common.h: 372: {
-[; ;inc\usb_common.h: 373: TRANSFER_FLAGS flags;
-[; ;inc\usb_common.h: 374: uint32_t size;
-[; ;inc\usb_common.h: 375: uint8_t pid;
-[; ;inc\usb_common.h: 377: } USB_TRANSFER_EVENT_DATA;
-[; ;inc\usb_common.h: 388: typedef struct _vbus_power_data
-[; ;inc\usb_common.h: 389: {
-[; ;inc\usb_common.h: 390: uint8_t port;
-[; ;inc\usb_common.h: 391: uint8_t current;
-[; ;inc\usb_common.h: 392: } USB_VBUS_POWER_EVENT_DATA;
-[; ;inc\usb_common.h: 401: typedef struct _override_client_driver_data
-[; ;inc\usb_common.h: 402: {
-[; ;inc\usb_common.h: 403: uint16_t idVendor;
-[; ;inc\usb_common.h: 404: uint16_t idProduct;
-[; ;inc\usb_common.h: 405: uint8_t bDeviceClass;
-[; ;inc\usb_common.h: 406: uint8_t bDeviceSubClass;
-[; ;inc\usb_common.h: 407: uint8_t bDeviceProtocol;
-[; ;inc\usb_common.h: 408: } USB_OVERRIDE_CLIENT_DRIVER_EVENT_DATA;
-[; ;inc\usb_common.h: 463: typedef bool (*USB_EVENT_HANDLER) ( USB_EVENT event, void *data, unsigned int size );
-[; ;inc\usb_device.h: 73: typedef enum
-[; ;inc\usb_device.h: 74: {
-[; ;inc\usb_device.h: 78: DETACHED_STATE
-[; ;inc\usb_device.h: 79: = 0x00 ,
-[; ;inc\usb_device.h: 82: ATTACHED_STATE
-[; ;inc\usb_device.h: 83: = 0x01 ,
-[; ;inc\usb_device.h: 86: POWERED_STATE
-[; ;inc\usb_device.h: 87: = 0x02 ,
-[; ;inc\usb_device.h: 90: DEFAULT_STATE
-[; ;inc\usb_device.h: 91: = 0x04 ,
-[; ;inc\usb_device.h: 97: ADR_PENDING_STATE
-[; ;inc\usb_device.h: 98: = 0x08 ,
-[; ;inc\usb_device.h: 101: ADDRESS_STATE
-[; ;inc\usb_device.h: 102: = 0x10 ,
-[; ;inc\usb_device.h: 108: CONFIGURED_STATE
-[; ;inc\usb_device.h: 109: = 0x20
-[; ;inc\usb_device.h: 110: } USB_DEVICE_STATE;
-[; ;inc\usb_device.h: 114: typedef enum
-[; ;inc\usb_device.h: 115: {
-[; ;inc\usb_device.h: 117: EVENT_CONFIGURED
-[; ;inc\usb_device.h: 118: = EVENT_DEVICE_STACK_BASE ,
-[; ;inc\usb_device.h: 121: EVENT_SET_DESCRIPTOR,
-[; ;inc\usb_device.h: 127: EVENT_EP0_REQUEST,
-[; ;inc\usb_device.h: 156: EVENT_ATTACH,
-[; ;inc\usb_device.h: 161: EVENT_TRANSFER_TERMINATED
-[; ;inc\usb_device.h: 163: } USB_DEVICE_STACK_EVENTS;
-[; ;inc\usb_device.h: 195: void USBDeviceInit(void);
-[; ;inc\usb_device.h: 299: void USBDeviceTasks(void);
-[; ;inc\usb_device.h: 351: void USBEnableEndpoint(uint8_t ep, uint8_t options);
-[; ;inc\usb_device.h: 444: void* USBTransferOnePacket(uint8_t ep,uint8_t dir,uint8_t* data,uint8_t len);
-[; ;inc\usb_device.h: 469: void USBStallEndpoint(uint8_t ep, uint8_t dir);
-[; ;inc\usb_device.h: 493: void USBCancelIO(uint8_t endpoint);
-[; ;inc\usb_device.h: 590: void USBDeviceDetach(void);
-[; ;inc\usb_device.h: 635: void USBDeviceAttach(void);
-[; ;inc\usb_device.h: 674: void USBCtrlEPAllowStatusStage(void);
-[; ;inc\usb_device.h: 704: void USBCtrlEPAllowDataStage(void);
-[; ;inc\usb_device.h: 780: void USBDeferOUTDataStage(void);
-[; ;inc\usb_device.h: 781: extern volatile bool USBDeferOUTDataStagePackets;
-[; ;inc\usb_device.h: 850: void USBDeferStatusStage(void);
-[; ;inc\usb_device.h: 851: extern volatile bool USBDeferStatusStagePacket;
-[; ;inc\usb_device.h: 902: bool USBOUTDataStageDeferred(void);
-[; ;inc\usb_device.h: 985: void USBDeferINDataStage(void);
-[; ;inc\usb_device.h: 986: extern volatile bool USBDeferINDataStagePackets;
-[; ;inc\usb_device.h: 1039: bool USBINDataStageDeferred(void);
-[; ;inc\usb_device.h: 1109: bool USBGetRemoteWakeupStatus(void);
-[; ;inc\usb_device.h: 1166: USB_DEVICE_STATE USBGetDeviceState(void);
-[; ;inc\usb_device.h: 1222: bool USBGetSuspendState(void);
-[; ;inc\usb_device.h: 1257: bool USBIsDeviceSuspended(void);
-[; ;inc\usb_device.h: 1300: bool USBIsBusSuspended(void);
-[; ;inc\usb_device.h: 1326: void USBSoftDetach(void);
-[; ;inc\usb_device.h: 1364: bool USBHandleBusy(void* handle);
-[; ;inc\usb_device.h: 1402: uint16_t USBHandleGetLength(void* handle);
-[; ;inc\usb_device.h: 1434: uint16_t USBHandleGetAddr(void*);
-[; ;inc\usb_device.h: 1534: void* USBGetNextHandle(uint8_t ep_num, uint8_t ep_dir);
-[; ;inc\usb_device.h: 1567: void USBEP0Transmit(uint8_t options);
-[; ;inc\usb_device.h: 1595: void USBEP0SendRAMPtr(uint8_t* src, uint16_t size, uint8_t Options);
-[; ;inc\usb_device.h: 1627: void USBEP0SendROMPtr(uint8_t* src, uint16_t size, uint8_t Options);
-[; ;inc\usb_device.h: 1655: void USBEP0Receive(uint8_t* dest, uint16_t size, void (*function));
-[; ;inc\usb_device.h: 1690: void* USBTxOnePacket(uint8_t ep, uint8_t* data, uint16_t len);
-[; ;inc\usb_device.h: 1727: void* USBRxOnePacket(uint8_t ep, uint8_t* data, uint16_t len);
-[; ;inc\usb_device.h: 1759: bool USB_APPLICATION_EVENT_HANDLER(uint8_t address, USB_EVENT event, void *pdata, uint16_t size);
-[; ;inc\usb_device.h: 1804: void USBIncrement1msInternalTimers(void);
-[; ;inc\usb_device.h: 1863: uint32_t USBGet1msTickCount(void);
-[; ;inc\usb_device.h: 1904: uint8_t USBGetTicksSinceSuspendEnd(void);
-[; ;inc\usb_device.h: 1976: typedef union
-[; ;inc\usb_device.h: 1977: {
-[; ;inc\usb_device.h: 1978: uint16_t Val;
-[; ;inc\usb_device.h: 1979: uint8_t v[2];
-[; ;inc\usb_device.h: 1980: struct
-[; ;inc\usb_device.h: 1981: {
-[; ;inc\usb_device.h: 1982: uint8_t LB;
-[; ;inc\usb_device.h: 1983: uint8_t HB;
-[; ;inc\usb_device.h: 1984: } byte;
-[; ;inc\usb_device.h: 1985: } uint16_t_VAL;
-[; ;inc\usb_device.h: 1990: typedef struct 
-[; ;inc\usb_device.h: 1991: {
-[; ;inc\usb_device.h: 1992: union 
-[; ;inc\usb_device.h: 1993: {
-[; ;inc\usb_device.h: 1996: uint8_t *bRam;
-[; ;inc\usb_device.h: 1997: const uint8_t *bRom;
-[; ;inc\usb_device.h: 1998: uint16_t *wRam;
-[; ;inc\usb_device.h: 1999: const uint16_t *wRom;
-[; ;inc\usb_device.h: 2000: }pSrc;
-[; ;inc\usb_device.h: 2001: union 
-[; ;inc\usb_device.h: 2002: {
-[; ;inc\usb_device.h: 2003: struct 
-[; ;inc\usb_device.h: 2004: {
-[; ;inc\usb_device.h: 2006: uint8_t ctrl_trf_mem :1;
-[; ;inc\usb_device.h: 2007: uint8_t reserved :5;
-[; ;inc\usb_device.h: 2010: uint8_t includeZero :1;
-[; ;inc\usb_device.h: 2012: uint8_t busy :1;
-[; ;inc\usb_device.h: 2013: }bits;
-[; ;inc\usb_device.h: 2014: uint8_t Val;
-[; ;inc\usb_device.h: 2015: }info;
-[; ;inc\usb_device.h: 2016: uint16_t_VAL  wCount;
-[; ;inc\usb_device.h: 2017: }IN_PIPE;
-[; ;inc\usb_device.h: 2019: extern  IN_PIPE inPipes[];
-[; ;inc\usb_device.h: 2021: typedef struct 
-[; ;inc\usb_device.h: 2022: {
-[; ;inc\usb_device.h: 2023: union 
-[; ;inc\usb_device.h: 2024: {
-[; ;inc\usb_device.h: 2027: uint8_t *bRam;
-[; ;inc\usb_device.h: 2028: uint16_t *wRam;
-[; ;inc\usb_device.h: 2029: }pDst;
-[; ;inc\usb_device.h: 2030: union 
-[; ;inc\usb_device.h: 2031: {
-[; ;inc\usb_device.h: 2032: struct 
-[; ;inc\usb_device.h: 2033: {
-[; ;inc\usb_device.h: 2034: uint8_t reserved :7;
-[; ;inc\usb_device.h: 2036: uint8_t busy :1;
-[; ;inc\usb_device.h: 2037: }bits;
-[; ;inc\usb_device.h: 2038: uint8_t Val;
-[; ;inc\usb_device.h: 2039: }info;
-[; ;inc\usb_device.h: 2040: uint16_t_VAL wCount;
-[; ;inc\usb_device.h: 2041: void (*pFunc)(void);
-[; ;inc\usb_device.h: 2042: }OUT_PIPE;
-[; ;inc\usb_device.h: 2044: extern  bool RemoteWakeup;
-[; ;inc\usb_device.h: 2045: extern  bool USBBusIsSuspended;
-[; ;inc\usb_device.h: 2046: extern  USB_DEVICE_STATE USBDeviceState;
-[; ;inc\usb_device.h: 2047: extern  uint8_t USBActiveConfiguration;
-[; ;inc\usb_device.h: 2048: extern  uint8_t USBTicksSinceSuspendEnd;
-[; ;__size_t.h: 4: typedef unsigned size_t;
-[; ;string.h: 14: extern void * memcpy(void *, const void *, size_t);
-[; ;string.h: 15: extern void * memmove(void *, const void *, size_t);
-[; ;string.h: 16: extern void * memset(void *, int, size_t);
-[; ;string.h: 36: extern char * strcat(char *, const char *);
-[; ;string.h: 37: extern char * strcpy(char *, const char *);
-[; ;string.h: 38: extern char * strncat(char *, const char *, size_t);
-[; ;string.h: 39: extern char * strncpy(char *, const char *, size_t);
-[; ;string.h: 40: extern char * strdup(const char *);
-[; ;string.h: 41: extern char * strtok(char *, const char *);
-[; ;string.h: 44: extern int memcmp(const void *, const void *, size_t);
-[; ;string.h: 45: extern int strcmp(const char *, const char *);
-[; ;string.h: 46: extern int stricmp(const char *, const char *);
-[; ;string.h: 47: extern int strncmp(const char *, const char *, size_t);
-[; ;string.h: 48: extern int strnicmp(const char *, const char *, size_t);
-[; ;string.h: 49: extern void * memchr(const void *, int, size_t);
-[; ;string.h: 50: extern size_t strcspn(const char *, const char *);
-[; ;string.h: 51: extern char * strpbrk(const char *, const char *);
-[; ;string.h: 52: extern size_t strspn(const char *, const char *);
-[; ;string.h: 53: extern char * strstr(const char *, const char *);
-[; ;string.h: 54: extern char * stristr(const char *, const char *);
-[; ;string.h: 55: extern char * strerror(int);
-[; ;string.h: 56: extern size_t strlen(const char *);
-[; ;string.h: 57: extern char * strchr(const char *, int);
-[; ;string.h: 58: extern char * strichr(const char *, int);
-[; ;string.h: 59: extern char * strrchr(const char *, int);
-[; ;string.h: 60: extern char * strrichr(const char *, int);
-[; ;inc\usb_hal_pic18.h: 257: typedef union _BD_STAT
-[; ;inc\usb_hal_pic18.h: 258: {
-[; ;inc\usb_hal_pic18.h: 259: uint8_t Val;
-[; ;inc\usb_hal_pic18.h: 260: struct{
-[; ;inc\usb_hal_pic18.h: 262: unsigned BC8:1;
-[; ;inc\usb_hal_pic18.h: 263: unsigned BC9:1;
-[; ;inc\usb_hal_pic18.h: 264: unsigned BSTALL:1;
-[; ;inc\usb_hal_pic18.h: 265: unsigned DTSEN:1;
-[; ;inc\usb_hal_pic18.h: 266: unsigned INCDIS:1;
-[; ;inc\usb_hal_pic18.h: 267: unsigned KEN:1;
-[; ;inc\usb_hal_pic18.h: 268: unsigned DTS:1;
-[; ;inc\usb_hal_pic18.h: 269: unsigned UOWN:1;
-[; ;inc\usb_hal_pic18.h: 270: };
-[; ;inc\usb_hal_pic18.h: 271: struct{
-[; ;inc\usb_hal_pic18.h: 274: unsigned :2;
-[; ;inc\usb_hal_pic18.h: 275: unsigned PID0:1;
-[; ;inc\usb_hal_pic18.h: 276: unsigned PID1:1;
-[; ;inc\usb_hal_pic18.h: 277: unsigned PID2:1;
-[; ;inc\usb_hal_pic18.h: 278: unsigned PID3:1;
-[; ;inc\usb_hal_pic18.h: 279: unsigned :1;
-[; ;inc\usb_hal_pic18.h: 280: };
-[; ;inc\usb_hal_pic18.h: 281: struct{
-[; ;inc\usb_hal_pic18.h: 282: unsigned :2;
-[; ;inc\usb_hal_pic18.h: 283: unsigned PID:4;
-[; ;inc\usb_hal_pic18.h: 284: unsigned :2;
-[; ;inc\usb_hal_pic18.h: 285: };
-[; ;inc\usb_hal_pic18.h: 286: } BD_STAT;
-[; ;inc\usb_hal_pic18.h: 289: typedef union __BDT
-[; ;inc\usb_hal_pic18.h: 290: {
-[; ;inc\usb_hal_pic18.h: 291: struct
-[; ;inc\usb_hal_pic18.h: 292: {
-[; ;inc\usb_hal_pic18.h: 293: BD_STAT STAT;
-[; ;inc\usb_hal_pic18.h: 294: uint8_t CNT;
-[; ;inc\usb_hal_pic18.h: 295: uint8_t ADRL;
-[; ;inc\usb_hal_pic18.h: 296: uint8_t ADRH;
-[; ;inc\usb_hal_pic18.h: 297: };
-[; ;inc\usb_hal_pic18.h: 298: struct
-[; ;inc\usb_hal_pic18.h: 299: {
-[; ;inc\usb_hal_pic18.h: 300: unsigned :8;
-[; ;inc\usb_hal_pic18.h: 301: unsigned :8;
-[; ;inc\usb_hal_pic18.h: 302: uint16_t ADR;
-[; ;inc\usb_hal_pic18.h: 303: };
-[; ;inc\usb_hal_pic18.h: 304: uint32_t Val;
-[; ;inc\usb_hal_pic18.h: 305: uint8_t v[4];
-[; ;inc\usb_hal_pic18.h: 306: } BDT_ENTRY;
-[; ;inc\usb_hal_pic18.h: 309: typedef union __USTAT
-[; ;inc\usb_hal_pic18.h: 310: {
-[; ;inc\usb_hal_pic18.h: 311: struct
-[; ;inc\usb_hal_pic18.h: 312: {
-[; ;inc\usb_hal_pic18.h: 313: unsigned char filler1:1;
-[; ;inc\usb_hal_pic18.h: 314: unsigned char ping_pong:1;
-[; ;inc\usb_hal_pic18.h: 315: unsigned char direction:1;
-[; ;inc\usb_hal_pic18.h: 316: unsigned char endpoint_number:4;
-[; ;inc\usb_hal_pic18.h: 317: };
-[; ;inc\usb_hal_pic18.h: 318: uint8_t Val;
-[; ;inc\usb_hal_pic18.h: 319: } USTAT_FIELDS;
-[; ;inc\usb_hal_pic18.h: 327: typedef union _POINTER
-[; ;inc\usb_hal_pic18.h: 328: {
-[; ;inc\usb_hal_pic18.h: 329: struct
-[; ;inc\usb_hal_pic18.h: 330: {
-[; ;inc\usb_hal_pic18.h: 331: uint8_t bLow;
-[; ;inc\usb_hal_pic18.h: 332: uint8_t bHigh;
-[; ;inc\usb_hal_pic18.h: 334: };
-[; ;inc\usb_hal_pic18.h: 335: uint16_t _word;
-[; ;inc\usb_hal_pic18.h: 339: uint8_t* bRam;
-[; ;inc\usb_hal_pic18.h: 341: uint16_t* wRam;
-[; ;inc\usb_hal_pic18.h: 344: const uint8_t* bRom;
-[; ;inc\usb_hal_pic18.h: 345: const uint16_t* wRom;
-[; ;inc\usb_hal_pic18.h: 350: } POINTER;
-[; ;inc\usb_hal_pic18.h: 597: extern  uint8_t USBActiveConfiguration;
-[; ;inc\usb_hal_pic18.h: 598: extern  IN_PIPE inPipes[1];
-[; ;inc\usb_hal_pic18.h: 599: extern  OUT_PIPE outPipes[1];
-[; ;inc\usb_hal_pic18.h: 602: extern volatile BDT_ENTRY* pBDTEntryOut[1+1];
-[; ;inc\usb_hal_pic18.h: 603: extern volatile BDT_ENTRY* pBDTEntryIn[1+1];
-[; ;inc\usb_hal.h: 167: void OTGCORE_SetDeviceAddr( uint8_t addr );
-[; ;inc\usb_hal.h: 203: void USBHALControlUsbResistors( uint8_t flags );
-[; ;inc\usb_hal.h: 237: bool USBHALSessionIsValid( void );
-[; ;inc\usb_hal.h: 263: bool USBHALControlBusPower( uint8_t cmd );
-[; ;inc\usb_hal.h: 293: unsigned long USBHALGetLastError( void );
-[; ;inc\usb_hal.h: 326: void USBHALHandleBusEvent ( void );
-[; ;inc\usb_hal.h: 367: bool OTGCORE_StallPipe( TRANSFER_FLAGS pipe );
-[; ;inc\usb_hal.h: 404: bool OTGCORE_UnstallPipe( TRANSFER_FLAGS pipe );
-[; ;inc\usb_hal.h: 438: uint16_t OTGCORE_GetStalledEndpoints ( void );
-[; ;inc\usb_hal.h: 475: bool USBHALFlushPipe( TRANSFER_FLAGS pipe );
-[; ;inc\usb_hal.h: 535: bool USBHALTransferData ( TRANSFER_FLAGS flags,
-[; ;inc\usb_hal.h: 536: void *buffer,
-[; ;inc\usb_hal.h: 537: unsigned int size );
-[; ;inc\usb_hal.h: 575: bool USBHALSetEpConfiguration ( uint8_t ep_num, uint16_t max_pkt_size, uint16_t flags );
-[; ;inc\usb_hal.h: 603: bool USBHALInitialize ( unsigned long flags );
+[; ;stdint.h: 13: typedef signed char int8_t;
+[; ;stdint.h: 20: typedef signed int int16_t;
+[; ;stdint.h: 28: typedef signed short long int int24_t;
+[; ;stdint.h: 36: typedef signed long int int32_t;
+[; ;stdint.h: 43: typedef unsigned char uint8_t;
+[; ;stdint.h: 49: typedef unsigned int uint16_t;
+[; ;stdint.h: 56: typedef unsigned short long int uint24_t;
+[; ;stdint.h: 63: typedef unsigned long int uint32_t;
+[; ;stdint.h: 71: typedef signed char int_least8_t;
+[; ;stdint.h: 78: typedef signed int int_least16_t;
+[; ;stdint.h: 90: typedef signed short long int int_least24_t;
+[; ;stdint.h: 98: typedef signed long int int_least32_t;
+[; ;stdint.h: 105: typedef unsigned char uint_least8_t;
+[; ;stdint.h: 111: typedef unsigned int uint_least16_t;
+[; ;stdint.h: 121: typedef unsigned short long int uint_least24_t;
+[; ;stdint.h: 128: typedef unsigned long int uint_least32_t;
+[; ;stdint.h: 137: typedef signed char int_fast8_t;
+[; ;stdint.h: 144: typedef signed int int_fast16_t;
+[; ;stdint.h: 156: typedef signed short long int int_fast24_t;
+[; ;stdint.h: 164: typedef signed long int int_fast32_t;
+[; ;stdint.h: 171: typedef unsigned char uint_fast8_t;
+[; ;stdint.h: 177: typedef unsigned int uint_fast16_t;
+[; ;stdint.h: 187: typedef unsigned short long int uint_fast24_t;
+[; ;stdint.h: 194: typedef unsigned long int uint_fast32_t;
+[; ;stdint.h: 200: typedef int32_t intmax_t;
+[; ;stdint.h: 205: typedef uint32_t uintmax_t;
+[; ;stdint.h: 210: typedef int16_t intptr_t;
+[; ;stdint.h: 215: typedef uint16_t uintptr_t;
 "20 ../../../../../../framework/usb/inc\wheel.h
 [v _WHEEL_Type `uc ~T0 @X0 1 e ]
 [i _WHEEL_Type
@@ -5924,161 +5435,662 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;inc\wheel.h: 80: uint16_t WHEEL_Test(WHEEL wheel);
 [; ;inc\wheel.h: 82: void PEDAL_Enable(PEDAL pedal);
 [; ;inc\wheel.h: 83: uint16_t PEDAL_Position(PEDAL pedal);
-[; ;system.h: 38: typedef enum
-[; ;system.h: 39: {
-[; ;system.h: 40: SYSTEM_STATE_USB_START,
-[; ;system.h: 41: SYSTEM_STATE_USB_SUSPEND,
-[; ;system.h: 42: SYSTEM_STATE_USB_RESUME
-[; ;system.h: 43: } SYSTEM_STATE;
-[; ;system.h: 57: void SYSTEM_Initialize( SYSTEM_STATE state );
-"50 ../demo_src/app_led_usb_status.c
-[v _APP_LEDUpdateUSBStatus `(v ~T0 @X0 1 ef ]
-"51
-{
-[; ;app_led_usb_status.c: 50: void APP_LEDUpdateUSBStatus(void)
-[; ;app_led_usb_status.c: 51: {
-[e :U _APP_LEDUpdateUSBStatus ]
-[f ]
-"52
-[v F6424 `ui ~T0 @X0 1 s ledCount ]
-[i F6424
--> -> 0 `i `ui
-]
-[; ;app_led_usb_status.c: 52: static uint16_t ledCount = 0;
-[; ;app_led_usb_status.c: 54: if(UCONbits.SUSPND == 1)
-"54
-[e $ ! == -> . . _UCONbits 0 1 `i -> 1 `i 685  ]
-[; ;app_led_usb_status.c: 55: {
-"55
-{
-[; ;app_led_usb_status.c: 56: LED_Off(LED_D1);
-"56
-[e ( _LED_Off (1 . `E5775 1 ]
-[; ;app_led_usb_status.c: 57: return;
-"57
-[e $UE 684  ]
-"58
-}
-[e :U 685 ]
-[; ;app_led_usb_status.c: 58: }
-[; ;app_led_usb_status.c: 60: switch(USBDeviceState)
-"60
-[e $U 687  ]
-[; ;app_led_usb_status.c: 61: {
-"61
-{
-[; ;app_led_usb_status.c: 62: case CONFIGURED_STATE:
+"61 ../../../../../../framework/usb/inc/wheel.c
+[v _WHEEL_Position `(ui ~T0 @X0 1 ef1`E5759 ]
 "62
-[e :U 688 ]
-[; ;app_led_usb_status.c: 65: if(ledCount == 1)
+{
+[; ;wheel.c: 61: uint16_t WHEEL_Position(WHEEL wheel)
+[; ;wheel.c: 62: {
+[e :U _WHEEL_Position ]
+"61
+[v _wheel `E5759 ~T0 @X0 1 r1 ]
+"62
+[f ]
+[; ;wheel.c: 63: switch(wheel)
+"63
+[e $U 633  ]
+[; ;wheel.c: 64: {
+"64
+{
+[; ;wheel.c: 65: case WHEEL_W1:
 "65
-[e $ ! == F6424 -> -> 1 `i `ui 689  ]
-[; ;app_led_usb_status.c: 66: {
+[e :U 634 ]
+[; ;wheel.c: 66: if (WHEEL_Type == 0)
 "66
-{
-[; ;app_led_usb_status.c: 67: LED_On(LED_D1);
+[e $ ! == -> _WHEEL_Type `i -> 0 `i 635  ]
+[; ;wheel.c: 67: {
 "67
-[e ( _LED_On (1 . `E5775 1 ]
+{
 "68
-}
-[; ;app_led_usb_status.c: 68: }
-[e $U 690  ]
-"69
-[e :U 689 ]
-[; ;app_led_usb_status.c: 69: else if(ledCount == 75)
-[e $ ! == F6424 -> -> 75 `i `ui 691  ]
-[; ;app_led_usb_status.c: 70: {
+[v _digital `ui ~T0 @X0 1 a ]
+[; ;wheel.c: 68: uint16_t digital;
+[; ;wheel.c: 70: ADRESH=0;
 "70
-{
-[; ;app_led_usb_status.c: 71: LED_Off(LED_D1);
+[e = _ADRESH -> -> 0 `i `uc ]
+[; ;wheel.c: 71: ADRESL=0;
 "71
-[e ( _LED_Off (1 . `E5775 1 ]
-"72
-}
-[; ;app_led_usb_status.c: 72: }
-[e $U 692  ]
-"73
-[e :U 691 ]
-[; ;app_led_usb_status.c: 73: else if(ledCount > 150)
-[e $ ! > F6424 -> -> 150 `i `ui 693  ]
-[; ;app_led_usb_status.c: 74: {
+[e = _ADRESL -> -> 0 `i `uc ]
+[; ;wheel.c: 74: ADCON0 =(ADCON0 & 0b11000011)|((0<<2) & 0b00111100);
 "74
-{
-[; ;app_led_usb_status.c: 75: ledCount = 0;
-"75
-[e = F6424 -> -> 0 `i `ui ]
+[e = _ADCON0 -> | & -> _ADCON0 `i -> 195 `i & << -> 0 `i -> 2 `i -> 60 `i `uc ]
+[; ;wheel.c: 76: ADCON0 |= ((1<<ADON)|(1<<GO));
 "76
-}
-[e :U 693 ]
-"77
-[e :U 692 ]
-[e :U 690 ]
-[; ;app_led_usb_status.c: 76: }
-[; ;app_led_usb_status.c: 77: break;
-[e $U 686  ]
-[; ;app_led_usb_status.c: 79: default:
+[e =| _ADCON0 -> | << -> 1 `i -> _ADON `i << -> 1 `i -> _GO `i `uc ]
+[; ;wheel.c: 79: while(ADCON0bits.GO_nDONE==1);
 "79
-[e :U 694 ]
-[; ;app_led_usb_status.c: 82: if(ledCount == 1)
+[e $U 636  ]
+[e :U 637 ]
+[e :U 636 ]
+[e $ == -> . . _ADCON0bits 1 1 `i -> 1 `i 637  ]
+[e :U 638 ]
+[; ;wheel.c: 82: digital = (ADRESH*256) | (ADRESL);
 "82
-[e $ ! == F6424 -> -> 1 `i `ui 695  ]
-[; ;app_led_usb_status.c: 83: {
-"83
-{
-[; ;app_led_usb_status.c: 84: LED_On(LED_D1);
+[e = _digital -> | * -> _ADRESH `i -> 256 `i -> _ADRESL `i `ui ]
+[; ;wheel.c: 84: return(digital);
 "84
-[e ( _LED_On (1 . `E5775 1 ]
-"85
-}
-[; ;app_led_usb_status.c: 85: }
-[e $U 696  ]
+[e ) _digital ]
+[e $UE 631  ]
 "86
-[e :U 695 ]
-[; ;app_led_usb_status.c: 86: else if(ledCount == 50)
-[e $ ! == F6424 -> -> 50 `i `ui 697  ]
-[; ;app_led_usb_status.c: 87: {
-"87
-{
-[; ;app_led_usb_status.c: 88: LED_Off(LED_D1);
-"88
-[e ( _LED_Off (1 . `E5775 1 ]
-"89
 }
-[; ;app_led_usb_status.c: 89: }
-[e $U 698  ]
-"90
-[e :U 697 ]
-[; ;app_led_usb_status.c: 90: else if(ledCount > 950)
-[e $ ! > F6424 -> -> 950 `i `ui 699  ]
-[; ;app_led_usb_status.c: 91: {
-"91
+[; ;wheel.c: 86: }
+[e $U 639  ]
+"87
+[e :U 635 ]
+[; ;wheel.c: 87: else if (WHEEL_Type == 1)
+[e $ ! == -> _WHEEL_Type `i -> 1 `i 640  ]
+[; ;wheel.c: 88: {
+"88
 {
-[; ;app_led_usb_status.c: 92: ledCount = 0;
+"90
+}
+[e :U 640 ]
+"91
+[e :U 639 ]
+[; ;wheel.c: 90: }
+[; ;wheel.c: 91: case WHEEL_NONE:
+[e :U 641 ]
+[; ;wheel.c: 92: return 128;
 "92
-[e = F6424 -> -> 0 `i `ui ]
+[e ) -> -> 128 `i `ui ]
+[e $UE 631  ]
 "93
 }
-[e :U 699 ]
-"94
-[e :U 698 ]
-[e :U 696 ]
-[; ;app_led_usb_status.c: 93: }
-[; ;app_led_usb_status.c: 94: break;
-[e $U 686  ]
+[; ;wheel.c: 93: }
+[e $U 632  ]
+"63
+[e :U 633 ]
+[e [\ _wheel , $ . `E5759 1 634
+ , $ . `E5759 0 641
+ 632 ]
+"93
+[e :U 632 ]
+[; ;wheel.c: 95: return 128;
 "95
+[e ) -> -> 128 `i `ui ]
+[e $UE 631  ]
+[; ;wheel.c: 96: }
+"96
+[e :UE 631 ]
 }
-[; ;app_led_usb_status.c: 95: }
-[e $U 686  ]
-"60
+"114
+[v _WHEEL_Enable `(v ~T0 @X0 1 ef1`E5759 ]
+"115
+{
+[; ;wheel.c: 114: void WHEEL_Enable(WHEEL wheel)
+[; ;wheel.c: 115: {
+[e :U _WHEEL_Enable ]
+"114
+[v _wheel `E5759 ~T0 @X0 1 r1 ]
+"115
+[f ]
+[; ;wheel.c: 116: switch(wheel)
+"116
+[e $U 644  ]
+[; ;wheel.c: 117: {
+"117
+{
+[; ;wheel.c: 118: case WHEEL_W1:
+"118
+[e :U 645 ]
+[; ;wheel.c: 119: TRISAbits.TRISA0 = 1;
+"119
+[e = . . _TRISAbits 0 0 -> -> 1 `i `uc ]
+[; ;wheel.c: 120: if (WHEEL_Type == 0)
+"120
+[e $ ! == -> _WHEEL_Type `i -> 0 `i 646  ]
+[; ;wheel.c: 121: {
+"121
+{
+[; ;wheel.c: 122: ANSELAbits.ANSA0 = 0;
+"122
+[e = . . _ANSELAbits 0 0 -> -> 0 `i `uc ]
+[; ;wheel.c: 130: ADCON1 = 0x0E;
+"130
+[e = _ADCON1 -> -> 14 `i `uc ]
+[; ;wheel.c: 131: ADCON2 = 0x92;
+"131
+[e = _ADCON2 -> -> 146 `i `uc ]
+[; ;wheel.c: 132: ADRESH=0;
+"132
+[e = _ADRESH -> -> 0 `i `uc ]
+[; ;wheel.c: 133: ADRESL=0;
+"133
+[e = _ADRESL -> -> 0 `i `uc ]
+"134
+}
+[; ;wheel.c: 134: }
+[e $U 647  ]
+"135
+[e :U 646 ]
+[; ;wheel.c: 135: else if(WHEEL_Type == 1)
+[e $ ! == -> _WHEEL_Type `i -> 1 `i 648  ]
+[; ;wheel.c: 136: {
+"136
+{
+[; ;wheel.c: 137: TRISAbits.TRISA1 = 1;
+"137
+[e = . . _TRISAbits 0 1 -> -> 1 `i `uc ]
+[; ;wheel.c: 138: TRISAbits.TRISA2 = 1;
+"138
+[e = . . _TRISAbits 0 2 -> -> 1 `i `uc ]
+[; ;wheel.c: 140: ANSELAbits.ANSA0 = 1;
+"140
+[e = . . _ANSELAbits 0 0 -> -> 1 `i `uc ]
+[; ;wheel.c: 141: ANSELAbits.ANSA1 = 1;
+"141
+[e = . . _ANSELAbits 0 1 -> -> 1 `i `uc ]
+[; ;wheel.c: 142: ANSELAbits.ANSA2 = 1;
+"142
+[e = . . _ANSELAbits 0 2 -> -> 1 `i `uc ]
+"143
+}
+[e :U 648 ]
+"144
+[e :U 647 ]
+[; ;wheel.c: 143: }
+[; ;wheel.c: 144: case WHEEL_NONE:
+[e :U 649 ]
+[; ;wheel.c: 145: break;
+"145
+[e $U 643  ]
+"146
+}
+[; ;wheel.c: 146: }
+[e $U 643  ]
+"116
+[e :U 644 ]
+[e [\ _wheel , $ . `E5759 1 645
+ , $ . `E5759 0 649
+ 643 ]
+"146
+[e :U 643 ]
+[; ;wheel.c: 147: }
+"147
+[e :UE 642 ]
+}
+"149
+[v _PEDAL_Enable `(v ~T0 @X0 1 ef1`E5763 ]
+"150
+{
+[; ;wheel.c: 149: void PEDAL_Enable(PEDAL pedal)
+[; ;wheel.c: 150: {
+[e :U _PEDAL_Enable ]
+"149
+[v _pedal `E5763 ~T0 @X0 1 r1 ]
+"150
+[f ]
+[; ;wheel.c: 151: switch(pedal)
+"151
+[e $U 652  ]
+[; ;wheel.c: 152: {
+"152
+{
+[; ;wheel.c: 153: case PEDAL_GAS:
+"153
+[e :U 653 ]
+[; ;wheel.c: 154: TRISAbits.TRISA3 = 1;
+"154
+[e = . . _TRISAbits 0 3 -> -> 1 `i `uc ]
+[; ;wheel.c: 155: if (GAS_Type == 0)
+"155
+[e $ ! == -> _GAS_Type `i -> 0 `i 654  ]
+[; ;wheel.c: 156: {
+"156
+{
+[; ;wheel.c: 157: ANSELAbits.ANSA3 = 0;
+"157
+[e = . . _ANSELAbits 0 3 -> -> 0 `i `uc ]
+"159
+}
+[; ;wheel.c: 159: }
+[e $U 655  ]
+"160
+[e :U 654 ]
+[; ;wheel.c: 160: else if(GAS_Type == 1)
+[e $ ! == -> _GAS_Type `i -> 1 `i 656  ]
+[; ;wheel.c: 161: {
+"161
+{
+"163
+}
+[e :U 656 ]
+"164
+[e :U 655 ]
+[; ;wheel.c: 163: }
+[; ;wheel.c: 164: break;
+[e $U 651  ]
+[; ;wheel.c: 165: case PEDAL_BREAK:
+"165
+[e :U 657 ]
+[; ;wheel.c: 166: TRISAbits.TRISA4 = 1;
+"166
+[e = . . _TRISAbits 0 4 -> -> 1 `i `uc ]
+[; ;wheel.c: 167: if (BREAK_Type == 0)
+"167
+[e $ ! == -> _BREAK_Type `i -> 0 `i 658  ]
+[; ;wheel.c: 168: {
+"168
+{
+[; ;wheel.c: 169: ANSELAbits.ANSA5 = 0;
+"169
+[e = . . _ANSELAbits 0 5 -> -> 0 `i `uc ]
+"170
+}
+[; ;wheel.c: 170: }
+[e $U 659  ]
+"171
+[e :U 658 ]
+[; ;wheel.c: 171: else if(BREAK_Type == 1)
+[e $ ! == -> _BREAK_Type `i -> 1 `i 660  ]
+[; ;wheel.c: 172: {
+"172
+{
+[; ;wheel.c: 173: TRISAbits.TRISA1 = 1;
+"173
+[e = . . _TRISAbits 0 1 -> -> 1 `i `uc ]
+[; ;wheel.c: 174: TRISAbits.TRISA2 = 1;
+"174
+[e = . . _TRISAbits 0 2 -> -> 1 `i `uc ]
+[; ;wheel.c: 176: ANSELAbits.ANSA0 = 1;
+"176
+[e = . . _ANSELAbits 0 0 -> -> 1 `i `uc ]
+[; ;wheel.c: 177: ANSELAbits.ANSA1 = 1;
+"177
+[e = . . _ANSELAbits 0 1 -> -> 1 `i `uc ]
+[; ;wheel.c: 178: ANSELAbits.ANSA2 = 1;
+"178
+[e = . . _ANSELAbits 0 2 -> -> 1 `i `uc ]
+"179
+}
+[e :U 660 ]
+"180
+[e :U 659 ]
+[; ;wheel.c: 179: }
+[; ;wheel.c: 180: case PEDAL_NONE:
+[e :U 661 ]
+[; ;wheel.c: 181: break;
+"181
+[e $U 651  ]
+"182
+}
+[; ;wheel.c: 182: }
+[e $U 651  ]
+"151
+[e :U 652 ]
+[e [\ _pedal , $ . `E5763 1 653
+ , $ . `E5763 2 657
+ , $ . `E5763 0 661
+ 651 ]
+"182
+[e :U 651 ]
+[; ;wheel.c: 183: }
+"183
+[e :UE 650 ]
+}
+"185
+[v _WHEEL_Home `(v ~T0 @X0 1 ef1`E5759 ]
+"186
+{
+[; ;wheel.c: 185: void WHEEL_Home(WHEEL wheel)
+[; ;wheel.c: 186: {
+[e :U _WHEEL_Home ]
+"185
+[v _wheel `E5759 ~T0 @X0 1 r1 ]
+"186
+[f ]
+[; ;wheel.c: 187: switch(wheel)
+"187
+[e $U 664  ]
+[; ;wheel.c: 188: {
+"188
+{
+[; ;wheel.c: 189: case WHEEL_W1:
+"189
+[e :U 665 ]
+[; ;wheel.c: 190: while(PORTAbits.RA2 != 0)
+"190
+[e $U 666  ]
+[e :U 667 ]
+[; ;wheel.c: 191: {
+"191
+{
+[; ;wheel.c: 193: PORTAbits.RA2=0;
+"193
+[e = . . _PORTAbits 0 2 -> -> 0 `i `uc ]
+"194
+}
+[e :U 666 ]
+"190
+[e $ != -> . . _PORTAbits 0 2 `i -> 0 `i 667  ]
+[e :U 668 ]
+[; ;wheel.c: 194: }
+[; ;wheel.c: 195: break;
+"195
+[e $U 663  ]
+[; ;wheel.c: 196: case WHEEL_NONE:
+"196
+[e :U 669 ]
+[; ;wheel.c: 197: break;
+"197
+[e $U 663  ]
+"198
+}
+[; ;wheel.c: 198: }
+[e $U 663  ]
+"187
+[e :U 664 ]
+[e [\ _wheel , $ . `E5759 1 665
+ , $ . `E5759 0 669
+ 663 ]
+"198
+[e :U 663 ]
+[; ;wheel.c: 199: }
+"199
+[e :UE 662 ]
+}
+"201
+[v _WHEEL_Test `(ui ~T0 @X0 1 ef1`E5759 ]
+"202
+{
+[; ;wheel.c: 201: uint16_t WHEEL_Test(WHEEL wheel)
+[; ;wheel.c: 202: {
+[e :U _WHEEL_Test ]
+"201
+[v _wheel `E5759 ~T0 @X0 1 r1 ]
+"202
+[f ]
+"203
+[v F5787 `ui ~T0 @X0 1 s count ]
+[i F5787
+-> -> 0 `i `ui
+]
+"204
+[v F5788 `uc ~T0 @X0 1 s direction ]
+[i F5788
+-> -> 1 `i `uc
+]
+[; ;wheel.c: 203: static uint16_t count = 0;
+[; ;wheel.c: 204: static bool direction = 1;
+[; ;wheel.c: 206: switch(wheel)
+"206
+[e $U 672  ]
+[; ;wheel.c: 207: {
+"207
+{
+[; ;wheel.c: 208: case WHEEL_W1:
+"208
+[e :U 673 ]
+[; ;wheel.c: 209: if(direction)
+"209
+[e $ ! != -> F5788 `i -> -> -> 0 `i `uc `i 674  ]
+[; ;wheel.c: 210: {
+"210
+{
+[; ;wheel.c: 211: if(count < 255)
+"211
+[e $ ! < F5787 -> -> 255 `i `ui 675  ]
+[; ;wheel.c: 212: {
+"212
+{
+[; ;wheel.c: 213: count++;
+"213
+[e ++ F5787 -> -> 1 `i `ui ]
+"215
+}
+[e :U 675 ]
+[; ;wheel.c: 215: }
+[; ;wheel.c: 216: if(count == 255)
+"216
+[e $ ! == F5787 -> -> 255 `i `ui 676  ]
+[; ;wheel.c: 217: {
+"217
+{
+[; ;wheel.c: 218: direction = 0;
+"218
+[e = F5788 -> -> 0 `i `uc ]
+"219
+}
+[e :U 676 ]
+"220
+}
+[; ;wheel.c: 219: }
+[; ;wheel.c: 220: }
+[e $U 677  ]
+"221
+[e :U 674 ]
+[; ;wheel.c: 221: else if(!direction)
+[e $ ! ! != -> F5788 `i -> -> -> 0 `i `uc `i 678  ]
+[; ;wheel.c: 222: {
+"222
+{
+[; ;wheel.c: 223: if(count > 0)
+"223
+[e $ ! > F5787 -> -> 0 `i `ui 679  ]
+[; ;wheel.c: 224: {
+"224
+{
+[; ;wheel.c: 225: count--;
+"225
+[e -- F5787 -> -> 1 `i `ui ]
+"227
+}
+[e :U 679 ]
+[; ;wheel.c: 227: }
+[; ;wheel.c: 228: if(count == 0)
+"228
+[e $ ! == F5787 -> -> 0 `i `ui 680  ]
+[; ;wheel.c: 229: {
+"229
+{
+[; ;wheel.c: 230: direction = 1;
+"230
+[e = F5788 -> -> 1 `i `uc ]
+"231
+}
+[e :U 680 ]
+"232
+}
+[e :U 678 ]
+"233
+[e :U 677 ]
+[; ;wheel.c: 231: }
+[; ;wheel.c: 232: }
+[; ;wheel.c: 233: break;
+[e $U 671  ]
+[; ;wheel.c: 235: case WHEEL_NONE:
+"235
+[e :U 681 ]
+[; ;wheel.c: 236: break;
+"236
+[e $U 671  ]
+"237
+}
+[; ;wheel.c: 237: }
+[e $U 671  ]
+"206
+[e :U 672 ]
+[e [\ _wheel , $ . `E5759 1 673
+ , $ . `E5759 0 681
+ 671 ]
+"237
+[e :U 671 ]
+[; ;wheel.c: 238: return count;
+"238
+[e ) F5787 ]
+[e $UE 670  ]
+[; ;wheel.c: 239: }
+"239
+[e :UE 670 ]
+}
+"242
+[v _PEDAL_Position `(ui ~T0 @X0 1 ef1`E5763 ]
+"243
+{
+[; ;wheel.c: 242: uint16_t PEDAL_Position(PEDAL pedal)
+[; ;wheel.c: 243: {
+[e :U _PEDAL_Position ]
+"242
+[v _pedal `E5763 ~T0 @X0 1 r1 ]
+"243
+[f ]
+[; ;wheel.c: 244: switch(pedal)
+"244
+[e $U 684  ]
+[; ;wheel.c: 245: {
+"245
+{
+[; ;wheel.c: 246: case PEDAL_GAS:
+"246
+[e :U 685 ]
+[; ;wheel.c: 247: if (GAS_Type == 0)
+"247
+[e $ ! == -> _GAS_Type `i -> 0 `i 686  ]
+[; ;wheel.c: 248: {
+"248
+{
+[; ;wheel.c: 257: ADRESH=0;
+"257
+[e = _ADRESH -> -> 0 `i `uc ]
+[; ;wheel.c: 258: ADRESL=0;
+"258
+[e = _ADRESL -> -> 0 `i `uc ]
+[; ;wheel.c: 263: ADCON0bits.CHS = 0b0011;
+"263
+[e = . . _ADCON0bits 1 2 -> -> 3 `i `uc ]
+[; ;wheel.c: 264: ADCON0bits.GO - 0;
+"264
+[e - -> . . _ADCON0bits 3 1 `i -> 0 `i ]
+[; ;wheel.c: 266: ADCON0 |= ((1<<ADON)|(1<<GO));
+"266
+[e =| _ADCON0 -> | << -> 1 `i -> _ADON `i << -> 1 `i -> _GO `i `uc ]
+[; ;wheel.c: 269: while(ADCON0bits.GO_nDONE==1);
+"269
+[e $U 687  ]
+[e :U 688 ]
 [e :U 687 ]
-[e [\ _USBDeviceState , $ . `E6053 6 688
- 694 ]
-"95
+[e $ == -> . . _ADCON0bits 1 1 `i -> 1 `i 688  ]
+[e :U 689 ]
+[; ;wheel.c: 271: return((ADRESH*256) | (ADRESL));
+"271
+[e ) -> | * -> _ADRESH `i -> 256 `i -> _ADRESL `i `ui ]
+[e $UE 682  ]
+"272
+}
+[; ;wheel.c: 272: }
+[e $U 690  ]
+"273
 [e :U 686 ]
-[; ;app_led_usb_status.c: 98: ledCount++;
-"98
-[e ++ F6424 -> -> 1 `i `ui ]
-[; ;app_led_usb_status.c: 99: }
-"99
-[e :UE 684 ]
+[; ;wheel.c: 273: else if (GAS_Type == 1)
+[e $ ! == -> _GAS_Type `i -> 1 `i 691  ]
+[; ;wheel.c: 274: {
+"274
+{
+"276
+}
+[e :U 691 ]
+"277
+[e :U 690 ]
+[; ;wheel.c: 276: }
+[; ;wheel.c: 277: break;
+[e $U 683  ]
+[; ;wheel.c: 278: case PEDAL_BREAK:
+"278
+[e :U 692 ]
+[; ;wheel.c: 279: if (BREAK_Type == 0)
+"279
+[e $ ! == -> _BREAK_Type `i -> 0 `i 693  ]
+[; ;wheel.c: 280: {
+"280
+{
+[; ;wheel.c: 289: ADRESH=0;
+"289
+[e = _ADRESH -> -> 0 `i `uc ]
+[; ;wheel.c: 290: ADRESL=0;
+"290
+[e = _ADRESL -> -> 0 `i `uc ]
+[; ;wheel.c: 295: ADCON0bits.CHS = 0b0100;
+"295
+[e = . . _ADCON0bits 1 2 -> -> 4 `i `uc ]
+[; ;wheel.c: 296: ADCON0bits.GO - 0;
+"296
+[e - -> . . _ADCON0bits 3 1 `i -> 0 `i ]
+[; ;wheel.c: 298: ADCON0 |= ((1<<ADON)|(1<<GO));
+"298
+[e =| _ADCON0 -> | << -> 1 `i -> _ADON `i << -> 1 `i -> _GO `i `uc ]
+[; ;wheel.c: 301: while(ADCON0bits.GO_nDONE==1);
+"301
+[e $U 694  ]
+[e :U 695 ]
+[e :U 694 ]
+[e $ == -> . . _ADCON0bits 1 1 `i -> 1 `i 695  ]
+[e :U 696 ]
+[; ;wheel.c: 303: return((ADRESH*256) | (ADRESL));
+"303
+[e ) -> | * -> _ADRESH `i -> 256 `i -> _ADRESL `i `ui ]
+[e $UE 682  ]
+"304
+}
+[; ;wheel.c: 304: }
+[e $U 697  ]
+"305
+[e :U 693 ]
+[; ;wheel.c: 305: else if (BREAK_Type == 1)
+[e $ ! == -> _BREAK_Type `i -> 1 `i 698  ]
+[; ;wheel.c: 306: {
+"306
+{
+"308
+}
+[e :U 698 ]
+"309
+[e :U 697 ]
+[; ;wheel.c: 308: }
+[; ;wheel.c: 309: break;
+[e $U 683  ]
+[; ;wheel.c: 327: case PEDAL_NONE:
+"327
+[e :U 699 ]
+[; ;wheel.c: 328: return 128;
+"328
+[e ) -> -> 128 `i `ui ]
+[e $UE 682  ]
+"329
+}
+[; ;wheel.c: 329: }
+[e $U 683  ]
+"244
+[e :U 684 ]
+[e [\ _pedal , $ . `E5763 1 685
+ , $ . `E5763 2 692
+ , $ . `E5763 0 699
+ 683 ]
+"329
+[e :U 683 ]
+[; ;wheel.c: 331: return 128;
+"331
+[e ) -> -> 128 `i `ui ]
+[e $UE 682  ]
+[; ;wheel.c: 332: }
+"332
+[e :UE 682 ]
 }

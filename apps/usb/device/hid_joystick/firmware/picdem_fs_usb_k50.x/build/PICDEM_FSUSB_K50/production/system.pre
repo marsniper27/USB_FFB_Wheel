@@ -7970,15 +7970,15 @@ PEDAL_CLUTCH
 } PEDAL;
 
 # 60
-uint8_t WHEEL_Position(WHEEL wheel);
+uint16_t WHEEL_Position(WHEEL wheel);
 
 # 78
 void WHEEL_Enable(WHEEL wheel);
 void WHEEL_Home(WHEEL wheel);
-uint8_t WHEEL_Test(WHEEL wheel);
+uint16_t WHEEL_Test(WHEEL wheel);
 
 void PEDAL_Enable(PEDAL pedal);
-uint8_t PEDAL_Position(PEDAL pedal);
+uint16_t PEDAL_Position(PEDAL pedal);
 
 # 38 "system.h"
 typedef enum
@@ -8057,6 +8057,7 @@ LED_Enable(LED_D1);
 BUTTON_Enable(BUTTON_S2);
 WHEEL_Enable(WHEEL_W1);
 PEDAL_Enable(PEDAL_GAS);
+PEDAL_Enable(PEDAL_BREAK);
 break;
 
 case SYSTEM_STATE_USB_SUSPEND:
@@ -8073,6 +8074,6 @@ break;
 void interrupt SYS_InterruptHigh(void)
 {
 
-# 118
+# 119
 }
 

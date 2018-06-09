@@ -8006,15 +8006,15 @@ PEDAL_CLUTCH
 } PEDAL;
 
 # 60
-uint8_t WHEEL_Position(WHEEL wheel);
+uint16_t WHEEL_Position(WHEEL wheel);
 
 # 78
 void WHEEL_Enable(WHEEL wheel);
 void WHEEL_Home(WHEEL wheel);
-uint8_t WHEEL_Test(WHEEL wheel);
+uint16_t WHEEL_Test(WHEEL wheel);
 
 void PEDAL_Enable(PEDAL pedal);
-uint8_t PEDAL_Position(PEDAL pedal);
+uint16_t PEDAL_Position(PEDAL pedal);
 
 # 38 ".\system.h"
 typedef enum
@@ -8229,7 +8229,7 @@ volatile void* USBInHandle;
 
 SET_GET_EFFECT_STRUCTURE set_get_effect_structure;
 uint8_t CONFIGURED_EFFECT_NUMBER[12];
-bool Buttons_Pressed = 0;
+static uint8_t MODE = 0;
 
 # 273
 void APP_DeviceJoystickInitialize(void)
@@ -8265,18 +8265,18 @@ return;
 
 if(!((USBOutHandle != 0x0000) && ((*(volatile uint8_t*)USBOutHandle & 0x80) != 0x00)))
 {
-
-USBSetEffect();
-USBSendPIDBlockLoadReport();
-
-
-
-
 switch(ReceivedDataBuffer[0])
 {
+case 0x01:
+USBSetEffect();
+break;
 
-# 386
+case 0x02:
+USBSendPIDBlockLoadReport();
+break;
 }
+
+
 
 USBOutHandle = USBTransferOnePacket(1,0,(uint8_t*)&ReceivedDataBuffer[0],64);
 }
@@ -8284,10 +8284,13 @@ USBOutHandle = USBTransferOnePacket(1,0,(uint8_t*)&ReceivedDataBuffer[0],64);
 
 if(!((USBInHandle != 0x0000) && ((*(volatile uint8_t*)USBInHandle & 0x80) != 0x00)))
 {
+joystick_input.members.REPORT_ID.RID = 1;
+switch(MODE)
+{
+case 0:
 if(BUTTON_IsPressed(BUTTON_S2) == 1)
 {
 joystick_input.members.buttons.x = 1;
-Buttons_Pressed = 1;
 }
 else
 {
@@ -8296,7 +8299,7 @@ joystick_input.members.buttons.x = 0;
 if(BUTTON_IsPressed(BUTTON_S3) == 1)
 {
 joystick_input.members.buttons.square = 1;
-Buttons_Pressed = 1;
+
 }
 else
 {
@@ -8305,7 +8308,6 @@ joystick_input.members.buttons.square = 0;
 if(BUTTON_IsPressed(BUTTON_S4) == 1)
 {
 joystick_input.members.buttons.o = 1;
-Buttons_Pressed = 1;
 }
 else
 {
@@ -8314,7 +8316,6 @@ joystick_input.members.buttons.o = 0;
 if(BUTTON_IsPressed(BUTTON_S5) == 1)
 {
 joystick_input.members.buttons.triangle = 1;
-Buttons_Pressed = 1;
 }
 else
 {
@@ -8323,7 +8324,6 @@ joystick_input.members.buttons.triangle = 0;
 if(BUTTON_IsPressed(BUTTON_S6) == 1)
 {
 joystick_input.members.buttons.L1 = 1;
-Buttons_Pressed = 1;
 }
 else
 {
@@ -8332,7 +8332,6 @@ joystick_input.members.buttons.L1 = 0;
 if(BUTTON_IsPressed(BUTTON_S7) == 1)
 {
 joystick_input.members.buttons.R1 = 1;
-Buttons_Pressed = 1;
 }
 else
 {
@@ -8341,7 +8340,6 @@ joystick_input.members.buttons.R1 = 0;
 if(BUTTON_IsPressed(BUTTON_S8) == 1)
 {
 joystick_input.members.buttons.L2 = 1;
-Buttons_Pressed = 1;
 }
 else
 {
@@ -8350,7 +8348,6 @@ joystick_input.members.buttons.L2 = 0;
 if(BUTTON_IsPressed(BUTTON_S9) == 1)
 {
 joystick_input.members.buttons.R2 = 1;
-Buttons_Pressed = 1;
 }
 else
 {
@@ -8359,7 +8356,6 @@ joystick_input.members.buttons.R2 = 0;
 if(BUTTON_IsPressed(BUTTON_S10) == 1)
 {
 joystick_input.members.buttons.select = 1;
-Buttons_Pressed = 1;
 }
 else
 {
@@ -8368,7 +8364,6 @@ joystick_input.members.buttons.select = 0;
 if(BUTTON_IsPressed(BUTTON_S11) == 1)
 {
 joystick_input.members.buttons.start = 1;
-Buttons_Pressed = 1;
 }
 else
 {
@@ -8377,7 +8372,6 @@ joystick_input.members.buttons.start = 0;
 if(BUTTON_IsPressed(BUTTON_S12) == 1)
 {
 joystick_input.members.buttons.left_stick = 1;
-Buttons_Pressed = 1;
 }
 else
 {
@@ -8386,7 +8380,6 @@ joystick_input.members.buttons.left_stick = 0;
 if(BUTTON_IsPressed(BUTTON_S13) == 1)
 {
 joystick_input.members.buttons.right_stick = 1;
-Buttons_Pressed = 1;
 }
 else
 {
@@ -8395,7 +8388,6 @@ joystick_input.members.buttons.right_stick = 0;
 if(BUTTON_IsPressed(BUTTON_S14) == 1)
 {
 joystick_input.members.buttons.home = 1;
-Buttons_Pressed = 1;
 }
 else
 {
@@ -8403,50 +8395,37 @@ joystick_input.members.buttons.home = 0;
 }
 
 
-joystick_input.members.hat_switch.hat_switch = 0x2;
+joystick_input.members.hat_switch.hat_switch = 0x8;
 
+joystick_input.members.analog_stick.X = WHEEL_Position(WHEEL_W1);
+joystick_input.members.analog_stick.Z = PEDAL_Position(PEDAL_GAS);
+joystick_input.members.analog_stick.Y = 0;
+joystick_input.members.analog_stick.Rz = PEDAL_Position(PEDAL_BREAK);
+break;
 
-
-
-joystick_input.members.analog_stick.X = WHEEL_Test(WHEEL_W1);
-joystick_input.members.analog_stick.Y = PEDAL_Position(PEDAL_BREAK);
-joystick_input.members.analog_stick.Z = PEDAL_Position(PEDAL_CLUTCH);
-
-
-if(Buttons_Pressed)
-{
-
-USBInHandle = USBTransferOnePacket(1,1,(uint8_t*)&joystick_input,sizeof(joystick_input));
-}
-if(!Buttons_Pressed)
-{
-
-
+case 1:
 
 joystick_input.val[0] = 0x00;
 joystick_input.val[1] = 0x00;
 
 
-joystick_input.val[2] = 0x08;
-
-
-joystick_input.val[3] = 0x80;
-joystick_input.val[4] = 0x80;
-joystick_input.val[5] = 0x80;
-joystick_input.val[6] = 0x80;
-
-
-
+if(BUTTON_IsPressed(BUTTON_S3) == 1)
+{
+joystick_input.members.buttons.square = 1;
+MODE = 0;
+}
 joystick_input.members.analog_stick.X = WHEEL_Test(WHEEL_W1);
+break;
+}
 
 
 
 USBInHandle = USBTransferOnePacket(1,1,(uint8_t*)&joystick_input,sizeof(joystick_input));
 }
-}
+
 }
 
-# 583
+# 517
 void USBSetEffect(void)
 {
 set_get_effect_structure.SET_REPORT_REQUEST.report_id=ReceivedDataBuffer[0];
@@ -8569,21 +8548,21 @@ break;
 void USBSendPIDBlockLoadReport(void)
 {
 
-# 726
+# 660
 { inPipes[0].pSrc.bRam = (uint8_t*)&set_get_effect_structure.PID_BLOCK_LOAD_REPORT; inPipes[0].wCount.Val = 5; inPipes[0].info.Val = 0x01 | 0x80 | 0x01; };
 }
 
-# 732
+# 666
 void USBSetDataEffect(void)
 {
 
-# 747
+# 681
 }
 
 void USER_SET_REPORT_HANDLER(void)
 {
 
-# 768
+# 702
 switch(SetupPkt.W_Value.byte.LB)
 {
 case 0x01:

@@ -57,7 +57,7 @@ typedef enum
 * Output: TRUE if pressed; FALSE if not pressed.
 *
 ********************************************************************/
-uint8_t WHEEL_Position(WHEEL wheel);
+uint16_t WHEEL_Position(WHEEL wheel);
 
 /*********************************************************************
 * Function: void BUTTON_Enable(BUTTON button);
@@ -77,9 +77,9 @@ uint8_t WHEEL_Position(WHEEL wheel);
 ********************************************************************/
 void WHEEL_Enable(WHEEL wheel);         // Enables the Wheel.
 void WHEEL_Home(WHEEL wheel);           // Returns the wheel to the home position.
-uint8_t WHEEL_Test(WHEEL wheel);        // Cycles through the full strange of the axis
+uint16_t WHEEL_Test(WHEEL wheel);        // Cycles through the full strange of the axis
 
 void PEDAL_Enable(PEDAL pedal);         // Enables the Wheel.
-uint8_t PEDAL_Position(PEDAL pedal);    // Returns the position of the provided pedal.
+uint16_t PEDAL_Position(PEDAL pedal);    // Returns the position of the provided pedal.
 
 #endif	/* WHEEL_H */

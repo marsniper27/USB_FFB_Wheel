@@ -5937,12 +5937,12 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;inc\wheel.h: 39: PEDAL_BREAK,
 [; ;inc\wheel.h: 40: PEDAL_CLUTCH
 [; ;inc\wheel.h: 42: } PEDAL;
-[; ;inc\wheel.h: 60: uint8_t WHEEL_Position(WHEEL wheel);
+[; ;inc\wheel.h: 60: uint16_t WHEEL_Position(WHEEL wheel);
 [; ;inc\wheel.h: 78: void WHEEL_Enable(WHEEL wheel);
 [; ;inc\wheel.h: 79: void WHEEL_Home(WHEEL wheel);
-[; ;inc\wheel.h: 80: uint8_t WHEEL_Test(WHEEL wheel);
+[; ;inc\wheel.h: 80: uint16_t WHEEL_Test(WHEEL wheel);
 [; ;inc\wheel.h: 82: void PEDAL_Enable(PEDAL pedal);
-[; ;inc\wheel.h: 83: uint8_t PEDAL_Position(PEDAL pedal);
+[; ;inc\wheel.h: 83: uint16_t PEDAL_Position(PEDAL pedal);
 [; ;system.h: 38: typedef enum
 [; ;system.h: 39: {
 [; ;system.h: 40: SYSTEM_STATE_USB_START,
@@ -6083,24 +6083,27 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;system.c: 99: PEDAL_Enable(PEDAL_GAS);
 "99
 [e ( _PEDAL_Enable (1 . `E6397 1 ]
-[; ;system.c: 100: break;
+[; ;system.c: 100: PEDAL_Enable(PEDAL_BREAK);
 "100
+[e ( _PEDAL_Enable (1 . `E6397 2 ]
+[; ;system.c: 101: break;
+"101
 [e $U 685  ]
-[; ;system.c: 102: case SYSTEM_STATE_USB_SUSPEND:
-"102
-[e :U 691 ]
-[; ;system.c: 103: break;
+[; ;system.c: 103: case SYSTEM_STATE_USB_SUSPEND:
 "103
+[e :U 691 ]
+[; ;system.c: 104: break;
+"104
 [e $U 685  ]
-[; ;system.c: 105: case SYSTEM_STATE_USB_RESUME:
-"105
-[e :U 692 ]
-[; ;system.c: 106: break;
+[; ;system.c: 106: case SYSTEM_STATE_USB_RESUME:
 "106
-[e $U 685  ]
+[e :U 692 ]
+[; ;system.c: 107: break;
 "107
+[e $U 685  ]
+"108
 }
-[; ;system.c: 107: }
+[; ;system.c: 108: }
 [e $U 685  ]
 "81
 [e :U 686 ]
@@ -6108,23 +6111,23 @@ Version 3.2 HI-TECH Software Intermediate Code
  , $ . `E6415 1 691
  , $ . `E6415 2 692
  685 ]
-"107
-[e :U 685 ]
-[; ;system.c: 108: }
 "108
+[e :U 685 ]
+[; ;system.c: 109: }
+"109
 [e :UE 684 ]
 }
 [v $root$_SYS_InterruptHigh `(v ~T0 @X0 0 e ]
 [v F6425 `(v ~T0 @X0 1 tf ]
-"113
-[v _SYS_InterruptHigh `IF6425 ~T0 @X0 1 e ]
 "114
+[v _SYS_InterruptHigh `IF6425 ~T0 @X0 1 e ]
+"115
 {
-[; ;system.c: 113: void interrupt SYS_InterruptHigh(void)
-[; ;system.c: 114: {
+[; ;system.c: 114: void interrupt SYS_InterruptHigh(void)
+[; ;system.c: 115: {
 [e :U _SYS_InterruptHigh ]
 [f ]
-[; ;system.c: 118: }
-"118
+[; ;system.c: 119: }
+"119
 [e :UE 693 ]
 }

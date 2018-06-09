@@ -3,7 +3,7 @@
 [d edition pro ]
 [d chip 18F45K50 ]
 [d frameptr 4065 ]
-"95 C:\Users\kyle.marshall\MPLABXProjects\USB_FFB_Wheel.X/bsp/picdem_fs_usb_k50/buttons.c
+"95 D:\Downloads\USB_FFB_Wheel-master (1)\USB_FFB_Wheel-master/bsp/picdem_fs_usb_k50/buttons.c
 [e E5727 . `uc
 BUTTON_NONE 0
 BUTTON_S2 1
@@ -20,7 +20,7 @@ BUTTON_S12 11
 BUTTON_S13 12
 BUTTON_S14 13
 ]
-"68 C:\Users\kyle.marshall\MPLABXProjects\USB_FFB_Wheel.X/bsp/picdem_fs_usb_k50/leds.c
+"68 D:\Downloads\USB_FFB_Wheel-master (1)\USB_FFB_Wheel-master/bsp/picdem_fs_usb_k50/leds.c
 [e E2 . `uc
 LED_NONE 0
 LED_D1 1
@@ -28,7 +28,7 @@ LED_D2 2
 LED_D3 3
 LED_D4 4
 ]
-"141 C:\Users\kyle.marshall\MPLABXProjects\USB_FFB_Wheel.X/framework/usb/src/usb_device.c
+"141 D:\Downloads\USB_FFB_Wheel-master (1)\USB_FFB_Wheel-master/framework/usb/src/usb_device.c
 [e E6102 . `uc
 DETACHED_STATE 0
 ATTACHED_STATE 1
@@ -85,7 +85,7 @@ EVENT_EP0_REQUEST 3
 EVENT_ATTACH 4
 EVENT_TRANSFER_TERMINATED 5
 ]
-"51 C:\Users\kyle.marshall\MPLABXProjects\USB_FFB_Wheel.X\apps\usb\device\hid_joystick\firmware/demo_src/usb_events.c
+"51 D:\Downloads\USB_FFB_Wheel-master (1)\USB_FFB_Wheel-master\apps\usb\device\hid_joystick\firmware/demo_src/usb_events.c
 [e E5994 . `ui
 EVENT_NONE 0
 EVENT_DEVICE_STACK_BASE 1
@@ -138,7 +138,7 @@ EVENT_EP0_REQUEST 3
 EVENT_ATTACH 4
 EVENT_TRANSFER_TERMINATED 5
 ]
-"56 C:\Users\kyle.marshall\MPLABXProjects\USB_FFB_Wheel.X\apps\usb\device\hid_joystick\firmware/demo_src/app_led_usb_status.c
+"56 D:\Downloads\USB_FFB_Wheel-master (1)\USB_FFB_Wheel-master\apps\usb\device\hid_joystick\firmware/demo_src/app_led_usb_status.c
 [e E5775 . `uc
 LED_NONE 0
 LED_D1 1
@@ -156,7 +156,7 @@ ADR_PENDING_STATE 8
 ADDRESS_STATE 16
 CONFIGURED_STATE 32
 ]
-"33 C:\Users\kyle.marshall\MPLABXProjects\USB_FFB_Wheel.X\apps\usb\device\hid_joystick\firmware/demo_src/main.c
+"33 D:\Downloads\USB_FFB_Wheel-master (1)\USB_FFB_Wheel-master\apps\usb\device\hid_joystick\firmware/demo_src/main.c
 [e E6415 . `uc
 SYSTEM_STATE_USB_START 0
 SYSTEM_STATE_USB_SUSPEND 1
@@ -172,7 +172,7 @@ ADR_PENDING_STATE 8
 ADDRESS_STATE 16
 CONFIGURED_STATE 32
 ]
-"80 C:\Users\kyle.marshall\MPLABXProjects\USB_FFB_Wheel.X\apps\usb\device\hid_joystick\firmware\picdem_fs_usb_k50.x\system.c
+"80 D:\Downloads\USB_FFB_Wheel-master (1)\USB_FFB_Wheel-master\apps\usb\device\hid_joystick\firmware\picdem_fs_usb_k50.x\system.c
 [e E6415 . `uc
 SYSTEM_STATE_USB_START 0
 SYSTEM_STATE_USB_SUSPEND 1
@@ -215,7 +215,7 @@ PEDAL_GAS 1
 PEDAL_BREAK 2
 PEDAL_CLUTCH 3
 ]
-"312 C:\Users\kyle.marshall\MPLABXProjects\USB_FFB_Wheel.X\apps\usb\device\hid_joystick\firmware/demo_src/app_device_joystick.c
+"312 D:\Downloads\USB_FFB_Wheel-master (1)\USB_FFB_Wheel-master\apps\usb\device\hid_joystick\firmware/demo_src/app_device_joystick.c
 [e E291 . `uc
 DETACHED_STATE 0
 ATTACHED_STATE 1
@@ -225,7 +225,7 @@ ADR_PENDING_STATE 8
 ADDRESS_STATE 16
 CONFIGURED_STATE 32
 ]
-"394
+"353
 [e E6374 . `uc
 BUTTON_NONE 0
 BUTTON_S2 1
@@ -242,41 +242,51 @@ BUTTON_S12 11
 BUTTON_S13 12
 BUTTON_S14 13
 ]
-"518
+"462
 [e E6415 . `uc
 WHEEL_NONE 0
 WHEEL_W1 1
 ]
-"519
+"463
 [e E6419 . `uc
 PEDAL_NONE 0
 PEDAL_GAS 1
 PEDAL_BREAK 2
 PEDAL_CLUTCH 3
 ]
-"62 C:/Users/kyle.marshall/MPLABXProjects/USB_FFB_Wheel.X/framework/usb/inc/wheel.c
+"62 D:\Downloads\USB_FFB_Wheel-master (1)\USB_FFB_Wheel-master/framework/usb/inc/wheel.c
 [e E5759 . `uc
 WHEEL_NONE 0
 WHEEL_W1 1
 ]
-"131
+"150
 [e E5763 . `uc
 PEDAL_NONE 0
 PEDAL_GAS 1
 PEDAL_BREAK 2
 PEDAL_CLUTCH 3
 ]
-"94 C:\Users\kyle.marshall\MPLABXProjects\USB_FFB_Wheel.X/bsp/picdem_fs_usb_k50/buttons.c
+"94 D:\Downloads\USB_FFB_Wheel-master (1)\USB_FFB_Wheel-master/bsp/picdem_fs_usb_k50/buttons.c
 [v _BUTTON_IsPressed BUTTON_IsPressed `(uc  1 e 1 0 ]
 "160
 [v _BUTTON_Enable BUTTON_Enable `(v  1 e 1 0 ]
-"67 C:\Users\kyle.marshall\MPLABXProjects\USB_FFB_Wheel.X/bsp/picdem_fs_usb_k50/leds.c
+"67 D:\Downloads\USB_FFB_Wheel-master (1)\USB_FFB_Wheel-master/bsp/picdem_fs_usb_k50/leds.c
 [v _LED_On LED_On `(v  1 e 1 0 ]
 "108
 [v _LED_Off LED_Off `(v  1 e 1 0 ]
 "228
 [v _LED_Enable LED_Enable `(v  1 e 1 0 ]
-"284 C:\Users\kyle.marshall\MPLABXProjects\USB_FFB_Wheel.X/framework/usb/src/usb_device.c
+"61 D:\Downloads\USB_FFB_Wheel-master (1)\USB_FFB_Wheel-master/framework/usb/inc/wheel.c
+[v _WHEEL_Position WHEEL_Position `(ui  1 e 2 0 ]
+"114
+[v _WHEEL_Enable WHEEL_Enable `(v  1 e 1 0 ]
+"149
+[v _PEDAL_Enable PEDAL_Enable `(v  1 e 1 0 ]
+"201
+[v _WHEEL_Test WHEEL_Test `(ui  1 e 2 0 ]
+"242
+[v _PEDAL_Position PEDAL_Position `(ui  1 e 2 0 ]
+"284 D:\Downloads\USB_FFB_Wheel-master (1)\USB_FFB_Wheel-master/framework/usb/src/usb_device.c
 [v _USBDeviceInit USBDeviceInit `(v  1 e 1 0 ]
 "484
 [v _USBDeviceTasks USBDeviceTasks `(v  1 e 1 0 ]
@@ -322,36 +332,28 @@ PEDAL_CLUTCH 3
 [v _USBStdFeatureReqHandler USBStdFeatureReqHandler `(v  1 s 1 USBStdFeatureReqHandler ]
 "3032
 [v _USBIncrement1msInternalTimers USBIncrement1msInternalTimers `(v  1 e 1 0 ]
-"153 C:\Users\kyle.marshall\MPLABXProjects\USB_FFB_Wheel.X/framework/usb/src/usb_device_hid.c
+"153 D:\Downloads\USB_FFB_Wheel-master (1)\USB_FFB_Wheel-master/framework/usb/src/usb_device_hid.c
 [v _USBCheckHIDRequest USBCheckHIDRequest `(v  1 e 1 0 ]
 "322
 [v _USER_GET_REPORT_HANDLER USER_GET_REPORT_HANDLER `(v  1 e 1 0 ]
-"273 C:\Users\kyle.marshall\MPLABXProjects\USB_FFB_Wheel.X\apps\usb\device\hid_joystick\firmware/demo_src/app_device_joystick.c
+"273 D:\Downloads\USB_FFB_Wheel-master (1)\USB_FFB_Wheel-master\apps\usb\device\hid_joystick\firmware/demo_src/app_device_joystick.c
 [v _APP_DeviceJoystickInitialize APP_DeviceJoystickInitialize `(v  1 e 1 0 ]
 "307
 [v _APP_DeviceJoystickTasks APP_DeviceJoystickTasks `(v  1 e 1 0 ]
-"583
+"517
 [v _USBSetEffect USBSetEffect `(v  1 e 1 0 ]
-"702
+"636
 [v _USBSendPIDBlockLoadReport USBSendPIDBlockLoadReport `(v  1 e 1 0 ]
-"732
+"666
 [v _USBSetDataEffect USBSetDataEffect `(v  1 e 1 0 ]
-"749
+"683
 [v _USER_SET_REPORT_HANDLER USER_SET_REPORT_HANDLER `(v  1 e 1 0 ]
-"50 C:\Users\kyle.marshall\MPLABXProjects\USB_FFB_Wheel.X\apps\usb\device\hid_joystick\firmware/demo_src/app_led_usb_status.c
+"50 D:\Downloads\USB_FFB_Wheel-master (1)\USB_FFB_Wheel-master\apps\usb\device\hid_joystick\firmware/demo_src/app_led_usb_status.c
 [v _APP_LEDUpdateUSBStatus APP_LEDUpdateUSBStatus `(v  1 e 1 0 ]
-"31 C:\Users\kyle.marshall\MPLABXProjects\USB_FFB_Wheel.X\apps\usb\device\hid_joystick\firmware/demo_src/main.c
+"31 D:\Downloads\USB_FFB_Wheel-master (1)\USB_FFB_Wheel-master\apps\usb\device\hid_joystick\firmware/demo_src/main.c
 [v _main main `(v  1 e 1 0 ]
-"50 C:\Users\kyle.marshall\MPLABXProjects\USB_FFB_Wheel.X\apps\usb\device\hid_joystick\firmware/demo_src/usb_events.c
+"50 D:\Downloads\USB_FFB_Wheel-master (1)\USB_FFB_Wheel-master\apps\usb\device\hid_joystick\firmware/demo_src/usb_events.c
 [v _USER_USB_CALLBACK_EVENT_HANDLER USER_USB_CALLBACK_EVENT_HANDLER `(uc  1 e 1 0 ]
-"101 C:/Users/kyle.marshall/MPLABXProjects/USB_FFB_Wheel.X/framework/usb/inc/wheel.c
-[v _WHEEL_Enable WHEEL_Enable `(v  1 e 1 0 ]
-"130
-[v _PEDAL_Enable PEDAL_Enable `(v  1 e 1 0 ]
-"191
-[v _WHEEL_Test WHEEL_Test `(uc  1 e 1 0 ]
-"232
-[v _PEDAL_Position PEDAL_Position `(uc  1 e 1 0 ]
 "62 C:\Program Files (x86)\Microchip\xc8\v1.45\sources\common\float.c
 [v ___ftpack __ftpack `(f  1 e 3 0 ]
 "86 C:\Program Files (x86)\Microchip\xc8\v1.45\sources\common\ftadd.c
@@ -376,19 +378,17 @@ PEDAL_CLUTCH 3
 [v ___flmul __flmul `(d  1 e 3 0 ]
 "15 C:\Program Files (x86)\Microchip\xc8\v1.45\sources\common\Umul32.c
 [v ___lmul __lmul `(ul  1 e 4 0 ]
-"79 C:\Users\kyle.marshall\MPLABXProjects\USB_FFB_Wheel.X\apps\usb\device\hid_joystick\firmware\picdem_fs_usb_k50.x\system.c
+"79 D:\Downloads\USB_FFB_Wheel-master (1)\USB_FFB_Wheel-master\apps\usb\device\hid_joystick\firmware\picdem_fs_usb_k50.x\system.c
 [v _SYSTEM_Initialize SYSTEM_Initialize `(v  1 e 1 0 ]
-"113
+"114
 [v _SYS_InterruptHigh SYS_InterruptHigh `II(v  1 e 1 0 ]
-"20 C:\Users\kyle.marshall\MPLABXProjects\USB_FFB_Wheel.X/framework/usb/inc\wheel.h
+"20 D:\Downloads\USB_FFB_Wheel-master (1)\USB_FFB_Wheel-master/framework/usb/inc\wheel.h
 [v _WHEEL_Type WHEEL_Type `uc  1 e 1 0 ]
 "23
 [v _GAS_Type GAS_Type `uc  1 e 1 0 ]
 "24
 [v _BREAK_Type BREAK_Type `uc  1 e 1 0 ]
-"25
-[v _CLUTCH_Type CLUTCH_Type `uc  1 e 1 0 ]
-"141 C:\Users\kyle.marshall\MPLABXProjects\USB_FFB_Wheel.X/framework/usb/src/usb_device.c
+"141 D:\Downloads\USB_FFB_Wheel-master (1)\USB_FFB_Wheel-master/framework/usb/src/usb_device.c
 [v _USBDeviceState USBDeviceState `E6102  1 e 1 0 ]
 "142
 [v _USBActiveConfiguration USBActiveConfiguration `uc  1 e 1 0 ]
@@ -563,11 +563,11 @@ PEDAL_CLUTCH 3
 [v _SetupPkt SetupPkt `VES602  1 e 8 @1056 ]
 "180
 [v _CtrlTrfData CtrlTrfData `VE[8]uc  1 e 8 @1064 ]
-"79 C:\Users\kyle.marshall\MPLABXProjects\USB_FFB_Wheel.X/framework/usb/src/usb_device_hid.c
+"79 D:\Downloads\USB_FFB_Wheel-master (1)\USB_FFB_Wheel-master/framework/usb/src/usb_device_hid.c
 [v _idle_rate idle_rate `uc  1 s 1 idle_rate ]
 "80
 [v _active_protocol active_protocol `uc  1 s 1 active_protocol ]
-"246 C:\Users\kyle.marshall\MPLABXProjects\USB_FFB_Wheel.X\apps\usb\device\hid_joystick\firmware/demo_src/app_device_joystick.c
+"246 D:\Downloads\USB_FFB_Wheel-master (1)\USB_FFB_Wheel-master\apps\usb\device\hid_joystick\firmware/demo_src/app_device_joystick.c
 [v _ReceivedDataBuffer ReceivedDataBuffer `[64]uc  1 e 64 @1280 ]
 "247
 [v _ToSendDataBuffer ToSendDataBuffer `[64]uc  1 e 64 @1344 ]
@@ -607,9 +607,9 @@ PEDAL_CLUTCH 3
 "259
 [v _CONFIGURED_EFFECT_NUMBER CONFIGURED_EFFECT_NUMBER `[12]uc  1 e 12 0 ]
 "260
-[v _Buttons_Pressed Buttons_Pressed `uc  1 e 1 0 ]
+[v _MODE MODE `uc  1 s 1 MODE ]
 [s S822 _USB_DEVICE_DESCRIPTOR 18 `uc 1 bLength 1 0 `uc 1 bDescriptorType 1 1 `ui 1 bcdUSB 2 2 `uc 1 bDeviceClass 1 4 `uc 1 bDeviceSubClass 1 5 `uc 1 bDeviceProtocol 1 6 `uc 1 bMaxPacketSize0 1 7 `ui 1 idVendor 2 8 `ui 1 idProduct 2 10 `ui 1 bcdDevice 2 12 `uc 1 iManufacturer 1 14 `uc 1 iProduct 1 15 `uc 1 iSerialNumber 1 16 `uc 1 bNumConfigurations 1 17 ]
-"150 C:\Users\kyle.marshall\MPLABXProjects\USB_FFB_Wheel.X\apps\usb\device\hid_joystick\firmware/demo_src/usb_descriptors.c
+"150 D:\Downloads\USB_FFB_Wheel-master (1)\USB_FFB_Wheel-master\apps\usb\device\hid_joystick\firmware/demo_src/usb_descriptors.c
 [v _device_dsc device_dsc `CS822  1 e 18 0 ]
 "169
 [v _configDescriptor1 configDescriptor1 `C[41]uc  1 e 41 0 ]
@@ -629,7 +629,7 @@ PEDAL_CLUTCH 3
 [s S2011 . 1270 `[1270]uc 1 report 1270 0 ]
 "249
 [v _hid_rpt01 hid_rpt01 `CS2011  1 e 1270 0 ]
-[s S2947 . 1 `uc 1 ANSA0 1 0 :1:0 
+[s S2948 . 1 `uc 1 ANSA0 1 0 :1:0 
 `uc 1 ANSA1 1 0 :1:1 
 `uc 1 ANSA2 1 0 :1:2 
 `uc 1 ANSA3 1 0 :1:3 
@@ -637,8 +637,8 @@ PEDAL_CLUTCH 3
 `uc 1 ANSA5 1 0 :1:5 
 ]
 "245 C:\Program Files (x86)\Microchip\xc8\v1.45\include\pic18f45k50.h
-[u S2954 . 1 `S2947 1 . 1 0 ]
-[v _ANSELAbits ANSELAbits `VES2954  1 e 1 @3931 ]
+[u S2955 . 1 `S2948 1 . 1 0 ]
+[v _ANSELAbits ANSELAbits `VES2955  1 e 1 @3931 ]
 [s S168 . 1 `uc 1 ANSB0 1 0 :1:0 
 `uc 1 ANSB1 1 0 :1:1 
 `uc 1 ANSB2 1 0 :1:2 
@@ -735,7 +735,7 @@ PEDAL_CLUTCH 3
 [v _UEP0bits UEP0bits `VES874  1 e 1 @3946 ]
 "1154
 [v _UEP1 UEP1 `VEuc  1 e 1 @3947 ]
-[s S2916 . 1 `uc 1 RA0 1 0 :1:0 
+[s S2917 . 1 `uc 1 RA0 1 0 :1:0 
 `uc 1 RA1 1 0 :1:1 
 `uc 1 RA2 1 0 :1:2 
 `uc 1 RA3 1 0 :1:3 
@@ -745,7 +745,7 @@ PEDAL_CLUTCH 3
 `uc 1 RA7 1 0 :1:7 
 ]
 "2941
-[s S3009 . 1 `uc 1 AN0 1 0 :1:0 
+[s S2981 . 1 `uc 1 AN0 1 0 :1:0 
 `uc 1 AN1 1 0 :1:1 
 `uc 1 AN2 1 0 :1:2 
 `uc 1 AN3 1 0 :1:3 
@@ -753,21 +753,21 @@ PEDAL_CLUTCH 3
 `uc 1 AN4 1 0 :1:5 
 `uc 1 OSC2 1 0 :1:6 
 ]
-[s S3017 . 1 `uc 1 . 1 0 :2:0 
+[s S2989 . 1 `uc 1 . 1 0 :2:0 
 `uc 1 VREFM 1 0 :1:2 
 `uc 1 VREFP 1 0 :1:3 
 `uc 1 . 1 0 :1:4 
 `uc 1 LVDIN 1 0 :1:5 
 ]
-[s S3023 . 1 `uc 1 . 1 0 :5:0 
+[s S2995 . 1 `uc 1 . 1 0 :5:0 
 `uc 1 HLVDIN 1 0 :1:5 
 ]
-[s S3026 . 1 `uc 1 ULPWUIN 1 0 :1:0 
+[s S2998 . 1 `uc 1 ULPWUIN 1 0 :1:0 
 `uc 1 . 1 0 :6:1 
 `uc 1 RJPU 1 0 :1:7 
 ]
-[u S3030 . 1 `S2916 1 . 1 0 `S3009 1 . 1 0 `S3017 1 . 1 0 `S3023 1 . 1 0 `S3026 1 . 1 0 ]
-[v _PORTAbits PORTAbits `VES3030  1 e 1 @3968 ]
+[u S3002 . 1 `S2917 1 . 1 0 `S2981 1 . 1 0 `S2989 1 . 1 0 `S2995 1 . 1 0 `S2998 1 . 1 0 ]
+[v _PORTAbits PORTAbits `VES3002  1 e 1 @3968 ]
 [s S36 . 1 `uc 1 RB0 1 0 :1:0 
 `uc 1 RB1 1 0 :1:1 
 `uc 1 RB2 1 0 :1:2 
@@ -836,7 +836,7 @@ PEDAL_CLUTCH 3
 ]
 [u S320 . 1 `S302 1 . 1 0 `S311 1 . 1 0 ]
 [v _LATDbits LATDbits `VES320  1 e 1 @3980 ]
-[s S2907 . 1 `uc 1 TRISA0 1 0 :1:0 
+[s S2908 . 1 `uc 1 TRISA0 1 0 :1:0 
 `uc 1 TRISA1 1 0 :1:1 
 `uc 1 TRISA2 1 0 :1:2 
 `uc 1 TRISA3 1 0 :1:3 
@@ -846,8 +846,8 @@ PEDAL_CLUTCH 3
 `uc 1 TRISA7 1 0 :1:7 
 ]
 "4656
-[u S2925 . 1 `S2907 1 . 1 0 `S2916 1 . 1 0 ]
-[v _TRISAbits TRISAbits `VES2925  1 e 1 @3986 ]
+[u S2926 . 1 `S2908 1 . 1 0 `S2917 1 . 1 0 ]
+[v _TRISAbits TRISAbits `VES2926  1 e 1 @3986 ]
 [s S128 . 1 `uc 1 TRISB0 1 0 :1:0 
 `uc 1 TRISB1 1 0 :1:1 
 `uc 1 TRISB2 1 0 :1:2 
@@ -903,52 +903,44 @@ PEDAL_CLUTCH 3
 [v _PIR3bits PIR3bits `VES706  1 e 1 @4004 ]
 "8208
 [v _ACTCON ACTCON `VEuc  1 e 1 @4021 ]
-[s S2964 . 1 `uc 1 NVCFG 1 0 :2:0 
-`uc 1 PVCFG 1 0 :2:2 
-`uc 1 . 1 0 :3:4 
-`uc 1 TRIGSEL 1 0 :1:7 
-]
-"9728
-[s S2969 . 1 `uc 1 NVCFG0 1 0 :1:0 
-`uc 1 NVCFG1 1 0 :1:1 
-`uc 1 PVCFG0 1 0 :1:2 
-`uc 1 PVCFG1 1 0 :1:3 
-]
-[s S2974 . 1 `uc 1 . 1 0 :3:0 
-`uc 1 CHSN3 1 0 :1:3 
-]
-[u S2977 . 1 `S2964 1 . 1 0 `S2969 1 . 1 0 `S2974 1 . 1 0 ]
-[v _ADCON1bits ADCON1bits `VES2977  1 e 1 @4033 ]
-[s S2838 . 1 `uc 1 . 1 0 :1:0 
+"9634
+[v _ADCON2 ADCON2 `VEuc  1 e 1 @4032 ]
+"9705
+[v _ADCON1 ADCON1 `VEuc  1 e 1 @4033 ]
+"9773
+[v _ADCON0 ADCON0 `VEuc  1 e 1 @4034 ]
+[s S2848 . 1 `uc 1 . 1 0 :1:0 
 `uc 1 GO_NOT_DONE 1 0 :1:1 
 ]
 "9813
-[s S2841 . 1 `uc 1 ADON 1 0 :1:0 
+[s S2851 . 1 `uc 1 ADON 1 0 :1:0 
 `uc 1 GO_nDONE 1 0 :1:1 
 `uc 1 CHS 1 0 :5:2 
 ]
-[s S2845 . 1 `uc 1 . 1 0 :1:0 
+[s S2855 . 1 `uc 1 . 1 0 :1:0 
 `uc 1 DONE 1 0 :1:1 
 ]
-[s S2848 . 1 `uc 1 . 1 0 :1:0 
+[s S2858 . 1 `uc 1 . 1 0 :1:0 
 `uc 1 GO 1 0 :1:1 
 ]
-[s S2851 . 1 `uc 1 . 1 0 :1:0 
+[s S2861 . 1 `uc 1 . 1 0 :1:0 
 `uc 1 NOT_DONE 1 0 :1:1 
 ]
-[s S2854 . 1 `uc 1 . 1 0 :1:0 
+[s S2864 . 1 `uc 1 . 1 0 :1:0 
 `uc 1 nDONE 1 0 :1:1 
 ]
-[s S2857 . 1 `uc 1 . 1 0 :1:0 
+[s S2867 . 1 `uc 1 . 1 0 :1:0 
 `uc 1 GODONE 1 0 :1:1 
 ]
-[s S2860 . 1 `uc 1 . 1 0 :1:0 
+[s S2870 . 1 `uc 1 . 1 0 :1:0 
 `uc 1 GO_DONE 1 0 :1:1 
 ]
-[u S2863 . 1 `S2838 1 . 1 0 `S2841 1 . 1 0 `S2845 1 . 1 0 `S2848 1 . 1 0 `S2851 1 . 1 0 `S2854 1 . 1 0 `S2857 1 . 1 0 `S2860 1 . 1 0 ]
-[v _ADCON0bits ADCON0bits `VES2863  1 e 1 @4034 ]
+[u S2873 . 1 `S2848 1 . 1 0 `S2851 1 . 1 0 `S2855 1 . 1 0 `S2858 1 . 1 0 `S2861 1 . 1 0 `S2864 1 . 1 0 `S2867 1 . 1 0 `S2870 1 . 1 0 ]
+[v _ADCON0bits ADCON0bits `VES2873  1 e 1 @4034 ]
 "9868
 [v _ADRESL ADRESL `VEuc  1 e 1 @4035 ]
+"9875
+[v _ADRESH ADRESH `VEuc  1 e 1 @4036 ]
 "12292
 [v _OSCCON2 OSCCON2 `VEuc  1 e 1 @4050 ]
 [s S2386 . 1 `uc 1 LFIOFS 1 0 :1:0 
@@ -965,14 +957,16 @@ PEDAL_CLUTCH 3
 [v _OSCCON2bits OSCCON2bits `VES2395  1 e 1 @4050 ]
 "12354
 [v _OSCCON OSCCON `VEuc  1 e 1 @4051 ]
-"14499
-[v _GO_nDONE GO_nDONE `VEb  1 e 0 @32273 ]
-"31 C:\Users\kyle.marshall\MPLABXProjects\USB_FFB_Wheel.X\apps\usb\device\hid_joystick\firmware/demo_src/main.c
+"13769
+[v _ADON ADON `VEb  1 e 0 @32272 ]
+"14491
+[v _GO GO `VEb  1 e 0 @32273 ]
+"31 D:\Downloads\USB_FFB_Wheel-master (1)\USB_FFB_Wheel-master\apps\usb\device\hid_joystick\firmware/demo_src/main.c
 [v _main main `(v  1 e 1 0 ]
 {
 "81
 } 0
-"484 C:\Users\kyle.marshall\MPLABXProjects\USB_FFB_Wheel.X/framework/usb/src/usb_device.c
+"484 D:\Downloads\USB_FFB_Wheel-master (1)\USB_FFB_Wheel-master/framework/usb/src/usb_device.c
 [v _USBDeviceTasks USBDeviceTasks `(v  1 e 1 0 ]
 {
 "486
@@ -1026,7 +1020,7 @@ PEDAL_CLUTCH 3
 [v memcpy@n n `ui  1 p 2 22 ]
 "41
 } 0
-"2472 C:\Users\kyle.marshall\MPLABXProjects\USB_FFB_Wheel.X/framework/usb/src/usb_device.c
+"2472 D:\Downloads\USB_FFB_Wheel-master (1)\USB_FFB_Wheel-master/framework/usb/src/usb_device.c
 [v _USBCtrlTrfSetupHandler USBCtrlTrfSetupHandler `(v  1 s 1 USBCtrlTrfSetupHandler ]
 {
 "2522
@@ -1064,7 +1058,7 @@ PEDAL_CLUTCH 3
 [v memset@n n `ui  1 p 2 22 ]
 "22
 } 0
-"2136 C:\Users\kyle.marshall\MPLABXProjects\USB_FFB_Wheel.X/framework/usb/src/usb_device.c
+"2136 D:\Downloads\USB_FFB_Wheel-master (1)\USB_FFB_Wheel-master/framework/usb/src/usb_device.c
 [v _USBStdGetStatusHandler USBStdGetStatusHandler `(v  1 s 1 USBStdGetStatusHandler ]
 {
 [s S402 . 1 `uc 1 BC8 1 0 :1:0 
@@ -1143,7 +1137,7 @@ PEDAL_CLUTCH 3
 [v USBStdFeatureReqHandler@current_ep_data current_ep_data `S491  1 a 1 13 ]
 "2987
 } 0
-"50 C:\Users\kyle.marshall\MPLABXProjects\USB_FFB_Wheel.X\apps\usb\device\hid_joystick\firmware/demo_src/usb_events.c
+"50 D:\Downloads\USB_FFB_Wheel-master (1)\USB_FFB_Wheel-master\apps\usb\device\hid_joystick\firmware/demo_src/usb_events.c
 [v _USER_USB_CALLBACK_EVENT_HANDLER USER_USB_CALLBACK_EVENT_HANDLER `(uc  1 e 1 0 ]
 {
 [v USER_USB_CALLBACK_EVENT_HANDLER@event event `E5994  1 p 2 3 ]
@@ -1151,46 +1145,46 @@ PEDAL_CLUTCH 3
 [v USER_USB_CALLBACK_EVENT_HANDLER@size size `ui  1 p 2 7 ]
 "112
 } 0
-"153 C:\Users\kyle.marshall\MPLABXProjects\USB_FFB_Wheel.X/framework/usb/src/usb_device_hid.c
+"153 D:\Downloads\USB_FFB_Wheel-master (1)\USB_FFB_Wheel-master/framework/usb/src/usb_device_hid.c
 [v _USBCheckHIDRequest USBCheckHIDRequest `(v  1 e 1 0 ]
 {
 "241
 } 0
-"749 C:\Users\kyle.marshall\MPLABXProjects\USB_FFB_Wheel.X\apps\usb\device\hid_joystick\firmware/demo_src/app_device_joystick.c
+"683 D:\Downloads\USB_FFB_Wheel-master (1)\USB_FFB_Wheel-master\apps\usb\device\hid_joystick\firmware/demo_src/app_device_joystick.c
 [v _USER_SET_REPORT_HANDLER USER_SET_REPORT_HANDLER `(v  1 e 1 0 ]
 {
-"786
+"720
 } 0
-"322 C:\Users\kyle.marshall\MPLABXProjects\USB_FFB_Wheel.X/framework/usb/src/usb_device_hid.c
+"322 D:\Downloads\USB_FFB_Wheel-master (1)\USB_FFB_Wheel-master/framework/usb/src/usb_device_hid.c
 [v _USER_GET_REPORT_HANDLER USER_GET_REPORT_HANDLER `(v  1 e 1 0 ]
 {
 "349
 } 0
-"79 C:\Users\kyle.marshall\MPLABXProjects\USB_FFB_Wheel.X\apps\usb\device\hid_joystick\firmware\picdem_fs_usb_k50.x\system.c
+"79 D:\Downloads\USB_FFB_Wheel-master (1)\USB_FFB_Wheel-master\apps\usb\device\hid_joystick\firmware\picdem_fs_usb_k50.x\system.c
 [v _SYSTEM_Initialize SYSTEM_Initialize `(v  1 e 1 0 ]
 {
 [v SYSTEM_Initialize@state state `E6415  1 a 1 wreg ]
 [v SYSTEM_Initialize@state state `E6415  1 a 1 wreg ]
 [v SYSTEM_Initialize@state state `E6415  1 a 1 19 ]
-"108
+"109
 } 0
-"101 C:/Users/kyle.marshall/MPLABXProjects/USB_FFB_Wheel.X/framework/usb/inc/wheel.c
+"114 D:\Downloads\USB_FFB_Wheel-master (1)\USB_FFB_Wheel-master/framework/usb/inc/wheel.c
 [v _WHEEL_Enable WHEEL_Enable `(v  1 e 1 0 ]
 {
 [v WHEEL_Enable@wheel wheel `E5759  1 a 1 wreg ]
 [v WHEEL_Enable@wheel wheel `E5759  1 a 1 wreg ]
 [v WHEEL_Enable@wheel wheel `E5759  1 a 1 18 ]
-"128
+"147
 } 0
-"130
+"149
 [v _PEDAL_Enable PEDAL_Enable `(v  1 e 1 0 ]
 {
 [v PEDAL_Enable@pedal pedal `E5763  1 a 1 wreg ]
 [v PEDAL_Enable@pedal pedal `E5763  1 a 1 wreg ]
 [v PEDAL_Enable@pedal pedal `E5763  1 a 1 18 ]
-"173
+"183
 } 0
-"228 C:\Users\kyle.marshall\MPLABXProjects\USB_FFB_Wheel.X/bsp/picdem_fs_usb_k50/leds.c
+"228 D:\Downloads\USB_FFB_Wheel-master (1)\USB_FFB_Wheel-master/bsp/picdem_fs_usb_k50/leds.c
 [v _LED_Enable LED_Enable `(v  1 e 1 0 ]
 {
 [v LED_Enable@led led `E2  1 a 1 wreg ]
@@ -1198,7 +1192,7 @@ PEDAL_CLUTCH 3
 [v LED_Enable@led led `E2  1 a 1 18 ]
 "255
 } 0
-"160 C:\Users\kyle.marshall\MPLABXProjects\USB_FFB_Wheel.X/bsp/picdem_fs_usb_k50/buttons.c
+"160 D:\Downloads\USB_FFB_Wheel-master (1)\USB_FFB_Wheel-master/bsp/picdem_fs_usb_k50/buttons.c
 [v _BUTTON_Enable BUTTON_Enable `(v  1 e 1 0 ]
 {
 [v BUTTON_Enable@button button `E5727  1 a 1 wreg ]
@@ -1206,14 +1200,14 @@ PEDAL_CLUTCH 3
 [v BUTTON_Enable@button button `E5727  1 a 1 18 ]
 "230
 } 0
-"50 C:\Users\kyle.marshall\MPLABXProjects\USB_FFB_Wheel.X\apps\usb\device\hid_joystick\firmware/demo_src/app_led_usb_status.c
+"50 D:\Downloads\USB_FFB_Wheel-master (1)\USB_FFB_Wheel-master\apps\usb\device\hid_joystick\firmware/demo_src/app_led_usb_status.c
 [v _APP_LEDUpdateUSBStatus APP_LEDUpdateUSBStatus `(v  1 e 1 0 ]
 {
 "52
 [v APP_LEDUpdateUSBStatus@ledCount ledCount `ui  1 s 2 ledCount ]
 "99
 } 0
-"67 C:\Users\kyle.marshall\MPLABXProjects\USB_FFB_Wheel.X/bsp/picdem_fs_usb_k50/leds.c
+"67 D:\Downloads\USB_FFB_Wheel-master (1)\USB_FFB_Wheel-master/bsp/picdem_fs_usb_k50/leds.c
 [v _LED_On LED_On `(v  1 e 1 0 ]
 {
 [v LED_On@led led `E2  1 a 1 wreg ]
@@ -1229,12 +1223,12 @@ PEDAL_CLUTCH 3
 [v LED_Off@led led `E2  1 a 1 18 ]
 "131
 } 0
-"273 C:\Users\kyle.marshall\MPLABXProjects\USB_FFB_Wheel.X\apps\usb\device\hid_joystick\firmware/demo_src/app_device_joystick.c
+"273 D:\Downloads\USB_FFB_Wheel-master (1)\USB_FFB_Wheel-master\apps\usb\device\hid_joystick\firmware/demo_src/app_device_joystick.c
 [v _APP_DeviceJoystickInitialize APP_DeviceJoystickInitialize `(v  1 e 1 0 ]
 {
 "291
 } 0
-"885 C:\Users\kyle.marshall\MPLABXProjects\USB_FFB_Wheel.X/framework/usb/src/usb_device.c
+"885 D:\Downloads\USB_FFB_Wheel-master (1)\USB_FFB_Wheel-master/framework/usb/src/usb_device.c
 [v _USBEnableEndpoint USBEnableEndpoint `(v  1 e 1 0 ]
 {
 [v USBEnableEndpoint@ep ep `uc  1 a 1 wreg ]
@@ -1312,42 +1306,53 @@ PEDAL_CLUTCH 3
 [v USBCtrlTrfInHandler@lastDTS lastDTS `uc  1 a 1 19 ]
 "2674
 } 0
-"583 C:\Users\kyle.marshall\MPLABXProjects\USB_FFB_Wheel.X\apps\usb\device\hid_joystick\firmware/demo_src/app_device_joystick.c
+"517 D:\Downloads\USB_FFB_Wheel-master (1)\USB_FFB_Wheel-master\apps\usb\device\hid_joystick\firmware/demo_src/app_device_joystick.c
 [v _USBSetEffect USBSetEffect `(v  1 e 1 0 ]
 {
-"701
+"635
 } 0
-"732
+"666
 [v _USBSetDataEffect USBSetDataEffect `(v  1 e 1 0 ]
 {
-"747
+"681
 } 0
-"1778 C:\Users\kyle.marshall\MPLABXProjects\USB_FFB_Wheel.X/framework/usb/src/usb_device.c
+"1778 D:\Downloads\USB_FFB_Wheel-master (1)\USB_FFB_Wheel-master/framework/usb/src/usb_device.c
 [v _USBCtrlTrfTxService USBCtrlTrfTxService `(v  1 s 1 USBCtrlTrfTxService ]
 {
 "1780
 [v USBCtrlTrfTxService@byteToSend byteToSend `uc  1 a 1 18 ]
 "1832
 } 0
-"307 C:\Users\kyle.marshall\MPLABXProjects\USB_FFB_Wheel.X\apps\usb\device\hid_joystick\firmware/demo_src/app_device_joystick.c
+"307 D:\Downloads\USB_FFB_Wheel-master (1)\USB_FFB_Wheel-master\apps\usb\device\hid_joystick\firmware/demo_src/app_device_joystick.c
 [v _APP_DeviceJoystickTasks APP_DeviceJoystickTasks `(v  1 e 1 0 ]
 {
-"554
+"488
 } 0
-"191 C:/Users/kyle.marshall/MPLABXProjects/USB_FFB_Wheel.X/framework/usb/inc/wheel.c
-[v _WHEEL_Test WHEEL_Test `(uc  1 e 1 0 ]
+"201 D:\Downloads\USB_FFB_Wheel-master (1)\USB_FFB_Wheel-master/framework/usb/inc/wheel.c
+[v _WHEEL_Test WHEEL_Test `(ui  1 e 2 0 ]
 {
 [v WHEEL_Test@wheel wheel `E5759  1 a 1 wreg ]
 [v WHEEL_Test@wheel wheel `E5759  1 a 1 wreg ]
-"193
+"203
 [v WHEEL_Test@count count `ui  1 s 2 count ]
-"194
+"204
 [v WHEEL_Test@direction direction `uc  1 s 1 direction ]
-"191
-[v WHEEL_Test@wheel wheel `E5759  1 a 1 18 ]
-"229
+"201
+[v WHEEL_Test@wheel wheel `E5759  1 a 1 20 ]
+"239
 } 0
-"1002 C:\Users\kyle.marshall\MPLABXProjects\USB_FFB_Wheel.X/framework/usb/src/usb_device.c
+"61
+[v _WHEEL_Position WHEEL_Position `(ui  1 e 2 0 ]
+{
+[v WHEEL_Position@wheel wheel `E5759  1 a 1 wreg ]
+"68
+[v WHEEL_Position@digital digital `ui  1 a 2 24 ]
+"61
+[v WHEEL_Position@wheel wheel `E5759  1 a 1 wreg ]
+[v WHEEL_Position@wheel wheel `E5759  1 a 1 26 ]
+"96
+} 0
+"1002 D:\Downloads\USB_FFB_Wheel-master (1)\USB_FFB_Wheel-master/framework/usb/src/usb_device.c
 [v _USBTransferOnePacket USBTransferOnePacket `(*.39v  1 e 2 0 ]
 {
 [v USBTransferOnePacket@ep ep `uc  1 a 1 wreg ]
@@ -1388,20 +1393,20 @@ PEDAL_CLUTCH 3
 [v USBTransferOnePacket@ep ep `uc  1 a 1 0 ]
 "1054
 } 0
-"702 C:\Users\kyle.marshall\MPLABXProjects\USB_FFB_Wheel.X\apps\usb\device\hid_joystick\firmware/demo_src/app_device_joystick.c
+"636 D:\Downloads\USB_FFB_Wheel-master (1)\USB_FFB_Wheel-master\apps\usb\device\hid_joystick\firmware/demo_src/app_device_joystick.c
 [v _USBSendPIDBlockLoadReport USBSendPIDBlockLoadReport `(v  1 e 1 0 ]
 {
-"727
+"661
 } 0
-"232 C:/Users/kyle.marshall/MPLABXProjects/USB_FFB_Wheel.X/framework/usb/inc/wheel.c
-[v _PEDAL_Position PEDAL_Position `(uc  1 e 1 0 ]
+"242 D:\Downloads\USB_FFB_Wheel-master (1)\USB_FFB_Wheel-master/framework/usb/inc/wheel.c
+[v _PEDAL_Position PEDAL_Position `(ui  1 e 2 0 ]
 {
 [v PEDAL_Position@pedal pedal `E5763  1 a 1 wreg ]
 [v PEDAL_Position@pedal pedal `E5763  1 a 1 wreg ]
-[v PEDAL_Position@pedal pedal `E5763  1 a 1 19 ]
-"269
+[v PEDAL_Position@pedal pedal `E5763  1 a 1 24 ]
+"332
 } 0
-"94 C:\Users\kyle.marshall\MPLABXProjects\USB_FFB_Wheel.X/bsp/picdem_fs_usb_k50/buttons.c
+"94 D:\Downloads\USB_FFB_Wheel-master (1)\USB_FFB_Wheel-master/bsp/picdem_fs_usb_k50/buttons.c
 [v _BUTTON_IsPressed BUTTON_IsPressed `(uc  1 e 1 0 ]
 {
 [v BUTTON_IsPressed@button button `E5727  1 a 1 wreg ]
@@ -1409,8 +1414,8 @@ PEDAL_CLUTCH 3
 [v BUTTON_IsPressed@button button `E5727  1 a 1 18 ]
 "142
 } 0
-"113 C:\Users\kyle.marshall\MPLABXProjects\USB_FFB_Wheel.X\apps\usb\device\hid_joystick\firmware\picdem_fs_usb_k50.x\system.c
+"114 D:\Downloads\USB_FFB_Wheel-master (1)\USB_FFB_Wheel-master\apps\usb\device\hid_joystick\firmware\picdem_fs_usb_k50.x\system.c
 [v _SYS_InterruptHigh SYS_InterruptHigh `II(v  1 e 1 0 ]
 {
-"118
+"119
 } 0
